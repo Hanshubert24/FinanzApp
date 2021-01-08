@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.finanzapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home"  />
+    <fragment
+        android:id="@+id/nav_wealth"
+        android:name="com.example.finanzapp.ui.wealth.WealthFragment"
+        android:label="@string/menu_wealth"
+        tools:layout="@layout/fragment_wealth" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.finanzapp.ui."
+        android:label="@string/menu_shares"
+        tools:layout="@layout/fragment_shares" />
+    <fragment
+        android:id="@+id/nav_financeBook"
+        android:name="com.example.finanzapp.ui.financebook.FinanceBookFragment"
+        android:label="@string/menu_financebook"
+        tools:layout="@layout/fragment_financebook" />
+</navigation>
