@@ -19,14 +19,18 @@
             android:id="@+id/nav_wealth"
             android:icon="@drawable/euro_color_icon_nav"
             android:title="@string/menu_wealth" />
+
+        <item
+            android:id="@+id/nav_Placeholder"
+            android:visible="false"
+            android:icon="@drawable/power_button_nav"
+            android:title="@string/menu_logout" />
+
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/power_button_nav"
             android:title="@string/menu_logout" />
 
     </group>
-    <item
-        android:id="@+id/app_bar_switch"
-        android:title="Switch"
-        app:actionLayout="@layout/switch_item" />
+
 </menu>
