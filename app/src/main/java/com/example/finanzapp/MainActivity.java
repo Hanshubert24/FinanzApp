@@ -1,9 +1,11 @@
 package com.example.finanzapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,16 +15,21 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.finanzapp.ui.Assets.AssetsOverview;
+import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.google.android.material.navigation.NavigationView;
-
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private DBDataAccess db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = new DBDataAccess(getApplicationContext());
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_wealth,R.id.nav_income_and_contracts, R.id.nav_logout, R.id.nav_financeBook)
+                R.id.nav_home, R.id.nav_assets
+                , R.id.nav_logout, R.id.nav_financeBook, R.id.nav_assestso)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -69,6 +77,35 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
+    public void NavToAssetsOverview(View view) {
+        Intent i = new Intent(MainActivity.this, AssetsOverview.class);
+        startActivity(i);
+    }
+
+    //Testdaten für die Datenbank
+    public void createExampleData(View view) {
+        db.open();
+        db.addNewContractInDB("Krankenversicherung", "HansaMerkur", 120.95, "Ab 07/21 Wechelbar.");
+        db.addNewContractInDB("KFZ-Versicherung", "Alianz", 35.20, "");
+        db.addNewContractInDB("Fitnesstudio", "McFit", 19.95, "Kündigen.");
+        db.addNewContractInDB("Miete Wohnung", "A-Hausverwaltung", 825, "");
+        db.addNewContractInDB("Dahrlehen", "Max Mustermann", 50, "Läuft 09/21 aus");
+
+        db.addNewAssetInDB("Immobilie", "Berliner Str.13 15230 Ffo", 820, 1230, "", "Bald mal wieder Renoveren!");
+        db.addNewAssetInDB("Auto", "Mazda", 349.95, 0, "", "Bald abgezahlt ;-)");
+        db.addNewAssetInDB("Gemälde", "Mona Lisa", 0, 0, "", "");
+
+        db.addNewIncomeInDB("Lohn", "BMW", 0, 0, false, "Aktuelle Projekte in Berlin.");
+        db.addNewIncomeInDB("Sold", "Bundeswehr", 3050.60, 2800.90, true, "Übergangsgebührnisse mit Zulagen.");
+        db.addNewIncomeInDB("Gehalt", "SystemhausXNZ", 2800, 1900, true, "Regulärer Joy");
+        db.addNewIncomeInDB("Nebentätigkeit", "Huttenschule Hoppegarten", 0, 0, false, "Unterstützung Digitalisierungsprojekte.");
+        db.addNewIncomeInDB("Nebentätigkeit", "Lessingschule Ffo", 0, 0, false, "Unterstützung Digitalisierungsprojekte.");
+    }
+
 }
+
+
+
 
 

@@ -40,5 +40,6 @@
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
+    <string name="assets">Übersicht</string>
 
 </resources>

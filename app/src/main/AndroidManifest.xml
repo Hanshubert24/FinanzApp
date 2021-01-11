@@ -13,6 +13,11 @@
         <activity android:name=".ui.logout.Logout" />
         <activity android:name=".ui.login.CreatePinActivity" />
         <activity android:name=".ui.login.EnterPinActivity" />
+        <activity android:name=".ui.Assets.AssetsOverview" />
+        <activity android:name=".ui.Assets.AssetsAddNew" />
+        <activity android:name=".ui.Assets.AssetsDetails" />
+        <activity android:name=".ui.Assets.AssetsDetailsChange" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

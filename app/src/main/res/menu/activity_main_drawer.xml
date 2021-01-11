@@ -5,26 +5,26 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/wallet"
             android:title="@string/menu_home" />
-
         <item
             android:id="@+id/nav_financeBook"
             android:icon="@drawable/wealth_icon_nav2"
             android:title="@string/menu_financebook"
             app:showAsAction="always" />
         <item
-            android:id="@+id/nav_wealth"
+            android:id="@+id/nav_assets"
             android:icon="@drawable/euro_color_icon_nav"
             android:title="@string/menu_wealth" />
 
         <item
-            android:id="@+id/nav_income_and_contracts"
-            android:visible="false"
+            android:id="@+id/nav_assestso"
             android:icon="@drawable/power_button_nav"
-            android:title="@string/menu_logout" />
+            android:title="@string/assets"/>
+
 
         <item
             android:id="@+id/nav_logout"

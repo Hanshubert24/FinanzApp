@@ -11,18 +11,25 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home"  />
     <fragment
-        android:id="@+id/nav_wealth"
-        android:name="com.example.finanzapp.ui.wealth.WealthFragment"
+        android:id="@+id/nav_assets"
+        android:name="com.example.finanzapp.ui.Assets.AssetsFragment"
         android:label="@string/menu_wealth"
-        tools:layout="@layout/fragment_wealth" />
-    <fragment
-        android:id="@+id/nav_logout"
-        android:name="com.example.finanzapp.ui."
-        android:label="@string/menu_shares"
-        tools:layout="@layout/fragment_IncomeAndContracts" />
+        tools:layout="@layout/fragment_assets" />
+
     <fragment
         android:id="@+id/nav_financeBook"
         android:name="com.example.finanzapp.ui.financebook.FinanceBookFragment"
         android:label="@string/menu_financebook"
         tools:layout="@layout/fragment_financebook" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.finanzapp.ui.logout.LogoutFragment"
+        android:label="@string/menu_shares"
+        tools:layout="@layout/activity_logout" />
+    <activity
+        android:id="@+id/nav_assestso"
+        android:name="com.example.finanzapp.ui.Assets.AssetsOverview"
+        android:label="@string/menu_shares"
+        tools:layout="@layout/activity_assets_overview" />
+
 </navigation>

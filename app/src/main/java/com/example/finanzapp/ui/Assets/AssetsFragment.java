@@ -1,4 +1,4 @@
-package com.example.finanzapp.ui.wealth;
+package com.example.finanzapp.ui.Assets;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.finanzapp.R;
 
-public class WealthFragment extends Fragment {
+public class AssetsFragment extends Fragment {
 
-    private WealthViewModel wealthViewModel;
+    private AssetsViewModel assetsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        wealthViewModel =
-                new ViewModelProvider(this).get(WealthViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_wealth, container, false);
+        assetsViewModel =
+                new ViewModelProvider(this).get(AssetsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_assets, container, false);
         final TextView textView = root.findViewById(R.id.text_wealth);
-        wealthViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        assetsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
