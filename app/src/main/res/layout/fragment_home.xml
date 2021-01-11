@@ -8,6 +8,17 @@
     tools:context=".ui.home.HomeFragment"
     >
 
+    <com.anychart.AnyChartView
+        android:id="@+id/any_chart_view"
+        android:layout_width="366dp"
+        android:layout_height="288dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
     <Button
         android:id="@+id/AddButtonHome"
         style="@android:style/Widget.Material.ImageButton"
@@ -25,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939"
+        app:layout_constraintVertical_bias="0.937"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ImageView
@@ -57,17 +68,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.216" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="360dp"
-        android:layout_height="336dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

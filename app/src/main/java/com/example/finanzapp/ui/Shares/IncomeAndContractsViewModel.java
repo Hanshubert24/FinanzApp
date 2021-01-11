@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SharesViewModel extends ViewModel {
+public class IncomeAndContractsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SharesViewModel() {
+    public IncomeAndContractsViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("Hier kommen dann die Aktien hin");
     }

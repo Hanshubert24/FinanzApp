@@ -19,7 +19,7 @@
         android:id="@+id/nav_logout"
         android:name="com.example.finanzapp.ui."
         android:label="@string/menu_shares"
-        tools:layout="@layout/fragment_shares" />
+        tools:layout="@layout/fragment_IncomeAndContracts" />
     <fragment
         android:id="@+id/nav_financeBook"
         android:name="com.example.finanzapp.ui.financebook.FinanceBookFragment"

@@ -21,7 +21,7 @@
             android:title="@string/menu_wealth" />
 
         <item
-            android:id="@+id/nav_Placeholder"
+            android:id="@+id/nav_income_and_contracts"
             android:visible="false"
             android:icon="@drawable/power_button_nav"
             android:title="@string/menu_logout" />

@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
                 } else {    // something is wrote down
 
-                    Intent intent = new Intent(getApplicationContext(), CreatePinActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), EnterPinActivity.class);
                     startActivity(intent);
                     finish();
                 }

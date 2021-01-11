@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.finanzapp.R;
 
-public class SharesFragment extends Fragment {
+public class IncomeAndContractsFragment extends Fragment {
 
-    private SharesViewModel sharesViewModel;
+    private IncomeAndContractsViewModel incomeAndContractsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        sharesViewModel =
-                new ViewModelProvider(this).get(SharesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_shares, container, false);
+        incomeAndContractsViewModel =
+                new ViewModelProvider(this).get(IncomeAndContractsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_income_and_contracts, container, false);
         final TextView textView = root.findViewById(R.id.text_shares);
-        sharesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        incomeAndContractsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
