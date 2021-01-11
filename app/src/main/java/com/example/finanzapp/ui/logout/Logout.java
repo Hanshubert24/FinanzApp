@@ -1,9 +1,11 @@
 package com.example.finanzapp.ui.logout;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finanzapp.R;
 
 public class Logout extends AppCompatActivity {
@@ -19,7 +21,7 @@ public class Logout extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+                // TODO Exit ggf raus oder neu
                 finish();
                 System.exit(0);
             }

@@ -13,6 +13,7 @@ public class HomeViewModel extends ViewModel {
         mText.setValue("Die clevere Art Finanzen zu verwalten");
     }
 
+
     public LiveData<String> getText() {
         return mText;
     }

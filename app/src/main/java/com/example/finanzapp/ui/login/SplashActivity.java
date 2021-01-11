@@ -1,15 +1,13 @@
 package com.example.finanzapp.ui.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.finanzapp.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.concurrent.RunnableFuture;
+import com.example.finanzapp.R;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -35,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
                 } else {    // something is wrote down
 
-                    Intent intent = new Intent(getApplicationContext(), EnterPinActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), CreatePinActivity.class);
                     startActivity(intent);
                     finish();
                 }
