@@ -48,9 +48,9 @@
     <string name="buttonPinEnter">Weiter</string>
     <string name="TextPinEnter">Log</string>
     <string name="TextPinEnter2">in</string>
+    <string name="TextPinEnter_Lable"> PIN Abfrage</string>
+    <string name="PinChange_Lable"> PIN Festlegen</string>
     <string name="LoadingApp"> ...wird geladen...</string>
-
-
     <!-- Strings related to Financebook -->
     <string name="ButtonFinanzbookAdd"> + </string>
     <string name="AddButtonText">+</string>
@@ -63,8 +63,13 @@
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
     <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
-    <string name="general_discription_image_Diamont" >Ein Diamant</string>
+    <string name="general_discription_image_Diamont">Ein Diamant</string>
 
-    <string name="menu_cost_hierarchy" >Voralgen</string>
+    <string name="menu_cost_hierarchy">Voralgen</string>
+    <string name="assets_details_change_save_button">Änderung Speichern</string>
+    <string name="assets_hint_Name">Wohnung Berliner Str.</string>
+    <string name="assets_hint_note">Adresse,Mieter usw</string>
+    <string name="general_app_lable">Finanz App Logo</string>
+    <string name="general_image_login">Money rise up</string>
 
 </resources>

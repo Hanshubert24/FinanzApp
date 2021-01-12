@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/TextViewEuro"
         android:layout_width="8dp"
         android:layout_height="21dp"
         android:text="@string/asset_item_layout_euro"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/TextViewEuro2"
         android:layout_width="8dp"
         android:layout_height="21dp"
         android:text="@string/asset_item_layout_euro"
@@ -54,11 +54,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/itemAssetsMonthlyEarnings"
-        app:layout_constraintTop_toBottomOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewEuro"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/textviewincome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -66,8 +66,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        app:layout_constraintStart_toEndOf="@+id/textViewMonthly"
+        app:layout_constraintTop_toBottomOf="@+id/textviewcosts"
         app:layout_constraintVertical_bias="0.008" />
 
     <TextView
@@ -78,16 +78,16 @@
         android:text="@string/general_textview_placeholder"
         android:textAlignment="textEnd"
         android:textColor="@color/money_positiv_green"
-        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintStart_toEndOf="@+id/textviewcosts"
         app:layout_constraintTop_toBottomOf="@+id/itemAssetsName" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/textviewcosts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
         android:text="@string/asset_item_layout_costs"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintStart_toEndOf="@+id/textViewMonthly"
         app:layout_constraintTop_toBottomOf="@+id/itemAssetsName" />
 
     <TextView
@@ -98,11 +98,11 @@
         android:text="@string/general_textview_placeholder"
         android:textAlignment="textEnd"
         android:textColor="@color/money_negatic_red"
-        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintStart_toEndOf="@+id/textviewincome"
         app:layout_constraintTop_toBottomOf="@+id/itemAssetsMonthlyCosts" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/textViewMonthly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/asset_item_layout_monthly"

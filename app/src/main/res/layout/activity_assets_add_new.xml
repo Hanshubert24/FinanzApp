@@ -12,13 +12,15 @@
         android:layout_height="58dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
         android:contentDescription="@string/general_discription_image_Diamont"
         android:src="@drawable/diamant"
-        app:layout_constraintBottom_toTopOf="@+id/listViewAssetsOverview"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAssetsCategory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonBack2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/buttonBackContractsAddNew2"
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
     <EditText
         android:id="@+id/editTextAssetsMonthlyEarnings"
@@ -33,7 +35,8 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextAssetsMonthlyEarningsName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsMonthlyCosts" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsMonthlyCosts"
+        tools:ignore="LabelFor"/>
 
     <EditText
         android:id="@+id/editTextAssetsNote"
@@ -41,7 +44,7 @@
         android:layout_height="43dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Adresse, Mieter usw"
+        android:hint="@string/assets_hint_note"
         android:importantForAutofill="no"
         android:inputType="textLongMessage|textPersonName|textEmailAddress"
         android:textAlignment="textStart"
@@ -65,7 +68,8 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextAssetsMonthlyCostsName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsName"
+        tools:ignore="LabelFor"/>
 
     <EditText
         android:id="@+id/editTextAssetsName"
@@ -74,7 +78,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Wohnung Berliner Str."
+        android:hint="@string/assets_hint_Name"
         android:importantForAutofill="no"
         android:inputType="textPersonName|textEmailAddress"
         android:textAlignment="textStart"
@@ -94,7 +98,7 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName|textEmailAddress"
         android:textAlignment="textStart"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextAssetsCategoryName"
         app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsAddNew2" />

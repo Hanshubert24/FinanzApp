@@ -68,9 +68,10 @@
         app:layout_constraintVertical_bias="0.685" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/LoginImageMoney"
         android:layout_width="53dp"
         android:layout_height="39dp"
+        android:contentDescription="@string/general_image_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.634"
@@ -80,9 +81,10 @@
         app:srcCompat="@drawable/arrow_up_login" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/LabelAppEnterPin"
         android:layout_width="238dp"
         android:layout_height="105dp"
+        android:contentDescription="@string/general_app_lable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

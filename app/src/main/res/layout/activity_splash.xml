@@ -9,9 +9,10 @@
     tools:context=".ui.login.SplashActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/LabelImageApp"
         android:layout_width="238dp"
         android:layout_height="105dp"
+        android:contentDescription="@string/general_app_lable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -21,7 +22,7 @@
         app:srcCompat="@drawable/finanz_app_logo" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/LoadingTextStartApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/LoadingApp"

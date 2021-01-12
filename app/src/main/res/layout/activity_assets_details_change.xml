@@ -7,6 +7,7 @@
     tools:context="ui.Assets.AssetsDetailsChange">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -20,7 +21,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -28,9 +29,8 @@
                 android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Kategorie:"
+                android:text="@string/assets_category"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -40,20 +40,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="16dp"
-                android:text="TextView"
+                android:text="@string/general_textview_placeholder"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editTextAssetsChangeCategory"
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                tools:ignore="LabelFor"/>
 
             <TextView
                 android:id="@+id/textView45"
@@ -61,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:text="Name:"
+                android:text="@string/assets_name"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -73,18 +75,20 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="TextView"
+                android:text="@string/general_textview_placeholder"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editTextAssetsChangeName"
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
             <TextView
                 android:id="@+id/textView46"
@@ -92,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:text="Mtl.Kosten:"
-                android:textAlignment="textEnd"
+                android:text="@string/assets_monthly_costs"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -104,69 +108,40 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="TextView"
+                android:text="@string/general_textview_placeholder"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editTextAssetsChangeMonthlyCosts"
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
             <TextView
                 android:id="@+id/textView47"
                 android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="66dp"
-                android:text="Mtl.Ein:"
-                android:textAlignment="textEnd"
+                android:layout_marginTop="12dp"
+                android:text="@string/assets_monthly_income"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/editTextAssetsChangeNote"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:scrollbarStyle="outsideInset" />
-
-            <TextView
-                android:id="@+id/textViewAssetsChangeNote"
-                android:layout_width="match_parent"
-                android:layout_height="26dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="TextView"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/editTextAssetsChangeMonthlyEarnings"
-                android:layout_width="0dp"
-                android:layout_height="37dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textViewAssetsChangeMonthlyEarnings"
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="TextView"
+                android:text="@string/general_textview_placeholder"
                 android:textSize="16sp" />
 
             <TextView
@@ -174,11 +149,47 @@
                 android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="64dp"
-                android:text="Notiz:"
+                android:layout_marginTop="16dp"
+                android:text="@string/assets_note"
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsChangeNote"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/general_textview_placeholder"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextAssetsChangeNote"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:scrollbarStyle="outsideInset"
+                tools:ignore="LabelFor"/>
+
+            <EditText
+                android:id="@+id/editTextAssetsChangeMonthlyEarnings"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                tools:ignore="LabelFor"/>
+
         </LinearLayout>
     </ScrollView>
 
@@ -190,10 +201,10 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/general_discription_image_Diamont"
         android:src="@drawable/diamant"
-        app:layout_constraintBottom_toTopOf="@+id/listViewAssetsOverview"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonBack2"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -234,7 +245,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="changeContract"
-        android:text="Änderung Speichern"
+        android:text="@string/assets_details_change_save_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
