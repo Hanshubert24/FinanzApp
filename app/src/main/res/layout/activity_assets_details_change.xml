@@ -6,40 +6,51 @@
     android:layout_height="match_parent"
     tools:context="ui.Assets.AssetsDetailsChange">
 
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="83dp"
+        android:layout_height="44dp"
+        android:onClick="NavBack"
+        android:text="@string/assets_back"
+        android:textSize="10sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028" />
+
     <TextView
         android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginEnd="47dp"
         android:text="Bild Ändern-> ImagePath speichern"
         android:textColor="#EF0707"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewAssetsChangeCategory"
         android:layout_width="291dp"
         android:layout_height="26dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+        tools:layout_editor_absoluteY="72dp" />
 
     <TextView
         android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="62dp"
         android:text="Mtl.Kosten:"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewAssetsChangeMonthlyCosts"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+        tools:layout_editor_absoluteY="248dp" />
 
     <TextView
         android:id="@+id/textView45"
@@ -173,43 +184,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="17dp"
         android:text="Kategorie:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsDetails4" />
-
-    <Button
-        android:id="@+id/buttonBackContractsDetails4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="7dp"
-        android:onClick="NavBack"
-        android:text="Zurück"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="Vermögenswert Ändern"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="72dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="106dp"
-        android:layout_marginBottom="17dp"
         android:onClick="changeContract"
         android:text="Änderung Speichern"
         app:layout_constraintBottom_toBottomOf="parent"

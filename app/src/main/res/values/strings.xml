@@ -2,6 +2,7 @@
 
     <!-- General Strings -->
     <string name="app_name">Finanz App</string>
+    <string name="general_textview_placeholder">TextView</string>
 
     <!-- Navigation and Nav Header-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -12,12 +13,31 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
-    <string name="menu_wealth">Vermögen</string>
+    <string name="menu_assets">Vermögen</string>
     <string name="menu_shares">Aktien</string>
     <string name="menu_financebook">Haushaltsbuch</string>
     <string name="menu_logout">Logout</string>
 
+    <!-- Strings related to assets -->
+    <string name="assets">Vermögen</string>
+    <string name="assets_details">Vermögenswert Details</string>
+    <string name="assets_add">Vermögen hinzufügen</string>
+    <string name="assets_details_change">Vermögenswert Ändern</string>
+    <string name="assets_back">Zurück</string>
+    <string name="asset_item_layout_costs">Kosten:</string>
+    <string name="asset_item_layout_euro">€</string>
+    <string name="asset_item_layout_income">Einkommen:</string>
+    <string name="assets_note">Notiz:</string>
+    <string name="assets_image_path">Bildpfad:</string>
+    <string name="assets_monthly_income">Mtl.Eink.:</string>
+    <string name="assets_monthly_costs">Mtl.Kosten:</string>
+    <string name="assets_name">Name:</string>
+    <string name="assets_category">Kategorie:</string>
+    <string name="assets_delet_button">Löschen</string>
+    <string name="assets_change_button">Ändern</string>
+    <string name="assets_save">Speichern</string>
 
     <!-- Strings related to login -->
     <string name="PinChangeButton">PIN festlegen</string>
@@ -35,11 +55,14 @@
     <string name="ButtonFinanzbookAdd"> + </string>
     <string name="AddButtonText">+</string>
 
+
+    <string name="asset_item_layout_monthly">Monatlich</string>
     <!-- Strings related to Wealth -->
 
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
-    <string name="assets">Übersicht</string>
+    <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
+
 
 </resources>

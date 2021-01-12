@@ -8,110 +8,123 @@
 
     <EditText
         android:id="@+id/editTextAssetsMonthlyEarnings"
-        android:layout_width="280dp"
+        android:layout_width="260dp"
         android:layout_height="43dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAssetsMonthlyCosts" />
 
     <EditText
         android:id="@+id/editTextAssetsNote"
-        android:layout_width="280dp"
+        android:layout_width="260dp"
         android:layout_height="43dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textLongMessage|textPersonName|textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsMonthlyEarnings" />
+        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsMonthlyEarnings"
+        app:layout_constraintVertical_bias="0.006" />
 
     <EditText
         android:id="@+id/editTextAssetsMonthlyCosts"
-        android:layout_width="280dp"
+        android:layout_width="260dp"
         android:layout_height="43dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAssetsName" />
 
     <EditText
         android:id="@+id/editTextAssetsName"
-        android:layout_width="280dp"
+        android:layout_width="260dp"
         android:layout_height="43dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName|textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAssetsCategory" />
 
     <EditText
         android:id="@+id/editTextAssetsCategory"
-        android:layout_width="280dp"
+        android:layout_width="260dp"
         android:layout_height="43dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="6dp"
         android:ems="10"
+        android:hint="@string/assets_hint_category"
         android:inputType="textPersonName|textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsAddNew2" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/editTextAssetsNameName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:text="Name"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/assets_name"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAssetsMonthlyCostsName"
         app:layout_constraintEnd_toStartOf="@+id/editTextAssetsName"
-        app:layout_constraintTop_toBottomOf="@+id/textView60" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsCategoryName" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/editTextAssetsMonthlyCostsName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="10dp"
-        android:text="Mtl.Kosten"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="2dp"
+        android:text="@string/assets_monthly_costs"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextAssetsMonthlyCosts"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsNameName" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/editTextAssetsMonthlyEarningsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/assets_monthly_income"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAssetsNoteName"
+        app:layout_constraintEnd_toStartOf="@+id/editTextAssetsMonthlyEarnings"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsMonthlyCostsName" />
+
+    <TextView
+        android:id="@+id/editTextAssetsNoteName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="10dp"
-        android:text="Mtl.Einnahmen"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextAssetsMonthlyEarnings"
-        app:layout_constraintTop_toBottomOf="@+id/textView33" />
-
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:text="Notizen"
+        android:layout_marginEnd="2dp"
+        android:text="@string/assets_note"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextAssetsNote"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAssetsMonthlyEarningsName" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginBottom="20dp"
         android:text="Bild aufnehmen -> ImagePath speichern"
         android:textColor="#EF0707"
         android:textSize="18sp"
@@ -123,53 +136,42 @@
         android:id="@+id/buttonBackContractsAddNew2"
         android:layout_width="83dp"
         android:layout_height="44dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="9dp"
         android:onClick="NavBack"
-        android:text="Zurück"
+        android:text="@string/assets_back"
         android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="28dp"
-        android:text="Vermögenswert anlegen"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonBack"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028" />
 
     <Button
         android:id="@+id/buttonAdd5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="16dp"
         android:onClick="SaveContract"
-        android:text="Speichern"
+        android:text="@string/assets_save"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
 
     <TextView
-        android:id="@+id/textView60"
+        android:id="@+id/editTextAssetsCategoryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="10dp"
-        android:text="Kategorie"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="2dp"
+        android:text="@string/assets_category"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editTextAssetsCategory"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsAddNew2" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsAddNew2"
+        app:layout_constraintVertical_bias="0.007" />
 </androidx.constraintlayout.widget.ConstraintLayout>

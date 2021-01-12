@@ -8,82 +8,80 @@
 
     <TextView
         android:id="@+id/textViewAssetsCategory"
-        android:layout_width="291dp"
+        android:layout_width="260dp"
         android:layout_height="26dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="20dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsDetails3" />
 
     <TextView
-        android:id="@+id/textView39"
+        android:id="@+id/textViewAssetsMonthlyCostsName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="22dp"
-        android:text="Mtl.Kosten:"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/assets_monthly_costs"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewAssetsMonthlyCosts"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsNameName" />
 
     <TextView
         android:id="@+id/textViewAssetsImagePath"
-        android:layout_width="291dp"
+        android:layout_width="260dp"
         android:layout_height="26dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAssetsMonthlyEarnings" />
 
     <TextView
-        android:id="@+id/textView41"
+        android:id="@+id/textViewAssetsImagePathName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="19dp"
-        android:text="Bildpfad:"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/assets_image_path"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewAssetsImagePath"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsMonthlyEarningsName" />
 
     <TextView
         android:id="@+id/textViewAssetsName"
-        android:layout_width="291dp"
+        android:layout_width="260dp"
         android:layout_height="26dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAssetsCategory" />
 
     <TextView
         android:id="@+id/textViewAssetsMonthlyCosts"
-        android:layout_width="291dp"
+        android:layout_width="260dp"
         android:layout_height="26dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAssetsName" />
 
     <TextView
         android:id="@+id/textViewAssetsMonthlyEarnings"
-        android:layout_width="291dp"
+        android:layout_width="260dp"
         android:layout_height="26dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAssetsMonthlyCosts" />
 
     <TextView
         android:id="@+id/textViewAssetsNote"
-        android:layout_width="288dp"
+        android:layout_width="260dp"
         android:layout_height="208dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="24dp"
         android:lines="5"
         android:maxLines="10"
         android:textSize="18sp"
@@ -91,48 +89,56 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewAssetsImagePath" />
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/textViewAssetsMonthlyEarningsName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:text="Mtl.Eink.:"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/assets_monthly_income"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewAssetsMonthlyEarnings"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsMonthlyCostsName" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/textViewAssetsCategoryName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_height="26dp"
         android:layout_marginTop="20dp"
-        android:text="Kategorie:"
+        android:layout_marginEnd="4dp"
+        android:text="@string/assets_category"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewAssetsCategory"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsDetails3" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/textViewAssetsNameName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="22dp"
-        android:text="Name:"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/assets_name"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewAssetsName"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsCategoryName" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/textViewAssetsNoteName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="23dp"
-        android:text="Notiz:"
+        android:layout_height="26dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/assets_note"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewAssetsNote"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsImagePathName" />
 
     <Button
         android:id="@+id/buttonBackContractsDetails3"
@@ -141,42 +147,34 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="7dp"
         android:onClick="NavBack"
-        android:text="Zurück"
+        android:text="@string/assets_back"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:text="Vermögenswert Details"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonDeleteContractDetails2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
         android:onClick="deleteAsset"
-        android:text="Löschen"
+        android:text="@string/assets_delet_button"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonChangeContractsDetails2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonChangeContractsDetails2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
         android:onClick="changeAsset"
-        android:text="Ändern"
+        android:text="@string/assets_change_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

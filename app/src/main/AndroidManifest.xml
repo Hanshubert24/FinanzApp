@@ -13,10 +13,14 @@
         <activity android:name=".ui.logout.Logout" />
         <activity android:name=".ui.login.CreatePinActivity" />
         <activity android:name=".ui.login.EnterPinActivity" />
-        <activity android:name=".ui.Assets.AssetsOverview" />
-        <activity android:name=".ui.Assets.AssetsAddNew" />
-        <activity android:name=".ui.Assets.AssetsDetails" />
-        <activity android:name=".ui.Assets.AssetsDetailsChange" />
+        <activity android:name=".ui.Assets.AssetsOverview"
+                  android:label="@string/assets"/>
+        <activity android:name=".ui.Assets.AssetsAddNew"
+                  android:label="@string/assets_add"/>
+        <activity android:name=".ui.Assets.AssetsDetails"
+                  android:label="@string/assets_details"/>
+        <activity android:name=".ui.Assets.AssetsDetailsChange"
+                  android:label="@string/assets_details_change"/>
 
         <activity
             android:name=".MainActivity"
