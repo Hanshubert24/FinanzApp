@@ -27,9 +27,9 @@
         android:label="@string/menu_assets"
         tools:layout="@layout/activity_assets_overview" />
     <activity
-        android:id="@+id/nav_cost_hierachy"
-        android:name="com.example.finanzapp.ui.Assets.AssetsOverview"
+        android:id="@+id/nav_cost_hierarchy"
+        android:name="com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyOverview"
         android:label="@string/menu_assets"
-        tools:layout="@layout/activity_assets_overview" />
+        tools:layout="@layout/activity_costs_hierarchy_overview" />
 
 </navigation>

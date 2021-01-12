@@ -20,9 +20,9 @@
             android:icon="@drawable/euro_color_icon_nav"
             android:title="@string/menu_assets" />
         <item
-            android:id="@+id/nav_cost_hierachy"
-            android:icon="@drawable/power_button_nav"
-            android:title="@string/menu_cost_hierachy" />
+            android:id="@+id/nav_cost_hierarchy"
+
+            android:title="@string/menu_cost_hierarchy" />
 
         <item
             android:id="@+id/nav_logout"
