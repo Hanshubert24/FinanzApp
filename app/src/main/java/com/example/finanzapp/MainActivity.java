@@ -1,10 +1,8 @@
 package com.example.finanzapp;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +13,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.finanzapp.ui.Assets.AssetsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
@@ -64,25 +61,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-
-            case R.id.nav_logout: {
-                System.exit(0);
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-
-    }
-
-    public void NavToAssetsOverview(View view) {
-        Intent i = new Intent(MainActivity.this, AssetsOverview.class);
-        startActivity(i);
-
-    }
 
     //Testdaten für die Datenbank
     public void createExampleData(View view) {

@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_financebook" />
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.example.finanzapp.ui.logout.LogoutFragment"
+        android:name="com.example.finanzapp.ui.logout.LogoutActivity"
         android:label="@string/menu_shares"
         tools:layout="@layout/activity_logout" />
     <activity

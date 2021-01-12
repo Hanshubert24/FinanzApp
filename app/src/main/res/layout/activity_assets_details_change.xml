@@ -144,6 +144,18 @@
                 android:text="@string/general_textview_placeholder"
                 android:textSize="16sp" />
 
+            <EditText
+                android:id="@+id/editTextAssetsChangeMonthlyEarnings"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                tools:ignore="LabelFor" />
+
             <TextView
                 android:id="@+id/textView48"
                 android:layout_width="95dp"
@@ -176,18 +188,6 @@
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:scrollbarStyle="outsideInset"
-                tools:ignore="LabelFor"/>
-
-            <EditText
-                android:id="@+id/editTextAssetsChangeMonthlyEarnings"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
                 tools:ignore="LabelFor"/>
 
         </LinearLayout>
