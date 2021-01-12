@@ -29,26 +29,43 @@
         android:id="@+id/buttonBack2"
         android:layout_width="83dp"
         android:layout_height="44dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:onClick="NavBack"
-        android:text="@string/assets_back"
 
+        android:text="@string/assets_back"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/listViewAssetsOverview"
         android:layout_width="364dp"
-        android:layout_height="360dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/addButtonAssets"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBack2" />
+
+    <ImageView
+        android:id="@+id/assets_overwiev_image_diamont"
+        android:layout_width="81dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/general_discription_image_Diamont"
+        android:src="@drawable/diamant"
+        app:layout_constraintBottom_toTopOf="@+id/listViewAssetsOverview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack2"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

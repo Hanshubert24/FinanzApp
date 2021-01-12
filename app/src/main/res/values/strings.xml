@@ -63,6 +63,6 @@
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
     <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
-
+    <string name="general_discription_image_Diamont" >Ein Diamant</string>
 
 </resources>

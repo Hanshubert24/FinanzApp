@@ -26,5 +26,10 @@
         android:name="com.example.finanzapp.ui.Assets.AssetsOverview"
         android:label="@string/menu_assets"
         tools:layout="@layout/activity_assets_overview" />
+    <activity
+        android:id="@+id/nav_cost_hierachy"
+        android:name="com.example.finanzapp.ui.Assets.AssetsOverview"
+        android:label="@string/menu_assets"
+        tools:layout="@layout/activity_assets_overview" />
 
 </navigation>
