@@ -93,5 +93,6 @@ public class CostsHierarchyOverview extends AppCompatActivity {
     public void dialogChancelButton(View view){
         Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
         startActivity(i);
+        //Versucher Versuchge
     }
 }
