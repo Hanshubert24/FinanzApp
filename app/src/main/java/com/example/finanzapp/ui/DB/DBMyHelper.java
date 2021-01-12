@@ -136,4 +136,18 @@ public class DBMyHelper extends SQLiteOpenHelper {
             COLUMNIncome_Netto,
             COLUMNIncome_isMonthly,
             COLUMNIncome_Note};
+
+
+    //Hierarchiy Variable Costs
+    public static final String TABLECostsHierarchy_Name = "CostsHierarchy";
+    public static final String COLUMNCostsHierarchy_ID = "_id";
+    public static final String COLUMNCostsHierarchy_E1 = "E1";
+    public static final String COLUMNCostsHierarchy_E2 = "E2";
+    public static final String COLUMNCostsHierarchy_E3 = "E3";
+    public static final String SQL_CREATE_TableCostsHierarchy =
+            "CREATE TABLE " + TABLECostsHierarchy_Name + " (" +
+                    COLUMNCostsHierarchy_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMNCostsHierarchy_E1 + " TEXT NOT NULL, " +
+                    COLUMNCostsHierarchy_E2 + " TEXT, " +
+                    COLUMNCostsHierarchy_E3 + " TEXT);";
 }

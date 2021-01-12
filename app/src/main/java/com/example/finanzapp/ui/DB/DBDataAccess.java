@@ -6,6 +6,8 @@ import android.util.Log;
 import android.content.ContentValues; //Schreiben von Daten in die DB
 import android.database.Cursor; //Lesen von Daten aus der DB
 
+import java.util.ArrayList;
+
 
 public class DBDataAccess {
 
@@ -254,6 +256,82 @@ public class DBDataAccess {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public boolean CostsHierarchyInDB(String E1, String E2, String E3){
+        ContentValues value = new ContentValues();
+
+        if(E1 != null && E2 == null && E3 == null){
+            //Prüfung ob ein Eintrag mit der Bezeichnung schon existiert.
+            Cursor cursor = database.query(
+                    dbHelper.TABLECostsHierarchy_Name,
+                    null,
+                    dbHelper.COLUMNCostsHierarchy_E1 + "=" + E1, //Ausbessern
+                    null,
+                    null,
+                    null,
+                    null);
+            if(cursor == null){
+                value.put(DBMyHelper.COLUMNCostsHierarchy_E1, E1);
+                value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
+                value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
+                database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
+                Log.d(LOG_TAG, "Eintrag: " + E1 + " wird in die Tabelle " + dbHelper.TABLECostsHierarchy_Name + " eingetragen.");
+
+                return true;
+            } else {
+                Log.d(LOG_TAG, "Eintrag: " + E1 + " ist bereits in der Tabelle " + dbHelper.TABLECostsHierarchy_Name + " vorhanden.");
+
+                return false;
+            }
+        }
+
+
+
+        return false;
+    }
+
+    public ArrayList getE1FromCostsHierarchy(){
+        ArrayList arrayList = new ArrayList();
+        try{
+            // ArrayList arrayList = new ArrayList();
+
+            Cursor cursor = database.rawQuery("SELECT " + DBMyHelper.COLUMNCostsHierarchy_E1 + " FROM " + DBMyHelper.TABLECostsHierarchy_Name, null);
+
+            //befüllen der ArrayList
+            if(cursor.moveToFirst()){
+                do{
+                    arrayList.add(cursor.getString((cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E1))));
+
+                } while (cursor.moveToNext());
+            }
+            return arrayList;
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
+    public ArrayList getE2FromCostsHierarchy(){
+        ArrayList arrayList = new ArrayList();
+        try{
+            // ArrayList arrayList = new ArrayList();
+
+            Cursor cursor = database.rawQuery("SELECT " + DBMyHelper.COLUMNCostsHierarchy_E2 + " FROM " + DBMyHelper.TABLECostsHierarchy_Name, null);
+
+            //befüllen der ArrayList
+            if(cursor.moveToFirst()){
+                do{
+                    arrayList.add(cursor.getString((cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E2))));
+
+                } while (cursor.moveToNext());
+            }
+            return arrayList;
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return arrayList;
     }
 
 
