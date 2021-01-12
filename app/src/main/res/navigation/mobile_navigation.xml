@@ -16,7 +16,8 @@
         android:name="com.example.finanzapp.ui.financebook.FinanceBookFragment"
         android:label="@string/menu_financebook"
         tools:layout="@layout/fragment_financebook" />
-    <fragment
+
+    <activity
         android:id="@+id/nav_logout"
         android:name="com.example.finanzapp.ui.logout.LogoutActivity"
         android:label="@string/menu_shares"
