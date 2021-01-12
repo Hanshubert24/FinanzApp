@@ -62,7 +62,7 @@
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
-    <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
+    <string name="assets_hint_category">Immobilie,Kunst,Schmuck etc</string>
 
 
 </resources>
