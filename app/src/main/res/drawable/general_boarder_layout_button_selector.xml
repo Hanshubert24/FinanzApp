@@ -1,0 +1,9 @@
+
+    <selector xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <item android:drawable="@drawable/button_gradient_orange" />
+        <item
+            android:drawable="@drawable/general_boarder_layout_button" />
+
+    </selector>

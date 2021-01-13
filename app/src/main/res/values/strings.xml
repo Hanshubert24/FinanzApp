@@ -3,6 +3,9 @@
     <!-- General Strings -->
     <string name="app_name">Finanz App</string>
     <string name="general_textview_placeholder">TextView</string>
+    <string name="general_app_lable">Finanz App Logo</string>
+    <string name="general_image_login">Money rise up</string>
+    <string name="general_discription_image_Diamont">Ein Diamant</string>
 
     <!-- Navigation and Nav Header-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -19,6 +22,7 @@
     <string name="menu_shares">Aktien</string>
     <string name="menu_financebook">Haushaltsbuch</string>
     <string name="menu_logout">Logout</string>
+    <string name="menu_cost_hierarchy">Voralgen</string>
 
     <!-- Strings related to assets -->
     <string name="assets">Vermögen</string>
@@ -38,6 +42,10 @@
     <string name="assets_delet_button">Löschen</string>
     <string name="assets_change_button">Ändern</string>
     <string name="assets_save">Speichern</string>
+    <string name="assets_details_change_save_button">Änderung Speichern</string>
+    <string name="assets_hint_Name">Wohnung Berliner Str.</string>
+    <string name="assets_hint_note">Adresse,Mieter usw</string>
+    <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
 
     <!-- Strings related to login -->
     <string name="PinChangeButton">PIN festlegen</string>
@@ -62,14 +70,8 @@
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
-    <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
-    <string name="general_discription_image_Diamont">Ein Diamant</string>
+    <string name="fb_button_discription">"Chartanalyse "</string>
+    <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
 
-    <string name="menu_cost_hierarchy">Voralgen</string>
-    <string name="assets_details_change_save_button">Änderung Speichern</string>
-    <string name="assets_hint_Name">Wohnung Berliner Str.</string>
-    <string name="assets_hint_note">Adresse,Mieter usw</string>
-    <string name="general_app_lable">Finanz App Logo</string>
-    <string name="general_image_login">Money rise up</string>
 
 </resources>

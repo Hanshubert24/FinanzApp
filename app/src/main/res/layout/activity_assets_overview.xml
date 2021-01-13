@@ -11,7 +11,7 @@
         style="@android:style/Widget.Material.ImageButton"
         android:layout_width="66dp"
         android:layout_height="73dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:adjustViewBounds="false"
         android:background="@drawable/custom_button_bg"
         android:backgroundTint="#0069b4"

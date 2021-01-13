@@ -10,11 +10,12 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.home.ui.main.HomeFragment2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeTwoActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     AnyChartView anyChartView;
     // set the settings for the chart
@@ -22,14 +23,18 @@ public class HomeTwoActivity extends AppCompatActivity {
     int[] earnings = {500, 800, 2000};
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_home);
+        setContentView(R.layout.home_activity);
         anyChartView = findViewById(R.id.any_chart_view);
         setupPieChart();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, HomeFragment2.newInstance())
+                    .commitNow();
 
+        }
     }
 
     public void setupPieChart() {
