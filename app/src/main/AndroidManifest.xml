@@ -10,7 +10,6 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
-        <activity android:name=".ui.home.HomeActivity"></activity>
         <activity android:name=".ui.logout.LogoutActivity" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE3" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE2" />

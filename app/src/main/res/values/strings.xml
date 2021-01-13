@@ -62,7 +62,8 @@
     <!-- Strings related to Financebook -->
     <string name="ButtonFinanzbookAdd"> + </string>
     <string name="AddButtonText">+</string>
-
+    <string name="fb_button_discription">"Chartanalyse "</string>
+    <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
 
     <string name="asset_item_layout_monthly">Monatlich</string>
     <!-- Strings related to Wealth -->
@@ -70,8 +71,8 @@
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
-    <string name="fb_button_discription">"Chartanalyse "</string>
-    <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
+
+
 
 
 </resources>
