@@ -14,13 +14,13 @@ import com.example.finanzapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class HomeTwoActivity extends AppCompatActivity {
 
     AnyChartView anyChartView;
     // set the settings for the chart
-    String[] months = {"Jan" , "Feb" ,"Mar"};
+    String[] months = {"Jan", "Feb", "Mar"};
     int[] earnings = {500, 800, 2000};
+
 
 
     @Override
@@ -30,13 +30,13 @@ public class HomeTwoActivity extends AppCompatActivity {
         anyChartView = findViewById(R.id.any_chart_view);
         setupPieChart();
 
-
     }
+
     public void setupPieChart() {
         Pie pie = AnyChart.pie();
         List<DataEntry> dataEntries = new ArrayList<>();
 
-        for (int i =0; i< months.length;i++) {
+        for (int i = 0; i < months.length; i++) {
             dataEntries.add(new ValueDataEntry(months[i], earnings[i]));
         }
 
@@ -44,3 +44,4 @@ public class HomeTwoActivity extends AppCompatActivity {
         anyChartView.setChart(pie);
     }
 }
+

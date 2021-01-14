@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
+    tools:context=".ui.home.HomeTwoActivity"
     >
 
     <com.anychart.AnyChartView
@@ -24,6 +24,7 @@
         style="@android:style/Widget.Material.ImageButton"
         android:layout_width="66dp"
         android:layout_height="73dp"
+        android:layout_marginBottom="16dp"
         android:adjustViewBounds="false"
         android:background="@drawable/custom_button_bg"
         android:backgroundTint="#0069b4"
@@ -36,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ImageView
@@ -44,6 +45,7 @@
         android:layout_width="238dp"
         android:layout_height="105dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/general_app_lable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
