@@ -10,6 +10,14 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
+        <activity android:name=".ui.Income.IncomeDetailsChange"></activity>
+        <activity android:name=".ui.Income.IncomeDetails" />
+        <activity android:name=".ui.Income.IncomeAddNew" />
+        <activity android:name=".ui.Income.IncomeOverview" />
+        <activity android:name=".ui.Contracts.ContractsDetailsChange" />
+        <activity android:name=".ui.Contracts.ContractsDetails" />
+        <activity android:name=".ui.Contracts.ContractsAddNew" />
+        <activity android:name=".ui.Contracts.ContractsOverview" />
         <activity android:name=".ui.logout.LogoutActivity" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE3" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE2" />
