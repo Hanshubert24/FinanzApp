@@ -258,11 +258,13 @@ public class DBDataAccess {
         }
     }
 
-    public boolean CostsHierarchyInDB(String E1, String E2, String E3){
+    public String CostsHierarchyInDB(String E1, String E2, String E3){
         ContentValues value = new ContentValues();
 
-        if(E1 != null && E2 == null && E3 == null){
+        if(E1 != null && E2 == null && E3 == null) {
+/*
             //Prüfung ob ein Eintrag mit der Bezeichnung schon existiert.
+            // Überarbeiten, scheißt fehler!!!!!
             Cursor cursor = database.query(
                     dbHelper.TABLECostsHierarchy_Name,
                     null,
@@ -271,25 +273,63 @@ public class DBDataAccess {
                     null,
                     null,
                     null);
-            if(cursor == null){
+
+            if(cursor == null) {
+
+ */
+            try {
+
+                Log.d(LOG_TAG, "SELECT * "+
+                        "FROM " + dbHelper.TABLECostsHierarchy_Name + " " +
+                        DBMyHelper.COLUMNCostsHierarchy_E1 + " = " + E1 + ";");
+
+/*
+                Cursor cursor = database.rawQuery(
+                        "SELECT " + DBMyHelper.COLUMNCostsHierarchy_E1 +
+                                " FROM " + dbHelper.TABLECostsHierarchy_Name +
+                                " WHERE type = " + DBMyHelper.TABLECostsHierarchy_Name + " UND " +
+                                DBMyHelper.COLUMNCostsHierarchy_E1 + " = " + E1 + ";", null);
+
+ */
+                Cursor cursor = database.rawQuery(
+                        "SELECT * "+
+                                "FROM " + dbHelper.TABLECostsHierarchy_Name + " " +
+                                "E1" + " = " + "Auto" + ";", null);
+
+               //type = 'table' UND tbl_name = 'Unternehmen'
+                //FROM DAS UNTERNEHMEN GEHALT> 50000;
+
+
+                //Abfrage ob der Eintag schon in der DB existiert.
+                if (cursor.moveToFirst()) {
+                    Log.d(LOG_TAG, E1 + " -> ist bereits in der DB vorhanden.");
+                    return "Eintrag bereits vorhanden.";
+                }
+                Log.d(LOG_TAG, E1 + " -> wird in die DB überommen.");
+
                 value.put(DBMyHelper.COLUMNCostsHierarchy_E1, E1);
                 value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
                 value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
                 database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
                 Log.d(LOG_TAG, "Eintrag: " + E1 + " wird in die Tabelle " + dbHelper.TABLECostsHierarchy_Name + " eingetragen.");
 
-                return true;
-            } else {
-                Log.d(LOG_TAG, "Eintrag: " + E1 + " ist bereits in der Tabelle " + dbHelper.TABLECostsHierarchy_Name + " vorhanden.");
-
-                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage.");
+                return "Fehler bei der DB-Abfrage.";
             }
+
+
+            //  } else {
+            //   Log.d(LOG_TAG, "Eintrag: " + E1 + " ist bereits in der Tabelle " + dbHelper.TABLECostsHierarchy_Name + " vorhanden.");
+
+            //   return false;
+            // }
+
         }
-
-
-
-        return false;
+        return "Fall nicht vorhanden.";
     }
+
 
     public ArrayList getE1FromCostsHierarchy(){
         ArrayList arrayList = new ArrayList();

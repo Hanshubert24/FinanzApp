@@ -9,8 +9,8 @@ import androidx.annotation.Nullable;
 
 public class DBMyHelper extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "Haushaltsbuch.db";
-    public static final int DB_VERSION = 5;
+    public static final String DB_NAME = "FinanzApp.db";
+    public static final int DB_VERSION = 6;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
 
     public DBMyHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -46,6 +46,13 @@ public class DBMyHelper extends SQLiteOpenHelper {
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLEIncome_NAME);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLEIncome_NAME);
         }
+        try{
+            db.execSQL(SQL_CREATE_TableCostsHierarchy);
+            Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLECostsHierarchy_Name+ " erzeugt.");
+        } catch (Exception e){
+            Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
+            Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
+        }
     }
 
     @Override
@@ -54,6 +61,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLEContracts_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLEAssets_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLEIncome_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLECostsHierarchy_Name);
         onCreate(db);
     }
 

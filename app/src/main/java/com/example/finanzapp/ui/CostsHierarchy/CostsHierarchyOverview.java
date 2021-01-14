@@ -29,10 +29,14 @@ public class CostsHierarchyOverview extends AppCompatActivity {
     ArrayList arrayList;
     ArrayAdapter arrayAdapter;
 
+    EditText editTextEntryE1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_costs_hierarchy_overview);
+
+        db = new DBDataAccess(getApplicationContext());
     }
 
     @Override
@@ -44,8 +48,11 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
         //Übernehmen der E1-Werte aus der DB und befüllt den Listview
         arrayList = db.getE1FromCostsHierarchy();
-        arrayAdapter = new ArrayAdapter(CostsHierarchyOverview.this, android.R.layout.simple_list_item_1, arrayList);
-        listView.setAdapter(arrayAdapter);
+
+        if(arrayAdapter != null) {
+            arrayAdapter = new ArrayAdapter(CostsHierarchyOverview.this, android.R.layout.simple_list_item_1, arrayList);
+            listView.setAdapter(arrayAdapter);
+        }
     }
 
     @Override
@@ -77,22 +84,37 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
     public void dialogSaveButton(View view){
 
-        EditText editTextEntryE1 = (EditText) findViewById(R.id.editTextCOstsHierarchyAddNewE1);
 
-        boolean success = db.CostsHierarchyInDB(editTextEntryE1.getText().toString(), null, null);
+        try {
+            //editTextEntryE1 = (EditText) findViewById(R.id.editTextCostsHierarchyAddNewE1);
 
-        if(success){
-            Toast.makeText(this, "Eintrag erstellt.", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, editTextEntryE1.getText().toString() + " ist bereits vorhanden.", Toast.LENGTH_SHORT).show();
+            //Log.d(LOG_TAG, "Inhalt vom EditText: " + test);
+
+
+     //       if(isEditTextEmpty(editTextEntryE1)) {
+     //           Toast.makeText(this, "Geben Sie ein Wort ein.", Toast.LENGTH_SHORT).show();
+     //       } else {
+
+                String success = db.CostsHierarchyInDB("Auto", null, null);
+
+            Toast.makeText(this, success, Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
+                startActivity(i);
+     //       }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
-        startActivity(i);
     }
 
     public void dialogChancelButton(View view){
         Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
         startActivity(i);
-        //Versucher Versuchge
+    }
+
+    private boolean isEditTextEmpty(EditText editText){
+        if(editText.getText().toString().trim().length() > 0){
+            return false;
+        } else {return true;}
     }
 }
