@@ -73,6 +73,8 @@
     <string name="content_addBuy">Ausgabe</string>
     <string name="assets_finalcialasset_name">Verkehrwert</string>
     <string name="assets_credit_name">Kredit</string>
+    <string name="costshierarchy_deleteE1_button">Hauptkategorie löschen</string>
+    <string name="costshierarchy_addE2_button">Unterkategorie anlegen</string>
 
 
 </resources>

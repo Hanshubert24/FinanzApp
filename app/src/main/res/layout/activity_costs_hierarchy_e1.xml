@@ -7,59 +7,84 @@
     tools:context=".ui.CostsHierarchy.CostsHierarchyE1">
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonDeleteContractDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="12dp" />
+        android:layout_marginBottom="24dp"
+        android:text="@string/costshierarchy_addE2_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDeleteContractDetails3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="@string/costshierarchy_deleteE1_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCostsHierarchyE1E1" />
+
+    <Button
+        android:id="@+id/buttonBack3"
+        android:layout_width="83dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:onClick="NavBack"
+
+        android:text="@string/assets_back"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="282dp"
         android:layout_height="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="96dp"
         android:text="Ausgewählte Hauptkategorie"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="71dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack3" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="282dp"
         android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="46dp"
         android:text="Unterkategorien"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="267dp" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hauptkategorie löschen"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="163dp" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Unterkategorie Anlegen"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="542dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDeleteContractDetails3" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewCostsHierarchyE1E1"
         android:layout_width="282dp"
         android:layout_height="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="96dp"
         android:text="Inhalt Hauptkategorie"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="103dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <ListView
+        android:id="@+id/listViewCostsHierarchyE1"
         android:layout_width="409dp"
         android:layout_height="231dp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="311dp" />
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDeleteContractDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

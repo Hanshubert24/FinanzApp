@@ -270,120 +270,64 @@ public class DBDataAccess {
         }
     }
 
-    public String CostsHierarchyInDB(String E1, String E2, String E3){
+    //1 - Daten in die Datenbank eingetragen
+    //2 - Daten bereits in der Datenbank vorhanden
+    //3 - Fehler in der Datenbank
+    //4 - Fall nicht vorhanden
+    public DBInformationObject CostsHierarchyInDB(String varE1, String varE2, String varE3){
+        DBInformationObject dbInfo = new DBInformationObject();
         ContentValues value = new ContentValues();
 
-        if(E1 != null && E2 == null && E3 == null) {
-/*
-            //Prüfung ob ein Eintrag mit der Bezeichnung schon existiert.
-            // Überarbeiten, scheißt fehler!!!!!
-            Cursor cursor = database.query(
-                    dbHelper.TABLECostsHierarchy_Name,
-                    null,
-                    dbHelper.COLUMNCostsHierarchy_E1 + "=" + E1, //Ausbessern
-                    null,
-                    null,
-                    null,
-                    null);
+        if(varE1 != null && varE2 == null && varE3 == null) {
 
-            if(cursor == null) {
-
- */
             try {
 
-                Log.d(LOG_TAG, "SELECT * "+
-                        "FROM " + dbHelper.TABLECostsHierarchy_Name + " " +
-                        DBMyHelper.COLUMNCostsHierarchy_E1 + " = " + E1 + ";");
+                Log.d(LOG_TAG, "SELECT *"+
+                        " FROM " + dbHelper.TABLECostsHierarchy_Name +
+                        " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "';");
 
-/*
                 Cursor cursor = database.rawQuery(
-                        "SELECT " + DBMyHelper.COLUMNCostsHierarchy_E1 +
+                        "SELECT *"+
                                 " FROM " + dbHelper.TABLECostsHierarchy_Name +
-                                " WHERE type = " + DBMyHelper.TABLECostsHierarchy_Name + " UND " +
-                                DBMyHelper.COLUMNCostsHierarchy_E1 + " = " + E1 + ";", null);
-
- */
-                Cursor cursor = database.rawQuery(
-                        "SELECT * "+
-                                "FROM " + dbHelper.TABLECostsHierarchy_Name + " " +
-                                "E1" + " = " + "Auto" + ";", null);
-
-               //type = 'table' UND tbl_name = 'Unternehmen'
-                //FROM DAS UNTERNEHMEN GEHALT> 50000;
-
+                                " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "';", null);
 
                 //Abfrage ob der Eintag schon in der DB existiert.
                 if (cursor.moveToFirst()) {
-                    Log.d(LOG_TAG, E1 + " -> ist bereits in der DB vorhanden.");
-                    return "Eintrag bereits vorhanden.";
-                }
-                Log.d(LOG_TAG, E1 + " -> wird in die DB überommen.");
+                    Log.d(LOG_TAG, varE1 + " -> ist bereits in der DB vorhanden.");
+                    dbInfo.setSuccess(false);
+                    dbInfo.setMassage("Eingabe Bereits vorhanden.");
+                    return dbInfo;
+                } else {
+                    Log.d(LOG_TAG, varE1 + " -> wird in die DB überommen.");
 
-                value.put(DBMyHelper.COLUMNCostsHierarchy_E1, E1);
-                value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
-                value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
-                database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
-                Log.d(LOG_TAG, "Eintrag: " + E1 + " wird in die Tabelle " + dbHelper.TABLECostsHierarchy_Name + " eingetragen.");
+                    value.put(DBMyHelper.COLUMNCostsHierarchy_E1, varE1);
+                    value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
+                    value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
+                    database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
+                    Log.d(LOG_TAG, "Eintrag: " + varE1 + " wird in die Tabelle " + dbHelper.TABLECostsHierarchy_Name + " eingetragen.");
+
+                    dbInfo.setSuccess(true);
+                    dbInfo.setMassage("Eingabe gespeichert.");
+                    return dbInfo;
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage.");
-                return "Fehler bei der DB-Abfrage.";
+                dbInfo.setSuccess(false);
+                dbInfo.setMassage("Datenbankfehler.");
+                return dbInfo;
             }
 
 
-            //  } else {
-            //   Log.d(LOG_TAG, "Eintrag: " + E1 + " ist bereits in der Tabelle " + dbHelper.TABLECostsHierarchy_Name + " vorhanden.");
 
-            //   return false;
-            // }
+
+
 
         }
-        return "Fall nicht vorhanden.";
-    }
-
-
-    public ArrayList getE1FromCostsHierarchy(){
-        ArrayList arrayList = new ArrayList();
-        try{
-            // ArrayList arrayList = new ArrayList();
-
-            Cursor cursor = database.rawQuery("SELECT " + DBMyHelper.COLUMNCostsHierarchy_E1 + " FROM " + DBMyHelper.TABLECostsHierarchy_Name, null);
-
-            //befüllen der ArrayList
-            if(cursor.moveToFirst()){
-                do{
-                    arrayList.add(cursor.getString((cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E1))));
-
-                } while (cursor.moveToNext());
-            }
-            return arrayList;
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return arrayList;
-    }
-    public ArrayList getE2FromCostsHierarchy(){
-        ArrayList arrayList = new ArrayList();
-        try{
-            // ArrayList arrayList = new ArrayList();
-
-            Cursor cursor = database.rawQuery("SELECT " + DBMyHelper.COLUMNCostsHierarchy_E2 + " FROM " + DBMyHelper.TABLECostsHierarchy_Name, null);
-
-            //befüllen der ArrayList
-            if(cursor.moveToFirst()){
-                do{
-                    arrayList.add(cursor.getString((cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E2))));
-
-                } while (cursor.moveToNext());
-            }
-            return arrayList;
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return arrayList;
+        dbInfo.setSuccess(false);
+        dbInfo.setMassage("Kein Fall vorhanden.");
+        return dbInfo;
     }
 
 
