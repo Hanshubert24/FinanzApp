@@ -28,6 +28,8 @@ public class AssetsDetails extends AppCompatActivity {
     TextView textViewName;
     TextView textViewMonthlyCosts;
     TextView textViewMonthlyEarnings;
+    TextView textViewFinancialAssets;
+    TextView textViewCredit;
     TextView textViewImagePath;
     TextView textViewNote;
 
@@ -39,12 +41,14 @@ public class AssetsDetails extends AppCompatActivity {
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird aufgerufen.");
         db = new DBDataAccess(getApplicationContext());
 
-        textViewCategory = (TextView) findViewById(R.id.textViewAssetsCategory);
-        textViewName = (TextView) findViewById(R.id.textViewAssetsName);
-        textViewMonthlyCosts = (TextView) findViewById(R.id.textViewAssetsMonthlyCosts);
-        textViewMonthlyEarnings = (TextView) findViewById(R.id.textViewAssetsMonthlyEarnings);
-        textViewImagePath = (TextView) findViewById(R.id.textViewAssetsImagePath);
-        textViewNote = (TextView) findViewById(R.id.textViewAssetsNote);
+        textViewCategory = (TextView) findViewById(R.id.textViewAssetsDetailsCategory);
+        textViewName = (TextView) findViewById(R.id.textViewAssetsDetailsName);
+        textViewMonthlyCosts = (TextView) findViewById(R.id.textViewAssetsDetailsMonthlyCosts);
+        textViewMonthlyEarnings = (TextView) findViewById(R.id.textViewAssetsDetailsMonthlyEarnings);
+        textViewFinancialAssets = (TextView) findViewById(R.id.textViewAssetsDetailsFinancialAsset);
+        textViewCredit = (TextView) findViewById(R.id.textViewAssetsDetailsCredit);
+        textViewImagePath = (TextView) findViewById(R.id.textViewAssetsDetailsImagePath);
+        textViewNote = (TextView) findViewById(R.id.textViewAssetsDetailsNote);
     }
 
     @Override
@@ -72,6 +76,8 @@ public class AssetsDetails extends AppCompatActivity {
             int nameIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Name);
             int monthlyCostsIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_MonthlyCosts);
             int monthlyEarningsIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_MonthlyEarnings);
+            int financialAssetIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_FinancialAsset);
+            int creditIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Credit);
             int imagePathindex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_ImagePath);
             int noteIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Note);
 
@@ -81,10 +87,12 @@ public class AssetsDetails extends AppCompatActivity {
                             cursor.getString(nameIndex) + " " +
                             cursor.getString(monthlyCostsIndex) + " " +
                             cursor.getString(monthlyEarningsIndex) + " " +
+                            cursor.getString(financialAssetIndex) + " " +
+                            cursor.getString(creditIndex) + " " +
                             cursor.getString(imagePathindex) + " " +
                             cursor.getString(noteIndex));
 
-                    //Monatliche Kosten und Einnahmen rausnehmen, als String ausgeben und ein "€" dranbasteln
+                    //Werte die als String ausgeben und ein "€" dranbasteln
                     double monthlyCosts = cursor.getDouble(monthlyCostsIndex);
                     String monthlyCostsString = String.valueOf(monthlyCosts);
                     String monthlyCostsStringPrepare = monthlyCostsString + "€";
@@ -93,11 +101,21 @@ public class AssetsDetails extends AppCompatActivity {
                     String monthlyEarningsString = String.valueOf(monthlyEarnings);
                     String monthlyEarningsStringPrepare = monthlyEarningsString + "€";
 
+                    double financialAsset = cursor.getDouble(financialAssetIndex);
+                    String financialAssetString = String.valueOf(financialAsset);
+                    String financialAssetStringPrepare = financialAssetString + "€";
+
+                    double credit = cursor.getDouble(creditIndex);
+                    String creditString = String.valueOf(credit);
+                    String creditStringPrepare = creditString + "€";
+
 
                     textViewCategory.setText(cursor.getString(categoryIndex));
                     textViewName.setText(cursor.getString(nameIndex));
                     textViewMonthlyCosts.setText(monthlyCostsStringPrepare);
                     textViewMonthlyEarnings.setText(monthlyEarningsStringPrepare);
+                    textViewFinancialAssets.setText(financialAssetStringPrepare);
+                    textViewCredit.setText(creditStringPrepare);
                     textViewImagePath.setText(cursor.getString(imagePathindex));
                     textViewNote.setText(cursor.getString(noteIndex));                            //Note gibt den Übergabewert nur auf der Console aus!!
 

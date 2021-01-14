@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         db.addNewContractInDB("Miete Wohnung", "A-Hausverwaltung", 825, "");
         db.addNewContractInDB("Dahrlehen", "Max Mustermann", 50, "Läuft 09/21 aus");
 
-        db.addNewAssetInDB("Immobilie", "Berliner Str.13 15230 Ffo", 820, 1230, "", "Bald mal wieder Renoveren!");
-        db.addNewAssetInDB("Auto", "Mazda", 349.95, 0, "", "Bald abgezahlt ;-)");
-        db.addNewAssetInDB("Gemälde", "Mona Lisa", 0, 0, "", "");
+        db.addNewAssetInDB("Immobilie", "Berliner Str.13 15230 Ffo", 820, 1230, 400000 , 360000, "", "Bald mal wieder Renoveren!");
+        db.addNewAssetInDB("Auto", "Mazda", 349.95, 0, 60000, 45000, "", "Bald abgezahlt ;-)");
+        db.addNewAssetInDB("Gemälde", "Mona Lisa", 0, 0, 120000,0, "", "");
 
         db.addNewIncomeInDB("Lohn", "BMW", 0, 0, false, "Aktuelle Projekte in Berlin.");
         db.addNewIncomeInDB("Sold", "Bundeswehr", 3050.60, 2800.90, true, "Übergangsgebührnisse mit Zulagen.");

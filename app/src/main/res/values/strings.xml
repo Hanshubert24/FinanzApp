@@ -71,8 +71,8 @@
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
-
-
+    <string name="assets_finalcialasset_name">Verkehrwert</string>
+    <string name="assets_credit_name">Kredit</string>
 
 
 </resources>

@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 public class DBMyHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "FinanzApp.db";
-    public static final int DB_VERSION = 6;
+    public static final int DB_VERSION = 7;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
 
     public DBMyHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -95,6 +95,8 @@ public class DBMyHelper extends SQLiteOpenHelper {
     public static final String COLUMNAssets_Name = "Name";
     public static final String COLUMNAssets_MonthlyCosts = "MonthlyCosts";
     public static final String COLUMNAssets_MonthlyEarnings = "MonthlyEarnings";
+    public static final String COLUMNAssets_FinancialAsset = "FinancialAsset";
+    public static final String COLUMNAssets_Credit = "Credit";
     public static final String COLUMNAssets_ImagePath = "ImagePath";
     public static final String COLUMNAssets_Note = "Note";
     public static final String SQL_CREATE_TableAssets =
@@ -104,6 +106,8 @@ public class DBMyHelper extends SQLiteOpenHelper {
                     COLUMNAssets_Name + " TEXT NOT NULL, " +
                     COLUMNAssets_MonthlyCosts + " REAL, " +
                     COLUMNAssets_MonthlyEarnings + " REAL, " +
+                    COLUMNAssets_FinancialAsset + " REAL, " +
+                    COLUMNAssets_Credit + " REAL, " +
                     COLUMNAssets_ImagePath + " TEXT, " +
                     COLUMNAssets_Note + " TEXT);";
 
@@ -113,6 +117,8 @@ public class DBMyHelper extends SQLiteOpenHelper {
             COLUMNAssets_Name,
             COLUMNAssets_MonthlyCosts,
             COLUMNAssets_MonthlyEarnings,
+            COLUMNAssets_FinancialAsset,
+            COLUMNAssets_Credit,
             COLUMNAssets_ImagePath,
             COLUMNAssets_Note};
 

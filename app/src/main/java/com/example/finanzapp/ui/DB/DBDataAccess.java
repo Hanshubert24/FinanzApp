@@ -103,12 +103,14 @@ public class DBDataAccess {
         }
     }
 
-    public boolean addNewAssetInDB(String category, String name, double monthlyCosts, double monthlyEarnings, String imagePath, String note){
+    public boolean addNewAssetInDB(String category, String name, double monthlyCosts, double monthlyEarnings, double financialAsset, double credit, String imagePath, String note){
         ContentValues values = new ContentValues();
         values.put(DBMyHelper.COLUMNAssets_Category, category);
         values.put(DBMyHelper.COLUMNAssets_Name, name);
         values.put(DBMyHelper.COLUMNAssets_MonthlyCosts, monthlyCosts);
         values.put(DBMyHelper.COLUMNAssets_MonthlyEarnings, monthlyEarnings);
+        values.put(DBMyHelper.COLUMNAssets_FinancialAsset, financialAsset);
+        values.put(DBMyHelper.COLUMNAssets_Credit, credit);
         values.put(DBMyHelper.COLUMNAssets_ImagePath, imagePath);
         values.put(DBMyHelper.COLUMNAssets_Note, note);
 
@@ -124,13 +126,15 @@ public class DBDataAccess {
             return false;
         }
     }
-    public boolean changeAssetOneEntryInDB(int id, String category, String name, Double monthlyCosts, Double monthlyEarnings, String imagePath, String note){
+    public boolean changeAssetOneEntryInDB(int id, String category, String name, Double monthlyCosts, Double monthlyEarnings, Double financialAsset, Double credit, String imagePath, String note){
         Log.d(LOG_TAG, "Übernommene Daten für die Tabelle: " + DBMyHelper.TABLEAssets_NAME);
         Log.d(LOG_TAG, "ID: " + String.valueOf(id));
         Log.d(LOG_TAG, "Category: " + category);
         Log.d(LOG_TAG, "Name: " + name);
         Log.d(LOG_TAG, "MonthlyCosts: " + String.valueOf(monthlyCosts));
         Log.d(LOG_TAG, "MonthlyEarnings: " + String.valueOf(monthlyEarnings));
+        Log.d(LOG_TAG, "FinancialAsset: " + String.valueOf(financialAsset));
+        Log.d(LOG_TAG, "Credit: " + String.valueOf(credit));
         Log.d(LOG_TAG, "ImagePath: " + imagePath);
         Log.d(LOG_TAG, "Note: " + note);
 
@@ -150,6 +154,14 @@ public class DBDataAccess {
         if(monthlyEarnings != null){
             values.put(DBMyHelper.COLUMNAssets_MonthlyEarnings, monthlyEarnings);
             Log.d(LOG_TAG, "MonthlyEarings mit Wert: " + monthlyEarnings + " wird zum Update der Datenbank übernommen.");
+        }
+        if(monthlyEarnings != null){
+            values.put(DBMyHelper.COLUMNAssets_FinancialAsset, financialAsset);
+            Log.d(LOG_TAG, "FinancialAsset mit Wert: " + financialAsset + " wird zum Update der Datenbank übernommen.");
+        }
+        if(monthlyEarnings != null){
+            values.put(DBMyHelper.COLUMNAssets_Credit, credit);
+            Log.d(LOG_TAG, "Credit mit Wert: " + credit + " wird zum Update der Datenbank übernommen.");
         }
         if(imagePath != null){
             values.put(DBMyHelper.COLUMNAssets_ImagePath, imagePath);

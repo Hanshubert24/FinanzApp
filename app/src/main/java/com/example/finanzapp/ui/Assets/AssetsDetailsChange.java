@@ -25,17 +25,23 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
     double monthlyCostsOld;
     double monthlyEarningsOld;
+    double finanzialAssetsOld;
+    double creditOld;
 
     TextView textViewCategory;
     TextView textViewName;
     TextView textViewMonthlyCosts;
     TextView textViewMonthlyEarnings;
+    TextView textViewFinancialAsset;
+    TextView textViewCredit;
     TextView textViewNote;
 
     EditText editTextCategory;
     EditText editTextName;
     EditText editTextMonthlyCosts;
     EditText editTextMonthlyEarnings;
+    EditText editTextFinancialAsset;
+    EditText editTextCredit;
     EditText editTextNote;
 
 
@@ -51,6 +57,8 @@ public class AssetsDetailsChange extends AppCompatActivity {
         textViewName = (TextView) findViewById(R.id.textViewAssetsChangeName);
         textViewMonthlyCosts = (TextView) findViewById(R.id.textViewAssetsChangeMonthlyCosts);
         textViewMonthlyEarnings = (TextView) findViewById(R.id.textViewAssetsChangeMonthlyEarnings);
+        textViewFinancialAsset = (TextView) findViewById(R.id.textViewAssetsChangeFinancialAsset);
+        textViewCredit = (TextView) findViewById(R.id.textViewAssetsChangeCredit);
         textViewNote = (TextView) findViewById(R.id.textViewAssetsChangeNote);
     }
 
@@ -80,6 +88,8 @@ public class AssetsDetailsChange extends AppCompatActivity {
             int nameIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Name);
             int monthlyCostsIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_MonthlyCosts);
             int monthlyEarningsIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_MonthlyEarnings);
+            int financialAssetIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_FinancialAsset);
+            int creditIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Credit);
             int imagePathindex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_ImagePath);
             int noteIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Note);
 
@@ -89,6 +99,8 @@ public class AssetsDetailsChange extends AppCompatActivity {
                             cursor.getString(nameIndex) + " " +
                             cursor.getString(monthlyCostsIndex) + " " +
                             cursor.getString(monthlyEarningsIndex) + " " +
+                            cursor.getString(financialAssetIndex) + " " +
+                            cursor.getString(creditIndex) + " " +
                             cursor.getString(imagePathindex) + " " +
                             cursor.getString(noteIndex));
 
@@ -101,11 +113,20 @@ public class AssetsDetailsChange extends AppCompatActivity {
                     String monthlyEarningsString = String.valueOf(monthlyEarnings);
                     String monthlyEarningsStringPrepare = monthlyEarningsString + "€";
 
+                    double financialAsset = cursor.getDouble(financialAssetIndex);
+                    String financialAssetString = String.valueOf(financialAsset);
+                    String financialAssetStringPrepare = financialAssetString + "€";
+
+                    double credit = cursor.getDouble(creditIndex);
+                    String creditString = String.valueOf(credit);
+                    String creditStringPrepare = creditString + "€";
 
                     textViewCategory.setText(cursor.getString(categoryIndex));
                     textViewName.setText(cursor.getString(nameIndex));
                     textViewMonthlyCosts.setText(monthlyCostsStringPrepare);
                     textViewMonthlyEarnings.setText(monthlyEarningsStringPrepare);
+                    textViewFinancialAsset.setText(financialAssetStringPrepare);
+                    textViewCredit.setText(creditStringPrepare);
                     textViewNote.setText(cursor.getString(noteIndex));
 
                 } while (cursor.moveToNext());
@@ -139,6 +160,10 @@ public class AssetsDetailsChange extends AppCompatActivity {
         double monthlyCostsNew = monthlyCostsOld;
         boolean isMonthlyEarningsNew = false;
         double monthlyEarningsNew = monthlyCostsOld;
+        boolean isFinancialAssetNew = false;
+        double financialAssetNew = finanzialAssetsOld;
+        boolean isCreditNew = false;
+        double creditNew = creditOld;
         boolean isNoteNew = false;
         String noteNew;
         boolean success = false;
@@ -149,6 +174,8 @@ public class AssetsDetailsChange extends AppCompatActivity {
             editTextName = (EditText) findViewById(R.id.editTextAssetsChangeName);
             editTextMonthlyCosts = (EditText)findViewById(R.id.editTextAssetsChangeMonthlyCosts);
             editTextMonthlyEarnings = (EditText)findViewById(R.id.editTextAssetsChangeMonthlyEarnings);
+            editTextFinancialAsset = (EditText) findViewById(R.id.editTextAssetsChangeFinancialAsset);
+            editTextCredit = (EditText) findViewById(R.id.editTextAssetsChangeCredit);
             editTextNote = (EditText) findViewById(R.id.editTextAssetsChangeNote);
 
             //Prüfung, welche Felder beim betätigen des Ändern-Buttons befühlt sind.
@@ -179,6 +206,18 @@ public class AssetsDetailsChange extends AppCompatActivity {
                 isMonthlyEarningsNew = true;
                 monthlyEarningsNew= Double.parseDouble(editTextMonthlyEarnings.getText().toString());
             }
+            if(isEditTextEmpty(editTextFinancialAsset)){
+                Log.d(LOG_TAG, "Es wurde keine Änderung für das FinancialAsset-Feld eingegeben.");
+            } else {
+                isFinancialAssetNew = true;
+                financialAssetNew= Double.parseDouble(editTextFinancialAsset.getText().toString());
+            }
+            if(isEditTextEmpty(editTextCredit)){
+                Log.d(LOG_TAG, "Es wurde keine Änderung für das Credit-Feld eingegeben.");
+            } else {
+                isCreditNew = true;
+                creditNew= Double.parseDouble(editTextCredit.getText().toString());
+            }
             if(isEditTextEmpty(editTextNote)){
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das Note-Feld eingegeben.");
                 noteNew = null;
@@ -192,6 +231,9 @@ public class AssetsDetailsChange extends AppCompatActivity {
             Log.d(LOG_TAG, "isNameNew = " + isNameNew + " -> Der neue Name des Assets = " + nameNew); //TEST
             Log.d(LOG_TAG, "isMonthlyCosts = " + isMonthlyCostsNew + " -> Die neuen monatlichen Kosten des Asset = " + String.valueOf(monthlyCostsNew)); //TEST
             Log.d(LOG_TAG, "isMonthlyEarnings = " + isMonthlyEarningsNew + " -> Die neuen monatlichen Einnahmen durch des Asset = " + String.valueOf(monthlyEarningsNew)); //TEST
+            Log.d(LOG_TAG, "isFinancialAsset = " + isFinancialAssetNew+ " -> Der neue Verkehrwert des Asset = " + String.valueOf(financialAssetNew)); //TEST
+            Log.d(LOG_TAG, "isCredit = " + isCreditNew + " -> Die Kredit-/Schulenhöhe des Asset = " + String.valueOf(creditNew)); //TEST
+
             Log.d(LOG_TAG, "isNoteNew = " + isNoteNew + " -> Die neue Note des Assets = \" + noteNew"); //TEST
 
 
@@ -199,7 +241,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
             //Wenn alle Eingaben geänderd werden -> Auffolderung zum Löschen und neu anlegen!!!
             //Eine Änderung von allen Daten ist keine Änderung sonder ein neuer Eintrag
 
-            if(isCategoryNew || isNameNew || isMonthlyCostsNew || isMonthlyEarningsNew || isNoteNew) {
+            if(isCategoryNew || isNameNew || isMonthlyCostsNew || isMonthlyEarningsNew || isNoteNew || isFinancialAssetNew || isCreditNew) {
                 //Werte an DBDataAccess übergeben
                 success = db.changeAssetOneEntryInDB(
                         sharePreferncesId,
@@ -207,6 +249,8 @@ public class AssetsDetailsChange extends AppCompatActivity {
                         nameNew,
                         monthlyCostsNew,
                         monthlyEarningsNew,
+                        financialAssetNew,
+                        creditNew,
                         null,           //Funktion muss noch implementiert werden (ImagePath)
                         noteNew);
 

@@ -22,12 +22,16 @@ public class AssetsAddNew extends AppCompatActivity {
     EditText inputAssetsName;
     EditText inputAssetsMonthlyCosts;
     EditText inputAssetsMonthlyEarnings;
+    EditText inputAssetsFinancialAssset;
+    EditText inputAssetsCredit;
     EditText inputAssetsNote;
 
     String inputAssetsCategoryString;
     String inputAssetsNameString;
     double inputAssetsMonthlyCostsDouble = 0;
     double inputAssetsMonthlyEarningsDouble = 0;
+    double inputAssetsFinancialAssetDouble = 0;
+    double inputAssetsCreditDouble = 0;
     String inputAssetsNoteString;
     String inputAssetsImagePathString;
 
@@ -72,6 +76,8 @@ public class AssetsAddNew extends AppCompatActivity {
             inputAssetsName = findViewById(R.id.editTextAssetsName);
             inputAssetsMonthlyCosts = findViewById(R.id.editTextAssetsMonthlyCosts);
             inputAssetsMonthlyEarnings = findViewById(R.id.editTextAssetsMonthlyEarnings);
+            inputAssetsFinancialAssset = findViewById(R.id.editTextAssetsFinancialAsset);
+            inputAssetsCategory = findViewById(R.id.editTextAssetsCredit);
             inputAssetsNote = findViewById(R.id.editTextAssetsNote);
 
             //Prüfung, welche Felder beim betätigen des Ändern-Buttons befühlt sind.
@@ -100,7 +106,16 @@ public class AssetsAddNew extends AppCompatActivity {
             } else {
                 inputAssetsMonthlyEarningsDouble = Double.parseDouble(inputAssetsMonthlyEarnings.getText().toString());
             }
-
+            if(isEditTextEmpty(inputAssetsFinancialAssset)){
+                inputAssetsFinancialAssetDouble = 0.00; //Wenn Eingabe leer
+            } else {
+                inputAssetsFinancialAssetDouble = Double.parseDouble(inputAssetsFinancialAssset.getText().toString());
+            }
+            if(isEditTextEmpty(inputAssetsCredit)){
+                inputAssetsCreditDouble = 0.00; //Wenn Eingabe leer
+            } else {
+                inputAssetsCreditDouble = Double.parseDouble(inputAssetsCredit.getText().toString());
+            }
             inputAssetsNoteString = inputAssetsNote.getText().toString();
 
             //DOUBLE-WERT Prüfen -> Ob eine Eingabe enthalten ist und ob der . (Punkt) und nicht das Komma gesetzt wurde.
@@ -115,6 +130,8 @@ public class AssetsAddNew extends AppCompatActivity {
                         inputAssetsNameString,
                         inputAssetsMonthlyCostsDouble,
                         inputAssetsMonthlyEarningsDouble,
+                        inputAssetsFinancialAssetDouble,
+                        inputAssetsCreditDouble,
                         null,                       //Methode noch implementieren!
                         inputAssetsNoteString);
 
