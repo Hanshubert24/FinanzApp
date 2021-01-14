@@ -77,10 +77,13 @@ public class AssetsAddNew extends AppCompatActivity {
             inputAssetsMonthlyCosts = findViewById(R.id.editTextAssetsMonthlyCosts);
             inputAssetsMonthlyEarnings = findViewById(R.id.editTextAssetsMonthlyEarnings);
             inputAssetsFinancialAssset = findViewById(R.id.editTextAssetsFinancialAsset);
-            inputAssetsCategory = findViewById(R.id.editTextAssetsCredit);
+            inputAssetsCredit = findViewById(R.id.editTextAssetsCredit);
             inputAssetsNote = findViewById(R.id.editTextAssetsNote);
 
-            //Prüfung, welche Felder beim betätigen des Ändern-Buttons befühlt sind.
+            String TEst1 = inputAssetsFinancialAssset.getText().toString();
+            String TEst2 = inputAssetsMonthlyEarnings.getText().toString();
+
+            //Prüfung, welche Felder beim betätigen des Speichern-Buttons befühlt sind.
             //Es sollen nur die eingetragenen Änderungen an die DB übergeben werden.
             if(isEditTextEmpty(inputAssetsCategory)){
                 Toast.makeText(this, "Kategorie angeben.", Toast.LENGTH_SHORT).show();
