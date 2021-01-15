@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.CostsHierarchy;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,16 +8,21 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.Assets.AssetsDetails;
+import com.example.finanzapp.ui.Assets.AssetsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
+import com.example.finanzapp.ui.DB.DBInformationObject;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 
 public class CostsHierarchyE1 extends AppCompatActivity {
@@ -24,9 +30,12 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     private static final String LOG_TAG = CostsHierarchyE1.class.getSimpleName();
 
     DBDataAccess db;
+    DBInformationObject dbInfo;
     int sharePreferencesIdE1;
+    View dialog_addnewentry_pupup;
 
     TextView textViewE1;
+    String E1übergabeWert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +69,11 @@ public class CostsHierarchyE1 extends AppCompatActivity {
             Log.d(LOG_TAG, "Fehler beim auslesen aus der Datenbank -> Cursor = null");
         }
         try {
-            int E1Index = cursorViewE1.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E1);
-
             if (cursorViewE1.moveToFirst()) {
                 do {
-                    Log.d(LOG_TAG, cursorViewE1.getString(E1Index));
+                    int E1Index = cursorViewE1.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E1);
+                    E1übergabeWert = cursorViewE1.getString(E1Index);
+                    Log.d(LOG_TAG, "Für E1 wurde '" + cursorViewE1.getString(E1Index) + "' übernommen.");
 
                     textViewE1.setText(cursorViewE1.getString(E1Index));
                 } while (cursorViewE1.moveToNext());
@@ -74,14 +83,13 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         }
 
 
-
         //ListView ausgabe
         String[] columns = {DBMyHelper.COLUMNCostsHierarchy_E2};
 
         ListView itemList = (ListView) findViewById(R.id.listViewCostsHierarchyE1);
         int[] viewColumns = new int[]{R.id.itemCostsHierarchy};
 
-        Cursor cursorViewList = db.viewColumnsFromCostsHierarchyForListview(DBMyHelper.COLUMNCostsHierarchy_E2);
+        Cursor cursorViewList = db.viewColumnsFromCostsHierarchyE1ForListview(E1übergabeWert, DBMyHelper.COLUMNCostsHierarchy_E2);
 
         if (cursorViewList == null) {
             Toast.makeText(getApplicationContext(), "Fehler beim Auslesen der Datenbank.", Toast.LENGTH_LONG).show();
@@ -137,5 +145,107 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
         startActivity(i);
         finish();
+    }
+
+    public void deleteE1(View view){
+        showDialogDeleteE1();
+    }
+
+    public void showDialogDeleteE1(){
+        AlertDialog.Builder dialogPopUp = new AlertDialog.Builder(CostsHierarchyE1.this);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialog_delete_popup = inflater.inflate(R.layout.dialog_delete_popup, null);
+
+        dialogPopUp.setView(dialog_delete_popup);
+        dialogPopUp.show();
+    }
+
+    public void dialogCancelButton(View view){
+        //Weiterleitung
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
+        startActivity(i);
+        finish();
+    }
+
+    public void dialogDeleteButton(View view){
+/*
+        boolean success = db.deleteOneEntryInTable(DBMyHelper.TABLEAssets_NAME, sharePreferencesId);
+        if(success){
+            Log.d(LOG_TAG, "Datensatz mit der ID: " + sharePreferencesId + " gelöscht.");
+            Toast.makeText(this, "Datensatz gelöscht", Toast.LENGTH_SHORT).show();
+        } else {
+            Log.d(LOG_TAG, "Fehler beim löschen des Datensatz mit der ID: " + sharePreferencesId + ".");
+            Toast.makeText(this, "Fehler beim löschen", Toast.LENGTH_SHORT).show();
+        }
+
+        //Weiterleitung
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
+        startActivity(i);
+        finish();
+ */
+    }
+
+    public void addNewE2(View view) {showDialogAddNewHierarchy();}
+
+    public void showDialogAddNewHierarchy(){
+        AlertDialog.Builder dialogPopUP = new AlertDialog.Builder(CostsHierarchyE1.this);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        dialog_addnewentry_pupup = inflater.inflate(R.layout.dialog_addnewentry_popup, null);
+
+        dialogPopUP.setView(dialog_addnewentry_pupup);
+        dialogPopUP.show();
+    }
+
+    public void dialogSaveButton(View view) {
+
+        try {
+            //Muss den Wert (findViewById()) über den View des PopUp-Layouts übernehmen
+            //Bei direktem Aufruf = NULL
+            EditText editTextEntryE2 = (EditText) dialog_addnewentry_pupup.findViewById(R.id.editTextCostsHierarchyAddEntryDialog);
+
+            Log.d(LOG_TAG, editTextEntryE2.getText().toString() + " -> wurde für E2 eingegeben.");
+
+            if (editTextEntryE2 != null) {
+                if (isEditTextEmpty(editTextEntryE2)) {
+                    Toast.makeText(this, "Geben Sie einen Wert ein.", Toast.LENGTH_SHORT).show();
+                    Log.d(LOG_TAG, dbInfo.getMassage());
+
+                } else {
+
+                    dbInfo = db.CostsHierarchyInDB(
+                            E1übergabeWert,
+                            editTextEntryE2.getText().toString()
+                            , null);
+
+                    Toast.makeText(this, dbInfo.getMassage(), Toast.LENGTH_SHORT).show();
+                    Log.d(LOG_TAG, "Rückmeldung DB: " + dbInfo.getMassage());
+
+                    if (dbInfo.isSuccess()) {
+                        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
+                        startActivity(i);
+                        //finish();
+                    }
+                }
+            } else {
+                Log.d(LOG_TAG, "Es wurde ein NULL-Wert als Eingabe übergeben.");
+                Toast.makeText(this, "Geben Sie einen Wert ein.", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void dialogChancelButton(View view){
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
+        startActivity(i);
+    }
+
+    private boolean isEditTextEmpty(EditText editText){
+        if(editText.getText().toString().trim().length() > 0){
+            return false;
+        } else {return true;}
     }
 }

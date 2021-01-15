@@ -278,32 +278,38 @@ public class DBDataAccess {
         DBInformationObject dbInfo = new DBInformationObject();
         ContentValues value = new ContentValues();
 
+        String emptyString = "empty";
+        String messageSuccessful = "Eingabe gespeichert";
+        String messageEntryAlreadyExists = "Eintrag bereits vorhanden.";
+        String messageDBError = "Datenbankfehler.";
+
         //TESTDATEN -> TEMPORÄR
-        /*
+
         value.put(DBMyHelper.COLUMNCostsHierarchy_E1, "Haus");
-        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
+        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "Möbel");
         value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
         database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
         value.put(DBMyHelper.COLUMNCostsHierarchy_E1, "Auto");
-        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
+        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "Tanken");
         value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
         database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
         value.put(DBMyHelper.COLUMNCostsHierarchy_E1, "Auto");
-        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
+        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "Reparatur");
         value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
         database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
         value.put(DBMyHelper.COLUMNCostsHierarchy_E1, "Auto");
-        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
+        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "Steuern");
         value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
         database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
         value.put(DBMyHelper.COLUMNCostsHierarchy_E1, "Haus");
-        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
+        value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "Strom");
         value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
         database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
-         */
+
 
 
         if(varE1 != null && varE2 == null && varE3 == null) { //wenn nur E1 übergeben wird
+
 
             try {
                 //Abfrage ob der Eintrag shon exitiert
@@ -320,19 +326,19 @@ public class DBDataAccess {
                 if (cursor.moveToFirst()) { //Wenn True -> da Eintrag schon vorhanden
                     Log.d(LOG_TAG, varE1 + " -> ist bereits in der DB vorhanden.");
                     dbInfo.setSuccess(false);
-                    dbInfo.setMassage("Eingabe Bereits vorhanden.");
+                    dbInfo.setMassage(messageEntryAlreadyExists);
                     return dbInfo;
                 } else {
                     Log.d(LOG_TAG, varE1 + " -> wird in die DB überommen.");
 
                     value.put(DBMyHelper.COLUMNCostsHierarchy_E1, varE1);
-                    value.put(DBMyHelper.COLUMNCostsHierarchy_E2, "empty");
-                    value.put(DBMyHelper.COLUMNCostsHierarchy_E3, "empty");
+                    value.put(DBMyHelper.COLUMNCostsHierarchy_E2, emptyString);
+                    value.put(DBMyHelper.COLUMNCostsHierarchy_E3, emptyString);
                     database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, value);
                     Log.d(LOG_TAG, "Eintrag: " + varE1 + " wird in die Tabelle " + dbHelper.TABLECostsHierarchy_Name + " eingetragen.");
 
                     dbInfo.setSuccess(true);
-                    dbInfo.setMassage("Eingabe gespeichert.");
+                    dbInfo.setMassage(messageSuccessful);
                     return dbInfo;
                 }
 
@@ -340,24 +346,85 @@ public class DBDataAccess {
                 e.printStackTrace();
                 Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage.");
                 dbInfo.setSuccess(false);
-                dbInfo.setMassage("Datenbankfehler.");
+                dbInfo.setMassage(messageDBError);
                 return dbInfo;
             }
+
 
         } else if(varE1 != null && varE2 != null && varE3 == null){ //wenn E1 und E2 übergeben wird
 
             try{
+                //Abfrage ob die Kombination aus E! und E2 schon existiert
                 Log.d(LOG_TAG, "SELECT *"+
                         " FROM " + dbHelper.TABLECostsHierarchy_Name +
-                        " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "';");
+                        " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "'" +
+                        " AND " + DBMyHelper.COLUMNCostsHierarchy_E2 + " = '" + varE2 + "'" +
+                        ";");
 
-                Cursor cursor = database.rawQuery(
+                Cursor cursor1 = database.rawQuery(
                         "SELECT *"+
                                 " FROM " + dbHelper.TABLECostsHierarchy_Name +
                                 " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "'" +
-                                " AND " +
-                                DBMyHelper.COLUMNCostsHierarchy_E2 + " = '" + varE2 + "'" +
+                                " AND " + DBMyHelper.COLUMNCostsHierarchy_E2 + " = '" + varE2 + "'" +
                                 ";", null);
+
+                if(cursor1.moveToFirst()) {
+                    Log.d(LOG_TAG, "Der Eintrag E1 = " + varE1 + "und E2 = " + varE2 + " sind bereits in der DB vorhanden.");
+                    dbInfo.setSuccess(false);
+                    dbInfo.setMassage(messageEntryAlreadyExists);
+                    return dbInfo;
+                }
+
+                //Abfrage ob ein E1 angelegt ist bei dem E2 den aktuellen Wert "empty" hat
+                Log.d(LOG_TAG, "SELECT *"+
+                        " FROM " + dbHelper.TABLECostsHierarchy_Name +
+                        " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "'" +
+                        " AND " + DBMyHelper.COLUMNCostsHierarchy_E2 + " = '" + emptyString + "'" +
+                        ";");
+
+                Cursor cursor2 = database.rawQuery(
+                        "SELECT *"+
+                                " FROM " + dbHelper.TABLECostsHierarchy_Name +
+                                " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "'" +
+                                " AND " + DBMyHelper.COLUMNCostsHierarchy_E2 + " = '" + emptyString+ "'" +
+                                ";", null);
+
+                //Wenn das E1 mit einem E2 vom Wert "empty" enthalten ist ...
+                if(cursor2.moveToFirst()){ //Wenn True -> E1 = vorhanden mit E2 = "empty" (String)
+                    int IDIntex = cursor2.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_ID); //Gibt den Index der Spalte "ID" des Datensatzes aus
+                    int id = cursor2.getInt(IDIntex); //Übernimmt den Eintrag von ID aus dem Datensatz
+
+                    ContentValues values = new ContentValues();
+                    values.put(DBMyHelper.COLUMNCostsHierarchy_E2, varE2);
+
+                    database.update(
+                            DBMyHelper.TABLECostsHierarchy_Name,
+                            values,
+                            DBMyHelper.COLUMNCostsHierarchy_ID + "=" + id, //Update des entsprechenden Datensatzes
+                            null);
+
+                    Log.d(LOG_TAG, "Für E1 (" + varE1 + ") wurde in E2 'empty' durch " + varE2 + " ersetzt.");
+                    dbInfo.setSuccess(true);
+                    dbInfo.setMassage(messageSuccessful);
+                    return dbInfo;
+
+                } else { //Wenn es kein E1 mit dazugehörigen E2 als "empty" gibt, dann lege einen neuen Datensatz mit E1 und E2 an.
+
+                    ContentValues values = new ContentValues();
+                    values.put(DBMyHelper.COLUMNCostsHierarchy_E1, varE1);
+                    values.put(DBMyHelper.COLUMNCostsHierarchy_E2, varE2);
+                    values.put(DBMyHelper.COLUMNCostsHierarchy_E3, emptyString);
+
+                    database.insert(DBMyHelper.TABLECostsHierarchy_Name, null, values);
+
+
+                    Log.d(LOG_TAG, varE1 + " -> ist bereits in der DB vorhanden.");
+                    dbInfo.setSuccess(true);
+                    dbInfo.setMassage(messageSuccessful);
+                    return dbInfo;
+                }
+
+
 
 
             } catch (Exception e){
@@ -380,14 +447,15 @@ public class DBDataAccess {
         return dbInfo;
     }
 
-    public Cursor viewColumnsFromCostsHierarchyForListview(String column){
+    public Cursor viewColumnsFromCostsHierarchyOverviewForListview(String column){
         //führ alle doppelten Datenbankeitäge zusammen
             //-> gibt für die übergebene Spalte keine Doppelten Werte aus
         try{
             Cursor cursor = database.query(
                     DBMyHelper.TABLECostsHierarchy_Name,
                     null,
-                    null,null,
+                    null,
+                    null,
                     column,
                     null, null);
 
@@ -398,7 +466,25 @@ public class DBDataAccess {
         }
         return null;
     }
+    public Cursor viewColumnsFromCostsHierarchyE1ForListview(String varE1, String column){
+        //führ alle doppelten Datenbankeitäge zusammen
+        //-> gibt für die übergebene Spalte keine Doppelten Werte aus
+        try{
+            Cursor cursor = database.query(
+                    DBMyHelper.TABLECostsHierarchy_Name,
+                    null,
+                    DBMyHelper.COLUMNCostsHierarchy_E1 + "= '" + varE1 + "'",
+                    null,
+                    column,
+                    null, null);
 
+            return cursor;
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public Cursor viewAllInTable(String tablename) {
         try {
@@ -441,5 +527,3 @@ public class DBDataAccess {
     }
 
 }
-
-

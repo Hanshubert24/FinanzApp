@@ -61,7 +61,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
         ListView itemList = (ListView) findViewById(R.id.listViewCostsHierarchyOverview);
         int[] viewColumns = new int[]{R.id.itemCostsHierarchy};
 
-        Cursor cursor = db.viewColumnsFromCostsHierarchyForListview(DBMyHelper.COLUMNCostsHierarchy_E1);
+        Cursor cursor = db.viewColumnsFromCostsHierarchyOverviewForListview(DBMyHelper.COLUMNCostsHierarchy_E1);
 
         if (cursor == null) {
             Toast.makeText(getApplicationContext(), "Fehler beim Auslesen der Datenbank.", Toast.LENGTH_LONG).show();
@@ -129,6 +129,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
         dialogPopUP.setView(dialog_addnewentry_pupup);
         dialogPopUP.show();
+        dialogPopUP.setCancelable(true);
     }
 
     public void dialogSaveButton(View view){
@@ -154,7 +155,9 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
                     if(dbInfo.isSuccess()) {
                         Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
+                        //finish();
                         startActivity(i);
+
                     }
                 }
             } else {
