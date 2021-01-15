@@ -32,11 +32,11 @@
     <string name="assets_back">Zurück</string>
     <string name="asset_item_layout_costs">Kosten:</string>
     <string name="asset_item_layout_euro">€</string>
-    <string name="asset_item_layout_income">Einkommen:</string>
+    <string name="asset_item_layout_income">Einkünfte:</string>
     <string name="assets_note">Notiz:</string>
     <string name="assets_image_path">Bildpfad:</string>
-    <string name="assets_monthly_income">Mtl.Eink.:</string>
-    <string name="assets_monthly_costs">Mtl.Kosten:</string>
+    <string name="assets_monthly_income">mtl.Eink.:</string>
+    <string name="assets_monthly_costs">mtl.Kosten:</string>
     <string name="assets_name">Name:</string>
     <string name="assets_category">Kategorie:</string>
     <string name="assets_delet_button">Löschen</string>
@@ -46,6 +46,9 @@
     <string name="assets_hint_Name">Wohnung Berliner Str.</string>
     <string name="assets_hint_note">Adresse,Mieter usw</string>
     <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
+    <string name="asset_item_layout_monthly">Monatlich</string>
+    <string name="assets_financialasset_name">Verkehrswert:</string>
+    <string name="assets_credit_name">Kredit:</string>
 
     <!-- Strings related to login -->
     <string name="PinChangeButton">PIN festlegen</string>
@@ -59,27 +62,21 @@
     <string name="TextPinEnter_Lable"> PIN Abfrage</string>
     <string name="PinChange_Lable"> PIN Festlegen</string>
     <string name="LoadingApp"> ...wird geladen...</string>
+
     <!-- Strings related to Financebook -->
     <string name="ButtonFinanzbookAdd"> + </string>
     <string name="AddButtonText">+</string>
     <string name="fb_button_discription">"Chartanalyse "</string>
     <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
 
-    <string name="asset_item_layout_monthly">Monatlich</string>
-    <!-- Strings related to Wealth -->
-
-    <!-- Unused at the moment -->
-    <string name="welcome">"Welcome !"</string>
-    <string name="content_addBuy">Ausgabe</string>
-    <string name="assets_financialasset_name">Verkehrwert:</string>
-    <string name="assets_credit_name">Kredit:</string>
-    <string name="costshierarchy_deleteE1_button">Hauptkategorie löschen</string>
-    <string name="costshierarchy_addE2_button">Unterkategorie anlegen</string>
+    <!-- Strings related to Contracts -->
     <string name="contracts_type">Vertragstyp</string>
     <string name="contracts_name">Vertragspartner</string>
     <string name="contracts_monthly_costs">Monatliche Kosten</string>
     <string name="contracts_note">Anmerkung</string>
     <string name="contracts_details_headline">Vertrag Details</string>
+
+    <!-- Strings related to Income -->
     <string name="income_item_layout_netto">Netto:</string>
     <string name="income_item_layout_brutto">Brutto:</string>
     <string name="income_category">Kategorie</string>
@@ -87,6 +84,21 @@
     <string name="income_brutto">Brutto Mtl.</string>
     <string name="income_netto">Netto Mtl.</string>
     <string name="income_note">Anmerkung</string>
+
+    <!-- Strings related to Wealth -->
+
+    <!-- Unused at the moment -->
+    <string name="welcome">"Welcome !"</string>
+    <string name="content_addBuy">Ausgabe</string>
+
+    <string name="costshierarchy_deleteE1_button">Hauptkategorie löschen</string>
+    <string name="costshierarchy_addE2_button">Unterkategorie anlegen</string>
+
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+
+    <string name="title_activity_assets_charts">AssetsCharts</string>
+    <string name="assets_hint_number_plus_euro">Neuer Wert in €</string>
 
 
 </resources>

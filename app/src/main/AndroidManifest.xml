@@ -10,7 +10,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
-        <activity android:name=".ui.Income.IncomeDetailsChange"></activity>
+        <activity android:name=".ui.Income.IncomeDetailsChange" />
         <activity android:name=".ui.Income.IncomeDetails" />
         <activity android:name=".ui.Income.IncomeAddNew" />
         <activity android:name=".ui.Income.IncomeOverview" />

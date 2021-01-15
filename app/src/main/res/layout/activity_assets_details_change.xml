@@ -26,12 +26,14 @@
 
             <TextView
                 android:id="@+id/textViewAssetsChangeCategoryName"
-                android:layout_width="95dp"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_orange"
                 android:text="@string/assets_category"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -40,9 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/general_textview_placeholder"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
@@ -53,18 +60,21 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
+                android:hint="@string/assets_hint_category"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                tools:ignore="LabelFor"/>
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textViewAssetsChangeNameName"
-                android:layout_width="95dp"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_orange"
                 android:text="@string/assets_name"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -73,9 +83,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/general_textview_placeholder"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
@@ -86,18 +101,21 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:hint="@string/assets_hint_Name"
                 android:importantForAutofill="no"
-                tools:ignore="LabelFor"/>
+                android:inputType="textPersonName"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textViewAssetsChangeFinancialAssetName"
-                android:layout_width="95dp"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_orange"
                 android:text="@string/assets_financialasset_name"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -106,9 +124,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/general_textview_placeholder" />
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:text="@string/general_textview_placeholder"
+                android:textColor="@color/white"
+                android:paddingEnd="10dp" />
 
             <EditText
                 android:id="@+id/editTextAssetsChangeFinancialAsset"
@@ -117,18 +140,21 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
+                android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"
+                android:inputType="number|numberDecimal"
                 tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textViewAssetsChangeCreditName"
-                android:layout_width="95dp"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_orange"
                 android:text="@string/assets_credit_name"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -137,9 +163,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/general_textview_placeholder" />
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/general_textview_placeholder"
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/editTextAssetsChangeCredit"
@@ -149,18 +180,21 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
+                android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"
+                android:inputType="number|numberDecimal"
                 tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView46"
-                android:layout_width="95dp"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_orange"
                 android:text="@string/assets_monthly_costs"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -169,9 +203,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/general_textview_placeholder"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
@@ -182,18 +221,21 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
-                tools:ignore="LabelFor"/>
+                android:inputType="number|numberDecimal"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView47"
-                android:layout_width="95dp"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_orange"
                 android:text="@string/assets_monthly_income"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -202,9 +244,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/general_textview_placeholder"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
@@ -215,18 +262,21 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
+                android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"
+                android:inputType="number|numberDecimal"
                 tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView48"
-                android:layout_width="95dp"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_orange"
                 android:text="@string/assets_note"
-                android:textAlignment="textEnd"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -235,15 +285,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/general_textview_placeholder"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editTextAssetsChangeNote"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="154dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -251,7 +306,7 @@
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:scrollbarStyle="outsideInset"
-                tools:ignore="LabelFor"/>
+                tools:ignore="LabelFor" />
 
         </LinearLayout>
     </ScrollView>
@@ -272,14 +327,14 @@
 
     <Button
         android:id="@+id/buttonBack"
-        android:layout_width="83dp"
-        android:layout_height="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:onClick="NavBack"
 
         android:text="@string/assets_back"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

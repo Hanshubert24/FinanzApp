@@ -7,57 +7,247 @@
     android:textAlignment="textEnd"
     tools:context="ui.Assets.AssetsDetails">
 
-    <TextView
-        android:id="@+id/textViewAssetsDetailsCredit"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="18dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:textSize="16sp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDeleteContractDetails2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsImagePathName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsDetailsFinancialAsset" />
-
-    <TextView
-        android:id="@+id/textViewAssetsImagePathName3"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="18dp"
-        android:text="@string/assets_credit_name"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsImagePathName2" />
+        app:layout_constraintTop_toBottomOf="@+id/assets_overwiev_image_diamont2">
 
-    <TextView
-        android:id="@+id/textViewAssetsDetailsFinancialAsset"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsImagePathName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsDetailsMonthlyEarnings" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewAssetsImagePathName2"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/assets_financialasset_name"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsMonthlyEarningsName" />
+            <TextView
+                android:id="@+id/textViewAssetsCategoryName"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/assets_category"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsCategory"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsNameName"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/assets_name"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsName"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsImagePathName2"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:text="@string/assets_financialasset_name"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsFinancialAsset"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsImagePathName3"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/assets_credit_name"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsCredit"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsMonthlyCostsName"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/assets_monthly_costs"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsMonthlyCosts"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:paddingEnd="10dp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsMonthlyEarningsName"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/assets_monthly_income"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsMonthlyEarnings"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsNoteName"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/assets_note"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsNote"
+                android:layout_width="match_parent"
+                android:layout_height="154dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:lines="5"
+                android:maxLines="10"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsImagePathName"
+                android:layout_width="115dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/assets_image_path"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsDetailsImagePath"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/assets_overwiev_image_diamont2"
@@ -65,168 +255,12 @@
         android:layout_height="58dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:contentDescription="@string/general_discription_image_Diamont"
         android:src="@drawable/diamant"
-        app:layout_constraintBottom_toTopOf="@+id/textViewAssetsDetailsCategory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/buttonBackContractsDetails3"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewAssetsDetailsCategory"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsCategoryName"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsDetails3" />
-
-    <TextView
-        android:id="@+id/textViewAssetsMonthlyCostsName"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/assets_monthly_costs"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsNameName" />
-
-    <TextView
-        android:id="@+id/textViewAssetsDetailsImagePath"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsImagePathName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsDetailsCredit" />
-
-    <TextView
-        android:id="@+id/textViewAssetsImagePathName"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/assets_image_path"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsImagePathName3" />
-
-    <TextView
-        android:id="@+id/textViewAssetsDetailsName"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsNameName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsDetailsCategory" />
-
-    <TextView
-        android:id="@+id/textViewAssetsDetailsMonthlyCosts"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsMonthlyCostsName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsDetailsName" />
-
-    <TextView
-        android:id="@+id/textViewAssetsDetailsMonthlyEarnings"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsMonthlyEarningsName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsDetailsMonthlyCosts" />
-
-    <TextView
-        android:id="@+id/textViewAssetsDetailsNote"
-        android:layout_width="282dp"
-        android:layout_height="154dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:lines="5"
-        android:maxLines="10"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewAssetsNoteName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsDetailsImagePath" />
-
-    <TextView
-        android:id="@+id/textViewAssetsNoteName"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/assets_note"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsImagePathName" />
-
-    <TextView
-        android:id="@+id/textViewAssetsMonthlyEarningsName"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/assets_monthly_income"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsMonthlyCostsName" />
-
-    <TextView
-        android:id="@+id/textViewAssetsCategoryName"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/assets_category"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsDetails3" />
-
-    <TextView
-        android:id="@+id/textViewAssetsNameName"
-        android:layout_width="95dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/assets_name"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsCategoryName" />
 
     <Button
         android:id="@+id/buttonBackContractsDetails3"
@@ -236,7 +270,7 @@
         android:layout_marginTop="8dp"
         android:onClick="NavBack"
         android:text="@string/assets_back"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -267,4 +301,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
