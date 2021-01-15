@@ -24,7 +24,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     private static final String LOG_TAG = CostsHierarchyE1.class.getSimpleName();
 
     DBDataAccess db;
-    int sharePreferencesId;
+    int sharePreferencesIdE1;
 
     TextView textViewE1;
 
@@ -48,12 +48,12 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
         //Shared Prefs Datei öffnen und Daten auslesen
         SharedPreferences sharedPreferences = getSharedPreferences("SpTransferData", 0);
-        sharePreferencesId = (int) sharedPreferences.getLong("CostsHierarchyE1_ActivityPassingInfo", 0);
+        sharePreferencesIdE1 = (int) sharedPreferences.getLong("CostsHierarchyE1_ActivityPassingInfo", 0);
 
-        Log.d(LOG_TAG, "Die ID: " + sharePreferencesId + " wurde aus dem Shared Preferences ausgelesen.");
+        Log.d(LOG_TAG, "Die ID: " + sharePreferencesIdE1 + " wurde aus dem Shared Preferences ausgelesen.");
 
         //Auslesen des Eintrags aus der Datenbank
-        Cursor cursorViewE1 = db.viewOneEntryInTable(DBMyHelper.TABLECostsHierarchy_Name, sharePreferencesId);
+        Cursor cursorViewE1 = db.viewOneEntryInTable(DBMyHelper.TABLECostsHierarchy_Name, sharePreferencesIdE1);
 
         if(cursorViewE1 == null){
             Toast.makeText(this, "Fehler beim Laden", Toast.LENGTH_SHORT).show();
@@ -81,7 +81,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         ListView itemList = (ListView) findViewById(R.id.listViewCostsHierarchyE1);
         int[] viewColumns = new int[]{R.id.itemCostsHierarchy};
 
-        Cursor cursorViewList = db.viewAllInTable(DBMyHelper.TABLECostsHierarchy_Name);
+        Cursor cursorViewList = db.viewColumnsFromCostsHierarchyForListview(DBMyHelper.COLUMNCostsHierarchy_E2);
 
         if (cursorViewList == null) {
             Toast.makeText(getApplicationContext(), "Fehler beim Auslesen der Datenbank.", Toast.LENGTH_LONG).show();

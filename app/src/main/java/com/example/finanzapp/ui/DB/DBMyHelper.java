@@ -9,6 +9,9 @@ import androidx.annotation.Nullable;
 
 public class DBMyHelper extends SQLiteOpenHelper {
 
+    //https://docs.microsoft.com/de-de/dotnet/standard/data/sqlite/types#:~:text=Ein%20h%C3%A4ufig%20auftretendes%20Problem%20besteht%20darin%2C%20dass%20bei,SQLite-Typnamen%20zu%20verwenden%3A%20INTEGER%2C%20REAL%2C%20TEXT%20und%20BLOB.
+    //https://www.sqlite.org/datatype3.html
+
     public static final String DB_NAME = "FinanzApp.db";
     public static final int DB_VERSION = 7;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();

@@ -61,7 +61,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
         ListView itemList = (ListView) findViewById(R.id.listViewCostsHierarchyOverview);
         int[] viewColumns = new int[]{R.id.itemCostsHierarchy};
 
-        Cursor cursor = db.viewAllInTable(DBMyHelper.TABLECostsHierarchy_Name);
+        Cursor cursor = db.viewColumnsFromCostsHierarchyForListview(DBMyHelper.COLUMNCostsHierarchy_E1);
 
         if (cursor == null) {
             Toast.makeText(getApplicationContext(), "Fehler beim Auslesen der Datenbank.", Toast.LENGTH_LONG).show();
