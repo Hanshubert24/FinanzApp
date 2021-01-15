@@ -46,6 +46,10 @@
     <string name="assets_hint_Name">Wohnung Berliner Str.</string>
     <string name="assets_hint_note">Adresse,Mieter usw</string>
     <string name="assets_hint_category">Immobilie, Kunst, Schmuck etc</string>
+    <string name="assets_finalcialasset_name">Verkehrswert:</string>
+    <string name="assets_credit_name">Kredit:</string>
+    <string name="asset_item_layout_monthly">Monatlich</string>
+
 
     <!-- Strings related to login -->
     <string name="PinChangeButton">PIN festlegen</string>
@@ -59,22 +63,25 @@
     <string name="TextPinEnter_Lable"> PIN Abfrage</string>
     <string name="PinChange_Lable"> PIN Festlegen</string>
     <string name="LoadingApp"> ...wird geladen...</string>
+
     <!-- Strings related to Financebook -->
     <string name="ButtonFinanzbookAdd"> + </string>
     <string name="AddButtonText">+</string>
     <string name="fb_button_discription">"Chartanalyse "</string>
     <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
 
-    <string name="asset_item_layout_monthly">Monatlich</string>
-    <!-- Strings related to Wealth -->
+    <!-- Strings related to costhierachy in FB -->
+    <string name="costshierarchy_deleteE1_button">Hauptkategorie löschen</string>
+    <string name="costshierarchy_addE2_button">Unterkategorie anlegen</string>
+
+
+
 
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
-    <string name="assets_finalcialasset_name">Verkehrwert</string>
-    <string name="assets_credit_name">Kredit</string>
-    <string name="costshierarchy_deleteE1_button">Hauptkategorie löschen</string>
-    <string name="costshierarchy_addE2_button">Unterkategorie anlegen</string>
+
+
 
 
 </resources>

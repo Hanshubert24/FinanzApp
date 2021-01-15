@@ -6,111 +6,148 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/assets_item_financialasset"
+        android:layout_width="90dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/assets_finalcialasset_name"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toStartOf="@+id/itemAssetsFinancialAsset"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemAssetsFinancialAsset"
+        android:layout_width="120dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/general_textview_placeholder"
+        android:textAlignment="textEnd"
+        android:textColor="@color/money_positiv_green"
+        app:layout_constraintEnd_toStartOf="@+id/textViewEuro2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewEuro2"
+        android:layout_width="8dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/asset_item_layout_euro"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/assets_credit_name"
+        android:layout_width="90dp"
+        android:layout_height="21dp"
+        android:text="@string/assets_credit_name"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toStartOf="@+id/itemAssetsCredit"
+        app:layout_constraintTop_toBottomOf="@+id/assets_item_financialasset" />
+
+    <TextView
+        android:id="@+id/textViewEuro"
+        android:layout_width="8dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/asset_item_layout_euro"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEuro2" />
+
+    <TextView
+        android:id="@+id/itemAssetsCredit"
+        android:layout_width="120dp"
+        android:layout_height="21dp"
+        android:text="@string/general_textview_placeholder"
+        android:textAlignment="textEnd"
+        android:textColor="@color/money_negatic_red"
+        app:layout_constraintEnd_toStartOf="@+id/textViewEuro"
+        app:layout_constraintTop_toBottomOf="@+id/itemAssetsFinancialAsset" />
+
+    <TextView
         android:id="@+id/itemAssetsCategory"
-        android:layout_width="300dp"
-        android:layout_height="28dp"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
         android:text="@string/general_textview_placeholder"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintEnd_toStartOf="@+id/assets_item_financialasset"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/itemAssetsName"
-        android:layout_width="300dp"
-        android:layout_height="27dp"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
         android:text="@string/general_textview_placeholder"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintEnd_toStartOf="@+id/textviewincome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemAssetsCategory"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/TextViewEuro"
-        android:layout_width="8dp"
-        android:layout_height="21dp"
-        android:text="@string/asset_item_layout_euro"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/itemAssetsMonthlyCosts"
-        app:layout_constraintTop_toBottomOf="@+id/itemAssetsName"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/TextViewEuro2"
         android:layout_width="8dp"
         android:layout_height="21dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/asset_item_layout_euro"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/itemAssetsMonthlyEarnings"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewEuro"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/TextViewEuro" />
 
     <TextView
         android:id="@+id/textviewincome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="90dp"
+        android:layout_height="21dp"
         android:text="@string/asset_item_layout_income"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewMonthly"
-        app:layout_constraintTop_toBottomOf="@+id/textviewcosts"
-        app:layout_constraintVertical_bias="0.008" />
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toStartOf="@+id/itemAssetsMonthlyEarnings"
+        app:layout_constraintTop_toBottomOf="@+id/textviewcosts" />
+
+    <TextView
+        android:id="@+id/textviewcosts"
+        android:layout_width="90dp"
+        android:layout_height="21dp"
+        android:text="@string/asset_item_layout_costs"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toStartOf="@+id/itemAssetsMonthlyCosts"
+        app:layout_constraintTop_toBottomOf="@+id/assets_credit_name" />
 
     <TextView
         android:id="@+id/itemAssetsMonthlyCosts"
         android:layout_width="120dp"
         android:layout_height="21dp"
-        android:layout_marginStart="4dp"
         android:text="@string/general_textview_placeholder"
         android:textAlignment="textEnd"
         android:textColor="@color/money_negatic_red"
-        app:layout_constraintStart_toEndOf="@+id/textviewcosts"
-        app:layout_constraintTop_toBottomOf="@+id/itemAssetsName" />
+        app:layout_constraintEnd_toStartOf="@+id/TextViewEuro"
+        app:layout_constraintTop_toBottomOf="@+id/itemAssetsCredit" />
 
     <TextView
-        android:id="@+id/textviewcosts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:text="@string/asset_item_layout_costs"
-        app:layout_constraintStart_toEndOf="@+id/textViewMonthly"
-        app:layout_constraintTop_toBottomOf="@+id/itemAssetsName" />
+        android:id="@+id/TextViewEuro"
+        android:layout_width="8dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/asset_item_layout_euro"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEuro" />
 
     <TextView
         android:id="@+id/itemAssetsMonthlyEarnings"
         android:layout_width="120dp"
         android:layout_height="21dp"
-        android:layout_marginStart="4dp"
         android:text="@string/general_textview_placeholder"
         android:textAlignment="textEnd"
         android:textColor="@color/money_positiv_green"
-        app:layout_constraintStart_toEndOf="@+id/textviewincome"
+        app:layout_constraintEnd_toStartOf="@+id/TextViewEuro2"
         app:layout_constraintTop_toBottomOf="@+id/itemAssetsMonthlyCosts" />
-
-    <TextView
-        android:id="@+id/textViewMonthly"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/asset_item_layout_monthly"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/itemAssetsName"
-        app:layout_constraintTop_toBottomOf="@+id/itemAssetsName"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

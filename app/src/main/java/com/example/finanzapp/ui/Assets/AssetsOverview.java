@@ -45,15 +45,21 @@ public class AssetsOverview extends AppCompatActivity {
         String[] columns = {
                 DBMyHelper.COLUMNAssets_Category,
                 DBMyHelper.COLUMNAssets_Name,
+                DBMyHelper.COLUMNAssets_FinancialAsset,
+                DBMyHelper.COLUMNAssets_Credit,
                 DBMyHelper.COLUMNAssets_MonthlyCosts,
-                DBMyHelper.COLUMNAssets_MonthlyEarnings};
+                DBMyHelper.COLUMNAssets_MonthlyEarnings
+                };
 
         ListView itemList = (ListView) findViewById(R.id.listViewAssetsOverview);
         int[] viewColumns = new int[]{
                 R.id.itemAssetsCategory,
                 R.id.itemAssetsName,
                 R.id.itemAssetsMonthlyCosts,
-                R.id.itemAssetsMonthlyEarnings};
+                R.id.itemAssetsMonthlyEarnings,
+                R.id.itemAssetsCredit,
+                R.id.itemAssetsFinancialAsset
+        };
 
         Cursor cursor = db.viewAllInTable(DBMyHelper.TABLEAssets_NAME);
 
