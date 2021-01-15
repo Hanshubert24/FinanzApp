@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="32dp"
-        android:text="@string/assets_finalcialasset_name"
+        android:text="@string/assets_financialasset_name"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         android:textSize="16sp"
