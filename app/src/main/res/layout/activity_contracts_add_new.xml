@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Contracts.ContractsAddNew">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/contracts_type"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextContractType"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsAddNew" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="93dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/contracts_monthly_costs"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextContractMonthlyCosts"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="23dp"
+        android:text="@string/contracts_note"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextContractNote"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/editTextContractNote"
+        android:layout_width="280dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textLongMessage|textPersonName|textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextContractMonthlyCosts" />
+
+    <EditText
+        android:id="@+id/editTextContractType"
+        android:layout_width="280dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="125dp"
+        android:ems="10"
+        android:inputType="textPersonName|textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextContractMonthlyCosts"
+        android:layout_width="280dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextContractName" />
+
+    <EditText
+        android:id="@+id/editTextContractName"
+        android:layout_width="280dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:inputType="textPersonName|textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextContractType" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="6dp"
+        android:text="@string/contracts_name"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextContractName"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="SaveContract"
+        android:text="@string/assets_save"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonBackContractsAddNew"
+        android:layout_width="83dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:onClick="NavBack"
+        android:text="@string/assets_back"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

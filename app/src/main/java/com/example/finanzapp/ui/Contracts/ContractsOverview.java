@@ -1,4 +1,6 @@
-package com.example.finanzapp.ui.Assets;
+package com.example.finanzapp.ui.Contracts;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,24 +14,21 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 
+public class ContractsOverview extends AppCompatActivity {
 
-public class AssetsOverview extends AppCompatActivity {
-
-    private static final String LOG_TAG = AssetsOverview.class.getSimpleName();
+    private static final String LOG_TAG = ContractsOverview.class.getSimpleName();
 
     DBDataAccess db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assets_overview);
+        setContentView(R.layout.activity_contracts_overview);
 
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird aufgerufen.");
         db = new DBDataAccess(getApplicationContext());
@@ -42,26 +41,17 @@ public class AssetsOverview extends AppCompatActivity {
         Log.d(LOG_TAG, "Die Datenquelle wird geöffent,");
         db.open();
 
-        String[] columns = {
-                DBMyHelper.COLUMNAssets_Category,
-                DBMyHelper.COLUMNAssets_Name,
-                DBMyHelper.COLUMNAssets_FinancialAsset,
-                DBMyHelper.COLUMNAssets_Credit,
-                DBMyHelper.COLUMNAssets_MonthlyCosts,
-                DBMyHelper.COLUMNAssets_MonthlyEarnings
-                };
+        String[] columns = {DBMyHelper.COLUMNContracts_Type,
+                DBMyHelper.COLUMNContracts_Name,
+                DBMyHelper.COLUMNContracts_MonthlyCosts};
 
         ListView itemList = (ListView) findViewById(R.id.listViewIncomeOverview);
         int[] viewColumns = new int[]{
-                R.id.itemAssetsCategory,
-                R.id.itemAssetsName,
-                R.id.itemAssetsMonthlyCosts,
-                R.id.itemAssetsMonthlyEarnings,
-                R.id.itemAssetsCredit,
-                R.id.itemAssetsFinancialAsset
-        };
+                R.id.itemContractsType,
+                R.id.itemContractsName,
+                R.id.itemContractsMonthlyCosts};
 
-        Cursor cursor = db.viewAllInTable(DBMyHelper.TABLEAssets_NAME);
+        Cursor cursor = db.viewAllInTable(DBMyHelper.TABLEContracts_NAME);
 
         if (cursor == null) {
             Toast.makeText(getApplicationContext(), "Fehler beim Auslesen der Datenbank.", Toast.LENGTH_LONG).show();
@@ -69,8 +59,8 @@ public class AssetsOverview extends AppCompatActivity {
 
         try{
             SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                    AssetsOverview.this,
-                    R.layout.asset_item_layout,
+                    ContractsOverview.this,
+                    R.layout.contract_item_layout,
                     cursor,
                     columns,
                     viewColumns,
@@ -90,15 +80,15 @@ public class AssetsOverview extends AppCompatActivity {
                 Log.d(LOG_TAG, "onItemClick: Position -> " + position + ", id -> " + id);
 
 
-                //Speichert die "ID" die angeklickt wurde -> data/data/com.example.haushaltsbuch/shared_prefs
+                //Speichert die "ID" die angeklickt wurde
                 SharedPreferences sharedPreferences = getSharedPreferences("SpTransferData", 0); //Shared Prefs Datei öffnen
                 SharedPreferences.Editor editor = sharedPreferences.edit(); //Editorklasse initialisieren (um zu schreiben)
-                editor.putLong("AssetID_ActivityChangeInfo", id); //Inhalt übergeben (Key, Value)
+                editor.putLong("ContractID_ActivityChangeInfo", id); //Inhalt übergeben (Key, Value)
                 editor.commit(); //Speichern
                 Log.d(LOG_TAG, "ID: " + id + " wurde in Share Prefference SPContractsDetails gespeichert.");
 
                 //Weiterleitung
-                Intent i = new Intent(AssetsOverview.this, AssetsDetails.class);
+                Intent i = new Intent(ContractsOverview.this, ContractsDetails.class);
                 startActivity(i);
             }
         });
@@ -113,14 +103,13 @@ public class AssetsOverview extends AppCompatActivity {
     }
 
     public void NavBack(View view){
-        Intent i = new Intent(AssetsOverview.this, MainActivity.class);
+        Intent i = new Intent(ContractsOverview.this, MainActivity.class);
         startActivity(i);
         finish();
     }
 
-    public void NavAssetsAddNew(View view){
-        Intent i = new Intent(AssetsOverview.this, AssetsAddNew.class);
+    public void NavContractsAddNew(View view){
+        Intent i = new Intent(ContractsOverview.this, ContractsAddNew.class);
         startActivity(i);
-
     }
 }

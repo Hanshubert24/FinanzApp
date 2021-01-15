@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="€"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemIncomeNetto"
+        app:layout_constraintTop_toBottomOf="@+id/itemIncomeCategory" />
+
+    <TextView
+        android:id="@+id/itemIncomeNetto"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/itemIncomeCategory" />
+
+    <TextView
+        android:id="@+id/itemIncomeCategory"
+        android:layout_width="133dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="1dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="€"
+        app:layout_constraintStart_toEndOf="@+id/itemIncomeBrutto"
+        app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />
+
+    <TextView
+        android:id="@+id/itemIncomeBrutto"
+        android:layout_width="114dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="2dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:text="@string/income_item_layout_brutto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />
+
+    <TextView
+        android:id="@+id/itemIncomeCompany"
+        android:layout_width="272dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="6dp"
+        android:text="TextView"
+        android:textColor="#050505"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:text="@string/income_item_layout_netto"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />
+</androidx.constraintlayout.widget.ConstraintLayout>
