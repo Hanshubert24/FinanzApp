@@ -115,5 +115,6 @@ public class AssetsOverview extends AppCompatActivity {
     public void NavAssetsAddNew(View view){
         Intent i = new Intent(AssetsOverview.this, AssetsAddNew.class);
         startActivity(i);
+
     }
 }

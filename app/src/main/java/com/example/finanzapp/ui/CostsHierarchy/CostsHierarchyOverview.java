@@ -1,8 +1,5 @@
 package com.example.finanzapp.ui.CostsHierarchy;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -17,6 +14,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
@@ -168,6 +168,10 @@ public class CostsHierarchyOverview extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
+        Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
+        startActivity(i);
+    }
+    public void costhierachyOverviewButton(View view){
         Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
         startActivity(i);
     }

@@ -44,7 +44,7 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/fb_imagebutton_charts"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginEnd="34dp"
@@ -90,7 +90,7 @@
     <androidx.constraintlayout.helper.widget.Layer
         android:layout_width="413dp"
         android:layout_height="126dp"
-        app:constraint_referenced_ids="AddButtonFB,imageButton3,imageButton4"
+        app:constraint_referenced_ids="AddButtonFB,fb_imagebutton_charts,imageButton4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

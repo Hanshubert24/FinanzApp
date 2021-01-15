@@ -31,5 +31,9 @@ public class FinanceBookFragment extends Fragment {
             }
         });
         return root;
+
+
     }
+
+
 }
