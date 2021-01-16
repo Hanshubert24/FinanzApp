@@ -40,7 +40,7 @@
             <TextView
                 android:id="@+id/textViewAssetsChangeCategory"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -55,7 +55,7 @@
             <EditText
                 android:id="@+id/editTextAssetsChangeCategory"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -63,6 +63,7 @@
                 android:hint="@string/assets_hint_category"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                android:textSize="16sp"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -81,7 +82,7 @@
             <TextView
                 android:id="@+id/textViewAssetsChangeName"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -96,7 +97,7 @@
             <EditText
                 android:id="@+id/editTextAssetsChangeName"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -104,6 +105,7 @@
                 android:hint="@string/assets_hint_Name"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                android:textSize="16sp"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -122,27 +124,28 @@
             <TextView
                 android:id="@+id/textViewAssetsChangeFinancialAsset"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/button_gradient_blue"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/general_textview_placeholder"
-                android:textColor="@color/white"
-                android:paddingEnd="10dp" />
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/editTextAssetsChangeFinancialAsset"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
                 android:inputType="number|numberDecimal"
+                android:textSize="16sp"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -161,7 +164,7 @@
             <TextView
                 android:id="@+id/textViewAssetsChangeCredit"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -175,7 +178,7 @@
             <EditText
                 android:id="@+id/editTextAssetsChangeCredit"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="16dp"
@@ -183,7 +186,8 @@
                 android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
                 android:inputType="number|numberDecimal"
-                tools:ignore="LabelFor" />
+                tools:ignore="LabelFor"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textView46"
@@ -201,7 +205,7 @@
             <TextView
                 android:id="@+id/textViewAssetsChangeMonthlyCosts"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -216,7 +220,7 @@
             <EditText
                 android:id="@+id/editTextAssetsChangeMonthlyCosts"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -224,6 +228,7 @@
                 android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
                 android:inputType="number|numberDecimal"
+                android:textSize="16sp"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -242,7 +247,7 @@
             <TextView
                 android:id="@+id/textViewAssetsChangeMonthlyEarnings"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -257,7 +262,7 @@
             <EditText
                 android:id="@+id/editTextAssetsChangeMonthlyEarnings"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -265,6 +270,7 @@
                 android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
                 android:inputType="number|numberDecimal"
+                android:textSize="16sp"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -283,7 +289,7 @@
             <TextView
                 android:id="@+id/textViewAssetsChangeNote"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="154dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -298,7 +304,7 @@
             <EditText
                 android:id="@+id/editTextAssetsChangeNote"
                 android:layout_width="match_parent"
-                android:layout_height="154dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"

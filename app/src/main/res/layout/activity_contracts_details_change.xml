@@ -60,7 +60,7 @@
             <TextView
                 android:id="@+id/textViewContractChangeType"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -75,9 +75,9 @@
             <EditText
                 android:id="@+id/editTextContractsChangeType"
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:ems="10"
@@ -106,7 +106,7 @@
             <TextView
                 android:id="@+id/textViewContractChangeName"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -121,9 +121,9 @@
             <EditText
                 android:id="@+id/editTextContractsChangeName"
                 android:layout_width="match_parent"
-                android:layout_height="39dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:ems="10"
@@ -152,7 +152,7 @@
             <TextView
                 android:id="@+id/textViewContractChangeMonthlyCosts"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -168,9 +168,9 @@
             <EditText
                 android:id="@+id/editTextContractsChangeMonthlyCosts"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:ems="10"
@@ -199,7 +199,7 @@
             <TextView
                 android:id="@+id/textViewContractChangeNote"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="154dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -214,16 +214,16 @@
             <EditText
                 android:id="@+id/editTextContractsChangeNote"
                 android:layout_width="match_parent"
-                android:layout_height="154dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:ems="10"
                 android:hint="@string/contract_hint_note"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:textColorHint="@color/cardview_shadow_start_color"
-                android:importantForAutofill="no" />
+                android:textColorHint="@color/cardview_shadow_start_color" />
         </LinearLayout>
     </ScrollView>
 

@@ -43,7 +43,7 @@
             <EditText
                 android:id="@+id/editTextAssetsCategory"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -77,7 +77,7 @@
             <EditText
                 android:id="@+id/editTextAssetsName"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -111,7 +111,7 @@
             <EditText
                 android:id="@+id/editTextAssetsFinancialAsset"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -145,7 +145,7 @@
             <EditText
                 android:id="@+id/editTextAssetsCredit"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -179,7 +179,7 @@
             <EditText
                 android:id="@+id/editTextAssetsMonthlyCosts"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -213,7 +213,7 @@
             <EditText
                 android:id="@+id/editTextAssetsMonthlyEarnings"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"

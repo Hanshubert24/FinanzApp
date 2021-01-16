@@ -52,7 +52,7 @@
             <TextView
                 android:id="@+id/textViewContractDetailsType"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -80,7 +80,7 @@
             <TextView
                 android:id="@+id/textViewContractDetailsName"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -108,7 +108,7 @@
             <TextView
                 android:id="@+id/textViewContractDetailsMonthlyCosts"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
