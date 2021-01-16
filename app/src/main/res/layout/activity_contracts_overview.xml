@@ -6,23 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".ui.Contracts.ContractsOverview">
 
+    <ImageView
+        android:id="@+id/contracts_overwiev_image_contract"
+        android:layout_width="81dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/general_discription_image_Diamont"
+        android:src="@drawable/diamant"
+        app:layout_constraintBottom_toTopOf="@+id/listViewIncomeOverview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack2"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/buttonBack5"
-        android:layout_width="83dp"
-        android:layout_height="44dp"
+        android:id="@+id/buttonBackContracts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:onClick="NavBack"
+        android:layout_marginTop="4dp"
+        android:onClick="NavBackContractToHome"
 
         android:text="@string/assets_back"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/addButtonAssets2"
+        android:id="@+id/addButtonContracts"
         style="@android:style/Widget.Material.ImageButton"
         android:layout_width="66dp"
         android:layout_height="73dp"
@@ -40,6 +55,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
+    <ImageButton
+        android:id="@+id/contracts_imagebutton_charts"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="34dp"
+        android:background="@drawable/general_boarder_layout_button_selector"
+        android:clickable="true"
+        android:contentDescription="@string/fb_button_discription"
+        android:focusable="true"
+        android:longClickable="false"
+        android:paddingStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/analytics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/addButtonContracts"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ListView
         android:id="@+id/listViewIncomeOverview"
         android:layout_width="364dp"
@@ -48,9 +85,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/addButtonAssets2"
+        app:layout_constraintBottom_toTopOf="@+id/addButtonContracts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBack5" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackContracts">
+
+    </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>
