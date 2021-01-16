@@ -172,7 +172,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
     public void dialogDeleteButton(View view){
         //Löscht alle Einträge in E2 mit Bezug auf den übergeordneten Wert in E1
-        boolean success = db.deleteOneEntryInTable(DBMyHelper.TABLECostsHierarchy_Name, sharepreferencesIdE2);
+        boolean success = db.deleteMultipleEntriesInTable(DBMyHelper.TABLECostsHierarchy_Name, DBMyHelper.COLUMNCostsHierarchy_E2, E2value);
 
         if(success) {
             //prüfe wie viele Einträge der Wert von E1 hat (übergeordneter Wert)

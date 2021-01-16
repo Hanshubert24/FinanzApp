@@ -33,7 +33,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     View dialog_addnewentry_pupup;
 
     TextView textViewE1;
-    String E1übergabeWert;
+    String E1value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
             if (cursorViewE1.moveToFirst()) {
                 do {
                     int E1Index = cursorViewE1.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E1);
-                    E1übergabeWert = cursorViewE1.getString(E1Index);
+                    E1value = cursorViewE1.getString(E1Index);
                     Log.d(LOG_TAG, "Für E1 wurde '" + cursorViewE1.getString(E1Index) + "' übernommen.");
 
                     textViewE1.setText(cursorViewE1.getString(E1Index));
@@ -86,7 +86,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         ListView itemList = (ListView) findViewById(R.id.listViewCostsHierarchyE1);
         int[] viewColumns = new int[]{R.id.itemCostsHierarchy};
 
-        Cursor cursorViewList = db.viewColumnsFromCostsHierarchyE1ForListview(E1übergabeWert, DBMyHelper.COLUMNCostsHierarchy_E2);
+        Cursor cursorViewList = db.viewColumnsFromCostsHierarchyE1ForListview(E1value, DBMyHelper.COLUMNCostsHierarchy_E2);
 
         if (cursorViewList == null) {
             Toast.makeText(getApplicationContext(), "Fehler beim Auslesen der Datenbank.", Toast.LENGTH_LONG).show();
@@ -164,21 +164,17 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     }
 
     public void dialogDeleteButton(View view){
-/*
-        boolean success = db.deleteOneEntryInTable(DBMyHelper.TABLEAssets_NAME, sharePreferencesId);
-        if(success){
-            Log.d(LOG_TAG, "Datensatz mit der ID: " + sharePreferencesId + " gelöscht.");
-            Toast.makeText(this, "Datensatz gelöscht", Toast.LENGTH_SHORT).show();
+        //Löscht alle Einträge in E1 mit der übergebenen Bezeichnung
+        boolean success = db.deleteMultipleEntriesInTable(DBMyHelper.TABLECostsHierarchy_Name, DBMyHelper.COLUMNCostsHierarchy_E1, E1value);
+
+        if(success) {
+            Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
+            startActivity(i);
+            finish();
+
         } else {
-            Log.d(LOG_TAG, "Fehler beim löschen des Datensatz mit der ID: " + sharePreferencesId + ".");
-            Toast.makeText(this, "Fehler beim löschen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();
         }
-
-        //Weiterleitung
-        finish();
-
- */
-
     }
 
     public void addNewE2(View view) {showDialogAddNewHierarchy();}
@@ -208,7 +204,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
                 } else {
                     dbInfo = db.CostsHierarchyInDB(
-                            E1übergabeWert,
+                            E1value,
                             editTextEntryE2.getText().toString()
                             , null);
 
