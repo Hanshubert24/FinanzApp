@@ -46,7 +46,7 @@ public class IncomeOverview extends AppCompatActivity {
                 DBMyHelper.COLUMNIncome_Brutto,
                 DBMyHelper.COLUMNIncome_Netto};
 
-        ListView itemList = (ListView) findViewById(R.id.listViewIncomeOverview);
+        ListView itemList = (ListView) findViewById(R.id.listViewContractsOverview);
         int[] viewColumns = new int[]{
                 R.id.itemIncomeCompany,
                 R.id.itemIncomeCategory,

@@ -51,7 +51,7 @@ public class AssetsOverview extends AppCompatActivity {
                 DBMyHelper.COLUMNAssets_MonthlyEarnings
                 };
 
-        ListView itemList = (ListView) findViewById(R.id.listViewIncomeOverview);
+        ListView itemList = (ListView) findViewById(R.id.listViewContractsOverview);
         int[] viewColumns = new int[]{
                 R.id.itemAssetsCategory,
                 R.id.itemAssetsName,

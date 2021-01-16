@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listViewIncomeOverview"
+        android:id="@+id/listViewContractsOverview"
         android:layout_width="364dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -69,7 +69,7 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/general_discription_image_Diamont"
         android:src="@drawable/diamant"
-        app:layout_constraintBottom_toTopOf="@+id/listViewIncomeOverview"
+        app:layout_constraintBottom_toTopOf="@+id/listViewContractsOverview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/buttonBack2"
