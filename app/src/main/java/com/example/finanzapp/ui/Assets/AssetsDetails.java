@@ -95,7 +95,7 @@ public class AssetsDetails extends AppCompatActivity {
                             cursor.getString(imagePathindex) + " " +
                             cursor.getString(noteIndex));
 
-                    //Werte die als String ausgeben und ein "€" dranbasteln -> Funktion zur Darstellung bei DBService!
+                    //Format für die Ausgabe anpassencre
                     double monthlyCosts = cursor.getDouble(monthlyCostsIndex);
                     String monthlyCostsStringPrepare = DBService.doubleInStringToView(monthlyCosts);
 

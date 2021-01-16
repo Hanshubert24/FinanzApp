@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
+import com.example.finanzapp.ui.DB.DBService;
 
 public class ContractsDetails extends AppCompatActivity {
 
@@ -78,8 +79,7 @@ public class ContractsDetails extends AppCompatActivity {
 
                     //Monatliche Kosten rausnehmen, als String ausgeben und ein "€" dranbasteln
                     double monthlyCosts = cursor.getDouble(costsIndex);
-                    String monthlyCostsString = String.valueOf(monthlyCosts);
-                    String monthlyCostsStringPrepare = monthlyCostsString + "€";
+                    String monthlyCostsStringPrepare = DBService.doubleInStringToView(monthlyCosts);
 
                     textViewType.setText(cursor.getString(typeIndex));
                     textViewName.setText(cursor.getString(nameIndex));

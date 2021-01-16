@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.DB.DBService;
 
 public class AssetsDetailsChange extends AppCompatActivity {
 
@@ -104,22 +105,18 @@ public class AssetsDetailsChange extends AppCompatActivity {
                             cursor.getString(imagePathindex) + " " +
                             cursor.getString(noteIndex));
 
-                    //Monatliche Kosten rausnehmen, als String ausgeben und ein "€" dranbasteln
+                    //Format für die Ausgabe anpassen
                     double monthlyCosts = cursor.getDouble(monthlyCostsIndex);
-                    String monthlyCostsString = String.valueOf(monthlyCosts);
-                    String monthlyCostsStringPrepare = monthlyCostsString + "€";
+                    String monthlyCostsStringPrepare = DBService.doubleInStringToView(monthlyCosts);
 
                     double monthlyEarnings = cursor.getDouble(monthlyEarningsIndex);
-                    String monthlyEarningsString = String.valueOf(monthlyEarnings);
-                    String monthlyEarningsStringPrepare = monthlyEarningsString + "€";
+                    String monthlyEarningsStringPrepare = DBService.doubleInStringToView(monthlyEarnings);
 
                     double financialAsset = cursor.getDouble(financialAssetIndex);
-                    String financialAssetString = String.valueOf(financialAsset);
-                    String financialAssetStringPrepare = financialAssetString + "€";
+                    String financialAssetStringPrepare = DBService.doubleInStringToView(financialAsset);
 
                     double credit = cursor.getDouble(creditIndex);
-                    String creditString = String.valueOf(credit);
-                    String creditStringPrepare = creditString + "€";
+                    String creditStringPrepare = DBService.doubleInStringToView(credit);
 
                     textViewCategory.setText(cursor.getString(categoryIndex));
                     textViewName.setText(cursor.getString(nameIndex));
