@@ -39,6 +39,7 @@ public class FinanceBookFragment extends Fragment{
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CostsHierarchyOverview.class);
                 startActivity(intent);
+
             }
         });
 

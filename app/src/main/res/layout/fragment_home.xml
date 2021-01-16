@@ -9,7 +9,7 @@
     >
 
     <com.anychart.AnyChartView
-        android:id="@+id/any_chart_view_home_two"
+        android:id="@+id/any_chart_view_assets_charts"
         android:layout_width="366dp"
         android:layout_height="288dp"
         app:layout_constraintBottom_toBottomOf="parent"

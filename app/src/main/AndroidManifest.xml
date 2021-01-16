@@ -10,7 +10,12 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
-        <activity android:name=".ui.Income.IncomeDetailsChange" />
+        <activity
+            android:name=".ui.Assets.AssetsChartActivity"
+            android:label="@string/assets_chart_lable"
+        />
+        <activity android:name=".ui.Income.IncomeDetailsChange"
+            />
         <activity android:name=".ui.Income.IncomeDetails" />
         <activity android:name=".ui.Income.IncomeAddNew" />
         <activity android:name=".ui.Income.IncomeOverview" />
@@ -50,12 +55,15 @@
             android:name=".ui.login.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.FinanzApp.NoActionBar">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

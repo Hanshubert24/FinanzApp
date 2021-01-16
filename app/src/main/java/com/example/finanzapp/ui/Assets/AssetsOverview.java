@@ -55,10 +55,12 @@ public class AssetsOverview extends AppCompatActivity {
         int[] viewColumns = new int[]{
                 R.id.itemAssetsCategory,
                 R.id.itemAssetsName,
-                R.id.itemAssetsMonthlyCosts,
-                R.id.itemAssetsMonthlyEarnings,
+                R.id.itemAssetsFinancialAsset,
                 R.id.itemAssetsCredit,
-                R.id.itemAssetsFinancialAsset
+                R.id.itemAssetsMonthlyCosts,
+                R.id.itemAssetsMonthlyEarnings
+
+
         };
 
         Cursor cursor = db.viewAllInTable(DBMyHelper.TABLEAssets_NAME);
@@ -120,6 +122,11 @@ public class AssetsOverview extends AppCompatActivity {
 
     public void NavAssetsAddNew(View view){
         Intent i = new Intent(AssetsOverview.this, AssetsAddNew.class);
+        startActivity(i);
+
+    }
+    public void ShowAssetsChars(View view){
+        Intent i = new Intent(AssetsOverview.this, AssetsChartActivity.class);
         startActivity(i);
 
     }

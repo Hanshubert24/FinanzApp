@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeTwoActivity">
+    tools:context=".ui.Assets.AssetsChartActivity">
 
     <com.anychart.AnyChartView
         android:id="@+id/any_chart_view_assets_charts"
@@ -18,12 +18,12 @@
         app:layout_constraintVertical_bias="0.593" />
 
     <Button
-        android:id="@+id/buttonBackHometwo"
+        android:id="@+id/buttonBackHometwo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:onClick="NavBackToFB"
+        android:onClick="NavBack"
 
         android:text="@string/assets_back"
         android:textSize="12sp"

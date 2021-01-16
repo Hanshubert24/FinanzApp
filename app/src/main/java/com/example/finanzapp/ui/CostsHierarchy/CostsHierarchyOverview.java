@@ -116,6 +116,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
     public void NavBack(View view){
         Intent i = new Intent(CostsHierarchyOverview.this, FinanceBookFragment.class);
         startActivity(i);
+        finish();
 
     }
 

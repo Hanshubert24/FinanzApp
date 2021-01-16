@@ -19,10 +19,10 @@
     <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
     <string name="menu_assets">Vermögen</string>
-    <string name="menu_shares">Aktien</string>
     <string name="menu_financebook">Haushaltsbuch</string>
+    <string name="menu_contracts">Verträge</string>
     <string name="menu_logout">Logout</string>
-    <string name="menu_cost_hierarchy">Voralgen</string>
+
 
     <!-- Strings related to assets -->
     <string name="assets">Vermögen</string>
@@ -49,6 +49,7 @@
     <string name="asset_item_layout_monthly">Monatlich</string>
     <string name="assets_financialasset_name">Verkehrswert:</string>
     <string name="assets_credit_name">Kredit:</string>
+    <string name="assets_chart_lable">Diagrammübersicht</string>
 
     <!-- Strings related to login -->
     <string name="PinChangeButton">PIN festlegen</string>
@@ -99,6 +100,7 @@
 
     <string name="title_activity_assets_charts">AssetsCharts</string>
     <string name="assets_hint_number_plus_euro">Neuer Wert in €</string>
+    <string name="general_empty_text" />
 
 
 </resources>
