@@ -1,8 +1,5 @@
 package com.example.finanzapp.ui.Contracts;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -12,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
@@ -102,7 +102,7 @@ public class ContractsDetails extends AppCompatActivity {
     }
 
 
-    public void NavBack(View view){
+    public void NavBackContractsdetails(View view){
         Intent i = new Intent(ContractsDetails.this, ContractsOverview.class);
         startActivity(i);
         finish();
