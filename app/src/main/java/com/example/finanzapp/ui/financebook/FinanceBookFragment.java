@@ -14,12 +14,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.finanzapp.R;
 
-public class FinanceBookFragment extends Fragment {
+public class FinanceBookFragment extends Fragment{
 
     private FinanceBookViewModel financeBookViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
         financeBookViewModel =
                 new ViewModelProvider(this).get(FinanceBookViewModel.class);
         View root = inflater.inflate(R.layout.fragment_financebook, container, false);
