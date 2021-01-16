@@ -101,15 +101,42 @@
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
 
-    <string name="costshierarchy_deleteE1_button">Hauptkategorie löschen</string>
-    <string name="costshierarchy_addE2_button">Unterkategorie anlegen</string>
+
+    <!--Costs Hierarchy-->
+    <string name="costshierarchyE1_title_textview_E1">Ausgewählte Hauptkategorie</string>
+    <string name="costshierarchyE2_title_textview_E2">Ausgewählte Unterkategorie</string>
+    <string name="costshierarchyE3_title_textview_E3">Ausgewählte Subkategorie</string>
+
+        <!--Costs Hierarchy Overview-->
+        <string name="costshierarchyOverview_title_listview_E1">Angelegte Hauptkategorien:</string>
+        <string name="costshierarchyOverview_addE1_button">Hauptkategorie anlegen</string>
+
+        <!--Costs Hierarchy E1-->
+        <string name="costshierarchyE1_title_listview_E2">Unterkategorien</string>
+        <string name="costshierarchyE1_addE2_button">Unterkategorie anlegen</string>
+        <string name="costshierarchyE1_deleteE1_button">Hauptkategorie löschen</string>
+
+        <!--Costs Hierarchy E2-->
+        <string name="costshierarchyE2_title_listview_E3">Subkategorien</string>
+        <string name="costshierarchyE2_addE3_button">Subkategorie anlegen</string>
+        <string name="costshierarchyE2_deleteE2_button">Unterkategorie löschen</string>
+
+        <!--Costs Hierarchy E3-->
+        <string name="costshierarchyE3_deleteE3_button">Subkategorie löschen</string>
 
 
+
+
+
+
+
+
+    <!--Noch Sortieren-->
     <string name="title_activity_fullscreen">FullscreenActivity</string>
-
     <string name="title_activity_assets_charts">AssetsCharts</string>
     <string name="assets_hint_number_plus_euro">Neuer Wert in €</string>
     <string name="general_empty_text" />
+
 
 
 </resources>
