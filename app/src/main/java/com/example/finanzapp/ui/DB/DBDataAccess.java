@@ -553,6 +553,62 @@ public class DBDataAccess {
         return null;
     }
 
+    public int getNumberOfEntrysInTable(String tablename, String selectionColumn, String selectionString){
+
+        try{
+            Cursor cursor = database.query(
+                    tablename,
+                    null,
+                    selectionColumn + "= '" + selectionString + "'",
+                    null, null, null, null);
+            int numberOfEntrysinDB = cursor.getCount(); //Returns the numbers of rows in the cursor.
+
+            return numberOfEntrysinDB;
+        } catch (Exception e){
+            e.printStackTrace();
+
+            return -1;
+        }
+    }
+/*
+    public DBInformationObject deleteOneEntryInCostsHierarchyTable(int deleateId, String parentEntryString, String parentColumn){
+        DBInformationObject dbInfo = new DBInformationObject();
+
+        try{
+            //Prüfen wie of der Eintrag des darüber liegenden Eintrag in der DB existiert
+                //-> beeinträchtigt die Weiterleitung!
+            Cursor cursor = database.query(
+                    DBMyHelper.TABLECostsHierarchy_Name,
+                    null,
+                    parentColumn + "= '" + parentEntryString + "'",
+                    null, null, null, null);
+            int numberOfEntrysinDB = cursor.getCount(); //Returns the numbers of rows in the cursor.
+
+            if(numberOfEntrysinDB <= 1){
+                Log.i("DB-TEST-LÖSCHEN", "Anzahl Datenbankeinträge = " + numberOfEntrysinDB);
+                dbInfo.setLastParentDelete(true);
+            } else {dbInfo.setLastParentDelete(false);}
+
+
+            database.delete(
+                    DBMyHelper.TABLECostsHierarchy_Name,
+                    DBMyHelper.COLUMNContracts_ID + "=" + deleateId,
+                    null);
+
+            dbInfo.setSuccess(true);
+            dbInfo.setMassage("Eintrag wurde gelöscht.");
+            return dbInfo;
+        } catch (Exception e){
+            e.printStackTrace();
+
+            dbInfo.setSuccess(false);
+            dbInfo.setMassage("Datenbankfehler.");
+            return dbInfo;
+        }
+    }
+
+ */
+
     public Cursor viewAllInTable(String tablename) {
         try {
             Cursor cursor = database.query(tablename, null, null, null, null, null, null);
@@ -592,5 +648,19 @@ public class DBDataAccess {
         }
         return false;
     }
+
+    public boolean deleteMultipleEntriesInTable(String tablename, String whereColumn, String whereCondition){
+        try{
+            database.delete(
+                    tablename,
+                    whereColumn + "= '" + whereCondition + "'",
+                    null);
+            return true;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

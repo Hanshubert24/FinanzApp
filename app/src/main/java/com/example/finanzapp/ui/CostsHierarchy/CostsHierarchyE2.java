@@ -146,8 +146,8 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        //Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
-       // startActivity(i);
+        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
+        startActivity(i);
         finish();
     }
 
@@ -171,21 +171,25 @@ public class CostsHierarchyE2 extends AppCompatActivity {
     }
 
     public void dialogDeleteButton(View view){
-/*
-        boolean success = db.deleteOneEntryInTable(DBMyHelper.TABLEAssets_NAME, sharePreferencesId);
-        if(success){
-            Log.d(LOG_TAG, "Datensatz mit der ID: " + sharePreferencesId + " gelöscht.");
-            Toast.makeText(this, "Datensatz gelöscht", Toast.LENGTH_SHORT).show();
-        } else {
-            Log.d(LOG_TAG, "Fehler beim löschen des Datensatz mit der ID: " + sharePreferencesId + ".");
-            Toast.makeText(this, "Fehler beim löschen", Toast.LENGTH_SHORT).show();
-        }
+        //Löscht alle Einträge in E2 mit Bezug auf den übergeordneten Wert in E1
+        boolean success = db.deleteOneEntryInTable(DBMyHelper.TABLECostsHierarchy_Name, sharepreferencesIdE2);
 
-        //Weiterleitung
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
-        startActivity(i);
-        finish();
- */
+        if(success) {
+            //prüfe wie viele Einträge der Wert von E1 hat (übergeordneter Wert)
+            int entryInE1 = db.getNumberOfEntrysInTable(DBMyHelper.TABLECostsHierarchy_Name, DBMyHelper.COLUMNCostsHierarchy_E1, E1value);
+
+            if (entryInE1 == 0) {
+                Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyOverview.class);
+                startActivity(i);
+                finish();
+            }else if(entryInE1 >= 1) {
+                Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
+                startActivity(i);
+                finish();
+            }
+        } else {
+            Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void addNewE3(View view) {showDialogAddNewHierarchy();}

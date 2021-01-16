@@ -139,8 +139,8 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        //Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
-        //startActivity(i);
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
+        startActivity(i);
         finish();
     }
 
@@ -175,10 +175,10 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         }
 
         //Weiterleitung
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
-        startActivity(i);
         finish();
+
  */
+
     }
 
     public void addNewE2(View view) {showDialogAddNewHierarchy();}

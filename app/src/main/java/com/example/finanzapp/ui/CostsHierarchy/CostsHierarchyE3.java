@@ -28,7 +28,6 @@ public class CostsHierarchyE3 extends AppCompatActivity {
     private static final String LOG_TAG = CostsHierarchyE3.class.getSimpleName();
 
     DBDataAccess db;
-    DBInformationObject dbInfo;
     int sharepreferencesIdE3;
 
 
@@ -104,8 +103,8 @@ public class CostsHierarchyE3 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        //Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE2.class);
-       //startActivity(i);
+        Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE2.class);
+        startActivity(i);
         finish();
     }
 
@@ -128,22 +127,34 @@ public class CostsHierarchyE3 extends AppCompatActivity {
     }
 
     public void dialogDeleteButton(View view){
-/*
-        boolean success = db.deleteOneEntryInTable(DBMyHelper.TABLEAssets_NAME, sharePreferencesId);
-        if(success){
-            Log.d(LOG_TAG, "Datensatz mit der ID: " + sharePreferencesId + " gelöscht.");
-            Toast.makeText(this, "Datensatz gelöscht", Toast.LENGTH_SHORT).show();
+
+        //Löscht den Eintrag mit Bezug zur ID von E3
+        boolean success = db.deleteOneEntryInTable(DBMyHelper.TABLECostsHierarchy_Name, sharepreferencesIdE3);
+
+        if(success) {
+            //prüfe wie viele Einträge der Wert von E2 hat (übergeordneter Wert)
+            int entryInE2 = db.getNumberOfEntrysInTable(DBMyHelper.TABLECostsHierarchy_Name, DBMyHelper.COLUMNCostsHierarchy_E2, E2value);
+
+            if (entryInE2 == 0) {
+                //prüfe wie viele EInträge vom Wert E1 existieren
+                int entryInE1 = db.getNumberOfEntrysInTable(DBMyHelper.TABLECostsHierarchy_Name, DBMyHelper.COLUMNCostsHierarchy_E1, E1value);
+
+                if(entryInE1 == 0){
+                    Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyOverview.class);
+                    startActivity(i);
+                    finish();
+                } else if(entryInE1 >= 1){
+                    Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE1.class);
+                    startActivity(i);
+                    finish();
+                }
+            } else if(entryInE2 >= 1){
+                Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE2.class);
+                startActivity(i);
+                finish();
+            }
         } else {
-            Log.d(LOG_TAG, "Fehler beim löschen des Datensatz mit der ID: " + sharePreferencesId + ".");
-            Toast.makeText(this, "Fehler beim löschen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();
         }
-
-        //Weiterleitung
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
-        startActivity(i);
-        finish();
- */
     }
-
-
 }
