@@ -19,10 +19,10 @@
     <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
     <string name="menu_assets">Vermögen</string>
-    <string name="menu_shares">Aktien</string>
     <string name="menu_financebook">Haushaltsbuch</string>
+    <string name="menu_contracts">Verträge</string>
     <string name="menu_logout">Logout</string>
-    <string name="menu_cost_hierarchy">Voralgen</string>
+
 
     <!-- Strings related to assets -->
     <string name="assets">Vermögen</string>
@@ -49,6 +49,7 @@
     <string name="asset_item_layout_monthly">Monatlich</string>
     <string name="assets_financialasset_name">Verkehrswert:</string>
     <string name="assets_credit_name">Kredit:</string>
+    <string name="assets_chart_lable">Diagrammübersicht</string>
 
     <!-- Strings related to login -->
     <string name="PinChangeButton">PIN festlegen</string>
@@ -75,6 +76,10 @@
     <string name="contracts_monthly_costs">Monatliche Kosten</string>
     <string name="contracts_note">Anmerkung</string>
     <string name="contracts_details_headline">Vertrag Details</string>
+    <string name="contracts_details_lable">Vertrag Details</string>
+    <string name="contracts_add_new_lable">Vertrag anlegen</string>
+    <string name="contracts_overwiev_lable">Vertragsübersicht</string>
+    <string name="contracts_details_change_lable">Vertragsübersicht</string>
 
     <!-- Strings related to Income -->
     <string name="income_item_layout_netto">Netto:</string>
@@ -84,6 +89,11 @@
     <string name="income_brutto">Brutto Mtl.</string>
     <string name="income_netto">Netto Mtl.</string>
     <string name="income_note">Anmerkung</string>
+    <string name="income_details_change_lable">Ändern</string>
+    <string name="income_details_lable">Detailansicht</string>
+    <string name="income_add_new_lable">Hinzufügen</string>
+    <string name="income_overwiev_lable">Übersicht</string>
+
 
     <!-- Strings related to Wealth -->
 
@@ -125,6 +135,7 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="title_activity_assets_charts">AssetsCharts</string>
     <string name="assets_hint_number_plus_euro">Neuer Wert in €</string>
+    <string name="general_empty_text" />
 
 
 

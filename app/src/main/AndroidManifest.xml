@@ -10,26 +10,50 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
-        <activity android:name=".ui.Income.IncomeDetailsChange" />
-        <activity android:name=".ui.Income.IncomeDetails" />
-        <activity android:name=".ui.Income.IncomeAddNew" />
-        <activity android:name=".ui.Income.IncomeOverview" />
-        <activity android:name=".ui.Contracts.ContractsDetailsChange" />
-        <activity android:name=".ui.Contracts.ContractsDetails" />
-        <activity android:name=".ui.Contracts.ContractsAddNew" />
-        <activity android:name=".ui.Contracts.ContractsOverview" />
-        <activity android:name=".ui.logout.LogoutActivity" />
+
+        // Income
+        <activity
+            android:name=".ui.Income.IncomeDetailsChange"
+            android:label="@string/income_details_change_lable" />
+        <activity
+            android:name=".ui.Income.IncomeDetails"
+            android:label="@string/income_details_lable" />
+        <activity
+            android:name=".ui.Income.IncomeAddNew"
+            android:label="@string/income_add_new_lable" />
+        <activity
+            android:name=".ui.Income.IncomeOverview"
+            android:label="@string/income_overwiev_lable" />
+
+        // Contracts
+        <activity
+            android:name=".ui.Contracts.ContractsDetailsChange"
+            android:label="@string/contracts_details_change_lable"/>
+        <activity
+            android:name=".ui.Contracts.ContractsDetails"
+            android:label="@string/contracts_details_lable"/>
+        <activity
+            android:name=".ui.Contracts.ContractsAddNew"
+            android:label="@string/contracts_add_new_lable" />
+        <activity
+            android:name=".ui.Contracts.ContractsOverview"
+            android:label="@string/contracts_overwiev_lable" />
+
+        // Costhierarchie
+        //TODO Name anpassen!
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE3" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE2" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE1" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyOverview" />
+
+
+
         <activity android:name=".ui.home.HomeTwoActivity" />
+
+        // Assets
         <activity
-            android:name=".ui.login.CreatePinActivity"
-            android:label="@string/PinChange_Lable" />
-        <activity
-            android:name=".ui.login.EnterPinActivity"
-            android:label="@string/TextPinEnter_Lable" />
+            android:name=".ui.Assets.AssetsChartActivity"
+            android:label="@string/assets_chart_lable" />
         <activity
             android:name=".ui.Assets.AssetsOverview"
             android:label="@string/assets" />
@@ -42,10 +66,14 @@
         <activity
             android:name=".ui.Assets.AssetsDetailsChange"
             android:label="@string/assets_details_change" />
+
+        // Main
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.FinanzApp.NoActionBar" />
+
+        //Login
         <activity
             android:name=".ui.login.SplashActivity"
             android:label="@string/app_name"
@@ -56,6 +84,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.login.CreatePinActivity"
+            android:label="@string/PinChange_Lable" />
+        <activity
+            android:name=".ui.login.EnterPinActivity"
+            android:label="@string/TextPinEnter_Lable" />
+
+        // Logout
+        <activity android:name=".ui.logout.LogoutActivity" />
+
     </application>
 
 </manifest>

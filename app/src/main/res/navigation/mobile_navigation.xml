@@ -18,19 +18,20 @@
         tools:layout="@layout/fragment_financebook" />
 
     <activity
-        android:id="@+id/nav_logout"
-        android:name="com.example.finanzapp.ui.logout.LogoutActivity"
-        android:label="@string/menu_shares"
-        tools:layout="@layout/activity_logout" />
-    <activity
         android:id="@+id/nav_assets"
         android:name="com.example.finanzapp.ui.Assets.AssetsOverview"
         android:label="@string/menu_assets"
         tools:layout="@layout/activity_assets_overview" />
     <activity
-        android:id="@+id/nav_cost_hierarchy"
-        android:name="com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyOverview"
-        android:label="@string/menu_assets"
-        tools:layout="@layout/activity_costs_hierarchy_overview" />
+        android:id="@+id/nav_contracts"
+        android:name="com.example.finanzapp.ui.Contracts.ContractsOverview"
+        android:label="@string/menu_contracts"
+        tools:layout="@layout/activity_contracts_overview" />
+
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.example.finanzapp.ui.logout.LogoutActivity"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/activity_logout" />
 
 </navigation>

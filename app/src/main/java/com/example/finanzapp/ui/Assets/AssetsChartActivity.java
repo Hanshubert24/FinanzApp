@@ -1,4 +1,4 @@
-package com.example.finanzapp.ui.home;
+package com.example.finanzapp.ui.Assets;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,12 +12,11 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.financebook.FinanceBookFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeTwoActivity extends AppCompatActivity {
+public class AssetsChartActivity extends AppCompatActivity {
 
 
 
@@ -31,7 +30,7 @@ public class HomeTwoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_two);
+        setContentView(R.layout.activity_assets_chart);
         anyChartView = findViewById(R.id.any_chart_view_assets_charts);
         setupPieChart();
 
@@ -49,10 +48,10 @@ public class HomeTwoActivity extends AppCompatActivity {
         anyChartView.setChart(pie);
     }
 
-    public void NavBackToFB(View view){
-        Intent i = new Intent(HomeTwoActivity.this, FinanceBookFragment.class);
+    public void NavBack(View view){
+        Intent i = new Intent(AssetsChartActivity.this, AssetsOverview.class);
         startActivity(i);
-
+        finish();
     }
 }
 

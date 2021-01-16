@@ -20,15 +20,23 @@
             android:icon="@drawable/euro_color_icon_nav"
             android:title="@string/menu_assets" />
         <item
-            android:id="@+id/nav_cost_hierarchy"
+            android:id="@+id/nav_contracts"
+            android:icon="@drawable/contract"
+            android:title="@string/menu_contracts" />
 
-            android:title="@string/menu_cost_hierarchy" />
 
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/power_button_nav"
-            android:title="@string/menu_logout" />
 
     </group>
+    <item android:title="@string/general_empty_text">
+        <menu>
 
+
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/power_button_nav"
+                android:title="@string/menu_logout" />
+
+
+        </menu>
+    </item>
 </menu>
