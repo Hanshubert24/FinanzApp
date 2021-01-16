@@ -111,7 +111,6 @@ public class ContractsDetails extends AppCompatActivity {
     public void changeContract(View view){
         Intent i = new Intent(ContractsDetails.this, ContractsDetailsChange.class);
         startActivity(i);
-        finish();
     }
 
     public void deleteContract(View view){
@@ -130,7 +129,7 @@ public class ContractsDetails extends AppCompatActivity {
 
     public void dialogCancelButton(View view){
         //Weiterleitung
-        Intent i = new Intent(ContractsDetails.this, ContractsOverview.class);
+        Intent i = new Intent(ContractsDetails.this, ContractsDetails.class);
         startActivity(i);
         finish();
     }
@@ -150,6 +149,5 @@ public class ContractsDetails extends AppCompatActivity {
         Intent i = new Intent(ContractsDetails.this, ContractsOverview.class);
         startActivity(i);
         finish();
-
     }
 }

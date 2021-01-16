@@ -46,7 +46,7 @@ public class ContractsOverview extends AppCompatActivity {
                 DBMyHelper.COLUMNContracts_Name,
                 DBMyHelper.COLUMNContracts_MonthlyCosts};
 
-        ListView itemList = (ListView) findViewById(R.id.listViewIncomeOverview);
+        ListView itemList = (ListView) findViewById(R.id.listViewContractsOverview);
         int[] viewColumns = new int[]{
                 R.id.itemContractsType,
                 R.id.itemContractsName,
