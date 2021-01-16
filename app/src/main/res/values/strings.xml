@@ -135,6 +135,9 @@
     <string name="contracts_hint_type" >Versicherung, Arbeitsvertrag</string>
     <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
     <string name="contract_hint_name" >Verti, Huk, AOK ...</string>
+    <string name="income_delete_button">Löschen</string>
+    <string name="income_change_button">Ändern</string>
+    <string name="income_change_save_button">Änderung speichern</string>
 
 
 </resources>

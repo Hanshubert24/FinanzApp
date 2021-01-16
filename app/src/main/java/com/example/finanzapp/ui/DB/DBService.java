@@ -10,22 +10,18 @@ public class DBService {
 
 
     public static double doubleValueForDB(double d){
-        //Genau 2 Nachkommastellen
+        //Genau 2 Nachkommastellen und Datenbank nicht mit zu viel unnötigen Daten zu belasten
 
-        DecimalFormat format = new DecimalFormat("####################0.00");
-        format.format(d);
-        Log.i("DB-Service", "format von " + d + " = " + format); //noch nicht getestet!
-        //Wir formatiert man das DezimalFormat Objekt in ein Double um?
+        //Formatierungen:
+        //0 = steht für eine auf jeden Fall anzuzeigende Ziffer innerhalb der darzustellenden Zahl; ist die Stelle leer, wird eine '0' dargestellt
+        //# = steht für eine Ziffer innerhalb der darzustellenden Zahl; ist die Stelle leer, wird nichts dargestellt
+        //. = steht für den Dezimaltrenner; sein Format richtet sich in der Standardeinstellung nach den lokalen Systemeinstellungen
+        //, = Tausendertrenner, genauer: gruppiert die Ziffern zwischen ',' und '.'
 
-        //Double newDouble;
-       // newDouble.parseDouble(format);
-/*
-        System.out.println(myDouble);
-        double d = Double.parseDouble(String.format(Locale.ENGLISH, "%1.2f", myDouble));
-        System.out.println(d);```
+        String newDoubleString = new DecimalFormat("0.00").format(d);
+        Double newDouble = Double.parseDouble(newDoubleString);
 
- */
-        return d;
+        return newDouble;
     }
 
 
@@ -70,7 +66,6 @@ public class DBService {
 
             return outputValue+" €";
         }
-
     }
 
     //Servie zum automatischne betanken der Kostentabelle!

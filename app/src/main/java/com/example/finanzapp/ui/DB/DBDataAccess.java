@@ -270,10 +270,6 @@ public class DBDataAccess {
         }
     }
 
-    //1 - Daten in die Datenbank eingetragen
-    //2 - Daten bereits in der Datenbank vorhanden
-    //3 - Fehler in der Datenbank
-    //4 - Fall nicht vorhanden
     public DBInformationObject CostsHierarchyInDB(String varE1, String varE2, String varE3){
         DBInformationObject dbInfo = new DBInformationObject();
 

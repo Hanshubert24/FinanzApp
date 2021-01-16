@@ -13,6 +13,7 @@ import com.example.finanzapp.R;
 import com.example.finanzapp.ui.Assets.AssetsAddNew;
 import com.example.finanzapp.ui.Assets.AssetsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
+import com.example.finanzapp.ui.DB.DBService;
 
 public class IncomeAddNew extends AppCompatActivity {
 
@@ -68,6 +69,8 @@ public class IncomeAddNew extends AppCompatActivity {
 
         boolean isCategory = false;
         boolean isCompany = false;
+        double inputIncomeBruttoDoublePrepare;
+        double inputIncomeNettoDoublePrepare;
 
         try {
             inputIncomeCategory = findViewById(R.id.editTextIncomeAddNewCategory);
@@ -93,14 +96,16 @@ public class IncomeAddNew extends AppCompatActivity {
                 inputIncomeCompanyString = inputIncomeCompany.getText().toString();
             }
             if(isEditTextEmpty(inputIncomeBrutto)){
-                inputIncomeBruttoDouble = 0.00; //Wenn Kosten leer
+                inputIncomeBruttoDoublePrepare = 0.00; //Wenn Brutto leer
             } else {
                 inputIncomeBruttoDouble = Double.parseDouble(inputIncomeBrutto.getText().toString());
+                inputIncomeBruttoDoublePrepare = DBService.doubleValueForDB(inputIncomeBruttoDouble);
             }
             if(isEditTextEmpty(inputIncomeNetto)){
-                inputIncomeNettoDouble = 0.00; //Wenn Einnahmen Leer
+                inputIncomeNettoDoublePrepare = 0.00; //Wenn Netto Leer
             } else {
                 inputIncomeNettoDouble = Double.parseDouble(inputIncomeNetto.getText().toString());
+                inputIncomeNettoDoublePrepare = DBService.doubleValueForDB(inputIncomeNettoDouble);
             }
             inputIncomeNoteString = inputIncomeNote.getText().toString();
 
@@ -114,8 +119,8 @@ public class IncomeAddNew extends AppCompatActivity {
                 db.addNewIncomeInDB(
                         inputIncomeCategoryString,
                         inputIncomeCompanyString,
-                        inputIncomeBruttoDouble,
-                        inputIncomeNettoDouble,
+                        inputIncomeBruttoDoublePrepare,
+                        inputIncomeNettoDoublePrepare,
                         true,
                         inputIncomeNoteString);
 

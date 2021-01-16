@@ -153,7 +153,8 @@ public class ContractsDetailsChange extends AppCompatActivity {
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das MonthlyCosts-Feld eingegeben.");
             } else {
                 isMonthlyCostsNew = true;
-                monthlyCostsNew = Double.parseDouble(editTextMonthlyCosts.getText().toString());
+                double monthlyCosts = Double.parseDouble(editTextMonthlyCosts.getText().toString());
+                monthlyCostsNew = DBService.doubleValueForDB(monthlyCosts);
             }
             if(isEditTextEmpty(editTextNote)){
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das Note-Feld eingegeben.");

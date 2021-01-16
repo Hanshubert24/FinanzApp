@@ -46,7 +46,7 @@ public class IncomeOverview extends AppCompatActivity {
                 DBMyHelper.COLUMNIncome_Brutto,
                 DBMyHelper.COLUMNIncome_Netto};
 
-        ListView itemList = (ListView) findViewById(R.id.listViewContractsOverview);
+        ListView itemList = (ListView) findViewById(R.id.listViewIncomeOverview);
         int[] viewColumns = new int[]{
                 R.id.itemIncomeCompany,
                 R.id.itemIncomeCategory,
@@ -81,9 +81,8 @@ public class IncomeOverview extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(LOG_TAG, "onItemClick: Position -> " + position + ", id -> " + id);
 
-
                 //Speichert die "ID" die angeklickt wurde
-                SharedPreferences sharedPreferences = getSharedPreferences("SPContractsDetails", 0); //Shared Prefs Datei öffnen
+                SharedPreferences sharedPreferences = getSharedPreferences("SPTransferData", 0); //Shared Prefs Datei öffnen
                 SharedPreferences.Editor editor = sharedPreferences.edit(); //Editorklasse initialisieren (um zu schreiben)
                 editor.putLong("IncomeID_ActivityChangeInfo", id); //Inhalt übergeben (Key, Value)
                 editor.commit(); //Speichern

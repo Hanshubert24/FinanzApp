@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.DB.DBService;
 
 public class AssetsAddNew extends AppCompatActivity {
 
@@ -70,6 +71,11 @@ public class AssetsAddNew extends AppCompatActivity {
 
         boolean isCategory = false;
         boolean isName = false;
+        double monthlyCostsPrepared;
+        double monthlyEarningsPrepared;
+        double financialAssetPrepared;
+        double creditPrepared;
+
 
         try {
             inputAssetsCategory = findViewById(R.id.editTextAssetsCategory);
@@ -100,24 +106,28 @@ public class AssetsAddNew extends AppCompatActivity {
                 inputAssetsNameString = inputAssetsName.getText().toString();
             }
             if(isEditTextEmpty(inputAssetsMonthlyCosts)){
-                inputAssetsMonthlyCostsDouble = 0.00; //Wenn Kosten leer
+                monthlyCostsPrepared = 0.00; //Wenn Kosten leer
             } else {
                 inputAssetsMonthlyCostsDouble = Double.parseDouble(inputAssetsMonthlyCosts.getText().toString());
+                monthlyCostsPrepared = DBService.doubleValueForDB(inputAssetsMonthlyCostsDouble);
             }
             if(isEditTextEmpty(inputAssetsMonthlyEarnings)){
-                inputAssetsMonthlyEarningsDouble = 0.00; //Wenn Einnahmen Leer
+                monthlyEarningsPrepared = 0.00; //Wenn Einnahmen Leer
             } else {
                 inputAssetsMonthlyEarningsDouble = Double.parseDouble(inputAssetsMonthlyEarnings.getText().toString());
+                monthlyEarningsPrepared = DBService.doubleValueForDB(inputAssetsMonthlyEarningsDouble);
             }
             if(isEditTextEmpty(inputAssetsFinancialAssset)){
-                inputAssetsFinancialAssetDouble = 0.00; //Wenn Eingabe leer
+                financialAssetPrepared = 0.00; //Wenn Eingabe leer
             } else {
                 inputAssetsFinancialAssetDouble = Double.parseDouble(inputAssetsFinancialAssset.getText().toString());
+                financialAssetPrepared = DBService.doubleValueForDB(inputAssetsFinancialAssetDouble);
             }
             if(isEditTextEmpty(inputAssetsCredit)){
-                inputAssetsCreditDouble = 0.00; //Wenn Eingabe leer
+                creditPrepared = 0.00; //Wenn Eingabe leer
             } else {
                 inputAssetsCreditDouble = Double.parseDouble(inputAssetsCredit.getText().toString());
+                creditPrepared = DBService.doubleValueForDB(inputAssetsCreditDouble);
             }
             inputAssetsNoteString = inputAssetsNote.getText().toString();
 
@@ -131,10 +141,10 @@ public class AssetsAddNew extends AppCompatActivity {
                 db.addNewAssetInDB(
                         inputAssetsCategoryString,
                         inputAssetsNameString,
-                        inputAssetsMonthlyCostsDouble,
-                        inputAssetsMonthlyEarningsDouble,
-                        inputAssetsFinancialAssetDouble,
-                        inputAssetsCreditDouble,
+                        monthlyCostsPrepared,
+                        monthlyEarningsPrepared,
+                        financialAssetPrepared,
+                        creditPrepared,
                         null,                       //Methode noch implementieren!
                         inputAssetsNoteString);
 
