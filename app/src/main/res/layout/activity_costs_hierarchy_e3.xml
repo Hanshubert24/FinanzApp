@@ -6,4 +6,105 @@
     android:layout_height="match_parent"
     tools:context=".ui.CostsHierarchy.CostsHierarchyE3">
 
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="282dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/costshierarchyE3_title_textview_E3"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCostsHierarchyE3E2" />
+
+    <TextView
+        android:id="@+id/textViewCostsHierarchyE3E3"
+        android:layout_width="282dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="282dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/costshierarchyE1_title_textview_E1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack9" />
+
+    <TextView
+        android:id="@+id/textViewCostsHierarchyE3E1"
+        android:layout_width="282dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="282dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/costshierarchyE2_title_textview_E2"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCostsHierarchyE3E1" />
+
+    <TextView
+        android:id="@+id/textViewCostsHierarchyE3E2"
+        android:layout_width="282dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <Button
+        android:id="@+id/buttonBack9"
+        android:layout_width="83dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:onClick="NavBack"
+
+        android:text="@string/assets_back"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="208dp"
+        android:onClick="deleteE3"
+        android:text="@string/costshierarchyE3_deleteE3_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

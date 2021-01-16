@@ -19,8 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.Assets.AssetsDetails;
-import com.example.finanzapp.ui.Assets.AssetsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBInformationObject;
 import com.example.finanzapp.ui.DB.DBMyHelper;
@@ -82,7 +80,6 @@ public class CostsHierarchyE1 extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         //ListView ausgabe
         String[] columns = {DBMyHelper.COLUMNCostsHierarchy_E2};
 
@@ -142,8 +139,8 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
-        startActivity(i);
+        //Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
+        //startActivity(i);
         finish();
     }
 
@@ -162,10 +159,8 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     }
 
     public void dialogCancelButton(View view){
-        //Weiterleitung
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
         startActivity(i);
-        finish();
     }
 
     public void dialogDeleteButton(View view){
@@ -210,10 +205,8 @@ public class CostsHierarchyE1 extends AppCompatActivity {
             if (editTextEntryE2 != null) {
                 if (isEditTextEmpty(editTextEntryE2)) {
                     Toast.makeText(this, "Geben Sie einen Wert ein.", Toast.LENGTH_SHORT).show();
-                    Log.d(LOG_TAG, dbInfo.getMassage());
 
                 } else {
-
                     dbInfo = db.CostsHierarchyInDB(
                             E1übergabeWert,
                             editTextEntryE2.getText().toString()

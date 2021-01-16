@@ -27,7 +27,7 @@
         android:layout_height="55dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="37dp"
-        android:text="Hierarchie der variablen Kosten erstellen."
+        android:text="@string/costshierarchyOverview_title_listview_E1"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
         android:layout_marginEnd="87dp"
         android:layout_marginBottom="27dp"
         android:onClick="addNewE1"
-        android:text="Hauptkatorie erstellen"
+        android:text="@string/costshierarchyOverview_addE1_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

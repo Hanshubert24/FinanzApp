@@ -7,23 +7,12 @@
     tools:context=".ui.CostsHierarchy.CostsHierarchyE1">
 
     <Button
-        android:id="@+id/buttonDeleteContractDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:onClick="addNewE2"
-        android:text="@string/costshierarchy_addE2_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/buttonDeleteContractDetails3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:onClick="deleteE1"
-        android:text="@string/costshierarchy_deleteE1_button"
+        android:text="@string/costshierarchyE1_deleteE1_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCostsHierarchyE1E1" />
@@ -50,7 +39,7 @@
         android:layout_marginStart="33dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="96dp"
-        android:text="Ausgewählte Hauptkategorie"
+        android:text="@string/costshierarchyE1_title_textview_E1"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +51,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="46dp"
-        android:text="Unterkategorien"
+        android:text="@string/costshierarchyE1_title_listview_E2"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonDeleteContractDetails3" />
@@ -83,10 +72,21 @@
         android:layout_width="409dp"
         android:layout_height="231dp"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDeleteContractDetails"
+        android:layout_marginBottom="27dp"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:onClick="addNewE2"
+        android:text="@string/costshierarchyE1_addE2_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
