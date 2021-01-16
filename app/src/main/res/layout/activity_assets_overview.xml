@@ -7,6 +7,74 @@
     android:onClick="ShowAssetsChars"
     tools:context="ui.Assets.AssetsOverview">
 
+    <Button
+        android:id="@+id/buttonBack2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:onClick="NavBack"
+
+        android:text="@string/assets_back"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewIncomeOverview"
+        android:layout_width="364dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/addButtonAssets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/addButtonAssets"
+        style="@android:style/Widget.Material.ImageButton"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="24dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/custom_button_bg"
+        android:backgroundTint="#0069b4"
+        android:baselineAlignBottom="false"
+        android:onClick="NavAssetsAddNew"
+        android:paddingTop="2dp"
+        android:paddingBottom="10dp"
+        android:text="@string/AddButtonText"
+        android:textAlignment="center"
+        android:textColor="@color/bluebackground"
+        android:textSize="36sp"
+        app:iconPadding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageView
+        android:id="@+id/assets_overwiev_image_diamont"
+        android:layout_width="81dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/general_discription_image_Diamont"
+        android:src="@drawable/diamant"
+        app:layout_constraintBottom_toTopOf="@+id/listViewIncomeOverview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack2"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/assets_imagebutton_charts"
         android:layout_width="0dp"
@@ -29,69 +97,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/addButtonAssets"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ListView
-        android:id="@+id/listViewIncomeOverview"
-        android:layout_width="364dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/addButtonAssets"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBack2"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/buttonBack2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:onClick="NavBack"
-
-        android:text="@string/assets_back"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/addButtonAssets"
-        style="@android:style/Widget.Material.ImageButton"
-        android:layout_width="66dp"
-        android:layout_height="73dp"
-        android:layout_marginBottom="16dp"
-        android:adjustViewBounds="false"
-        android:background="@drawable/custom_button_bg"
-        android:backgroundTint="#0069b4"
-        android:baselineAlignBottom="false"
-        android:onClick="NavAssetsAddNew"
-        android:text="@string/AddButtonText"
-        android:textColor="@color/bluebackground"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
-    <ImageView
-        android:id="@+id/assets_overwiev_image_diamont"
-        android:layout_width="81dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/general_discription_image_Diamont"
-        android:src="@drawable/diamant"
-        app:layout_constraintBottom_toTopOf="@+id/listViewIncomeOverview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonBack2"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
