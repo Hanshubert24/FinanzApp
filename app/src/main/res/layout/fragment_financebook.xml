@@ -8,22 +8,8 @@
     tools:context=".ui.financebook.FinanceBookFragment">
 
 
-    <TextView
-        android:id="@+id/text_financebook"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/AddButtonFB"
+        android:id="@+id/fb_add_button"
         style="@android:style/Widget.Material.ImageButton"
         android:layout_width="66dp"
         android:layout_height="73dp"
@@ -32,6 +18,8 @@
         android:background="@drawable/custom_button_bg"
         android:backgroundTint="#0069b4"
         android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:focusable="true"
         android:text="@string/AddButtonText"
         android:textColor="@color/bluebackground"
         android:textSize="36sp"
@@ -49,7 +37,9 @@
         android:layout_height="64dp"
         android:layout_marginEnd="34dp"
         android:background="@drawable/general_boarder_layout_button_selector"
+        android:clickable="true"
         android:contentDescription="@string/fb_button_discription"
+        android:focusable="true"
         android:paddingStart="0dp"
         android:paddingLeft="0dp"
         android:paddingTop="8dp"
@@ -59,12 +49,12 @@
         android:scaleType="fitCenter"
         android:src="@drawable/analytics"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/AddButtonFB"
+        app:layout_constraintEnd_toEndOf="@+id/fb_add_button"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/fb_imagebutton_template_hierachy_overwiew"
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
@@ -74,6 +64,7 @@
         android:background="@drawable/general_boarder_layout_button_selector"
         android:contentDescription="@string/fb_financebook_templates_discription"
         android:cropToPadding="false"
+        android:focusable="true"
         android:padding="8dp"
         android:paddingStart="8dp"
         android:paddingLeft="0dp"
@@ -85,13 +76,6 @@
         android:src="@drawable/financebook"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/AddButtonFB" />
-
-    <androidx.constraintlayout.helper.widget.Layer
-        android:layout_width="413dp"
-        android:layout_height="126dp"
-        app:constraint_referenced_ids="AddButtonFB,fb_imagebutton_charts,imageButton4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/fb_add_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,11 +18,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBInformationObject;
 import com.example.finanzapp.ui.DB.DBMyHelper;
+import com.example.finanzapp.ui.financebook.FinanceBookFragment;
 
 import java.util.ArrayList;
 
@@ -114,9 +114,9 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        Intent i = new Intent(CostsHierarchyOverview.this, MainActivity.class);
+        Intent i = new Intent(CostsHierarchyOverview.this, FinanceBookFragment.class);
         startActivity(i);
-        finish();
+
     }
 
     public void addNewE1(View view) {showDialogAddNewHierarchy();}
