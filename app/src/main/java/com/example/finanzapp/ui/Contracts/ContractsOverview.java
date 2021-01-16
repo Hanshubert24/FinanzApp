@@ -18,6 +18,7 @@ import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
+import com.example.finanzapp.ui.Income.IncomeOverview;
 
 public class ContractsOverview extends AppCompatActivity {
 
@@ -111,5 +112,10 @@ public class ContractsOverview extends AppCompatActivity {
     public void NavContractsAddNew(View view){
         Intent i = new Intent(ContractsOverview.this, ContractsAddNew.class);
         startActivity(i);
+    }
+    public void ShowIncomContracts(View view){
+        Intent i = new Intent(ContractsOverview.this, IncomeOverview.class);
+        startActivity(i);
+
     }
 }

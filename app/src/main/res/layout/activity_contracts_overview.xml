@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".ui.Contracts.ContractsOverview">
 
+    <ImageButton
+        android:id="@+id/fb_imagebutton_template_hierachy_overwiew2"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+
+        android:layout_marginStart="34dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/general_boarder_layout_button_selector"
+        android:contentDescription="@string/fb_financebook_templates_discription"
+        android:cropToPadding="false"
+        android:focusable="true"
+        android:onClick="ShowIncomContracts"
+        android:padding="8dp"
+        android:paddingStart="8dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="16dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/financebook"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/addButtonContracts" />
+
     <ImageView
         android:id="@+id/contracts_overwiev_image_contract"
         android:layout_width="81dp"

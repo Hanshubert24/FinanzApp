@@ -40,7 +40,7 @@
             android:label="@string/contracts_overwiev_lable" />
 
         // Costhierarchie
-        //TODO Name anpassen!
+        // TODO Name anpassen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE3" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE2" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE1" />
