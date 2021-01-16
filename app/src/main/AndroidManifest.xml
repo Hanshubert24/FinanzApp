@@ -44,7 +44,10 @@
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE3" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE2" />
         <activity android:name=".ui.CostsHierarchy.CostsHierarchyE1" />
-        <activity android:name=".ui.CostsHierarchy.CostsHierarchyOverview" />
+        <activity
+            android:name=".ui.CostsHierarchy.CostsHierarchyOverview"
+            android:label="@string/costshierarchyOverview_title_listview_E1_lable"
+            />
 
 
 

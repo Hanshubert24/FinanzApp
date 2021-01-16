@@ -76,7 +76,7 @@
         android:paddingRight="0dp"
         android:paddingBottom="16dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/financebook"
+        android:src="@drawable/template_hierarchie2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/fb_add_button" />

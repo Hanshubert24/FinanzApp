@@ -27,7 +27,7 @@
         android:paddingRight="0dp"
         android:paddingBottom="16dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/financebook"
+        android:src="@drawable/contractincome4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/addButtonContracts" />

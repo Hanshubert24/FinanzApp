@@ -112,6 +112,7 @@
 
         <!--Costs Hierarchy Overview-->
         <string name="costshierarchyOverview_title_listview_E1">Angelegte Hauptkategorien:</string>
+        <string name="costshierarchyOverview_title_listview_E1_lable">Hauptkategorien</string>
         <string name="costshierarchyOverview_addE1_button">Hauptkategorie anlegen</string>
 
         <!--Costs Hierarchy E1-->
