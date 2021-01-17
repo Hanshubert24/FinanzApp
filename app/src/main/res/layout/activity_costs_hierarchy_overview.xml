@@ -45,7 +45,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:text="@string/costshierarchyOverview_title_listview_E1"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

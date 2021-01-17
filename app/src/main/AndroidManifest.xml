@@ -52,7 +52,6 @@
         <activity
             android:name=".ui.CostsHierarchy.CostsHierarchyOverview"
             android:label="@string/costshierarchyOverview_title_listview_Overview_lable" />
-        <activity android:name=".ui.home.HomeTwoActivity" />
         <activity
             android:name=".ui.Assets.AssetsChartActivity"
             android:label="@string/assets_chart_lable" />
