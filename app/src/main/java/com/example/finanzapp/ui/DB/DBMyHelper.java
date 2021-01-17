@@ -13,8 +13,10 @@ public class DBMyHelper extends SQLiteOpenHelper {
     //https://www.sqlite.org/datatype3.html
 
     public static final String DB_NAME = "FinanzApp.db";
-    public static final int DB_VERSION = 9;
+    public static final int DB_VERSION = 30;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
+
+    public static boolean initializeWithExampleData = false; //Funktion für ExampleData in MainActivity
 
     public DBMyHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DB_NAME, factory, DB_VERSION);
@@ -27,7 +29,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d(LOG_TAG, "DBMyHelper hat die Datenbank: " + getDatabaseName() + " erzeugt.");
+        Log.d(LOG_TAG, "DBMyHelper hat die Datenbank: " + getDatabaseName() + "mit der Versionsnummer: " + DB_VERSION + " erzeugt.");
         try{
             db.execSQL(SQL_CREATE_TableContracts);
             Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLEContracts_NAME + " erzeugt.");
@@ -56,6 +58,8 @@ public class DBMyHelper extends SQLiteOpenHelper {
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
         }
+
+        initializeWithExampleData = true;
     }
 
     @Override
@@ -167,4 +171,12 @@ public class DBMyHelper extends SQLiteOpenHelper {
                     COLUMNCostsHierarchy_E1 + " TEXT NOT NULL, " +
                     COLUMNCostsHierarchy_E2 + " TEXT, " +
                     COLUMNCostsHierarchy_E3 + " TEXT);";
+
+    private void TESTDATEN(){
+
+
+
+
+
+    }
 }

@@ -273,7 +273,7 @@ public class DBDataAccess {
     public DBInformationObject CostsHierarchyInDB(String varE1, String varE2, String varE3){
         DBInformationObject dbInfo = new DBInformationObject();
 
-        String emptyString = "empty";
+        String emptyString = "Kei Eintrag vorhanden";
         String messageSuccessful = "Eingabe gespeichert";
         String messageEntryAlreadyExists = "Eintrag bereits vorhanden.";
         String messageDBError = "Datenbankfehler.";
@@ -523,7 +523,14 @@ public class DBDataAccess {
                     null,
                     column,
                     null, null);
-
+/*
+            //Abfrage nach Eintrag "empty" -> befindet sich zu E1 an stelle E2 ein "empty"?
+            int E2index = cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E2);
+            String E2value = cursor.getString(E2index);
+             if(E2value.equals("empty")){
+                 return null;
+             }
+ */
             return cursor;
 
         } catch (Exception e){
