@@ -142,6 +142,8 @@
     <string name="costshierarchyOverview_title_listview_E3_lable">Subkategorie Löschen</string>
     <string name="genreral_new_numeric_euro">Wert in €</string>
     <string name="hierarchie_E1_dialogbox_hints">Lebensmittel, Wohnen, Auto, ...</string>
+    <string name="Costhierarchie_Dialog_Headtext">Legen Sie einen Eintrag an:</string>
+    <string name="general_cancel_text">Abbrechen</string>
 
 
     <!--Noch Sortieren-->
