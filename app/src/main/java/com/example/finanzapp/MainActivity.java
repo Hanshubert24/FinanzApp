@@ -125,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
         db.CostsHierarchyInDB("Einkauf", "FastFood", null);
         db.close();
     }
-
 }
 
 

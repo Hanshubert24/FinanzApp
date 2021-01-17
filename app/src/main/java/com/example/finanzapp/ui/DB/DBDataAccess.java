@@ -506,7 +506,6 @@ public class DBDataAccess {
                     null, null);
 
             return cursor;
-
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -555,6 +554,25 @@ public class DBDataAccess {
         }
         return null;
     }
+    //TEST -> QuickPay-Activity
+    public Cursor viewAllEntryFromCostsHierarchy(){
+        //Gibt den gesamten Inhalt von CostsHierarchy zurück
+
+        try {
+            Cursor cursor = database.query(
+                    "CostsHierarchy",
+                    null,null, null, null, null, null);
+            Log.i("DB-TESTSTESTTEST", "TESTABFRAGE WURDE DURCHGEFÜHRT!");
+            return cursor;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean addNewCashFlowInDB(){
+        return false;
+    }
 
     public int getNumberOfEntrysInTable(String tablename, String selectionColumn, String selectionString){
 
@@ -573,44 +591,6 @@ public class DBDataAccess {
             return -1;
         }
     }
-/*
-    public DBInformationObject deleteOneEntryInCostsHierarchyTable(int deleateId, String parentEntryString, String parentColumn){
-        DBInformationObject dbInfo = new DBInformationObject();
-
-        try{
-            //Prüfen wie of der Eintrag des darüber liegenden Eintrag in der DB existiert
-                //-> beeinträchtigt die Weiterleitung!
-            Cursor cursor = database.query(
-                    DBMyHelper.TABLECostsHierarchy_Name,
-                    null,
-                    parentColumn + "= '" + parentEntryString + "'",
-                    null, null, null, null);
-            int numberOfEntrysinDB = cursor.getCount(); //Returns the numbers of rows in the cursor.
-
-            if(numberOfEntrysinDB <= 1){
-                Log.i("DB-TEST-LÖSCHEN", "Anzahl Datenbankeinträge = " + numberOfEntrysinDB);
-                dbInfo.setLastParentDelete(true);
-            } else {dbInfo.setLastParentDelete(false);}
-
-
-            database.delete(
-                    DBMyHelper.TABLECostsHierarchy_Name,
-                    DBMyHelper.COLUMNContracts_ID + "=" + deleateId,
-                    null);
-
-            dbInfo.setSuccess(true);
-            dbInfo.setMassage("Eintrag wurde gelöscht.");
-            return dbInfo;
-        } catch (Exception e){
-            e.printStackTrace();
-
-            dbInfo.setSuccess(false);
-            dbInfo.setMassage("Datenbankfehler.");
-            return dbInfo;
-        }
-    }
-
- */
 
     public Cursor viewAllInTable(String tablename) {
         try {

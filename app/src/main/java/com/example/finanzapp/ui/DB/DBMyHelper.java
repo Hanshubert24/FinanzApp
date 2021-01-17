@@ -13,7 +13,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
     //https://www.sqlite.org/datatype3.html
 
     public static final String DB_NAME = "FinanzApp.db";
-    public static final int DB_VERSION = 30;
+    public static final int DB_VERSION = 40;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
 
     public static boolean initializeWithExampleData = false; //Funktion für ExampleData in MainActivity
@@ -58,6 +58,13 @@ public class DBMyHelper extends SQLiteOpenHelper {
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
         }
+        try{
+            db.execSQL(SQL_CREATE_TableCashFlow);
+            Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLECashFlow_Name+ " erzeugt.");
+        } catch (Exception e){
+            Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLECashFlow_Name);
+            Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLECashFlow_Name);
+        }
 
         initializeWithExampleData = true;
     }
@@ -69,11 +76,13 @@ public class DBMyHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLEAssets_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLEIncome_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLECostsHierarchy_Name);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLECashFlow_Name);
         onCreate(db);
     }
 
     //Contracts
     public static final String TABLEContracts_NAME = "Contracts";
+    public static final int TABLEContracts_TableID = 1;
     public static final String COLUMNContracts_ID = "_id";
     public static final String COLUMNContracts_Type = "Type";
     public static final String COLUMNContracts_Name = "Name";
@@ -97,6 +106,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
 
     //Assets (Vermögen)
     public static final String TABLEAssets_NAME = "Assets";
+    public static final int TABLEAssets_TableID = 2;
     public static final String COLUMNAssets_ID = "_id";
     public static final String COLUMNAssets_Category = "Category";
     public static final String COLUMNAssets_Name = "Name";
@@ -132,6 +142,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
 
     //Income
     public static final String TABLEIncome_NAME = "Income";
+    public static final int TABLEIncome_TableID = 3;
     public static final String COLUMNIncome_ID = "_id";
     public static final String COLUMNIncome_Category = "Category";
     public static final String COLUMNIncome_Company = "Company";
@@ -161,6 +172,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
 
     //Hierarchiy Variable Costs
     public static final String TABLECostsHierarchy_Name = "CostsHierarchy";
+    public static final int TABLECostsHierarchy_TableID = 4;
     public static final String COLUMNCostsHierarchy_ID = "_id";
     public static final String COLUMNCostsHierarchy_E1 = "E1";
     public static final String COLUMNCostsHierarchy_E2 = "E2";
@@ -172,11 +184,23 @@ public class DBMyHelper extends SQLiteOpenHelper {
                     COLUMNCostsHierarchy_E2 + " TEXT, " +
                     COLUMNCostsHierarchy_E3 + " TEXT);";
 
-    private void TESTDATEN(){
 
 
-
-
-
-    }
+    //CashFlow -> Tabelle Speichern alle Bewegungsdaten
+    public static final String TABLECashFlow_Name = "CashFlow";
+    public static final int TABLECashFlow_TableID = 5;
+    public static final String COLUMNCashFlow_ID = "_id";
+    public static final String COLUMNCashFlow_Date = "Date";
+    public static final String COLUMNCashFlow_Type = "Type"; //1 = Einzahlung, 2 = Auszahlung
+    public static final String COLUMNCashFlow_Tablename = "Tablename"; //Tabelle die den Cashflow verorsacht hat
+    public static final String COLUMNCashFlow_TableEntryID = "TableEntryID";
+    public static final String COLUMNCashFlow_Value = "Value"; //Geldwert (Double)
+    public static final String SQL_CREATE_TableCashFlow =
+            "CREATE TABLE " + TABLECashFlow_Name + " (" +
+                    COLUMNCashFlow_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMNCashFlow_Date + " DATE NOT NULL, " +
+                    COLUMNCashFlow_Type + " INTEGER NOT NULL, " +
+                    COLUMNCashFlow_Tablename + " INTEGER NOT NULL, " +
+                    COLUMNCashFlow_TableEntryID + " INTEGER NOT NULL, " +
+                    COLUMNCashFlow_Value + " REAL NOT NULL);";
 }

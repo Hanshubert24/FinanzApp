@@ -13,6 +13,7 @@ import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.CashFlow.QuickPay;
 import com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyOverview;
 
 import java.util.ArrayList;
@@ -63,6 +64,11 @@ public class FinanceBookOverview extends AppCompatActivity {
         Intent i = new Intent(FinanceBookOverview.this, MainActivity.class);
         startActivity(i);
         finish();
+    }
+     //TEST-Activity
+    public void NavToQuickPay(View view){
+        Intent i = new Intent(FinanceBookOverview.this, QuickPay.class);
+        startActivity(i);
     }
 }
 
