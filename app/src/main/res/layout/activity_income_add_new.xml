@@ -24,7 +24,7 @@
         android:layout_marginTop="23dp"
         android:layout_marginEnd="1dp"
         android:ems="10"
-        android:hint="2216.98"
+        android:hint="@string/assets_hint_number_plus_euro"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewBrutto" />
@@ -115,7 +115,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
-        android:hint="2850.80"
+        android:hint="@string/assets_hint_number_plus_euro"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewCompany" />

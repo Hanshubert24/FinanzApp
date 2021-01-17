@@ -140,6 +140,7 @@
     <!--Costs Hierarchy E3-->
     <string name="costshierarchyE3_deleteE3_button">Subkategorie löschen</string>
     <string name="costshierarchyOverview_title_listview_E3_lable">Subkategorie Löschen</string>
+    <string name="genreral_new_numeric_euro">Wert in €</string>
 
     <!--Noch Sortieren-->
 

@@ -1,13 +1,13 @@
 package com.example.finanzapp.ui.Contracts;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
@@ -79,21 +79,21 @@ public class ContractsAddNew extends AppCompatActivity {
             //Es sollen nur die eingetragenen Änderungen an die DB übergeben werden.
             if(isEditTextEmpty(inputContractType)){
                 Toast.makeText(this, "Typ angeben.", Toast.LENGTH_SHORT).show();
-                inputContractType.setHint("Bsp: Krankenversicherung");
+                inputContractType.setHint("Bsp.: Autoversicherung");
             } else {
                 isType = true;
                 inputContractTypeString = inputContractType.getText().toString();
             }
             if(isEditTextEmpty(inputContractName)){
                 Toast.makeText(this, "Name angeben.", Toast.LENGTH_SHORT).show();
-                inputContractName.setHint("Bsp: Alianz");
+                inputContractName.setHint("Bsp.: Verti, HUK");
             } else {
                 isName = true;
                 inputContractNameString = inputContractName.getText().toString();
             }
             if(isEditTextEmpty(inputContractMonthlyCosts)){
                 Toast.makeText(this, "Monatliche Kosten angeben.", Toast.LENGTH_SHORT).show();
-                inputContractMonthlyCosts.setHint("Bsp: 149.98");
+                inputContractMonthlyCosts.setHint("Bsp.: 149.98");
                 monthlyCostsPrepare = 0.00;
             } else {
                 isMonthlyCosts = true;
