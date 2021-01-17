@@ -15,7 +15,7 @@
         android:id="@+id/nav_financeBook"
         android:name="com.example.finanzapp.ui.financebook.FinanceBookOverview"
         android:label="@string/menu_financebook"
-        tools:layout="@layout/fragment_financebook" />
+        tools:layout="@layout/activity_finance_book_overview" />
 
     <activity
         android:id="@+id/nav_assets"
