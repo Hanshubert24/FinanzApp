@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.Contracts.ContractsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 
@@ -105,7 +106,7 @@ public class IncomeOverview extends AppCompatActivity {
     }
 
     public void NavBack(View view){
-        Intent i = new Intent(IncomeOverview.this, MainActivity.class);
+        Intent i = new Intent(IncomeOverview.this, ContractsOverview.class);
         startActivity(i);
         finish();
     }

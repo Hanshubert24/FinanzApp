@@ -4,6 +4,7 @@ package com.example.finanzapp;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,6 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.finanzapp.ui.DB.DBDataAccess;
+import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        //Einspielen der Testdaten wenn die DB_Version eine 10er ist.
+        int dbVersion = DBMyHelper.DB_VERSION % 10;
+        if(dbVersion == 0 && DBMyHelper.initializeWithExampleData){
+            createExampleData();
+            DBMyHelper.initializeWithExampleData = false;
+            Toast.makeText(this, "TestDaten wurden angelegt.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -63,12 +74,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Testdaten für die Datenbank
-    public void createExampleData(View view) {
+    public void createExampleData() {
         db.open();
         db.addNewContractInDB("Krankenversicherung", "HansaMerkur", 120.95, "Ab 07/21 Wechelbar.");
         db.addNewContractInDB("KFZ-Versicherung", "Alianz", 35.20, "");
         db.addNewContractInDB("Fitnesstudio", "McFit", 19.95, "Kündigen.");
-        db.addNewContractInDB("Miete Wohnung", "A-Hausverwaltung", 825, "");
+        db.addNewContractInDB("Miete Wohnung", "A-Hausverwaltung", 825, "3 Monte Kündigungsfrist ab jeweils dem 1. des Monats (Posteingang)");
         db.addNewContractInDB("Dahrlehen", "Max Mustermann", 50, "Läuft 09/21 aus");
 
         db.addNewAssetInDB("Immobilie", "Berliner Str.13 15230 Ffo", 820, 1230, 400000 , 360000, "", "Bald mal wieder Renoveren!");
@@ -80,6 +91,39 @@ public class MainActivity extends AppCompatActivity {
         db.addNewIncomeInDB("Gehalt", "SystemhausXNZ", 2800, 1900, true, "Regulärer Joy");
         db.addNewIncomeInDB("Nebentätigkeit", "Huttenschule Hoppegarten", 0, 0, false, "Unterstützung Digitalisierungsprojekte.");
         db.addNewIncomeInDB("Nebentätigkeit", "Lessingschule Ffo", 0, 0, false, "Unterstützung Digitalisierungsprojekte.");
+
+        db.CostsHierarchyInDB("Auto", null, null);
+        db.CostsHierarchyInDB("Auto", "Tanken", null);
+        db.CostsHierarchyInDB("Auto", "Reparatur", null);
+        db.CostsHierarchyInDB("Auto", "Reparatur", "Vertragswerkstatt");
+        db.CostsHierarchyInDB("Auto", "Reparatur", "Freie Werkstatt");
+        db.CostsHierarchyInDB("Auto", "Reparatur", "Selbst gebaut (Material)");
+        db.CostsHierarchyInDB("Auto", "Bußgelder", null);
+        db.CostsHierarchyInDB("Auto", "Bußgelder", "Zu schnell gefahren.");
+        db.CostsHierarchyInDB("Auto", "Bußgelder", "Falsch geparkt.");
+        db.CostsHierarchyInDB("Wohnung", null, null);
+        db.CostsHierarchyInDB("Wohnung", "Einrichtung", null);
+        db.CostsHierarchyInDB("Wohnung", "Einrichtung", "Möbel Boss");
+        db.CostsHierarchyInDB("Wohnung", "Einrichtung", "XXXLutz");
+        db.CostsHierarchyInDB("Wohnung", "Einrichtung", "Ikea");
+        db.CostsHierarchyInDB("Wohnung", "Nebenkosten", "Strom");
+        db.CostsHierarchyInDB("Wohnung", "Nebenkosten", "Wasser");
+        db.CostsHierarchyInDB("Wohnung", "Nebenkosten", "Heizung");
+        db.CostsHierarchyInDB("Wohnung", "Nebenkosten", "Sonstiges");
+        db.CostsHierarchyInDB("Bildung", null, null);
+        db.CostsHierarchyInDB("Bildung", "Technische Hochschule", null);
+        db.CostsHierarchyInDB("Bildung", "Technische Hochschule", "Gebühren");
+        db.CostsHierarchyInDB("Bildung", "Technische Hochschule", "Material");
+        db.CostsHierarchyInDB("Bildung", "Technische Hochschule", "Sonstiges");
+        db.CostsHierarchyInDB("Bildung", "Private Weiterbildung", "Online Kurse");
+        db.CostsHierarchyInDB("Bildung", "Private Weiterbildung", "Bücher");
+        db.CostsHierarchyInDB("Bildung", "Private Weiterbildung", "Material");
+        db.CostsHierarchyInDB("Bildung", "Private Weiterbildung", "Sonstiges");
+        db.CostsHierarchyInDB("Einkauf", null, null);
+        db.CostsHierarchyInDB("Einkauf", "Lebensmittel", null);
+        db.CostsHierarchyInDB("Einkauf", "Kaffee to Go", null);
+        db.CostsHierarchyInDB("Einkauf", "FastFood", null);
+        db.close();
     }
 
 }
