@@ -11,29 +11,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="24dp"
-        android:text="€"
+        android:layout_marginEnd="16dp"
+        android:text="@string/asset_item_layout_euro"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/itemIncomeNetto"
         app:layout_constraintTop_toBottomOf="@+id/itemIncomeCategory" />
 
     <TextView
         android:id="@+id/itemIncomeNetto"
-        android:layout_width="100dp"
+        android:layout_width="95dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="TextView"
+        android:text="@string/general_textview_placeholder"
         android:textAlignment="textEnd"
+        android:textColor="@color/money_positiv_green"
         app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/itemIncomeCategory" />
 
     <TextView
         android:id="@+id/itemIncomeCategory"
-        android:layout_width="133dp"
+        android:layout_width="130dp"
         android:layout_height="20dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="1dp"
-        android:text="TextView"
+        android:layout_marginEnd="16dp"
+        android:text="@string/general_textview_placeholder"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,17 +45,17 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="€"
+        android:text="@string/asset_item_layout_euro"
         app:layout_constraintStart_toEndOf="@+id/itemIncomeBrutto"
         app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />
 
     <TextView
         android:id="@+id/itemIncomeBrutto"
-        android:layout_width="114dp"
+        android:layout_width="95dp"
         android:layout_height="20dp"
-        android:layout_marginStart="2dp"
-        android:text="TextView"
+        android:text="@string/general_textview_placeholder"
         android:textAlignment="textEnd"
+        android:textColor="@color/money_positiv_green"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />
 
@@ -59,21 +63,25 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="16dp"
         android:text="@string/income_item_layout_brutto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />
 
     <TextView
         android:id="@+id/itemIncomeCompany"
-        android:layout_width="272dp"
+        android:layout_width="0dp"
         android:layout_height="26dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
-        android:text="TextView"
-        android:textColor="#050505"
+        android:background="@drawable/button_gradient_blue"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/general_textview_placeholder"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/itemIncomeCategory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,7 +89,7 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="8dp"
         android:text="@string/income_item_layout_netto"
         app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/itemIncomeCompany" />

@@ -41,7 +41,7 @@
     <string name="assets_note">Notiz:</string>
     <string name="assets_image_path">Bildpfad:</string>
     <string name="assets_monthly_income">mtl.Eink.:</string>
-    <string name="assets_monthly_costs">mtl.Kosten:</string>
+    <string name="assets_monthly_costs">Tilgung:</string>
     <string name="assets_name">Name:</string>
     <string name="assets_category">Kategorie:</string>
     <string name="assets_delet_button">Löschen</string>
@@ -154,10 +154,7 @@
     <!--Costs Hierarchy E3-->
     <string name="costshierarchyE3_deleteE3_button">Subunterkategorie löschen</string>
     <string name="costshierarchyOverview_title_listview_E3_lable">Subunterkategorie Löschen</string>
-
-
-
-
+    <string name="genereal_costs_name">Kosten:</string>
 
 
     <!--Noch Sortieren-->
