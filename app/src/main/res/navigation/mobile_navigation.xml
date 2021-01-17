@@ -11,9 +11,9 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home"  />
 
-    <fragment
+    <activity
         android:id="@+id/nav_financeBook"
-        android:name="com.example.finanzapp.ui.financebook.FinanceBookFragment"
+        android:name="com.example.finanzapp.ui.financebook.FinanceBookOverview"
         android:label="@string/menu_financebook"
         tools:layout="@layout/fragment_financebook" />
 

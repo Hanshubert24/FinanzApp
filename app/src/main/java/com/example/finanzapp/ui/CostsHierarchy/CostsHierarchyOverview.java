@@ -22,7 +22,7 @@ import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBInformationObject;
 import com.example.finanzapp.ui.DB.DBMyHelper;
-import com.example.finanzapp.ui.financebook.FinanceBookFragment;
+import com.example.finanzapp.ui.financebook.FinanceBookOverview;
 
 import java.util.ArrayList;
 
@@ -114,7 +114,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        Intent i = new Intent(CostsHierarchyOverview.this, FinanceBookFragment.class);
+        Intent i = new Intent(CostsHierarchyOverview.this, FinanceBookOverview.class);
         startActivity(i);
         finish();
 

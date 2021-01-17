@@ -7,7 +7,7 @@
     <string name="general_image_login">Money rise up</string>
     <string name="general_discription_image_Diamont">Ein Diamant</string>
     <string name="general_empty_text" />
-    <string name="general_discription_Image_Contract" >Bild mit Blätter</string>
+    <string name="general_discription_Image_Contract">Bild mit Blätter</string>
 
     <!-- Navigation and Nav Header-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -21,7 +21,7 @@
     <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
     <string name="menu_assets">Vermögen</string>
-    <string name="menu_financebook">Haushaltsbuch</string>
+    <string name="menu_financebook">Finanzbuch</string>
     <string name="menu_contracts">Verträge</string>
     <string name="menu_logout">Logout</string>
 
@@ -72,6 +72,8 @@
     <string name="AddButtonText">+</string>
     <string name="fb_button_discription">"Chartanalyse "</string>
     <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
+    <string name="fb_financebook_lable">Finanzbuch</string>
+    <string name="fb_financebook_charts_lable">Diagramme FB</string>
 
     <!-- Strings related to Contracts -->
     <string name="contracts_type">Vertragstyp:</string>
@@ -110,31 +112,34 @@
     <string name="costshierarchyE2_title_textview_E2">Ausgewählte Unterkategorie</string>
     <string name="costshierarchyE3_title_textview_E3">Ausgewählte Subkategorie</string>
 
-        <!--Costs Hierarchy Overview-->
-        <string name="costshierarchyOverview_title_listview_E1">Angelegte Hauptkategorien:</string>
-        <string name="costshierarchyOverview_title_listview_E1_lable">Hauptkategorien</string>
-        <string name="costshierarchyOverview_addE1_button">Hauptkategorie anlegen</string>
+    <!--Costs Hierarchy Overview-->
+    <string name="costshierarchyOverview_title_listview_E1">Angelegte Hauptkategorien:</string>
+    <string name="costshierarchyOverview_title_listview_Overview_lable">Hauptkategorien</string>
+    <string name="costshierarchyOverview_addE1_button">Hauptkategorie anlegen</string>
 
-        <!--Costs Hierarchy E1-->
-        <string name="costshierarchyE1_title_listview_E2">Unterkategorien</string>
-        <string name="costshierarchyE1_addE2_button">Unterkategorie anlegen</string>
-        <string name="costshierarchyE1_deleteE1_button">Hauptkategorie löschen</string>
+    <!--Costs Hierarchy E1-->
+    <string name="costshierarchyE1_title_listview_E2">Unterkategorien</string>
+    <string name="costshierarchyE1_addE2_button">Unterkategorie anlegen</string>
+    <string name="costshierarchyE1_deleteE1_button">Hauptkategorie löschen</string>
+    <string name="costshierarchyOverview_title_listview_E1_lable">Unterkategorie anlegen</string>
 
-        <!--Costs Hierarchy E2-->
-        <string name="costshierarchyE2_title_listview_E3">Subkategorien</string>
-        <string name="costshierarchyE2_addE3_button">Subkategorie anlegen</string>
-        <string name="costshierarchyE2_deleteE2_button">Unterkategorie löschen</string>
+    <!--Costs Hierarchy E2-->
+    <string name="costshierarchyE2_title_listview_E3">Subkategorien</string>
+    <string name="costshierarchyE2_addE3_button">Subkategorie anlegen</string>
+    <string name="costshierarchyE2_deleteE2_button">Unterkategorie löschen</string>
+    <string name="costshierarchyOverview_title_listview_E2_lable">Subkategorie anlegen</string>
 
-        <!--Costs Hierarchy E3-->
-        <string name="costshierarchyE3_deleteE3_button">Subkategorie löschen</string>
-
+    <!--Costs Hierarchy E3-->
+    <string name="costshierarchyE3_deleteE3_button">Subkategorie löschen</string>
+    <string name="costshierarchyOverview_title_listview_E3_lable">Subkategorie Löschen</string>
 
     <!--Noch Sortieren-->
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="title_activity_assets_charts">AssetsCharts</string>
-    <string name="contracts_hint_type" >Versicherung, Arbeitsvertrag</string>
+    <string name="contracts_hint_type">Versicherung, Arbeitsvertrag</string>
     <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
-    <string name="contract_hint_name" >Verti, Huk, AOK ...</string>
+    <string name="contract_hint_name">Verti, Huk, AOK ...</string>
+    <string name="costhierarchyE1_text">Inhalt Hauptkategorie</string>
 
 
 </resources>
