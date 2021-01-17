@@ -69,7 +69,7 @@
     <string name="TextPinEnter2">in</string>
     <string name="TextPinEnter_Lable"> PIN Abfrage</string>
     <string name="PinChange_Lable"> PIN Festlegen</string>
-    <string name="LoadingApp"> ...wird geladen...</string>
+    <string name="LoadingApp"> wird geladen...</string>
 
     <!-- Strings related to Financebook -->
     <string name="ButtonFinanzbookAdd"> + </string>
@@ -114,11 +114,6 @@
     <string name="ContractIncomehintCompany">BMW, Systemhaus, Bundeswehr, ...</string>
     <string name="ContractIncomeHintCategory">Lohn, Gehalt, Sold, ...</string>
 
-    <!-- Unused at the moment -->
-    <string name="welcome">"Welcome !"</string>
-    <string name="content_addBuy">Ausgabe</string>
-
-
     <!--Costs Hierarchy-->
     <string name="costshierarchyE1_title_textview_E1">Ausgewählte Hauptkategorie</string>
     <string name="costshierarchyE2_title_textview_E2">Ausgewählte Unterkategorie</string>
@@ -158,7 +153,9 @@
 
 
     <!--Noch Sortieren-->
-
+    <!-- Unused at the moment -->
+    <string name="welcome">"Welcome !"</string>
+    <string name="content_addBuy">Ausgabe</string>
 
 
 
