@@ -141,5 +141,8 @@
     <string name="contract_hint_name">Verti, Huk, AOK ...</string>
     <string name="costhierarchyE1_text">Inhalt Hauptkategorie</string>
 
+    <string name="income_delete_button">Löschen</string>
+    <string name="income_change_button">Ändern</string>
+    <string name="income_change_save_button">Änderung speichern</string>
 
 </resources>

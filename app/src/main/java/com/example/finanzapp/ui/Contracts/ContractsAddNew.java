@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
+import com.example.finanzapp.ui.DB.DBService;
 
 public class ContractsAddNew extends AppCompatActivity {
 
@@ -66,6 +67,7 @@ public class ContractsAddNew extends AppCompatActivity {
         boolean isType = false;
         boolean isName = false;
         boolean isMonthlyCosts = false;
+        double monthlyCostsPrepare;
 
         try {
             inputContractType = findViewById(R.id.editTextContractType);
@@ -92,24 +94,22 @@ public class ContractsAddNew extends AppCompatActivity {
             if(isEditTextEmpty(inputContractMonthlyCosts)){
                 Toast.makeText(this, "Monatliche Kosten angeben.", Toast.LENGTH_SHORT).show();
                 inputContractMonthlyCosts.setHint("Bsp: 149.98");
+                monthlyCostsPrepare = 0.00;
             } else {
                 isMonthlyCosts = true;
                 inputContractMonthlyCostsDouble = Double.parseDouble(inputContractMonthlyCosts.getText().toString());
+                monthlyCostsPrepare = DBService.doubleValueForDB(inputContractMonthlyCostsDouble);
             }
-
 
             inputContractNoteString = inputContractNote.getText().toString();
 
-
-            //DOUBLE-WERT Prüfen -> Ob eine Eingabe enthalten ist und ob der . (Punkt) und nicht das Komma gesetzt wurde.
-            //Komma zulassen -> Wert vor der Eingabe in die Datenbank bearbeiten!
 
             //Übergabe an die Datenbank
             if(isType && isName && isMonthlyCosts) {
                 db.addNewContractInDB(
                         inputContractTypeString,
                         inputContractNameString,
-                        inputContractMonthlyCostsDouble,
+                        monthlyCostsPrepare,
                         inputContractNoteString);
 
                 //Weiterleitung zurück auf die ContractsOverview Seite

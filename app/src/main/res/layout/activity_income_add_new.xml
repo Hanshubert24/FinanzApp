@@ -24,14 +24,15 @@
         android:layout_marginTop="23dp"
         android:layout_marginEnd="1dp"
         android:ems="10"
+        android:hint="2216.98"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewBrutto" />
 
     <EditText
         android:id="@+id/editTextIncomeAddNewNote"
-        android:layout_width="280dp"
-        android:layout_height="43dp"
+        android:layout_width="279dp"
+        android:layout_height="36dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
@@ -57,7 +58,8 @@
         android:layout_marginTop="74dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
-        android:inputType="number|numberDecimal"
+        android:hint="Lohn / Gehlat / Sold / ..."
+        android:inputType="textShortMessage|textLongMessage|text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,9 +78,10 @@
         android:id="@+id/editTextIncomeAddNewCompany"
         android:layout_width="280dp"
         android:layout_height="43dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
+        android:hint="BMW / Systemhaus / Bundeswehr"
         android:inputType="textPersonName|textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewCategory" />
@@ -109,11 +112,13 @@
         android:id="@+id/editTextIncomeAddNewBrutto"
         android:layout_width="280dp"
         android:layout_height="43dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
+        android:hint="2850.80"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="202dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewCompany" />
 
     <Button
         android:id="@+id/buttonBackContractsAddNew3"

@@ -195,25 +195,29 @@ public class AssetsDetailsChange extends AppCompatActivity {
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das MonthlyCosts-Feld eingegeben.");
             } else {
                 isMonthlyCostsNew = true;
-                monthlyCostsNew = Double.parseDouble(editTextMonthlyCosts.getText().toString());
+                double monthlyCosts = Double.parseDouble(editTextMonthlyCosts.getText().toString());
+                monthlyCostsNew = DBService.doubleValueForDB(monthlyCosts);
             }
             if(isEditTextEmpty(editTextMonthlyEarnings)){
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das MonthlyEarnings-Feld eingegeben.");
             } else {
                 isMonthlyEarningsNew = true;
-                monthlyEarningsNew= Double.parseDouble(editTextMonthlyEarnings.getText().toString());
+                double monthlyEarnings= Double.parseDouble(editTextMonthlyEarnings.getText().toString());
+                monthlyEarningsNew = DBService.doubleValueForDB(monthlyEarnings);
             }
             if(isEditTextEmpty(editTextFinancialAsset)){
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das FinancialAsset-Feld eingegeben.");
             } else {
                 isFinancialAssetNew = true;
-                financialAssetNew= Double.parseDouble(editTextFinancialAsset.getText().toString());
+                double financialAsset = Double.parseDouble(editTextFinancialAsset.getText().toString());
+                financialAssetNew = DBService.doubleValueForDB(financialAsset);
             }
             if(isEditTextEmpty(editTextCredit)){
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das Credit-Feld eingegeben.");
             } else {
                 isCreditNew = true;
-                creditNew= Double.parseDouble(editTextCredit.getText().toString());
+                double credit = Double.parseDouble(editTextCredit.getText().toString());
+                creditNew = DBService.doubleValueForDB(credit);
             }
             if(isEditTextEmpty(editTextNote)){
                 Log.d(LOG_TAG, "Es wurde keine Änderung für das Note-Feld eingegeben.");
