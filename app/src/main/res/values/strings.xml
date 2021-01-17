@@ -53,6 +53,7 @@
     <string name="assets_credit_name">Kredit:</string>
     <string name="assets_chart_lable">Diagrammübersicht</string>
     <string name="assets_hint_number_plus_euro">Neuer Wert in €</string>
+    <string name="title_activity_assets_charts">AssetsCharts</string>
 
     <!-- Strings related to login -->
     <string name="PinChangeButton">PIN festlegen</string>
@@ -85,6 +86,9 @@
     <string name="contracts_add_new_lable">Vertrag anlegen</string>
     <string name="contracts_overwiev_lable">Vertragsübersicht</string>
     <string name="contracts_details_change_lable">Vertragsübersicht</string>
+    <string name="contracts_hint_type">Versicherung, Arbeitsvertrag</string>
+    <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
+    <string name="contract_hint_name">Verti, Huk, AOK ...</string>
 
     <!-- Strings related to Income -->
     <string name="income_item_layout_netto">Netto:</string>
@@ -98,7 +102,9 @@
     <string name="income_details_lable">Detailansicht</string>
     <string name="income_add_new_lable">Hinzufügen</string>
     <string name="income_overwiev_lable">Übersicht Verdienstverträge</string>
-
+    <string name="income_delete_button">Löschen</string>
+    <string name="income_change_button">Ändern</string>
+    <string name="income_change_save_button">Änderung speichern</string>
 
     <!-- Strings related to Wealth -->
 
@@ -117,11 +123,13 @@
     <string name="costshierarchyOverview_title_listview_Overview_lable">Hauptkategorien</string>
     <string name="costshierarchyOverview_addE1_button">Hauptkategorie anlegen</string>
 
+
     <!--Costs Hierarchy E1-->
     <string name="costshierarchyE1_title_listview_E2">Unterkategorien</string>
     <string name="costshierarchyE1_addE2_button">Unterkategorie anlegen</string>
     <string name="costshierarchyE1_deleteE1_button">Hauptkategorie löschen</string>
     <string name="costshierarchyOverview_title_listview_E1_lable">Unterkategorie anlegen</string>
+    <string name="costhierarchyE1_text">Inhalt Hauptkategorie</string>
 
     <!--Costs Hierarchy E2-->
     <string name="costshierarchyE2_title_listview_E3">Subkategorien</string>
@@ -134,15 +142,11 @@
     <string name="costshierarchyOverview_title_listview_E3_lable">Subkategorie Löschen</string>
 
     <!--Noch Sortieren-->
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="title_activity_assets_charts">AssetsCharts</string>
-    <string name="contracts_hint_type">Versicherung, Arbeitsvertrag</string>
-    <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
-    <string name="contract_hint_name">Verti, Huk, AOK ...</string>
-    <string name="costhierarchyE1_text">Inhalt Hauptkategorie</string>
 
-    <string name="income_delete_button">Löschen</string>
-    <string name="income_change_button">Ändern</string>
-    <string name="income_change_save_button">Änderung speichern</string>
+
+
+
+
+
 
 </resources>
