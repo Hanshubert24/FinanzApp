@@ -125,10 +125,6 @@ public class MainActivity extends AppCompatActivity {
         db.CostsHierarchyInDB("Einkauf", "FastFood", null);
         db.close();
     }
-    public void QuitApp(View view) {
-        MainActivity.this.finish();
-        System.exit(0);
-    }
 
 }
 
