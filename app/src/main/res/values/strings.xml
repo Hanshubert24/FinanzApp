@@ -86,7 +86,7 @@
     <string name="contracts_add_new_lable">Vertrag anlegen</string>
     <string name="contracts_overwiev_lable">Vertragsübersicht</string>
     <string name="contracts_details_change_lable">Vertragsübersicht</string>
-    <string name="contracts_hint_type">Versicherung, Arbeitsvertrag</string>
+    <string name="contracts_hint_type">Autoversicherung,Krankenversicherung</string>
     <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
     <string name="contract_hint_name">Verti, Huk, AOK ...</string>
 
@@ -122,7 +122,7 @@
     <string name="costshierarchyOverview_title_listview_E1">Angelegte Hauptkategorien:</string>
     <string name="costshierarchyOverview_title_listview_Overview_lable">Hauptkategorien</string>
     <string name="costshierarchyOverview_addE1_button">Hauptkategorie anlegen</string>
-
+    <string name="hierarchie_E1_TextDialog">Wofür haben Sie Ausgaben getätigt</string>
 
     <!--Costs Hierarchy E1-->
     <string name="costshierarchyE1_title_listview_E2">Unterkategorien</string>
@@ -141,6 +141,10 @@
     <string name="costshierarchyE3_deleteE3_button">Subkategorie löschen</string>
     <string name="costshierarchyOverview_title_listview_E3_lable">Subkategorie Löschen</string>
     <string name="genreral_new_numeric_euro">Wert in €</string>
+    <string name="hierarchie_E1_dialogbox_hints">Lebensmittel, Wohnen, Auto, ...</string>
+    <string name="Costhierarchie_Dialog_Headtext">Legen Sie einen Eintrag an:</string>
+    <string name="general_cancel_text">Abbrechen</string>
+
 
     <!--Noch Sortieren-->
 
