@@ -19,7 +19,7 @@ import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
+    public AppBarConfiguration mAppBarConfiguration;
     private DBDataAccess db;
 
     @Override

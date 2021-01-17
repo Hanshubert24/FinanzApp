@@ -6,133 +6,206 @@
     android:layout_height="match_parent"
     tools:context=".ui.Income.IncomeAddNew">
 
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="23dp"
-        android:text="@string/income_netto"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextContractNote"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
-    <EditText
-        android:id="@+id/editTextIncomeAddNewNetto"
-        android:layout_width="280dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="1dp"
-        android:ems="10"
-        android:hint="@string/assets_hint_number_plus_euro"
-        android:inputType="number|numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewBrutto" />
-
-    <EditText
-        android:id="@+id/editTextIncomeAddNewNote"
-        android:layout_width="279dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="4dp"
-        android:ems="10"
-        android:inputType="textShortMessage|textLongMessage|textPersonName|textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewNetto" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="6dp"
-        android:text="@string/income_note"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextContractName"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
-
-    <EditText
-        android:id="@+id/editTextIncomeAddNewCategory"
-        android:layout_width="280dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="4dp"
-        android:ems="10"
-        android:hint="Lohn / Gehlat / Sold / ..."
-        android:inputType="textShortMessage|textLongMessage|text"
+    <ImageView
+        android:id="@+id/contracts_overwiev_image_contract12"
+        android:layout_width="81dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/general_discription_Image_Contract"
+        android:paddingTop="6dp"
+        android:src="@drawable/contractincome4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="28dp"
-        android:text="@string/income_category"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextContractType"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsAddNew3" />
-
-    <EditText
-        android:id="@+id/editTextIncomeAddNewCompany"
-        android:layout_width="280dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:ems="10"
-        android:hint="BMW / Systemhaus / Bundeswehr"
-        android:inputType="textPersonName|textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewCategory" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="112dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="28dp"
-        android:text="@string/income_company"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextContractMonthlyCosts"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="23dp"
-        android:text="@string/income_brutto"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextContractNote"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-    <EditText
-        android:id="@+id/editTextIncomeAddNewBrutto"
-        android:layout_width="280dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="4dp"
-        android:ems="10"
-        android:hint="@string/assets_hint_number_plus_euro"
-        android:inputType="number|numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextIncomeAddNewCompany" />
-
     <Button
         android:id="@+id/buttonBackContractsAddNew3"
-        android:layout_width="83dp"
-        android:layout_height="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:onClick="NavBack"
         android:text="@string/assets_back"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAdd2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackContractsAddNew3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewIncomeCategoryName"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/income_category"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextIncomeAddNewCategory"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:ems="10"
+                android:hint="@string/ContractIncomeHintCategory"
+                android:importantForAutofill="no"
+                android:inputType="textShortMessage|textLongMessage|text"
+                android:paddingStart="10dp"
+                android:paddingEnd="2dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewIncomeCompanyName"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/income_company"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextIncomeAddNewCompany"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:ems="10"
+                android:hint="@string/ContractIncomehintCompany"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName|textEmailAddress"
+                android:paddingStart="10dp"
+                android:paddingEnd="2dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewIncomeNettoName"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/income_netto"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextIncomeAddNewNetto"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:ems="10"
+                android:hint="@string/assets_hint_number_plus_euro"
+                android:importantForAutofill="no"
+                android:inputType="number|numberDecimal"
+                android:paddingStart="10dp"
+                android:paddingEnd="2dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewIncomeBruttoName"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/income_brutto"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextIncomeAddNewBrutto"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:ems="10"
+                android:hint="@string/assets_hint_number_plus_euro"
+                android:importantForAutofill="no"
+                android:inputType="number|numberDecimal"
+                android:paddingStart="10dp"
+                android:paddingEnd="2dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewIncomeNoteName"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/income_note"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextIncomeAddNewNote"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_blue"
+                android:ems="10"
+                android:hint="@string/contract_hint_note"
+                android:importantForAutofill="no"
+                android:inputType="textShortMessage|textLongMessage|textPersonName|textEmailAddress"
+                android:paddingStart="10dp"
+                android:paddingEnd="2dp"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/buttonAdd2"
@@ -148,4 +221,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

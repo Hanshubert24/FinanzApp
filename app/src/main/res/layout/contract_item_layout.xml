@@ -7,9 +7,18 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/asset_item_layout_euro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemContractsType" />
+
+    <TextView
         android:id="@+id/itemContractsName"
         android:layout_width="120dp"
-        android:layout_height="21dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/general_textview_placeholder"
         android:textColor="@color/black"
@@ -19,8 +28,8 @@
     <TextView
         android:id="@+id/itemContractsName2"
         android:layout_width="120dp"
-        android:layout_height="21dp"
-        android:text="@string/assets_monthly_costs"
+        android:layout_height="wrap_content"
+        android:text="@string/genereal_costs_name"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/itemContractsMonthlyCosts"
@@ -51,11 +60,10 @@
     <TextView
         android:id="@+id/itemContractsMonthlyCosts"
         android:layout_width="0dp"
-        android:layout_height="21dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="wrap_content"
         android:text="@string/general_textview_placeholder"
         android:textAlignment="textEnd"
         android:textColor="@color/money_negatic_red"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/itemContractsType" />
 </androidx.constraintlayout.widget.ConstraintLayout>

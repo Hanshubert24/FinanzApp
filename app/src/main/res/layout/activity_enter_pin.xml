@@ -11,86 +11,101 @@
         android:id="@+id/textViewPinChange2"
         android:layout_width="75dp"
         android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+
+        android:layout_marginEnd="16dp"
         android:text="@string/TextPinEnter"
         android:textAlignment="center"
-
         android:textColor="@color/blue"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.324" />
+        app:layout_constraintTop_toBottomOf="@+id/LabelAppEnterPin" />
 
     <TextView
         android:id="@+id/textViewPinChange3"
         android:layout_width="65dp"
         android:layout_height="38dp"
-        android:rotation="-25"
+        android:layout_marginStart="16dp"
 
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:rotation="-25"
         android:text="@string/TextPinEnter2"
         android:textAlignment="center"
         android:textColor="@color/blue"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintTop_toBottomOf="@+id/LabelAppEnterPin"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextNumberPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/PinChangeHint1"
         android:inputType="numberPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPinChange2" />
 
     <Button
         android:id="@+id/buttonPinEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_gradient_blue"
         android:text="@string/buttonPinEnter"
+        android:textSize="22sp"
         app:iconTint="#221D1D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPin"
+        app:layout_constraintVertical_bias="0.14999998" />
 
     <ImageView
         android:id="@+id/LoginImageMoney"
         android:layout_width="53dp"
         android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/general_image_login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.634"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.322"
+        app:layout_constraintTop_toBottomOf="@+id/LabelAppEnterPin"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/arrow_up_login" />
 
     <ImageView
         android:id="@+id/LabelAppEnterPin"
         android:layout_width="238dp"
         android:layout_height="105dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/general_app_lable"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
         app:srcCompat="@drawable/finanz_app_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
