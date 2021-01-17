@@ -62,7 +62,8 @@ public class FinanceBookOverview extends AppCompatActivity {
     public void NavBacktoHomeFB(View view){
         Intent i = new Intent(FinanceBookOverview.this, MainActivity.class);
         startActivity(i);
-        finish();
+        finishAndRemoveTask();
+
     }
 }
 

@@ -30,7 +30,12 @@
 
     <activity
         android:id="@+id/nav_logout"
-        android:name="com.example.finanzapp.ui.logout.LogoutActivity"
+        android:name="com.example.finanzapp.MainActivity"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/activity_logout" />
+    <activity
+        android:id="@+id/nav_logout2"
+        android:name="com.example.finanzapp.MainActivity"
         android:label="@string/menu_logout"
         tools:layout="@layout/activity_logout" />
 

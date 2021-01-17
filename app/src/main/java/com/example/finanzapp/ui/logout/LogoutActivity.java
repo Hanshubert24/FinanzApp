@@ -13,5 +13,6 @@ public class LogoutActivity extends AppCompatActivity {
         // TODO Exit ggf raus oder neu
         finish();
         System.exit(0);
+
     }
 }
