@@ -1,8 +1,5 @@
 package com.example.finanzapp.ui.CostsHierarchy;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -17,6 +14,9 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
@@ -198,7 +198,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
         AlertDialog.Builder dialogPopUP = new AlertDialog.Builder(CostsHierarchyE2.this);
 
         LayoutInflater inflater = this.getLayoutInflater();
-        dialog_addnewentry_pupup = inflater.inflate(R.layout.dialog_addnewentry_popup, null);
+        dialog_addnewentry_pupup = inflater.inflate(R.layout.dialog_addnewentry_e2_popup, null);
 
         dialogPopUP.setView(dialog_addnewentry_pupup);
         dialogPopUP.show();

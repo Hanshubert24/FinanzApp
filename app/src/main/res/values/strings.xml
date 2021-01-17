@@ -8,6 +8,9 @@
     <string name="general_discription_image_Diamont">Ein Diamant</string>
     <string name="general_empty_text" />
     <string name="general_discription_Image_Contract">Bild mit Blätter</string>
+    <string name="general_cancel_text">Abbrechen</string>
+    <string name="general_delete_text">Soll der Eintrag wirklich gelöscht werden?</string>
+    <string name="genreral_new_numeric_euro">Wert in €</string>
 
     <!-- Navigation and Nav Header-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -100,13 +103,16 @@
     <string name="income_note">Anmerkung</string>
     <string name="income_details_change_lable">Ändern</string>
     <string name="income_details_lable">Detailansicht</string>
-    <string name="income_add_new_lable">Hinzufügen</string>
+    <string name="income_add_new_lable">Hinzufügen </string>
     <string name="income_overwiev_lable">Übersicht Verdienstverträge</string>
     <string name="income_delete_button">Löschen</string>
     <string name="income_change_button">Ändern</string>
     <string name="income_change_save_button">Änderung speichern</string>
 
-    <!-- Strings related to Wealth -->
+    <!-- Strings related to ContractIncome -->
+
+    <string name="ContractIncomehintCompany">BMW, Systemhaus, Bundeswehr, ...</string>
+    <string name="ContractIncomeHintCategory">Lohn, Gehalt, Sold, ...</string>
 
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
@@ -119,10 +125,12 @@
     <string name="costshierarchyE3_title_textview_E3">Ausgewählte Subkategorie</string>
 
     <!--Costs Hierarchy Overview-->
-    <string name="costshierarchyOverview_title_listview_E1">Angelegte Hauptkategorien:</string>
+    <string name="costshierarchyOverview_title_listview_E1">Angelegte Hauptkategorien</string>
     <string name="costshierarchyOverview_title_listview_Overview_lable">Hauptkategorien</string>
     <string name="costshierarchyOverview_addE1_button">Hauptkategorie anlegen</string>
-    <string name="hierarchie_E1_TextDialog">Wofür haben Sie Ausgaben getätigt</string>
+    <string name="hierarchie_Overview_TextDialog">Wofür haben Sie Ausgaben getätigt?</string>
+    <string name="hierarchie_Overview_dialogbox_hints">Lebensmittel, Wohnen, Auto, ...</string>
+    <string name="Costhierarchie_Dialog_Overview_Headtext">Legen Sie eine Hauptkategorie an</string>
 
     <!--Costs Hierarchy E1-->
     <string name="costshierarchyE1_title_listview_E2">Unterkategorien</string>
@@ -130,20 +138,26 @@
     <string name="costshierarchyE1_deleteE1_button">Hauptkategorie löschen</string>
     <string name="costshierarchyOverview_title_listview_E1_lable">Unterkategorie anlegen</string>
     <string name="costhierarchyE1_text">Inhalt Hauptkategorie</string>
+    <string name="hierarchie_E1_TextDialog">Welche Unterkategorie zur Hauptkategorie wollen Sie?</string>
+    <string name="hierarchie_E1_dialogbox_hints">Discounter, Baumärkte, Tankstellen, ...</string>
+    <string name="Costhierarchie_Dialog_E1_Headtext">Legen Sie eine Unterkategorie an</string>
 
     <!--Costs Hierarchy E2-->
-    <string name="costshierarchyE2_title_listview_E3">Subkategorien</string>
-    <string name="costshierarchyE2_addE3_button">Subkategorie anlegen</string>
+    <string name="costshierarchyE2_title_listview_E3">Subunterkategorie</string>
+    <string name="costshierarchyE2_addE3_button">Subunterkategorie anlegen</string>
     <string name="costshierarchyE2_deleteE2_button">Unterkategorie löschen</string>
-    <string name="costshierarchyOverview_title_listview_E2_lable">Subkategorie anlegen</string>
+    <string name="costshierarchyOverview_title_listview_E2_lable">Subunterkategorie anlegen</string>
+    <string name="hierarchie_E2_TextDialog">Welche Subunterkategorie zur Hauptkategorie wollen Sie?</string>
+    <string name="hierarchie_E2_dialogbox_hints">Aldi, OBI, Jet, ...</string>
+    <string name="Costhierarchie_Dialog_E2_Headtext">Legen Sie eine Subunterkategorie an</string>
 
     <!--Costs Hierarchy E3-->
-    <string name="costshierarchyE3_deleteE3_button">Subkategorie löschen</string>
-    <string name="costshierarchyOverview_title_listview_E3_lable">Subkategorie Löschen</string>
-    <string name="genreral_new_numeric_euro">Wert in €</string>
-    <string name="hierarchie_E1_dialogbox_hints">Lebensmittel, Wohnen, Auto, ...</string>
-    <string name="Costhierarchie_Dialog_Headtext">Legen Sie einen Eintrag an:</string>
-    <string name="general_cancel_text">Abbrechen</string>
+    <string name="costshierarchyE3_deleteE3_button">Subunterkategorie löschen</string>
+    <string name="costshierarchyOverview_title_listview_E3_lable">Subunterkategorie Löschen</string>
+
+
+
+
 
 
     <!--Noch Sortieren-->

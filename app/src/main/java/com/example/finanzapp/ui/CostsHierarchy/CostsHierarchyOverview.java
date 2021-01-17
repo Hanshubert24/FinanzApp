@@ -126,7 +126,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
         AlertDialog.Builder dialogPopUP = new AlertDialog.Builder(CostsHierarchyOverview.this);
 
         LayoutInflater inflater = this.getLayoutInflater();
-        dialog_addnewentry_pupup = inflater.inflate(R.layout.dialog_addnewentry_popup, null);
+        dialog_addnewentry_pupup = inflater.inflate(R.layout.dialog_addnewentry_overview_popup, null);
 
         dialogPopUP.setView(dialog_addnewentry_pupup);
         dialogPopUP.show();
