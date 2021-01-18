@@ -7,6 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.financebook.FinanceBookCharts">
 
+    <TextView
+        android:id="@+id/textViewAssetsChartAssetvalueName3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_gardient_orange_round"
+        android:text="@string/fb_chart_overwiev_herarchy_main_cathegories"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assets_overwiev_image_diamont5" />
+
     <ImageView
         android:id="@+id/assets_overwiev_image_diamont5"
         android:layout_width="81dp"
@@ -19,20 +36,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/buttonBacktoFB"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.anychart.AnyChartView
-        android:id="@+id/any_chart_view_charts_fb"
-        android:layout_width="366dp"
-        android:layout_height="288dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBacktoFB" />
 
     <Button
         android:id="@+id/buttonBacktoFB"
@@ -48,4 +51,32 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAssetsChartAssetvalueName3"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.anychart.AnyChartView
+                android:id="@+id/any_chart_view_charts_fb_sum_category"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

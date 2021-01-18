@@ -33,7 +33,7 @@ public class FinanceBookOverview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance_book_overview);
-        anyChartView = findViewById(R.id.any_chart_view_fb);
+        anyChartView = findViewById(R.id.any_chart_view_fb_current_month);
         setupPieChart();
 
     }

@@ -168,6 +168,8 @@
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
     <string name="home_Text">Die Clevere Art Finanzen zu Verwalten</string>
+    <string name="fb_Chart_overwiev_current_month_Name">Aktueller Monat</string>
+    <string name="fb_chart_overwiev_herarchy_main_cathegories">Hauptkategorien nach Kostenanteil</string>
 
 
 </resources>
