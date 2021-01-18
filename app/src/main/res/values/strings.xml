@@ -152,9 +152,17 @@
     <string name="genereal_costs_name">Kosten:</string>
 
 
-    <!--Noch Sortieren-->
+    <!--QuickPay-->
+    <string name="spinnerQuickPayE1TextAbove">Wählen Sie eine Hauptkategorie</string>
+    <string name="spinnerQuickPayE2TextAbove">Wählen Sie eine Unterkategorie</string>
+    <string name="spinnerQuickPayE3TextAbove">Wählen Sie eine Subunterkategorie</string>
+    <string name="EdittextQuickPayCostsTextAbove">Betrag eingeben</string>
+
+    <!-- CashflowAdd -->
+
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
+
 
 </resources>
