@@ -8,8 +8,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
@@ -24,18 +26,30 @@ import com.example.finanzapp.ui.Income.IncomeOverview;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class QuickPay extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class QuickPay extends AppCompatActivity {
 
     private static final String LOG_TAG = QuickPay.class.getSimpleName();
 
     DBDataAccess db;
+    Cursor cursorE1;
+    Cursor cursorE2;
+    Cursor cursorE3;
+
+    String valueE1;
+    String valueE2;
+    String valueE3;
 
     Spinner spinnerE1;
     Spinner spinnerE2;
     Spinner spinnerE3;
 
-    ArrayList<String> arrayList;
-    ArrayAdapter<CharSequence> arrayAdapter;
+    ArrayList<String> arrayListE1;
+    ArrayList<String> arrayListE2;
+    ArrayList<String> arrayListE3;
+    ArrayAdapter<CharSequence> arrayAdapterE1;
+    ArrayAdapter<CharSequence> arrayAdapterE2;
+    ArrayAdapter<CharSequence> arrayAdapterE3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +63,9 @@ public class QuickPay extends AppCompatActivity implements AdapterView.OnItemSel
         spinnerE2 = (Spinner) findViewById(R.id.spinnerQuickPayE2);
         spinnerE3 = (Spinner) findViewById(R.id.spinnerQuickPayE3);
 
-        arrayList = new ArrayList<String>();
+        arrayListE1 = new ArrayList<String>();
+        arrayListE2 = new ArrayList<String>();
+        arrayListE3 = new ArrayList<String>();
     }
 
     @Override
@@ -59,39 +75,149 @@ public class QuickPay extends AppCompatActivity implements AdapterView.OnItemSel
         Log.d(LOG_TAG, "Die Datenquelle wird geöffent,");
         db.open();
 
-        Cursor cursor = db.viewColumnsFromCostsHierarchyOverviewForListview(DBMyHelper.COLUMNCostsHierarchy_E1);
-        //Cursor cursor = db.viewAllInTable(DBMyHelper.TABLECostsHierarchy_Name);
+        fillSpinnerE1();
+        //reagieren auf SpinnerE1
+        spinnerE1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(QuickPay.this, "ID: " + id + " Pos: " + position, Toast.LENGTH_SHORT).show();
+                valueE1 = arrayListE1.get(position);
+                Log.d(LOG_TAG, "SpinnerE1 -> ID: " + id + " Pos: " + position + " String: " + valueE1);
 
-        //E1 aus CostsHierarchy auslesen für SpinnerE1
-        if(cursor != null){
-            if(cursor.moveToFirst()){
-                int E1Index = cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E1);
-                do{
-                    //Auslesen der Datenbankeinträge und speichern in der ArrayList<String>
-                    arrayList.add(cursor.getString(E1Index));
-                } while (cursor.moveToNext());
+                fillSpinnerE2();
             }
 
-            //arrayAdapter = ArrayAdapter.createFromResource(this, arrayList, android.R.layout.simple_spinner_item);
-            arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrayList);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-            spinnerE1.setAdapter(arrayAdapter);
+            }
+        });
 
-            //spinnerE1.setOnItemClickListener(this::onItemSelected);
-            //Context mContext = this;
-            spinnerE1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Log.i("Spinner-Test", "ID: " + id + " Pos: " + position);
-                    //Toast.makeText(mContext, "ID: " + id + " Pos: " + position, Toast.LENGTH_SHORT).show();
+        //reagieren auf SpinnerE2
+        spinnerE2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                valueE2 = arrayListE2.get(position);
+                Log.d(LOG_TAG, "SpinnerE2 -> ID: " + id + " Pos: " + position + " String: " + valueE2);
+
+                fillSpinnerE3();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        //reagieren auf SpinnerE3
+        spinnerE3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                valueE3 = arrayListE3.get(position);
+                Log.d(LOG_TAG, "SpinnerE3 -> ID: " + id + " Pos: " + position + " String: " + valueE3);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+    }
+
+    public void fillSpinnerE1(){
+        try{
+            cursorE1 = db.viewColumnsFromCostsHierarchyOverviewForListview(DBMyHelper.COLUMNCostsHierarchy_E1);
+
+            //E1 aus CostsHierarchy auslesen für SpinnerE1
+            if(cursorE1 != null){
+                if(cursorE1.moveToFirst()){
+                    int E1Index = cursorE1.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E1);
+                    do{
+                        //Auslesen der Datenbankeinträge und speichern in der ArrayList<String>
+                        arrayListE1.add(cursorE1.getString(E1Index));
+                    } while (cursorE1.moveToNext());
                 }
-            });
 
-        } else {
-            Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage");
-            Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_SHORT).show();
+                //arrayAdapter = ArrayAdapter.createFromResource(this, arrayList, android.R.layout.simple_spinner_item);
+                arrayAdapterE1 = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrayListE1);
 
+                spinnerE1.setAdapter(arrayAdapterE1);
+
+            } else {
+                Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE1()");
+                Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_SHORT).show();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE1()");
         }
+    }
+
+    public void fillSpinnerE2(){
+        try{
+            arrayListE2.clear(); //leert die aktuelle Liste -> auch bei Änderung von SpinnerE1
+            //cursor = Inhalt Unterkategorie von gewählten E1 und GroupBy nach Werte in E2 (Unterkategorie)
+            cursorE2 = db.viewColumnsFromCostsHierarchyE1ForListview(valueE1, DBMyHelper.COLUMNCostsHierarchy_E2);
+
+            //E2 auslesen für Spinner 2
+            if(cursorE2 != null){
+                if(cursorE2.moveToFirst()){
+                    int E2Index = cursorE2.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E2);
+                    do{
+                        //Auslesen des Eintrags und apeichern in die ArrayList
+                        arrayListE2.add(cursorE2.getString(E2Index));
+                    } while(cursorE2.moveToNext());
+                }
+
+                arrayAdapterE2 = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrayListE2);
+
+                spinnerE2.setAdapter(arrayAdapterE2);
+
+            } else {
+                Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE2()");
+                Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_SHORT).show();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE2()");
+        }
+    }
+
+    public void fillSpinnerE3(){
+        try{
+            arrayListE3.clear(); //leert die aktuelle Liste -> auch bei Änderung von SpinnerE2
+            //cursor = Inhalt Subkategorie von gewählten E1 und E2 und GroupBy nach Werte in E3
+            cursorE3 = db.viewColumnsFromCostsHierarchyE2ForListview(valueE1, valueE2);
+
+            //E3 auslesen für SpinnerE3
+            if(cursorE3 != null){
+                if(cursorE3.moveToFirst()){
+                    int E3Index = cursorE3.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E3);
+                    do{
+                        //Auslesen des Eintrags und apeichern in die ArrayList
+                        arrayListE3.add(cursorE3.getString(E3Index));
+                    } while(cursorE3.moveToNext());
+                }
+
+                arrayAdapterE3 = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrayListE3);
+
+                spinnerE3.setAdapter(arrayAdapterE3);
+
+            } else {
+                Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE3()");
+                Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_SHORT).show();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE3()");
+        }
+
     }
 
     @Override
@@ -108,15 +234,4 @@ public class QuickPay extends AppCompatActivity implements AdapterView.OnItemSel
         finish();
     }
 
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, "ID: " + id + " Pos: " + position, Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }
