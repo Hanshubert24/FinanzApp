@@ -37,7 +37,7 @@ public class AssetsChartActivity extends AppCompatActivity {
     }
 
     public void setupPieChart() {
-        Pie pie = AnyChart.pie();
+        Pie pie = AnyChart.pie3d();
         List<DataEntry> dataEntries = new ArrayList<>();
 
         for (int i = 0; i < months.length; i++) {

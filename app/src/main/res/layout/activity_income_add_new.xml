@@ -78,6 +78,7 @@
                 android:inputType="textShortMessage|textLongMessage|text"
                 android:paddingStart="10dp"
                 android:paddingEnd="2dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -109,6 +110,7 @@
                 android:inputType="textPersonName|textEmailAddress"
                 android:paddingStart="10dp"
                 android:paddingEnd="2dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -140,6 +142,7 @@
                 android:inputType="number|numberDecimal"
                 android:paddingStart="10dp"
                 android:paddingEnd="2dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -171,6 +174,7 @@
                 android:inputType="number|numberDecimal"
                 android:paddingStart="10dp"
                 android:paddingEnd="2dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -202,6 +206,7 @@
                 android:inputType="textShortMessage|textLongMessage|textPersonName|textEmailAddress"
                 android:paddingStart="10dp"
                 android:paddingEnd="2dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
         </LinearLayout>
