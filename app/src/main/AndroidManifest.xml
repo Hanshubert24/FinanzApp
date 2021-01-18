@@ -10,8 +10,15 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
-        <activity android:name=".ui.CashFlow.CashFlowAddNew"></activity>
-        <activity android:name=".ui.CashFlow.QuickPay" />
+        <activity
+            android:name=".ui.home.HomeChart"
+            android:label="@string/home_chart_lable" />
+        <activity
+            android:name=".ui.CashFlow.CashFlowAddNew"
+            android:label="@string/cashflow_add_lable" />
+        <activity
+            android:name=".ui.CashFlow.QuickPay"
+            android:label="@string/quick_add_lable" />
         <activity
             android:name=".ui.financebook.FinanceBookCharts"
             android:label="@string/fb_financebook_charts_lable" />

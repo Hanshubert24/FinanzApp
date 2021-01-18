@@ -21,6 +21,9 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Strings related to Home -->
+    <string name="home_chart_lable">Schnellausgabe hinzufügen</string>
+
     <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
     <string name="menu_assets">Vermögen</string>
@@ -159,10 +162,12 @@
     <string name="EdittextQuickPayCostsTextAbove">Betrag eingeben</string>
 
     <!-- CashflowAdd -->
-
+    <string name="cashflow_add_lable">Einmalige Transaktion</string>
+    <string name="quick_add_lable">Schnellausgabe hinzufügen</string>
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
     <string name="content_addBuy">Ausgabe</string>
+    <string name="home_Text">Die Clevere Art Finanzen zu Verwalten</string>
 
 
 </resources>

@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.Assets.AssetsChartActivity">
 
+    <Button
+        android:id="@+id/buttonBackHometwo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+
+        android:onClick="NavBackFBChartsToAssetsOV"
+        android:text="@string/assets_back"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/assets_overwiev_image_diamont5"
         android:layout_width="81dp"
@@ -19,32 +34,129 @@
         app:layout_constraintStart_toEndOf="@+id/buttonBackHometwo2"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.anychart.AnyChartView
-        android:id="@+id/any_chart_view_assets_charts"
-        android:layout_width="366dp"
-        android:layout_height="288dp"
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackHometwo2" />
+        app:layout_constraintTop_toBottomOf="@+id/assets_overwiev_image_diamont5">
 
-    <Button
-        android:id="@+id/buttonBackHometwo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:onClick="NavBack"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:textAlignment="center">
 
-        android:text="@string/assets_back"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <com.anychart.AnyChartView
+                android:id="@+id/any_chart_assets_Chart"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp">
+
+            </com.anychart.AnyChartView>
+
+            <ProgressBar
+                android:id="@+id/progressBarasset"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textViewAssetsChartAssetvalueName"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:text="@string/assets_financialasset_name"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textviewAssetsCahrtAssetsvalue"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gardinet_blue_roundsbottum"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/general_textview_placeholder"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsChartCreditName"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:text="@string/assets_credit_name"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textviewAssetsCahrtCredit"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_gardinet_blue_roundsbottum"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/general_textview_placeholder"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="166dp" />
+
+            <TextView
+                android:id="@+id/textViewAssetsChartAssetName"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_gradient_orange"
+                android:text="@string/assets"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textviewAssetsCahrtAsset"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/button_gardinet_blue_roundsbottum"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/general_textview_placeholder"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

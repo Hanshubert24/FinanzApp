@@ -15,6 +15,7 @@ public class HomeViewModel extends ViewModel {
         mText = new MutableLiveData<>();
         mText.setValue("Die clevere Art Finanzen zu verwalten");
 
+
     }
 
 
