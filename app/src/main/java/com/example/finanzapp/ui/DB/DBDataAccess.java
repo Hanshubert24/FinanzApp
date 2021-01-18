@@ -126,6 +126,7 @@ public class DBDataAccess {
             return false;
         }
     }
+
     public boolean changeAssetOneEntryInDB(int id, String category, String name, Double monthlyCosts, Double monthlyEarnings, Double financialAsset, Double credit, String imagePath, String note){
         Log.d(LOG_TAG, "Übernommene Daten für die Tabelle: " + DBMyHelper.TABLEAssets_NAME);
         Log.d(LOG_TAG, "ID: " + String.valueOf(id));
@@ -511,6 +512,7 @@ public class DBDataAccess {
         }
         return null;
     }
+
     public Cursor viewColumnsFromCostsHierarchyE1ForListview(String varE1, String column){
         //führ alle doppelten Datenbankeitäge zusammen
         //-> gibt für die übergebene Spalte keine Doppelten Werte aus
@@ -522,14 +524,7 @@ public class DBDataAccess {
                     null,
                     column,
                     null, null);
-/*
-            //Abfrage nach Eintrag "empty" -> befindet sich zu E1 an stelle E2 ein "empty"?
-            int E2index = cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_E2);
-            String E2value = cursor.getString(E2index);
-             if(E2value.equals("empty")){
-                 return null;
-             }
- */
+
             return cursor;
 
         } catch (Exception e){
