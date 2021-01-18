@@ -13,7 +13,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
     //https://www.sqlite.org/datatype3.html
 
     public static final String DB_NAME = "FinanzApp.db";
-    public static final int DB_VERSION = 40;
+    public static final int DB_VERSION = 50;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
 
     public static boolean initializeWithExampleData = false; //Funktion für ExampleData in MainActivity
@@ -191,9 +191,9 @@ public class DBMyHelper extends SQLiteOpenHelper {
     public static final int TABLECashFlow_TableID = 5;
     public static final String COLUMNCashFlow_ID = "_id";
     public static final String COLUMNCashFlow_Date = "Date";
-    public static final String COLUMNCashFlow_Type = "Type"; //1 = Einzahlung, 2 = Auszahlung
-    public static final String COLUMNCashFlow_Tablename = "Tablename"; //Tabelle die den Cashflow verorsacht hat
-    public static final String COLUMNCashFlow_TableEntryID = "TableEntryID";
+    public static final String COLUMNCashFlow_Type = "TypeID"; //1 = Einzahlung, 2 = Auszahlung
+    public static final String COLUMNCashFlow_Tablename = "TablenID"; //Tabelle die den Cashflow verorsacht hat
+    public static final String COLUMNCashFlow_TableEntryID = "TableEntrayID";
     public static final String COLUMNCashFlow_Value = "Value"; //Geldwert (Double)
     public static final String SQL_CREATE_TableCashFlow =
             "CREATE TABLE " + TABLECashFlow_Name + " (" +

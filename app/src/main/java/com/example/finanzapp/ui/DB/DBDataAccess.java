@@ -565,8 +565,68 @@ public class DBDataAccess {
         }
     }
 
-    public boolean addNewCashFlowInDB(){
-        return false;
+    public int viewIDFromCostsHierarchyEntry(String varE1, String varE2, String varE3){
+        int entryID;
+
+        Log.i("DB-TEST", "SELECT *" +
+                " FROM " + DBMyHelper.TABLECostsHierarchy_Name +
+                " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "'" +
+                " AND " + DBMyHelper.COLUMNCostsHierarchy_E2 + " = '" + varE2 + "'" +
+                " AND " + DBMyHelper.COLUMNCostsHierarchy_E3 + " = '" + varE3 + "';");
+
+        try{
+            Cursor cursor = database.rawQuery(
+                    "SELECT *" +
+                            " FROM " + DBMyHelper.TABLECostsHierarchy_Name +
+                            " WHERE " + DBMyHelper.COLUMNCostsHierarchy_E1 + " = '" + varE1 + "'" +
+                            " AND " + DBMyHelper.COLUMNCostsHierarchy_E2 + " = '" + varE2 + "'" +
+                            " AND " + DBMyHelper.COLUMNCostsHierarchy_E3 + " = '" + varE3 + "';",
+                    null);
+
+            //TEST
+            int count = cursor.getCount();
+            Log.i("DB-TEST", "CursorCount = " + count);
+
+            if(cursor != null) {
+                cursor.moveToFirst();
+                int IDindex = cursor.getColumnIndex(DBMyHelper.COLUMNCostsHierarchy_ID);
+                entryID = cursor.getInt(IDindex);
+
+                return entryID;
+            } else {
+                Log.d(LOG_TAG, "Cursor für viewIDFromCostsHierarchyEntry() = null");
+                return -1;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Auslesen der Methode: 'viewIDFromCostsHierarchyEntry' fehlgeschlagen.");
+
+            return -1;
+        }
+    }
+
+    public boolean addNewCashFlowInDB(String date, int typeID, int tableID, int tableEntryID, double doubleValue){
+        //typeID => 1 = Einzahlung, 2 = Auszahlung
+
+        ContentValues cv = new ContentValues();
+        cv.put(DBMyHelper.COLUMNCashFlow_Date, date);
+        cv.put(DBMyHelper.COLUMNCashFlow_Type, typeID);
+        cv.put(DBMyHelper.COLUMNCashFlow_Tablename, tableID);
+        cv.put(DBMyHelper.COLUMNCashFlow_TableEntryID, tableEntryID);
+        cv.put(DBMyHelper.COLUMNCashFlow_Value, doubleValue);
+
+        try {
+            //schreiben die Werte in die Datenbank.
+            database.insert(DBMyHelper.TABLECashFlow_Name, null, cv);
+            Log.d(LOG_TAG, "Datensatz in die Tabelle " + DBMyHelper.TABLECashFlow_Name + " eingetragen;");
+            return true;
+
+        } catch (Exception e) {
+            Log.d(LOG_TAG, "Datenbankeintrag für " + DBMyHelper.TABLECashFlow_Name + " fehlgeschlagen.");
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public int getNumberOfEntrysInTable(String tablename, String selectionColumn, String selectionString){
