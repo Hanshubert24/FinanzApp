@@ -10,6 +10,7 @@
     <string name="general_discription_Image_Contract">Bild mit Blätter</string>
     <string name="general_cancel_text">Abbrechen</string>
     <string name="general_delete_text">Soll der Eintrag wirklich gelöscht werden?</string>
+    <string name="AddButtonText">+</string>
     <string name="genreral_new_numeric_euro">Wert in €</string>
 
     <!-- Navigation and Nav Header-->
@@ -20,6 +21,9 @@
     <string name="nav_header_subtitle">FinanzenMM@gmx.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Strings related to Home -->
+    <string name="home_chart_lable">Schnellausgabe hinzufügen</string>
 
     <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
@@ -73,11 +77,12 @@
 
     <!-- Strings related to Financebook -->
     <string name="ButtonFinanzbookAdd"> + </string>
-    <string name="AddButtonText">+</string>
     <string name="fb_button_discription">"Chartanalyse "</string>
     <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
     <string name="fb_financebook_lable">Finanzbuch</string>
     <string name="fb_financebook_charts_lable">Diagramme FB</string>
+    <string name="fb_Chart_overwiev_current_month_Name">Aktueller Monat</string>
+    <string name="fb_chart_overwiev_herarchy_main_cathegories">Hauptkategorien nach Kostenanteil</string>
 
     <!-- Strings related to Contracts -->
     <string name="contracts_type">Vertragstyp:</string>
@@ -113,6 +118,7 @@
 
     <string name="ContractIncomehintCompany">BMW, Systemhaus, Bundeswehr, ...</string>
     <string name="ContractIncomeHintCategory">Lohn, Gehalt, Sold, ...</string>
+    <string name="content_addBuy">Ausgabe</string>
 
     <!--Costs Hierarchy-->
     <string name="costshierarchyE1_title_textview_E1">Ausgewählte Hauptkategorie</string>
@@ -159,10 +165,13 @@
     <string name="EdittextQuickPayCostsTextAbove">Betrag eingeben</string>
 
     <!-- CashflowAdd -->
-
+    <string name="cashflow_add_lable">Einmalige Transaktion</string>
+    <string name="quick_add_lable">Schnellausgabe hinzufügen</string>
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
-    <string name="content_addBuy">Ausgabe</string>
+
+    <string name="home_Text">Die Clevere Art Finanzen zu Verwalten</string>
+
 
 
 </resources>

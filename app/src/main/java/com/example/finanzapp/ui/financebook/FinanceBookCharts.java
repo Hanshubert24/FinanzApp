@@ -22,8 +22,8 @@ public class FinanceBookCharts extends AppCompatActivity {
 
     AnyChartView anyChartView;
     // set the settings for the chart
-    String[] months = {"Jan", "Feb", "Mar"};
-    int[] earnings = {500, 800, 2000};
+    String[] mainCategory = {"Auto", "Haus", "Essen", "Entertaiment", "Konsum"};
+    int[] costs = {250, 200, 1000, 75, 200};
 
 
 
@@ -31,7 +31,7 @@ public class FinanceBookCharts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financebook_charts);
-        anyChartView = findViewById(R.id.any_chart_view_charts_fb);
+        anyChartView = findViewById(R.id.any_chart_view_charts_fb_sum_category);
         setupPieChart();
 
     }
@@ -40,8 +40,8 @@ public class FinanceBookCharts extends AppCompatActivity {
         Pie pie = AnyChart.pie();
         List<DataEntry> dataEntries = new ArrayList<>();
 
-        for (int i = 0; i < months.length; i++) {
-            dataEntries.add(new ValueDataEntry(months[i], earnings[i]));
+        for (int i = 0; i < mainCategory.length; i++) {
+            dataEntries.add(new ValueDataEntry(mainCategory[i], costs[i]));
         }
 
         pie.data(dataEntries);

@@ -1,12 +1,8 @@
 package com.example.finanzapp.ui.home;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
@@ -23,17 +19,15 @@ import com.example.finanzapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeChart extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_home);
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
-
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        AnyChartView anyChartView = root.findViewById(R.id.any_chart_assets_Chart);
-        anyChartView.setProgressBar(root.findViewById(R.id.progressBarHome));
-
+        AnyChartView anyChartView = findViewById(R.id.any_chart_assets_Chart);
+        anyChartView.setProgressBar(findViewById(R.id.progressBarHome));
 
         Cartesian3d bar3d = AnyChart.bar3d();
 
@@ -41,7 +35,7 @@ public class HomeFragment extends Fragment {
 
         bar3d.padding(10d, 40d, 5d, 20d);
 
-        //bar3d.title("Einnahmen und Ausgaben");
+        bar3d.title("Einnahmen und Ausgaben");
 
         bar3d.yScale().minimum(0d);
 
@@ -51,12 +45,12 @@ public class HomeFragment extends Fragment {
 
         bar3d.yAxis(0).labels().format("€{%Value}{groupsSeparator: }");
 
-        bar3d.yAxis(0).title(" ");
+        bar3d.yAxis(0).title("Aktueller und letzter Monat");
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new HomeFragment.CustomDataEntry("Jnauar", 4376, 890));   // 2 Monate zurück
-        data.add(new HomeFragment.CustomDataEntry("Februar", 38000, 4376)); // 1 Monat zurück
-        data.add(new HomeFragment.CustomDataEntry("März", 4280, 15001)); // Aktueller Monat
+        data.add(new CustomDataEntry("Jnauar", 4376, 890));   // 2 Monate zurück
+        data.add(new CustomDataEntry("Februar", 38000, 4376)); // 1 Monat zurück
+        data.add(new CustomDataEntry("März", 4280, 15001)); // Aktueller Monat
 
         Set set = Set.instantiate();
         set.data(data);
@@ -70,6 +64,7 @@ public class HomeFragment extends Fragment {
 
         bar3d.bar(bar2Data)
                 .name("Ausgaben").color("#bb0000");
+
 
 
         bar3d.legend().enabled(true);
@@ -92,14 +87,9 @@ public class HomeFragment extends Fragment {
                 .zDistribution(true);
 
         anyChartView.setChart(bar3d);
-
-
-        return root;
-
-
     }
 
-    class CustomDataEntry extends ValueDataEntry {
+    private class CustomDataEntry extends ValueDataEntry {
         CustomDataEntry(String x, Number value, Number value2) {
             super(x, value);
             setValue("value2", value2);
@@ -107,4 +97,3 @@ public class HomeFragment extends Fragment {
         }
     }
 }
-
