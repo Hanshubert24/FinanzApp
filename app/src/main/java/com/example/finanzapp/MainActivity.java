@@ -2,6 +2,7 @@ package com.example.finanzapp;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
@@ -18,6 +19,8 @@ import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
+
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     public AppBarConfiguration mAppBarConfiguration;
     private DBDataAccess db;
@@ -51,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         //Einspielen der Testdaten wenn die DB_Version eine 10er ist.
         int dbVersion = DBMyHelper.DB_VERSION % 10;
         if(dbVersion == 0 && DBMyHelper.initializeWithExampleData){
+            Log.d(LOG_TAG, "Beispieldaten werden abgerufen.");
             createExampleData();
+            Log.d(LOG_TAG, "Beispieldaten wurden in die Tabellen eingetragen.");
             DBMyHelper.initializeWithExampleData = false;
             Toast.makeText(this, "TestDaten wurden angelegt.", Toast.LENGTH_SHORT).show();
         }

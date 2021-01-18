@@ -3,11 +3,11 @@ package com.example.finanzapp.ui.DB;
 import android.util.Log;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class DBService {
-
-
-
 
     public static double doubleValueForDB(double d){
         //Genau 2 Nachkommastellen und Datenbank nicht mit zu viel unnötigen Daten zu belasten
@@ -66,6 +66,21 @@ public class DBService {
 
             return outputValue+" €";
         }
+    }
+
+    public static String timeFormat(){
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+
+        return dateFormat.format(date);
+    }
+
+    public static String timeFormat(Date date){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+
+        return dateFormat.format(date);
     }
 
     //Servie zum automatischne betanken der Kostentabelle!

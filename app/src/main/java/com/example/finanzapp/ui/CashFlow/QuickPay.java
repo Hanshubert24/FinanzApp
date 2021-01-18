@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
@@ -21,12 +22,19 @@ import com.example.finanzapp.R;
 import com.example.finanzapp.ui.Contracts.ContractsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
+import com.example.finanzapp.ui.DB.DBService;
 import com.example.finanzapp.ui.Income.IncomeOverview;
 
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class QuickPay extends AppCompatActivity {
+
+    //Info-Date -> https://www.sqlite.org/lang_datefunc.html
 
     private static final String LOG_TAG = QuickPay.class.getSimpleName();
 
@@ -38,6 +46,7 @@ public class QuickPay extends AppCompatActivity {
     String valueE1;
     String valueE2;
     String valueE3;
+    double doubleValuePrepared;
 
     Spinner spinnerE1;
     Spinner spinnerE2;
@@ -50,6 +59,7 @@ public class QuickPay extends AppCompatActivity {
     ArrayAdapter<CharSequence> arrayAdapterE2;
     ArrayAdapter<CharSequence> arrayAdapterE3;
 
+    EditText editTextDoubleValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,9 +132,6 @@ public class QuickPay extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     public void fillSpinnerE1(){
@@ -213,7 +220,48 @@ public class QuickPay extends AppCompatActivity {
                 Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_SHORT).show();
             }
 
-        }catch (Exception e){
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE3()");
+        }
+    }
+
+    public void SaveEntry(View view){
+        double doubleValuePrepare;
+
+        try{
+            editTextDoubleValue = (EditText) findViewById(R.id.editTextQuickPayDoubleValue);
+
+            //Prüfen ob der Betrag eingegeben wurde
+            if(!isEditTextEmpty(editTextDoubleValue)){ //Wenn Betrag gesetzt wurde
+                double doubleValue = Double.parseDouble(editTextDoubleValue.getText().toString());
+                doubleValuePrepare = DBService.doubleValueForDB(doubleValue);
+
+                //Abfrage der ID zu den Werten E1, E2 und E3 in CostsHierarchy
+                int tableEntryID = db.viewIDFromCostsHierarchyEntry(valueE1, valueE2, valueE3);
+
+                if(tableEntryID >= 0) {
+                    //Speichern der Werte in die Datenbank
+                    db.addNewCashFlowInDB(
+                            DBService.timeFormat(),
+                            2, //Auszahlung
+                            DBMyHelper.TABLECashFlow_TableID,
+                            tableEntryID,
+                            doubleValuePrepare);
+                    Toast.makeText(this, "Eintrag gespeichert.", Toast.LENGTH_SHORT).show();
+                    Log.d(LOG_TAG, "Eintrag gespeichert");
+                    Log.d(LOG_TAG, "Inhalt -> Date: "+DBService.timeFormat()+", TypeID: "+2+", TableID: "+DBMyHelper.TABLECashFlow_TableID+", TableEntryID: "+tableEntryID+", DoubleValue: "+doubleValuePrepare);
+
+                    finish();
+                } else {
+                    Log.d(LOG_TAG, "Abfragefehler in der Datenbank -> db.viewIDFromCostsHierarchyEntry().");
+                }
+            } else { //Wenn Betrag leer (nicht gesetzt) wurde
+                Toast.makeText(this, "Betrag eingeben.", Toast.LENGTH_SHORT).show();
+                editTextDoubleValue.setHint("Bsp.: 19.95");
+            }
+
+        } catch (Exception e){
             e.printStackTrace();
             Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE3()");
         }
@@ -232,6 +280,12 @@ public class QuickPay extends AppCompatActivity {
         Intent i = new Intent(QuickPay.this, MainActivity.class);
         startActivity(i);
         finish();
+    }
+
+    private boolean isEditTextEmpty(EditText editText){
+        if(editText.getText().toString().trim().length() > 0){
+            return false;
+        } else { return true; }
     }
 
 }
