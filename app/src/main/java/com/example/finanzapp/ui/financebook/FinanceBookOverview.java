@@ -51,7 +51,7 @@ public class FinanceBookOverview extends AppCompatActivity {
 
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new FinanceBookOverview.CustomDataEntry("Jnauar", 4376, 890));   // current month
+        data.add(new FinanceBookOverview.CustomDataEntry("Januar", 4376, 890));   // current month
 
 
         Set set = Set.instantiate();
