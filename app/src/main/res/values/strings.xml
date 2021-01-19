@@ -172,8 +172,7 @@
     <string name="quick_add_lable">Schnellausgabe hinzufügen</string>
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
-
-
+    <string name="Cash_flow_add_new_Name">Einfügen einer Einmaligen Einnahmen/Ausgaben zur bestehenden Einträgen</string>
 
 
 </resources>
