@@ -114,7 +114,7 @@ public class AssetsOverview extends AppCompatActivity {
         db.close();
     }
 
-    public void NavBack(View view){
+    public void NavBackAssetsOVToHome(View view){
         Intent i = new Intent(AssetsOverview.this, MainActivity.class);
         startActivity(i);
         finish();

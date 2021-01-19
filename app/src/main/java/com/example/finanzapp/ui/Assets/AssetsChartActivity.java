@@ -83,7 +83,7 @@ public class AssetsChartActivity extends AppCompatActivity {
 
     }
 
-    public void NavBackFBChartsToAssetsOV(View view){
+    public void NavBackAssetsChartsToAssetsOV(View view){
         Intent i = new Intent(AssetsChartActivity.this, AssetsOverview.class);
         startActivity(i);
         finish();

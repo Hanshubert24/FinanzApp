@@ -1,7 +1,5 @@
 package com.example.finanzapp.ui.Assets;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -12,9 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
-import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBService;
 
 public class AssetsDetailsChange extends AppCompatActivity {
@@ -139,11 +139,6 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
         Log.d(LOG_TAG, "Die Datenquelle wird geschlossen.");
         db.close();
-    }
-
-    public void NavBack(View view){
-        Intent i = new Intent(AssetsDetailsChange.this, AssetsOverview.class);
-        startActivity(i);
     }
 
     public void changeContract(View view){
@@ -278,5 +273,10 @@ public class AssetsDetailsChange extends AppCompatActivity {
         if(editText.getText().toString().trim().length() > 0){
             return false;
         } else { return true; }
+    }
+    public void NavBackDetailsChangeToAssetsOV(View view){
+        Intent i = new Intent(AssetsDetailsChange.this, AssetsOverview.class);
+        startActivity(i);
+        finish();
     }
 }

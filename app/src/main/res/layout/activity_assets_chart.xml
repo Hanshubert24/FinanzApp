@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:onClick="NavBackFBChartsToAssetsOV"
+        android:onClick="NavBackAssetsChartsToAssetsOV"
         android:text="@string/assets_back"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
