@@ -1,8 +1,5 @@
 package com.example.finanzapp.ui.Assets;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -13,12 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
-import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBService;
-
-import java.math.BigDecimal;
 
 public class AssetsDetails extends AppCompatActivity {
 
@@ -33,7 +31,6 @@ public class AssetsDetails extends AppCompatActivity {
     TextView textViewMonthlyEarnings;
     TextView textViewFinancialAssets;
     TextView textViewCredit;
-    TextView textViewImagePath;
     TextView textViewNote;
 
     @Override
@@ -50,7 +47,6 @@ public class AssetsDetails extends AppCompatActivity {
         textViewMonthlyEarnings = (TextView) findViewById(R.id.textViewAssetsDetailsMonthlyEarnings);
         textViewFinancialAssets = (TextView) findViewById(R.id.textViewAssetsDetailsFinancialAsset);
         textViewCredit = (TextView) findViewById(R.id.textViewAssetsDetailsCredit);
-        textViewImagePath = (TextView) findViewById(R.id.textViewAssetsDetailsImagePath);
         textViewNote = (TextView) findViewById(R.id.textViewAssetsDetailsNote);
     }
 
@@ -115,7 +111,6 @@ public class AssetsDetails extends AppCompatActivity {
                     textViewMonthlyEarnings.setText(monthlyEarningsStringPrepare);
                     textViewFinancialAssets.setText(financialAssetStringPrepare);
                     textViewCredit.setText(creditStringPrepare);
-                    textViewImagePath.setText(cursor.getString(imagePathindex));
                     textViewNote.setText(cursor.getString(noteIndex));                            //Note gibt den Übergabewert nur auf der Console aus!!
 
                 } while (cursor.moveToNext());
@@ -131,13 +126,6 @@ public class AssetsDetails extends AppCompatActivity {
 
         Log.d(LOG_TAG, "Die Datenquelle wird geschlossen.");
         db.close();
-    }
-
-
-    public void NavBack(View view){
-        Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
-        startActivity(i);
-        finish();
     }
 
     public void changeAsset(View view){
@@ -179,6 +167,11 @@ public class AssetsDetails extends AppCompatActivity {
         }
 
         //Weiterleitung
+        Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
+        startActivity(i);
+        finish();
+    }
+    public void NavBackDetailsToAssetsOV(View view){
         Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
         startActivity(i);
         finish();

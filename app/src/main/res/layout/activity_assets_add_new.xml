@@ -263,19 +263,6 @@
                 android:textColorHint="@color/cardview_shadow_start_color"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/textView36"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/button_gradient_blue"
-                android:text="Bild aufnehmen -> ImagePath speichern"
-                android:textColor="#EF0707"
-                android:textSize="18sp" />
-
         </LinearLayout>
     </ScrollView>
 
@@ -298,7 +285,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:onClick="NavBack"
+        android:onClick="NavBackToAssetsOV"
         android:text="@string/assets_back"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
