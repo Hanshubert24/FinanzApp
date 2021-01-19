@@ -1,7 +1,5 @@
 package com.example.finanzapp.ui.CashFlow;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
@@ -114,7 +114,7 @@ public class CashFlowAddNew extends AppCompatActivity {
         db.close();
     }
 
-    public void NavBack(View view){
+    public void NavBackCashFlowAddNewToFinancBookOV(View view){
         Intent i = new Intent(CashFlowAddNew.this, MainActivity.class);
         startActivity(i);
         finish();

@@ -18,7 +18,7 @@ import com.anychart.enums.HoverMode;
 import com.anychart.enums.TooltipPositionMode;
 import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.CashFlow.QuickPay;
+import com.example.finanzapp.ui.CashFlow.CashFlowAddNew;
 import com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyOverview;
 
 import java.util.ArrayList;
@@ -118,8 +118,8 @@ public class FinanceBookOverview extends AppCompatActivity {
 
     }
      //TEST-Activity
-    public void NavToQuickPay(View view){
-        Intent i = new Intent(FinanceBookOverview.this, QuickPay.class);
+    public void NavCashFlowAddNew(View view){
+        Intent i = new Intent(FinanceBookOverview.this, CashFlowAddNew.class);
         startActivity(i);
     }
 }
