@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="auto"
     tools:context=".ui.CashFlow.QuickPay">
 
     <ImageView
@@ -82,9 +81,7 @@
                 android:layout_marginBottom="0dp"
                 android:dropDownWidth="match_parent"
                 android:dropDownSelector="@drawable/button_gardient_blue_bottom"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:nextFocusDown="@id/spinnerQuickPayE2" />
+                android:focusableInTouchMode="false" />
 
             <TextView
                 android:id="@+id/textViewQuickPayE2"
@@ -109,7 +106,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="0dp" />
+                android:layout_marginBottom="0dp"
+                android:focusable="auto" />
 
             <TextView
                 android:id="@+id/textViewQuickPayE3"
@@ -161,8 +159,8 @@
                 android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="@string/genreral_new_numeric_euro"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
 
         </LinearLayout>
     </ScrollView>
