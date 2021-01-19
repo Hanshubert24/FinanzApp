@@ -17,6 +17,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:text="@string/contracts_chart_text_view_Name"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"

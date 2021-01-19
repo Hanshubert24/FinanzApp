@@ -18,6 +18,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:text="@string/value_overview_top_name"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
