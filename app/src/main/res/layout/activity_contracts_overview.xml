@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".ui.Contracts.ContractsOverview">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_gardient_orange_round"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/contracts_chart_text_view_Name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackContracts" />
+
     <ImageButton
         android:id="@+id/fb_imagebutton_template_hierachy_overwiew2"
         style="@style/Widget.AppCompat.ImageButton"
@@ -110,14 +128,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/addButtonContracts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackContracts">
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
     </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>

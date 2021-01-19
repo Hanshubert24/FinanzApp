@@ -41,13 +41,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/button_gradient_orange"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_gardient_orange_round"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:text="@string/costshierarchyOverview_title_listview_E1"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBack4" />
 

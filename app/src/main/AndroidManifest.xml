@@ -64,7 +64,7 @@
         // Costhierarchie
         <activity
             android:name=".ui.Contracts.ContractsChartActivity"
-            android:label="@string/home_chart_lable" />
+            android:label="@string/contracts_Charts_lable" />
         <activity
             android:name=".ui.CostsHierarchy.CostsHierarchyE3"
             android:label="@string/costshierarchyOverview_title_listview_E3_lable" />

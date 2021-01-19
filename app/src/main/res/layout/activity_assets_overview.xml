@@ -7,6 +7,25 @@
     android:onClick="ShowAssetsChars"
     tools:context="ui.Assets.AssetsOverview">
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_gardient_orange_round"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/value_overview_top_name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack2" />
+
     <Button
         android:id="@+id/buttonBack2"
         android:layout_width="wrap_content"
@@ -26,15 +45,13 @@
         android:layout_width="364dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/addButtonAssets"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBack2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/addButtonAssets"
@@ -68,7 +85,6 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/general_discription_image_Diamont"
         android:src="@drawable/diamant"
-        app:layout_constraintBottom_toTopOf="@+id/listViewContractsOverview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/buttonBack2"

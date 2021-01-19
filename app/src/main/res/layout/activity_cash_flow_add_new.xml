@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,23 +8,38 @@
     android:layout_marginTop="0dp"
     tools:context=".ui.CashFlow.CashFlowAddNew">
 
+    <ImageView
+        android:id="@+id/contracts_overwiev_image_contract14"
+        android:layout_width="81dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/general_discription_Image_Contract"
+        android:paddingTop="6dp"
+        android:src="@drawable/euro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonBackCashFlowAddNew"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewCashFlowAddNewNameTop"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/button_gradient_blue"
+        android:background="@drawable/button_gardient_blue_bottom"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:text="@string/Cash_flow_add_new_Name"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonBackCashFlowAddNew"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackCashFlowAddNew" />
 
     <Button
         android:id="@+id/buttonBackCashFlowAddNew"
@@ -48,8 +64,10 @@
         android:foregroundGravity="center"
         app:layout_constraintBottom_toTopOf="@+id/buttonSaveCashFlowAddNew"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCashFlowAddNewNameTop">
+        app:layout_constraintTop_toBottomOf="@+id/textViewCashFlowAddNewNameTop"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,7 +85,7 @@
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Tabelle (Conract, Income, Assets)"
+                android:text="@string/cash_flow_spinner1_name"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -89,7 +107,7 @@
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Tabelleninhalt (nach gewählter Tabelle)"
+                android:text="@string/cash_flow_spinner2_name"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -99,29 +117,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
                 android:layout_marginEnd="16dp"
-                android:text="Einnahme" />
+                android:backgroundTint="@color/black_overlay" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"
-                android:text="Ausgabe" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/cash_flow_Button_income_name" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/cash_flow_Button_expanditure_name" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewCashFlowAddNewNameDate"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
@@ -129,24 +157,25 @@
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Datum"
+                android:text="@string/cash_flow_Button_date_name"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextCashFlowAddNewDate"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:ems="10"
-                android:hint="Aktuelles Datum ist gesetzt"
+                android:hint="@string/cahsflow_hint_date"
+                android:importantForAutofill="no"
                 android:inputType="date" />
 
             <TextView
                 android:id="@+id/textViewCashFlowAddNewNameDate2"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
@@ -154,21 +183,22 @@
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Datum"
+                android:text="@string/cash_flow_Button_amount_name"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextCashFlowAddNewValue"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:hint="Geldwert"
-                android:inputType="numberDecimal" />
+                android:hint="@string/genreral_new_numeric_euro"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no" />
 
         </LinearLayout>
     </ScrollView>

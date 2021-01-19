@@ -89,11 +89,11 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:text="@string/assets_financialasset_name"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:paddingEnd="8dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textViewAssetsDetailsFinancialAsset"

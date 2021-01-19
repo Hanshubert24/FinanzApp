@@ -38,7 +38,7 @@
     <string name="assets">Vermögen</string>
     <string name="assets_details">Vermögenswerte Detailansicht</string>
     <string name="assets_add">Vermögen hinzufügen</string>
-    <string name="assets_details_change">Vermögenswerte Ändern</string>
+    <string name="assets_details_change">Vermögenswerte ändern</string>
     <string name="assets_back">Zurück</string>
     <string name="asset_item_layout_costs">Kosten:</string>
     <string name="asset_item_layout_euro">€</string>
@@ -59,7 +59,7 @@
     <string name="asset_item_layout_monthly">Monatlich</string>
     <string name="assets_financialasset_name">Verkehrswert:</string>
     <string name="assets_credit_name">Kredit:</string>
-    <string name="assets_chart_lable">Diagramm vermögen</string>
+    <string name="assets_chart_lable">Diagramm Vermögen</string>
     <string name="assets_hint_number_plus_euro">Neuer Wert in €</string>
     <string name="title_activity_assets_charts">AssetsCharts</string>
 
@@ -100,6 +100,7 @@
     <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
     <string name="contract_hint_name">Verti, Huk, AOK ...</string>
     <string name="contracts_chart_text_view_Name">Übersicht Verträge</string>
+    <string name="Contracts_Chart_lable">Diagramm Verträge</string>
 
     <!-- Strings related to ContractIncome -->
 
@@ -166,13 +167,22 @@
     <string name="spinnerQuickPayE2TextAbove">Wählen Sie eine Unterkategorie</string>
     <string name="spinnerQuickPayE3TextAbove">Wählen Sie eine Subunterkategorie</string>
     <string name="EdittextQuickPayCostsTextAbove">Betrag eingeben</string>
+    <string name="quick_add_lable">Schnellausgabe hinzufügen</string>
 
     <!-- CashflowAdd -->
     <string name="cashflow_add_lable">Einmalige Transaktion</string>
-    <string name="quick_add_lable">Schnellausgabe hinzufügen</string>
+    <string name="Cash_flow_add_new_Name">Einmalige Einnahmen / Ausgaben hinzufügen:</string>
+    <string name="cash_flow_spinner1_name">Art der Eingabe wählen</string>
+    <string name="cash_flow_spinner2_name">Inhalt wählen</string>
+    <string name="cash_flow_Button_income_name">Einnahme</string>
+    <string name="cash_flow_Button_expanditure_name">Ausgabe</string>
+    <string name="cash_flow_Button_date_name">Datum wählen</string>
+    <string name="cash_flow_Button_amount_name">Betrag eingeben</string>
+    <string name="cahsflow_hint_date">01.01.2021</string>
+
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
-    <string name="Cash_flow_add_new_Name">Einfügen einer Einmaligen Einnahmen/Ausgaben zur bestehenden Einträgen</string>
-
+    <string name="assets_overview_name_top">Aktive Verträge</string>
+    <string name="value_overview_top_name">Vermögen</string>
 
 </resources>
