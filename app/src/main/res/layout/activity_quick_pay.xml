@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants"
-    android:focusable="false"
+    android:focusable="auto"
     tools:context=".ui.CashFlow.QuickPay">
 
     <ImageView
@@ -41,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSaveQuickPay"
@@ -54,7 +54,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -63,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
@@ -81,7 +80,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="36dp" />
+                android:layout_marginBottom="36dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:nextFocusDown="@id/spinnerQuickPayE2" />
 
             <TextView
                 android:id="@+id/textViewQuickPayE2"
@@ -135,7 +137,7 @@
 
             <TextView
                 android:id="@+id/textViewQuickPayCosts"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="8dp"
@@ -153,14 +155,13 @@
                 android:id="@+id/editTextQuickPayDoubleValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:focusable="auto"
-                android:hint="@string/genreral_new_numeric_euro"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal" />
+                android:hint="@string/assets_hint_number_plus_euro"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no" />
 
         </LinearLayout>
     </ScrollView>
