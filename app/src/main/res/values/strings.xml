@@ -24,6 +24,7 @@
 
     <!-- Strings related to Home -->
     <string name="home_chart_lable">Schnellausgabe hinzufügen</string>
+    <string name="home_Text">Die Clevere Art Finanzen zu Verwalten</string>
 
     <!-- Strings related to menu -->
     <string name="menu_home">Home</string>
@@ -97,6 +98,13 @@
     <string name="contracts_hint_type">Autoversicherung,Krankenversicherung</string>
     <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
     <string name="contract_hint_name">Verti, Huk, AOK ...</string>
+    <string name="contracts_chart_text_view_Name">Übersicht Verträge</string>
+
+    <!-- Strings related to ContractIncome -->
+
+    <string name="ContractIncomehintCompany">BMW, Systemhaus, Bundeswehr, ...</string>
+    <string name="ContractIncomeHintCategory">Lohn, Gehalt, Sold, ...</string>
+    <string name="content_addBuy">Ausgabe</string>
 
     <!-- Strings related to Income -->
     <string name="income_item_layout_netto">Netto:</string>
@@ -113,12 +121,6 @@
     <string name="income_delete_button">Löschen</string>
     <string name="income_change_button">Ändern</string>
     <string name="income_change_save_button">Änderung speichern</string>
-
-    <!-- Strings related to ContractIncome -->
-
-    <string name="ContractIncomehintCompany">BMW, Systemhaus, Bundeswehr, ...</string>
-    <string name="ContractIncomeHintCategory">Lohn, Gehalt, Sold, ...</string>
-    <string name="content_addBuy">Ausgabe</string>
 
     <!--Costs Hierarchy-->
     <string name="costshierarchyE1_title_textview_E1">Ausgewählte Hauptkategorie</string>
@@ -170,7 +172,6 @@
     <!-- Unused at the moment -->
     <string name="welcome">"Welcome !"</string>
 
-    <string name="home_Text">Die Clevere Art Finanzen zu Verwalten</string>
 
 
 

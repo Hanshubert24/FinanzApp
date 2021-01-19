@@ -118,5 +118,10 @@ public class ContractsOverview extends AppCompatActivity {
         startActivity(i);
 
     }
+    public void ShowContractsCharts(View view){
+        Intent i = new Intent(ContractsOverview.this, ContractsChartActivity.class);
+        startActivity(i);
+
+    }
 
 }

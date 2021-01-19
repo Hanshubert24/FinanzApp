@@ -93,6 +93,7 @@
         android:contentDescription="@string/fb_button_discription"
         android:focusable="true"
         android:longClickable="false"
+        android:onClick="ShowContractsCharts"
         android:paddingStart="0dp"
         android:paddingLeft="0dp"
         android:paddingTop="8dp"

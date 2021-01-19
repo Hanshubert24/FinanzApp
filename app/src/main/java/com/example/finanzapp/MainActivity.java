@@ -4,7 +4,6 @@ package com.example.finanzapp;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
     //Testdaten für die Datenbank
     public void createExampleData() {
         db.open();
-        db.addNewContractInDB("Krankenversicherung", "HansaMerkur", 120.95, "Ab 07/21 Wechelbar.");
-        db.addNewContractInDB("KFZ-Versicherung", "Alianz", 35.20, "");
+        db.addNewContractInDB("Krankenversicherung", "HansaMerkur", 120.95, "Ab 07/21 wechselbar.");
+        db.addNewContractInDB("Kfz-Versicherung", "Allianz", 35.20, "");
         db.addNewContractInDB("Fitnesstudio", "McFit", 19.95, "Kündigen.");
         db.addNewContractInDB("Miete Wohnung", "A-Hausverwaltung", 825, "3 Monte Kündigungsfrist ab jeweils dem 1. des Monats (Posteingang)");
-        db.addNewContractInDB("Dahrlehen", "Max Mustermann", 50, "Läuft 09/21 aus");
+        db.addNewContractInDB("Darlehen", "Max Mustermann", 50, "Läuft 09/21 aus");
 
-        db.addNewAssetInDB("Immobilie", "Berliner Str.13 15230 Ffo", 820, 1230, 400000 , 360000, "", "Bald mal wieder Renoveren!");
+        db.addNewAssetInDB("Immobilie", "Berliner Str.13 15230 Ffo", 820, 1230, 400000 , 360000, "", "Bald mal wieder Renovieren!");
         db.addNewAssetInDB("Auto", "Mazda", 349.95, 0, 60000, 45000, "", "Bald abgezahlt ;-)");
         db.addNewAssetInDB("Gemälde", "Mona Lisa", 0, 0, 120000,0, "", "");
 

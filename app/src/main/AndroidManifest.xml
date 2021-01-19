@@ -10,6 +10,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
+        <activity android:name=".ui.Contracts.ContractsChartActivity"></activity>
         <activity
             android:name=".ui.home.HomeChart"
             android:label="@string/home_chart_lable" />
@@ -24,7 +25,8 @@
             android:label="@string/fb_financebook_charts_lable" />
         <activity
             android:name=".ui.financebook.FinanceBookOverview"
-            android:label="@string/fb_financebook_lable" android:noHistory="true" />
+            android:label="@string/fb_financebook_lable"
+            android:noHistory="true" />
         <activity
             android:name=".ui.Income.IncomeDetailsChange"
             android:label="@string/income_details_change_lable" />
@@ -39,7 +41,8 @@
             android:label="@string/income_overwiev_lable" />
         <activity
             android:name=".ui.Contracts.ContractsDetailsChange"
-            android:label="@string/contracts_details_change_lable" android:noHistory="true" />
+            android:label="@string/contracts_details_change_lable"
+            android:noHistory="true" />
         <activity
             android:name=".ui.Contracts.ContractsDetails"
             android:label="@string/contracts_details_lable" />
@@ -48,7 +51,8 @@
             android:label="@string/contracts_add_new_lable" />
         <activity
             android:name=".ui.Contracts.ContractsOverview"
-            android:label="@string/contracts_overwiev_lable" android:noHistory="true" />
+            android:label="@string/contracts_overwiev_lable"
+            android:noHistory="true" />
         <activity
             android:name=".ui.CostsHierarchy.CostsHierarchyE3"
             android:label="@string/costshierarchyOverview_title_listview_E3_lable" />
@@ -60,13 +64,15 @@
             android:label="@string/costshierarchyOverview_title_listview_E1_lable" />
         <activity
             android:name=".ui.CostsHierarchy.CostsHierarchyOverview"
-            android:label="@string/costshierarchyOverview_title_listview_Overview_lable" android:noHistory="true" />
+            android:label="@string/costshierarchyOverview_title_listview_Overview_lable"
+            android:noHistory="true" />
         <activity
             android:name=".ui.Assets.AssetsChartActivity"
             android:label="@string/assets_chart_lable" />
         <activity
             android:name=".ui.Assets.AssetsOverview"
-            android:label="@string/assets" android:noHistory="true" />
+            android:label="@string/assets"
+            android:noHistory="true" />
         <activity
             android:name=".ui.Assets.AssetsAddNew"
             android:label="@string/assets_add" />
@@ -96,7 +102,9 @@
         <activity
             android:name=".ui.login.EnterPinActivity"
             android:label="@string/TextPinEnter_Lable" />
-        <activity android:name=".ui.logout.LogoutActivity" android:noHistory="true" />
+        <activity
+            android:name=".ui.logout.LogoutActivity"
+            android:noHistory="true" />
     </application>
 
 </manifest>

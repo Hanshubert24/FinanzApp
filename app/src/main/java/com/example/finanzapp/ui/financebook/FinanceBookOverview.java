@@ -38,7 +38,7 @@ public class FinanceBookOverview extends AppCompatActivity {
 
         bar3d.animation(true);
 
-        bar3d.padding(10d, 40d, 5d, 20d);
+        bar3d.padding(10d, 40d, 5d, 15d);
 
         bar3d.yScale().minimum(0d);
 
