@@ -68,7 +68,7 @@ public class DBService {
         }
     }
 
-    public static String timeFormat(){
+    public static String timeFormatForDB(){
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
@@ -76,11 +76,16 @@ public class DBService {
         return dateFormat.format(date);
     }
 
-    public static String timeFormat(Date date){
+    public static String timeFormatForDB(Date date){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
 
         return dateFormat.format(date);
+    }
+
+    public static String timeFormatToView(){
+
+        return "Santnimmerleinstag";
     }
 
     //Servie zum automatischne betanken der Kostentabelle!

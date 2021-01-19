@@ -10,9 +10,11 @@
         android:id="@+id/textView10"
         android:layout_width="281dp"
         android:layout_height="74dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Einfügen einer Einmaligen Einnahmen/Ausgaben zur bestehenden Einträgen"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonBackCashFlowAddNew"
@@ -45,83 +47,102 @@
         android:id="@+id/spinnerCashFlowAddNewTable"
         android:layout_width="338dp"
         android:layout_height="29dp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="124dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="166dp"
         android:text="Tabelle (Conract, Income, Assets)"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="105dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
         android:text="Tabelleninhalt (nach gewählter Tabelle)"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="173dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCashFlowAddNewTable" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="30dp"
         android:text="Datum"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="343dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Spinner
         android:id="@+id/spinnerCashFlowAddNewTableContent"
         android:layout_width="338dp"
         android:layout_height="29dp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="192dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="18dp"
         android:text="Wenn: Assets ->"
         android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="240dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCashFlowAddNewTableContent" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="51dp"
         android:text="Ausgabe"
-        tools:layout_editor_absoluteX="257dp"
-        tools:layout_editor_absoluteY="264dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCashFlowAddNewTableContent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="6dp"
         android:text="Einnahme"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="264dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
         android:id="@+id/editTextCashFlowAddNewValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
         android:ems="10"
         android:hint="Geldwert"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="429dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCashFlowAddNewDate" />
 
     <EditText
         android:id="@+id/editTextCashFlowAddNewDate"
         android:layout_width="286dp"
         android:layout_height="46dp"
+        android:layout_marginStart="36dp"
         android:ems="10"
         android:hint="Aktuelles Datum ist gesetzt"
         android:inputType="date"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="363dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

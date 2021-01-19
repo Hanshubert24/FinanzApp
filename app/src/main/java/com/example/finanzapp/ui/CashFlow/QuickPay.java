@@ -148,7 +148,6 @@ public class QuickPay extends AppCompatActivity {
                     } while (cursorE1.moveToNext());
                 }
 
-                //arrayAdapter = ArrayAdapter.createFromResource(this, arrayList, android.R.layout.simple_spinner_item);
                 arrayAdapterE1 = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrayListE1);
 
                 spinnerE1.setAdapter(arrayAdapterE1);
@@ -243,14 +242,14 @@ public class QuickPay extends AppCompatActivity {
                 if(tableEntryID >= 0) {
                     //Speichern der Werte in die Datenbank
                     db.addNewCashFlowInDB(
-                            DBService.timeFormat(),
+                            DBService.timeFormatForDB(),
                             2, //Auszahlung
                             DBMyHelper.TABLECashFlow_TableID,
                             tableEntryID,
                             doubleValuePrepare);
                     Toast.makeText(this, "Eintrag gespeichert.", Toast.LENGTH_SHORT).show();
                     Log.d(LOG_TAG, "Eintrag gespeichert");
-                    Log.d(LOG_TAG, "Inhalt -> Date: "+DBService.timeFormat()+", TypeID: "+2+", TableID: "+DBMyHelper.TABLECashFlow_TableID+", TableEntryID: "+tableEntryID+", DoubleValue: "+doubleValuePrepare);
+                    Log.d(LOG_TAG, "Inhalt -> Date: "+DBService.timeFormatForDB()+", TypeID: "+2+", TableID: "+DBMyHelper.TABLECashFlow_TableID+", TableEntryID: "+tableEntryID+", DoubleValue: "+doubleValuePrepare);
 
                     finish();
                 } else {
