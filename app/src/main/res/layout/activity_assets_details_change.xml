@@ -13,7 +13,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:onClick="NavBack"
-
         android:text="@string/assets_back"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +41,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView49"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBack">
@@ -215,8 +212,8 @@
                 android:hint="@string/assets_hint_number_plus_euro"
                 android:importantForAutofill="no"
                 android:inputType="number|numberDecimal"
-                tools:ignore="LabelFor"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView46"
@@ -346,21 +343,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Bild Ändern-> ImagePath speichern"
-        android:textColor="#EF0707"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"

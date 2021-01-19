@@ -59,7 +59,7 @@
     <string name="asset_item_layout_monthly">Monatlich</string>
     <string name="assets_financialasset_name">Verkehrswert:</string>
     <string name="assets_credit_name">Kredit:</string>
-    <string name="assets_chart_lable">Diagrammübersicht</string>
+    <string name="assets_chart_lable">Diagramm vermögen</string>
     <string name="assets_hint_number_plus_euro">Neuer Wert in €</string>
     <string name="title_activity_assets_charts">AssetsCharts</string>
 
@@ -81,7 +81,7 @@
     <string name="fb_button_discription">"Chartanalyse "</string>
     <string name="fb_financebook_templates_discription">Finanzbuch Templates erstellen</string>
     <string name="fb_financebook_lable">Finanzbuch</string>
-    <string name="fb_financebook_charts_lable">Diagramme FB</string>
+    <string name="fb_financebook_charts_lable">Diagramm FB</string>
     <string name="fb_Chart_overwiev_current_month_Name">Aktueller Monat</string>
     <string name="fb_chart_overwiev_herarchy_main_cathegories">Hauptkategorien nach Kostenanteil</string>
 
@@ -94,7 +94,8 @@
     <string name="contracts_details_lable">Vertrag Details</string>
     <string name="contracts_add_new_lable">Vertrag anlegen</string>
     <string name="contracts_overwiev_lable">Vertragsübersicht</string>
-    <string name="contracts_details_change_lable">Vertragsübersicht</string>
+    <string name="contracts_Charts_lable">Diagramm Verträge</string>
+    <string name="contracts_details_change_lable">Vertrag ändern</string>
     <string name="contracts_hint_type">Autoversicherung,Krankenversicherung</string>
     <string name="contract_hint_note">Kündigungsfrist, Besonderheiten</string>
     <string name="contract_hint_name">Verti, Huk, AOK ...</string>
@@ -114,10 +115,10 @@
     <string name="income_brutto">Brutto Mtl.</string>
     <string name="income_netto">Netto Mtl.</string>
     <string name="income_note">Anmerkung</string>
-    <string name="income_details_change_lable">Ändern</string>
-    <string name="income_details_lable">Detailansicht</string>
-    <string name="income_add_new_lable">Hinzufügen </string>
-    <string name="income_overwiev_lable">Übersicht Verdienstverträge</string>
+    <string name="income_details_change_lable">Verdienstverträge ändern</string>
+    <string name="income_details_lable">Verdienstverträge Details</string>
+    <string name="income_add_new_lable">Verdienstverträge hinzufügen </string>
+    <string name="income_overwiev_lable">Verdienstverträge Übersicht</string>
     <string name="income_delete_button">Löschen</string>
     <string name="income_change_button">Ändern</string>
     <string name="income_change_save_button">Änderung speichern</string>
@@ -139,7 +140,7 @@
     <string name="costshierarchyE1_title_listview_E2">Unterkategorien</string>
     <string name="costshierarchyE1_addE2_button">Unterkategorie anlegen</string>
     <string name="costshierarchyE1_deleteE1_button">Hauptkategorie löschen</string>
-    <string name="costshierarchyOverview_title_listview_E1_lable">Unterkategorie anlegen</string>
+    <string name="costshierarchyOverview_title_listview_E1_lable">Unterkategorie</string>
     <string name="costhierarchyE1_text">Inhalt Hauptkategorie</string>
     <string name="hierarchie_E1_TextDialog">Welche Unterkategorie zur Hauptkategorie wollen Sie?</string>
     <string name="hierarchie_E1_dialogbox_hints">Discounter, Baumärkte, Tankstellen, ...</string>
@@ -149,14 +150,14 @@
     <string name="costshierarchyE2_title_listview_E3">Subunterkategorie</string>
     <string name="costshierarchyE2_addE3_button">Subunterkategorie anlegen</string>
     <string name="costshierarchyE2_deleteE2_button">Unterkategorie löschen</string>
-    <string name="costshierarchyOverview_title_listview_E2_lable">Subunterkategorie anlegen</string>
+    <string name="costshierarchyOverview_title_listview_E2_lable">Subunterkategorie</string>
     <string name="hierarchie_E2_TextDialog">Welche Subunterkategorie zur Hauptkategorie wollen Sie?</string>
     <string name="hierarchie_E2_dialogbox_hints">Aldi, OBI, Jet, ...</string>
     <string name="Costhierarchie_Dialog_E2_Headtext">Legen Sie eine Subunterkategorie an</string>
 
     <!--Costs Hierarchy E3-->
     <string name="costshierarchyE3_deleteE3_button">Subunterkategorie löschen</string>
-    <string name="costshierarchyOverview_title_listview_E3_lable">Subunterkategorie Löschen</string>
+    <string name="costshierarchyOverview_title_listview_E3_lable">Subunterkategorie löschen</string>
     <string name="genereal_costs_name">Kosten:</string>
 
 
