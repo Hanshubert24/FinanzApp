@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.">
+    tools:context=".ui.home.HomeFragment">
 
     <com.anychart.AnyChartView
         android:id="@+id/any_chart_assets_Chart"
@@ -29,6 +29,8 @@
         android:background="@drawable/custom_button_bg"
         android:backgroundTint="#0069b4"
         android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:focusable="auto"
         android:paddingTop="2dp"
         android:paddingBottom="10dp"
         android:text="@string/AddButtonText"

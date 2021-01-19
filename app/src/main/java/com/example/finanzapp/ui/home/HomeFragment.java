@@ -1,9 +1,11 @@
 package com.example.finanzapp.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,6 +21,7 @@ import com.anychart.enums.Anchor;
 import com.anychart.enums.HoverMode;
 import com.anychart.enums.TooltipPositionMode;
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.CashFlow.QuickPay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,16 @@ public class HomeFragment extends Fragment {
 
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        Intent intent = new Intent(getActivity(), QuickPay.class);
+        final Button button = (Button) root.findViewById(R.id.AddButtonHome);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(intent);
+            }
+        });
+
         AnyChartView anyChartView = root.findViewById(R.id.any_chart_assets_Chart);
         anyChartView.setProgressBar(root.findViewById(R.id.progressBarHome));
 
