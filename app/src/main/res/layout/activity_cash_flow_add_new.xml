@@ -127,7 +127,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/buttonAssetIncomeCashFlowAddNew"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -137,13 +137,14 @@
                     android:text="@string/cash_flow_Button_income_name" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/buttonAssetOutputCashFlowAddNew"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="16dp"
+                    android:background="#FFFAFA"
                     android:text="@string/cash_flow_Button_expanditure_name" />
             </LinearLayout>
 
@@ -163,13 +164,13 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textViewCashFlowAddNewDateEntry"
                 android:layout_width="204dp"
                 android:layout_height="38dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textViewCashFlowAddNewNameDate2"
+                android:id="@+id/textViewCashFlowAddNewNameValue"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -219,6 +220,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="25dp"
+        android:onClick="buttonDatePicker"
         android:text="DP"
         android:textColor="@color/money_negatic_red"
         app:layout_constraintBottom_toBottomOf="parent"
