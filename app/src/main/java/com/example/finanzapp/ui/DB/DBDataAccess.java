@@ -650,7 +650,7 @@ public class DBDataAccess {
     public Cursor viewAllInTable(String tablename) {
         try {
             Cursor cursor = database.query(tablename, null, null, null, null, null, null);
-            Log.d(LOG_TAG, "Tabelle " + tablename + " tabe: gesamter Inhalt wurde abgefragt.");
+            Log.d(LOG_TAG, "Tabelle " + tablename + ": gesamter Inhalt wurde abgefragt.");
 
             return cursor;
 

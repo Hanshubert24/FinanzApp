@@ -75,7 +75,7 @@ public class DBService {
 
         return dateFormat.format(date);
     }
-
+    //NOCH IN BEARBEITUNG!
     public static String timeFormatForDB(Date date){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
@@ -84,6 +84,14 @@ public class DBService {
     }
 
     public static String timeFormatToView(){
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("DD.MM.YYYY");
+
+        return dateFormat.format(date);
+    }
+
+    public static String timeFormatToView(String date){
 
         return "Santnimmerleinstag";
     }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textViewCashFlowAddNewDate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="0dp"
@@ -91,7 +91,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerCashFlowAddNewTableContent"
+                android:id="@+id/spinnerCashFlowAddNewTable"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
@@ -113,7 +113,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinnerCashFlowAddNewTable"
+                android:id="@+id/spinnerCashFlowAddNewTableContent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
@@ -162,16 +162,11 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextCashFlowAddNewDate"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:ems="10"
-                android:hint="@string/cahsflow_hint_date"
-                android:importantForAutofill="no"
-                android:inputType="date" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="204dp"
+                android:layout_height="38dp"
+                android:text="TextView" />
 
             <TextView
                 android:id="@+id/textViewCashFlowAddNewNameDate2"
@@ -197,8 +192,8 @@
                 android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="@string/genreral_new_numeric_euro"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
 
         </LinearLayout>
     </ScrollView>
@@ -210,11 +205,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:onClick="SaveEntry"
         android:text="@string/assets_save"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDatePickerCashFlowAddNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="25dp"
+        android:text="DP"
+        android:textColor="@color/money_negatic_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

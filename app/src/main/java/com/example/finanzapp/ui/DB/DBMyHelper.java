@@ -16,10 +16,8 @@ public class DBMyHelper extends SQLiteOpenHelper {
     //https://www.sqlite.org/datatype3.html
 
     public static final String DB_NAME = "FinanzApp.db";
-    public static final int DB_VERSION = 50;
+    public static final int DB_VERSION = 70;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
-
-    public static ArrayList<String> tableList = new ArrayList<String>();
 
     public static boolean initializeWithExampleData = false; //Funktion für ExampleData in MainActivity
 
@@ -38,7 +36,6 @@ public class DBMyHelper extends SQLiteOpenHelper {
         try{
             db.execSQL(SQL_CREATE_TableContracts);
             Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLEContracts_NAME + " erzeugt.");
-            tableList.add(DBMyHelper.TABLEContracts_NAME);
         } catch (Exception e){
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabellen: " + TABLEContracts_NAME);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabellen: " + TABLEContracts_NAME);
@@ -46,7 +43,6 @@ public class DBMyHelper extends SQLiteOpenHelper {
         try{
             db.execSQL(SQL_CREATE_TableAssets);
             Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLEAssets_NAME + " erzeugt.");
-            tableList.add(DBMyHelper.TABLEAssets_NAME);
         } catch (Exception e){
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabellen: " + TABLEAssets_NAME);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabellen: " + TABLEAssets_NAME);
@@ -54,7 +50,6 @@ public class DBMyHelper extends SQLiteOpenHelper {
         try{
             db.execSQL(SQL_CREATE_TableIncome);
             Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLEIncome_NAME+ " erzeugt.");
-            tableList.add(DBMyHelper.TABLEIncome_NAME);
         } catch (Exception e){
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLEIncome_NAME);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLEIncome_NAME);
@@ -62,7 +57,6 @@ public class DBMyHelper extends SQLiteOpenHelper {
         try{
             db.execSQL(SQL_CREATE_TableCostsHierarchy);
             Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLECostsHierarchy_Name+ " erzeugt.");
-            tableList.add(DBMyHelper.TABLECostsHierarchy_Name);
         } catch (Exception e){
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLECostsHierarchy_Name);
@@ -70,7 +64,6 @@ public class DBMyHelper extends SQLiteOpenHelper {
         try{
             db.execSQL(SQL_CREATE_TableCashFlow);
             Log.d(LOG_TAG, "DBMyHelper hat die Tabelle: " + TABLECashFlow_Name+ " erzeugt.");
-            tableList.add(DBMyHelper.TABLECashFlow_Name);
         } catch (Exception e){
             Log.i("DB-Fehler", "Fehler beim Anlegen der Tabelle: " + TABLECashFlow_Name);
             Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + TABLECashFlow_Name);
@@ -89,6 +82,17 @@ public class DBMyHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLECashFlow_Name);
         onCreate(db);
     }
+
+    public static ArrayList getTableListForCashFlowAddNew(){
+        ArrayList<String> tableListArray = new ArrayList<String>();
+        tableListArray.clear();
+        tableListArray.add(TABLEContracts_NAME);
+        tableListArray.add(TABLEAssets_NAME);
+        tableListArray.add(TABLEIncome_NAME);
+
+        return tableListArray;
+    }
+
 
     //Contracts
     public static final String TABLEContracts_NAME = "Contracts";
