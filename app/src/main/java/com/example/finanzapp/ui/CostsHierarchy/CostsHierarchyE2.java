@@ -183,8 +183,6 @@ public class CostsHierarchyE2 extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }else if(entryInE1 >= 1) {
-                Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
-                startActivity(i);
                 finish();
             }
         } else {

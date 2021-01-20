@@ -1,6 +1,7 @@
 package com.example.finanzapp.ui.CashFlow;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -26,6 +27,8 @@ import com.example.finanzapp.ui.DB.DBService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 public class CashFlowAddNew extends AppCompatActivity {
 
@@ -45,9 +48,13 @@ public class CashFlowAddNew extends AppCompatActivity {
     double doubleValuePrepared;
     String currentDate;
     int cashFlowType;
-    int day;
-    int month;
-    int year;
+
+    Calendar calendar;
+    DatePicker datePicker; //Objekt Datepicker in der .XML
+
+    static final int DATE_DIALOG_ID = 999;
+    int day, month, year;
+
     boolean setAssetButtons;
 
     Spinner spinnerTable;
@@ -64,6 +71,7 @@ public class CashFlowAddNew extends AppCompatActivity {
 
     Button buttonAssetIncome; //Einzahlung/Einnahme -> trifft nur auf Assets zu
     Button buttonAssetOutput; //Auszahlung/Ausgabe  -> trifft nur auf Assets zu
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +96,8 @@ public class CashFlowAddNew extends AppCompatActivity {
 
         //Datum abfragen und als Hint setzen
         textViewDate.setText(DBService.timeFormatToView());
-        Toast.makeText(this, "CT: "+DBService.timeFormatToView(), Toast.LENGTH_LONG).show();
         currentDate = DBService.timeFormatForDB(); //Speichert den aktuellen Wert zwischen
+
     }
 
     @Override
@@ -106,7 +114,7 @@ public class CashFlowAddNew extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(LOG_TAG, "SpinnerTable -> ID: " + id + ", Pos.: " + position + ", Eintrag: " + DBMyHelper.getTableListForCashFlowAddNew());
                 //Reagieren auf Auswahl des Nutzers und Übergabe des entsprechenende Tabellennamen
-                if(position == 0){
+                if (position == 0) {
                     cashFlowType = 2; //Auszahlung / Ausgabe
                     tableID = DBMyHelper.TABLEContracts_TableID; //int = 0
                     contractViewColumn = DBMyHelper.COLUMNContracts_Type;
@@ -115,7 +123,7 @@ public class CashFlowAddNew extends AppCompatActivity {
                     assetButtonsVisibility(false);
                     buttonAssetNeutral();
 
-                } else if(position == 1){
+                } else if (position == 1) {
                     cashFlowType = 0; //Weder noch (Zustand undediniert)
                     tableID = DBMyHelper.TABLEAssets_TableID; //int = 1
                     assetViewColumn = DBMyHelper.COLUMNAssets_Name;
@@ -123,7 +131,7 @@ public class CashFlowAddNew extends AppCompatActivity {
                     currentColumn = assetViewColumn;
                     assetButtonsVisibility(true);
 
-                } else if(position == 2){
+                } else if (position == 2) {
                     cashFlowType = 1; //Einzahlung / Einnahme
                     tableID = DBMyHelper.TABLEIncome_TableID; //int = 2
                     incomeViewColumn = DBMyHelper.COLUMNIncome_Company;
@@ -161,7 +169,7 @@ public class CashFlowAddNew extends AppCompatActivity {
 
     }
 
-    private void fillSpinnerTable(){
+    private void fillSpinnerTable() {
         arrayAdapterTable = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, DBMyHelper.getTableListForCashFlowAddNew());
         spinnerTable.setAdapter(arrayAdapterTable);
     }
@@ -189,50 +197,59 @@ public class CashFlowAddNew extends AppCompatActivity {
                 Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerTable()");
                 Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_SHORT).show();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             Log.d(LOG_TAG, "Absturz in fillSpinnerTableContent().");
         }
     }
 
-    public void SaveEntry(View view){
-        try{
+    public void SaveEntry(View view) {
+        try {
             editTextDoubleValue = (EditText) findViewById(R.id.editTextCashFlowAddNewValue);
             //Prüfen ob ein Eintrag für den Wert gemacht wurde
-            if(!isEditTextEmpty(editTextDoubleValue)){
+            if (!isEditTextEmpty(editTextDoubleValue)) {
                 double doubleValue = Double.parseDouble(editTextDoubleValue.getText().toString());
                 doubleValuePrepared = DBService.doubleValueForDB(doubleValue);
 
                 //CashFlowType -> Abfangen wenn kein Button gedrückt wurde!
-                if(cashFlowType != 0) {
+                if (cashFlowType != 0) {
 
                     //Abfrage der TableEntryID zur ausgewählten Table und dessen Entry
                     int tableEntryID = db.viewIDFromTableEntry(tableID, currentColumn, tableContentValue);
 
-                    db.addNewCashFlowInDB(
+                    boolean success = db.addNewCashFlowInDB(
                             currentDate, //Datum
                             cashFlowType, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
                             tableID, //TableID
                             tableEntryID, //TableEntryID
                             doubleValuePrepared); //DoubleValue -> Geldwert
-                    Log.d(LOG_TAG, "Eintragung in DB: Date: "+currentDate+", CashFlowType: "+cashFlowType+", TableID: "+tableID+", TableEnrtryID: "+ tableEntryID +", DoubleValue: "+doubleValuePrepared);
+                    Log.d(LOG_TAG, "Eintragung in DB: Date: " + currentDate + ", CashFlowType: " + cashFlowType + ", TableID: " + tableID + ", TableEnrtryID: " + tableEntryID + ", DoubleValue: " + doubleValuePrepared);
+
+                    if (success) {
+                        Log.d(LOG_TAG, "Datensatz wurden in Datenbank übernommen.");
+                        Toast.makeText(this, "Eintrag gespeichert", Toast.LENGTH_LONG).show();
+                        finish();
+                    } else {
+                        Log.d(LOG_TAG, "Fehler beim Eintragen des Datensatzes in die Datenbank (SaveEntry()).");
+                        Toast.makeText(this, "Fehler beim Speichern.", Toast.LENGTH_LONG).show();
+                    }
 
                 } else {
                     Toast.makeText(this, "Wählen Sie 'Eingabe' oder 'Ausgabe'.", Toast.LENGTH_LONG).show();
                 }
             } else { //Wenn Betrag leer (nicht gesetzt) wurde
-            Toast.makeText(this, "Betrag eingeben.", Toast.LENGTH_LONG).show();
-            editTextDoubleValue.setHint("Bsp.: 19.95");
+                Toast.makeText(this, "Betrag eingeben.", Toast.LENGTH_LONG).show();
+                editTextDoubleValue.setHint("Bsp.: 19.95");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE3()");
         }
     }
 
-    private void assetButtonsVisibility(boolean isAssetButtonVisible){
+    private void assetButtonsVisibility(boolean isAssetButtonVisible) {
 
-        if(isAssetButtonVisible) {
+        if (isAssetButtonVisible) {
             buttonAssetIncome.setVisibility(View.VISIBLE);
             buttonAssetOutput.setVisibility(View.VISIBLE);
         } else {
@@ -241,52 +258,47 @@ public class CashFlowAddNew extends AppCompatActivity {
         }
     }
 
-    public void onClickButtonAssetIncome(View view){
+    public void onClickButtonAssetIncome(View view) {
         buttonAssetIncome.setTextColor(0xff99cc00); //Green
         buttonAssetOutput.setTextColor(Color.GRAY);
 
         cashFlowType = 1; //Einzahlung/Einkommen
     }
 
-    public void onClickButtonAssetOutcome(View view){
+    public void onClickButtonAssetOutcome(View view) {
         buttonAssetIncome.setTextColor(Color.GRAY);
         buttonAssetOutput.setTextColor(0xffffbb33); //Orange
 
         cashFlowType = 2; //Auszahlung/Ausgabe
     }
 
-    private void buttonAssetNeutral(){
+    private void buttonAssetNeutral() {
         buttonAssetIncome.setTextColor(Color.GRAY);
         buttonAssetOutput.setTextColor(Color.GRAY);
     }
 
     public void buttonDatePicker(View view) {
-        try {
-            Calendar calendar;
-            DatePickerDialog dateDialog;
 
+        try {
             calendar = Calendar.getInstance();
             day = calendar.get(Calendar.DAY_OF_MONTH);
             month = calendar.get(Calendar.MONTH);
             year = calendar.get(Calendar.YEAR);
 
-            //NEED API-LEVEL-24 -> Anzeige: wir haben API-Level-22 -> wir haben aber API-Level-30 ??
-            dateDialog = new DatePickerDialog(CashFlowAddNew.this, new DatePickerDialog.OnDateSetListener() {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(CashFlowAddNew.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int chosenYear, int chosenMonth, int chosenDay) {
-                    Toast.makeText(CashFlowAddNew.this, chosenDay+"."+(chosenMonth+1)+"."+chosenYear, Toast.LENGTH_LONG).show();
                     textViewDate.setText(chosenDay + "." + (chosenMonth+1) + "." + chosenYear);
                     currentDate = chosenYear+"-"+(chosenMonth+1)+"-"+chosenDay;
-                    Log.d(LOG_TAG, "Datum für Datenbank wurde auf " + currentDate + " gesetzt.");
                 }
-            }, day, month, year); //Setzt das Datum in dem der Kalender beim Aufrugen gesetzt wird.
-            dateDialog.show();
+            }, year, month, day);
+            datePickerDialog.show();
+
         } catch (Exception e) {
             e.printStackTrace();
             Log.d(LOG_TAG, "Fehler in buttonDatePicker(View view)");
         }
     }
-
 
     @Override
     protected void onPause() {
@@ -297,8 +309,6 @@ public class CashFlowAddNew extends AppCompatActivity {
     }
 
     public void NavBackCashFlowAddNewToFinancBookOV(View view){
-        Intent i = new Intent(CashFlowAddNew.this, MainActivity.class);
-        startActivity(i);
         finish();
     }
 
