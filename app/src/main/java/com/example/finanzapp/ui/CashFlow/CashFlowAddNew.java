@@ -1,14 +1,11 @@
 package com.example.finanzapp.ui.CashFlow;
 
-import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,14 +13,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class CashFlowAddNew extends AppCompatActivity {
 
@@ -240,8 +235,7 @@ public class CashFlowAddNew extends AppCompatActivity {
     }
 
     public void NavBackCashFlowAddNewToFinancBookOV(View view){
-        Intent i = new Intent(CashFlowAddNew.this, MainActivity.class);
-        startActivity(i);
+
         finish();
     }
 

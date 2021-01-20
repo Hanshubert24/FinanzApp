@@ -1,36 +1,23 @@
 package com.example.finanzapp.ui.CashFlow;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-import com.example.finanzapp.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.Contracts.ContractsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
-import com.example.finanzapp.ui.Income.IncomeOverview;
 
-import java.lang.reflect.Array;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class QuickPay extends AppCompatActivity {
 
@@ -276,8 +263,7 @@ public class QuickPay extends AppCompatActivity {
     }
 
     public void NavBack(View view){
-        Intent i = new Intent(QuickPay.this, MainActivity.class);
-        startActivity(i);
+
         finish();
     }
 
