@@ -81,6 +81,7 @@
                 android:layout_marginBottom="0dp"
                 android:dropDownWidth="match_parent"
                 android:dropDownSelector="@drawable/button_gardient_blue_bottom"
+                android:focusable="auto"
                 android:focusableInTouchMode="false" />
 
             <TextView

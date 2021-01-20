@@ -13,16 +13,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/button_gardient_orange_round"
         android:text="@string/fb_Chart_overwiev_current_month_Name"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assets_overwiev_image_diamont6" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackHomeFB" />
 
     <ImageView
         android:id="@+id/assets_overwiev_image_diamont6"
