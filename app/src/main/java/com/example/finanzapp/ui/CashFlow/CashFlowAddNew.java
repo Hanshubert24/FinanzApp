@@ -36,7 +36,11 @@ public class CashFlowAddNew extends AppCompatActivity {
     DBDataAccess db;
     Cursor cursorTableContent;
 
-    String valueTable;
+    String tableContentValue;
+    String contractViewColumn; //Spalte die ausgegeben und gefoltert werden soll
+    String assetViewColumn; //Spalte die ausgegeben und gefoltert werden soll
+    String incomeViewColumn; //Spalte die ausgegeben und gefoltert werden soll
+    String currentColumn; //Aktuell gewählter Spaltenwert
     int tableID;
     double doubleValuePrepared;
     String currentDate;
@@ -100,25 +104,31 @@ public class CashFlowAddNew extends AppCompatActivity {
         spinnerTable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(LOG_TAG, "SpinnerTable -> ID: " + id + ", Pos.: " + position + "");
+                Log.d(LOG_TAG, "SpinnerTable -> ID: " + id + ", Pos.: " + position + ", Eintrag: " + DBMyHelper.getTableListForCashFlowAddNew());
                 //Reagieren auf Auswahl des Nutzers und Übergabe des entsprechenende Tabellennamen
                 if(position == 0){
                     cashFlowType = 2; //Auszahlung / Ausgabe
                     tableID = DBMyHelper.TABLEContracts_TableID; //int = 0
-                    fillSpinnerTableContent(DBMyHelper.TABLEContracts_NAME, DBMyHelper.COLUMNContracts_Type);
+                    contractViewColumn = DBMyHelper.COLUMNContracts_Type;
+                    fillSpinnerTableContent(DBMyHelper.TABLEContracts_NAME, contractViewColumn); //füllt Spinner 2
+                    currentColumn = contractViewColumn;
                     assetButtonsVisibility(false);
                     buttonAssetNeutral();
 
                 } else if(position == 1){
                     cashFlowType = 0; //Weder noch (Zustand undediniert)
                     tableID = DBMyHelper.TABLEAssets_TableID; //int = 1
-                    fillSpinnerTableContent(DBMyHelper.TABLEAssets_NAME, DBMyHelper.COLUMNAssets_Name);
+                    assetViewColumn = DBMyHelper.COLUMNAssets_Name;
+                    fillSpinnerTableContent(DBMyHelper.TABLEAssets_NAME, assetViewColumn); //füllt Spinner 2
+                    currentColumn = assetViewColumn;
                     assetButtonsVisibility(true);
 
                 } else if(position == 2){
                     cashFlowType = 1; //Einzahlung / Einnahme
                     tableID = DBMyHelper.TABLEIncome_TableID; //int = 2
-                    fillSpinnerTableContent(DBMyHelper.TABLEIncome_NAME, DBMyHelper.COLUMNIncome_Company);
+                    incomeViewColumn = DBMyHelper.COLUMNIncome_Company;
+                    fillSpinnerTableContent(DBMyHelper.TABLEIncome_NAME, incomeViewColumn); //füllt Spinner 2
+                    currentColumn = incomeViewColumn;
                     assetButtonsVisibility(false);
                     buttonAssetNeutral();
 
@@ -137,8 +147,9 @@ public class CashFlowAddNew extends AppCompatActivity {
         spinnerTableContent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
+                //Übernimmt String aus ArrayList je nach Auswahl
+                tableContentValue = arrayListTableContent.get(position);
+                Log.d(LOG_TAG, "SpinnerTableContent = " + tableContentValue);
 
             }
 
@@ -195,14 +206,16 @@ public class CashFlowAddNew extends AppCompatActivity {
                 //CashFlowType -> Abfangen wenn kein Button gedrückt wurde!
                 if(cashFlowType != 0) {
 
+                    //Abfrage der TableEntryID zur ausgewählten Table und dessen Entry
+                    int tableEntryID = db.viewIDFromTableEntry(tableID, currentColumn, tableContentValue);
 
                     db.addNewCashFlowInDB(
                             currentDate, //Datum
                             cashFlowType, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
                             tableID, //TableID
-                            10000000, //TableEntryID
+                            tableEntryID, //TableEntryID
                             doubleValuePrepared); //DoubleValue -> Geldwert
-                    Log.d(LOG_TAG, "Eintragung in DB: Date: "+currentDate+", CashFlowType: "+cashFlowType+", TableID: "+"" +", TableEnrtryID: "+ "" +", DoubleValue: "+doubleValuePrepared);
+                    Log.d(LOG_TAG, "Eintragung in DB: Date: "+currentDate+", CashFlowType: "+cashFlowType+", TableID: "+tableID+", TableEnrtryID: "+ tableEntryID +", DoubleValue: "+doubleValuePrepared);
 
                 } else {
                     Toast.makeText(this, "Wählen Sie 'Eingabe' oder 'Ausgabe'.", Toast.LENGTH_LONG).show();
@@ -274,14 +287,6 @@ public class CashFlowAddNew extends AppCompatActivity {
         }
     }
 
-    private int getTableContentID(String table, String column){
-
-
-
-
-        
-        return 0;
-    }
 
     @Override
     protected void onPause() {

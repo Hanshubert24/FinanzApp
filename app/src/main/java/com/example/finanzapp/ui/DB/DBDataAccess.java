@@ -271,6 +271,62 @@ public class DBDataAccess {
         }
     }
 
+    public int viewIDFromTableEntry(int tableID, String columnName, String columnEntry){
+        String tableName;
+        String tableIDName;
+        int entryID;
+
+
+        if(tableID == DBMyHelper.TABLEContracts_TableID){ //int = 0
+            tableName = DBMyHelper.TABLEContracts_NAME;
+            tableIDName = DBMyHelper.COLUMNContracts_ID;
+
+        } else if(tableID == DBMyHelper.TABLEAssets_TableID){ //int = 1
+            tableName = DBMyHelper.TABLEAssets_NAME;
+            tableIDName = DBMyHelper.COLUMNAssets_ID;
+
+        } else if(tableID == DBMyHelper.TABLEIncome_TableID){ //int = 2
+            tableName = DBMyHelper.TABLEIncome_NAME;
+            tableIDName = DBMyHelper.COLUMNIncome_ID;
+        } else {
+            tableName = null;
+            tableIDName = null;
+        }
+
+        Log.i("DB-TEST", "SELECT *" +
+                " FROM " + tableName +
+                " WHERE " + columnName + " = '" + columnEntry + "';");
+
+        try{
+            Cursor cursor = database.rawQuery(
+                    "SELECT *" +
+                            " FROM " + tableName +
+                            " WHERE " + columnName + " = '" + columnEntry + "';",
+                    null);
+
+            //TEST
+            int count = cursor.getCount();
+            Log.i("DB-TEST", "CursorCount = " + count);
+
+            if(cursor != null) {
+                cursor.moveToFirst();
+                int IDindex = cursor.getColumnIndex(tableIDName);
+                entryID = cursor.getInt(IDindex);
+
+                return entryID;
+            } else {
+                Log.d(LOG_TAG, "Cursor für viewIDFromCostsHierarchyEntry() = null");
+                return -1;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Auslesen der Methode: 'viewIDFromTableEntry' fehlgeschlagen.");
+
+            return -1;
+        }
+    }
+
     public DBInformationObject CostsHierarchyInDB(String varE1, String varE2, String varE3){
         DBInformationObject dbInfo = new DBInformationObject();
 
@@ -607,7 +663,7 @@ public class DBDataAccess {
     }
 
     public boolean addNewCashFlowInDB(String date, int typeID, int tableID, int tableEntryID, double doubleValue){
-        //typeID => 1 = Einzahlung, 2 = Auszahlung
+        //typeID => 1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
 
         ContentValues cv = new ContentValues();
         cv.put(DBMyHelper.COLUMNCashFlow_Date, date);
