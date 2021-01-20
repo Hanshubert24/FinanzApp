@@ -28,8 +28,7 @@
             android:label="@string/fb_financebook_charts_lable" />
         <activity
             android:name=".ui.financebook.FinanceBookOverview"
-            android:label="@string/fb_financebook_lable"
-            android:noHistory="true" />
+            android:label="@string/fb_financebook_lable" />
 
         //Contracts Income
         <activity
@@ -48,8 +47,7 @@
         // Contracts Costs
         <activity
             android:name=".ui.Contracts.ContractsDetailsChange"
-            android:label="@string/contracts_details_change_lable"
-            android:noHistory="true" />
+            android:label="@string/contracts_details_change_lable" />
         <activity
             android:name=".ui.Contracts.ContractsDetails"
             android:label="@string/contracts_details_lable" />
@@ -58,8 +56,7 @@
             android:label="@string/contracts_add_new_lable" />
         <activity
             android:name=".ui.Contracts.ContractsOverview"
-            android:label="@string/contracts_overwiev_lable"
-            android:noHistory="true" />
+            android:label="@string/contracts_overwiev_lable" />
 
         // Costhierarchie
         <activity
@@ -76,8 +73,7 @@
             android:label="@string/costshierarchyOverview_title_listview_E1_lable" />
         <activity
             android:name=".ui.CostsHierarchy.CostsHierarchyOverview"
-            android:label="@string/costshierarchyOverview_title_listview_Overview_lable"
-            android:noHistory="true" />
+            android:label="@string/costshierarchyOverview_title_listview_Overview_lable" />
 
         // Assetes
         <activity
@@ -85,8 +81,7 @@
             android:label="@string/assets_chart_lable" />
         <activity
             android:name=".ui.Assets.AssetsOverview"
-            android:label="@string/assets"
-            android:noHistory="true" />
+            android:label="@string/assets" />
         <activity
             android:name=".ui.Assets.AssetsAddNew"
             android:label="@string/assets_add" />
@@ -123,8 +118,7 @@
             android:name=".ui.login.EnterPinActivity"
             android:label="@string/TextPinEnter_Lable" />
         <activity
-            android:name=".ui.logout.LogoutActivity"
-            android:noHistory="true" />
+            android:name=".ui.logout.LogoutActivity" />
     </application>
 
 </manifest>
