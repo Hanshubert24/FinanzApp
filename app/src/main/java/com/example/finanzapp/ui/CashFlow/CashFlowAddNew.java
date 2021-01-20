@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -35,8 +36,14 @@ public class CashFlowAddNew extends AppCompatActivity {
     Cursor cursorTableContent;
 
     String valueTable;
+    int tableID;
     double doubleValuePrepared;
     String currentDate;
+    int cashFlowType;
+    int day;
+    int month;
+    int year;
+    boolean setAssetButtons;
 
     Spinner spinnerTable;
     Spinner spinnerTableContent;
@@ -50,6 +57,9 @@ public class CashFlowAddNew extends AppCompatActivity {
 
     EditText editTextDoubleValue;
 
+    Button buttonAssetIncome; //Einzahlung/Einnahme -> trifft nur auf Assets zu
+    Button buttonAssetOutput; //Auszahlung/Ausgabe  -> trifft nur auf Assets zu
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,15 +68,23 @@ public class CashFlowAddNew extends AppCompatActivity {
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird aufgerufen.");
         db = new DBDataAccess(getApplicationContext());
 
+        cashFlowType = 0;
+        setAssetButtons = false;
+
         spinnerTable = (Spinner) findViewById(R.id.spinnerCashFlowAddNewTable);
         spinnerTableContent = (Spinner) findViewById(R.id.spinnerCashFlowAddNewTableContent);
-
+        textViewDate = (TextView) findViewById(R.id.textViewCashFlowAddNewDateEntry);
         arrayListTableContent = new ArrayList<String>();
+        buttonAssetIncome = (Button) findViewById(R.id.buttonAssetIncomeCashFlowAddNew);
+        buttonAssetOutput = (Button) findViewById(R.id.buttonAssetOutputCashFlowAddNew);
+
+        //AssetButtons initial ausblenden (android:visibility)
+        assetButtonsVisibility(false);
 
         //Datum abfragen und als Hint setzen
-        //textViewDate.setText(DBService.timeFormatToView());
-        Toast.makeText(this, "CT: "+DBService.timeFormatToView(), Toast.LENGTH_SHORT).show();
-        currentDate = DBService.timeFormatToView(); //Speichert den aktuellen Wert zwischen
+        textViewDate.setText(DBService.timeFormatToView());
+        Toast.makeText(this, "CT: "+DBService.timeFormatToView(), Toast.LENGTH_LONG).show();
+        currentDate = DBService.timeFormatForDB(); //Speichert den aktuellen Wert zwischen
     }
 
     @Override
@@ -84,11 +102,23 @@ public class CashFlowAddNew extends AppCompatActivity {
                 Log.d(LOG_TAG, "SpinnerTable -> ID: " + id + ", Pos.: " + position + "");
                 //Reagieren auf Auswahl des Nutzers und Übergabe des entsprechenende Tabellennamen
                 if(position == 0){
+                    cashFlowType = 2; //Auszahlung / Ausgabe
+                    tableID = DBMyHelper.TABLEContracts_TableID; //int = 0
                     fillSpinnerTableContent(DBMyHelper.TABLEContracts_NAME, DBMyHelper.COLUMNContracts_Type);
+                    assetButtonsVisibility(false);
+
                 } else if(position == 1){
+                    cashFlowType = 0; //Weder noch (Zustand undediniert)
+                    tableID = DBMyHelper.TABLEAssets_TableID; //int = 1
                     fillSpinnerTableContent(DBMyHelper.TABLEAssets_NAME, DBMyHelper.COLUMNAssets_Name);
+                    assetButtonsVisibility(true);
+
                 } else if(position == 2){
+                    cashFlowType = 1; //Einzahlung / Einnahme
+                    tableID = DBMyHelper.TABLEIncome_TableID; //int = 2
                     fillSpinnerTableContent(DBMyHelper.TABLEIncome_NAME, DBMyHelper.COLUMNIncome_Company);
+                    assetButtonsVisibility(false);
+
                 } else {
                     Log.d(LOG_TAG, "Fehler Auswahl spinnerTable.");
                 }
@@ -153,82 +183,79 @@ public class CashFlowAddNew extends AppCompatActivity {
 
     public void SaveEntry(View view){
         try{
-
             editTextDoubleValue = (EditText) findViewById(R.id.editTextCashFlowAddNewValue);
             //Prüfen ob ein Eintrag für den Wert gemacht wurde
             if(!isEditTextEmpty(editTextDoubleValue)){
                 double doubleValue = Double.parseDouble(editTextDoubleValue.getText().toString());
                 doubleValuePrepared = DBService.doubleValueForDB(doubleValue);
 
-/*
+
                 db.addNewCashFlowInDB(
-                        checkDate(),
-
-                );
-
- */
-
+                        currentDate, //Datum
+                        cashFlowType, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
+                        DBMyHelper.TABLECashFlow_TableID, //TableID
+                        5, //TableEntryID
+                        doubleValuePrepared); //DoubleValue -> Geldwert
 
 
             } else { //Wenn Betrag leer (nicht gesetzt) wurde
-            Toast.makeText(this, "Betrag eingeben.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Betrag eingeben.", Toast.LENGTH_LONG).show();
             editTextDoubleValue.setHint("Bsp.: 19.95");
-        }
-
-
-
-
-
-
-
+            }
         } catch (Exception e){
             e.printStackTrace();
             Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE3()");
         }
     }
 
-    private String checkDate() {
-        //textViewDate = (EditText) findViewById(R.id.textViewCashFlowAddNewDate);
-/*
-        //Prüfen ob Daten gesetzt wurde
-        if(isEditTextEmpty(textViewDate)) { //Wenn kein Datum gesetzt wurde
-            return DBService.timeFormatForDB();
+    private int getCashFlowType(){
 
 
-        } else {
-            Toast.makeText(this, "Aktuelle Daten wird für den Eintrag gesetzt", Toast.LENGTH_SHORT).show();
 
+        if(cashFlowType == 0){ //Wenn Asset
 
-            return "EingabeDatum";
         }
- */
-        return "";
+
+        return cashFlowType;
     }
 
-/*
-    public void buttonDatePicker(View view){
-        Calendar calendar;
-        DatePickerDialog dateDialog;
+    private void assetButtonsVisibility(boolean isAssetButtonVisible){
 
-        calendar = Calendar.getInstance();
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH);
-        int year = calendar.get(Calendar.YEAR);
-
-        //NEED API LEVEL 24!
-        dateDialog = new DatePickerDialog(CashFlowAddNew.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                textViewDate.setText(dayOfMonth + "." + month + "." + year);
-            }
-        }, day, month, year);
-        dateDialog.show();
-
-
+        if(isAssetButtonVisible) {
+            buttonAssetIncome.setVisibility(View.VISIBLE);
+            buttonAssetOutput.setVisibility(View.VISIBLE);
+        } else {
+            buttonAssetIncome.setVisibility(View.INVISIBLE);
+            buttonAssetOutput.setVisibility(View.INVISIBLE);
+        }
     }
 
- */
+    public void buttonDatePicker(View view) {
+        try {
+            Calendar calendar;
+            DatePickerDialog dateDialog;
 
+            calendar = Calendar.getInstance();
+            day = calendar.get(Calendar.DAY_OF_MONTH);
+            month = calendar.get(Calendar.MONTH);
+            year = calendar.get(Calendar.YEAR);
+
+            //NEED API-LEVEL-24 -> Anzeige: wir haben API-Level-22 -> wir haben aber API-Level-30 ??
+            dateDialog = new DatePickerDialog(CashFlowAddNew.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int chosenYear, int chosenMonth, int chosenDay) {
+                    Toast.makeText(CashFlowAddNew.this, chosenDay+"."+(chosenMonth+1)+"."+chosenYear, Toast.LENGTH_LONG).show();
+                    textViewDate.setText(chosenDay + "." + (chosenMonth+1) + "." + chosenYear);
+                    currentDate = chosenYear+"-"+(chosenMonth+1)+"-"+chosenDay;
+                    Log.d(LOG_TAG, "Datum für Datenbank wurde auf " + currentDate + " gesetzt.");
+                }
+            }, day, month, year); //Setzt das Datum in dem der Kalender beim Aufrugen gesetzt wird.
+            dateDialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Fehler in buttonDatePicker(View view)");
+        }
+    }
 
 
     @Override

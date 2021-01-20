@@ -86,9 +86,9 @@ public class DBMyHelper extends SQLiteOpenHelper {
     public static ArrayList getTableListForCashFlowAddNew(){
         ArrayList<String> tableListArray = new ArrayList<String>();
         tableListArray.clear();
-        tableListArray.add(TABLEContracts_NAME);
-        tableListArray.add(TABLEAssets_NAME);
-        tableListArray.add(TABLEIncome_NAME);
+        tableListArray.add("Ausgabenverträge"); //Table Contracts
+        tableListArray.add("Vermögen"); //Table Assets
+        tableListArray.add("Verdienstverträge"); //Table Income
 
         return tableListArray;
     }
