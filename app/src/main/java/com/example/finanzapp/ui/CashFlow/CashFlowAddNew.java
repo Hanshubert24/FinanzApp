@@ -3,6 +3,7 @@ package com.example.finanzapp.ui.CashFlow;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -106,6 +107,7 @@ public class CashFlowAddNew extends AppCompatActivity {
                     tableID = DBMyHelper.TABLEContracts_TableID; //int = 0
                     fillSpinnerTableContent(DBMyHelper.TABLEContracts_NAME, DBMyHelper.COLUMNContracts_Type);
                     assetButtonsVisibility(false);
+                    buttonAssetNeutral();
 
                 } else if(position == 1){
                     cashFlowType = 0; //Weder noch (Zustand undediniert)
@@ -118,6 +120,7 @@ public class CashFlowAddNew extends AppCompatActivity {
                     tableID = DBMyHelper.TABLEIncome_TableID; //int = 2
                     fillSpinnerTableContent(DBMyHelper.TABLEIncome_NAME, DBMyHelper.COLUMNIncome_Company);
                     assetButtonsVisibility(false);
+                    buttonAssetNeutral();
 
                 } else {
                     Log.d(LOG_TAG, "Fehler Auswahl spinnerTable.");
@@ -189,15 +192,21 @@ public class CashFlowAddNew extends AppCompatActivity {
                 double doubleValue = Double.parseDouble(editTextDoubleValue.getText().toString());
                 doubleValuePrepared = DBService.doubleValueForDB(doubleValue);
 
-
-                db.addNewCashFlowInDB(
-                        currentDate, //Datum
-                        cashFlowType, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
-                        DBMyHelper.TABLECashFlow_TableID, //TableID
-                        5, //TableEntryID
-                        doubleValuePrepared); //DoubleValue -> Geldwert
+                //CashFlowType -> Abfangen wenn kein Button gedrückt wurde!
+                if(cashFlowType != 0) {
 
 
+                    db.addNewCashFlowInDB(
+                            currentDate, //Datum
+                            cashFlowType, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
+                            tableID, //TableID
+                            10000000, //TableEntryID
+                            doubleValuePrepared); //DoubleValue -> Geldwert
+                    Log.d(LOG_TAG, "Eintragung in DB: Date: "+currentDate+", CashFlowType: "+cashFlowType+", TableID: "+"" +", TableEnrtryID: "+ "" +", DoubleValue: "+doubleValuePrepared);
+
+                } else {
+                    Toast.makeText(this, "Wählen Sie 'Eingabe' oder 'Ausgabe'.", Toast.LENGTH_LONG).show();
+                }
             } else { //Wenn Betrag leer (nicht gesetzt) wurde
             Toast.makeText(this, "Betrag eingeben.", Toast.LENGTH_LONG).show();
             editTextDoubleValue.setHint("Bsp.: 19.95");
@@ -206,17 +215,6 @@ public class CashFlowAddNew extends AppCompatActivity {
             e.printStackTrace();
             Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerE3()");
         }
-    }
-
-    private int getCashFlowType(){
-
-
-
-        if(cashFlowType == 0){ //Wenn Asset
-
-        }
-
-        return cashFlowType;
     }
 
     private void assetButtonsVisibility(boolean isAssetButtonVisible){
@@ -228,6 +226,25 @@ public class CashFlowAddNew extends AppCompatActivity {
             buttonAssetIncome.setVisibility(View.INVISIBLE);
             buttonAssetOutput.setVisibility(View.INVISIBLE);
         }
+    }
+
+    public void onClickButtonAssetIncome(View view){
+        buttonAssetIncome.setTextColor(0xff99cc00); //Green
+        buttonAssetOutput.setTextColor(Color.GRAY);
+
+        cashFlowType = 1; //Einzahlung/Einkommen
+    }
+
+    public void onClickButtonAssetOutcome(View view){
+        buttonAssetIncome.setTextColor(Color.GRAY);
+        buttonAssetOutput.setTextColor(0xffffbb33); //Orange
+
+        cashFlowType = 2; //Auszahlung/Ausgabe
+    }
+
+    private void buttonAssetNeutral(){
+        buttonAssetIncome.setTextColor(Color.GRAY);
+        buttonAssetOutput.setTextColor(Color.GRAY);
     }
 
     public void buttonDatePicker(View view) {
@@ -257,6 +274,14 @@ public class CashFlowAddNew extends AppCompatActivity {
         }
     }
 
+    private int getTableContentID(String table, String column){
+
+
+
+
+        
+        return 0;
+    }
 
     @Override
     protected void onPause() {
