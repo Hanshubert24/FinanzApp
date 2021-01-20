@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
@@ -102,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
@@ -128,22 +128,23 @@
 
                 <Button
                     android:id="@+id/buttonAssetIncomeCashFlowAddNew"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="16dp"
-                    android:onClick="onClickButtonAssetIncome"
                     android:text="@string/cash_flow_Button_income_name" />
 
                 <Button
                     android:id="@+id/buttonAssetOutputCashFlowAddNew"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="16dp"
-                    android:onClick="onClickButtonAssetOutcome"
+                    android:background="#FFFAFA"
                     android:text="@string/cash_flow_Button_expanditure_name" />
             </LinearLayout>
 
@@ -152,7 +153,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
@@ -162,18 +163,39 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewCashFlowAddNewDateEntry"
-                android:layout_width="204dp"
-                android:layout_height="38dp"
-                android:text="TextView" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewCashFlowAddNewDateEntry"
+                    android:layout_width="160dp"
+                    android:layout_height="38dp"
+                    android:text="@string/general_textview_placeholder" />
+
+                <Button
+                    android:id="@+id/buttonDatePickerCashFlowAddNew"
+                    android:layout_width="40dp"
+                    android:layout_height="38dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@drawable/button_gardinet_blue_roundsbottum3"
+                    android:onClick="buttonDatePicker"
+                    android:padding="0dp"
+                    android:text="@string/AddButtonText"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewCashFlowAddNewNameValue"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
@@ -212,17 +234,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonDatePickerCashFlowAddNew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="25dp"
-        android:onClick="buttonDatePicker"
-        android:text="DP"
-        android:textColor="@color/money_negatic_red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
