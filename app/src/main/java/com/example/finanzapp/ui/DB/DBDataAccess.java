@@ -836,6 +836,7 @@ public class DBDataAccess {
 
     public double viewAssetsChartActicity(String columnName){
         Cursor cursor;
+
         double sumValueOutput = -1;
 
         Log.d(LOG_TAG,
@@ -853,7 +854,6 @@ public class DBDataAccess {
                     int valueID = cursor.getColumnIndex("sumValue");
 
                     sumValueOutput = cursor.getDouble(valueID);
-
                 }
             } else {
                 Log.d(LOG_TAG, "Cursor == NULL.");

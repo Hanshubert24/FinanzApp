@@ -21,6 +21,7 @@ import com.anychart.enums.LegendLayout;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
+import com.example.finanzapp.ui.DB.DBService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +81,16 @@ public class AssetsChartActivity extends AppCompatActivity {
         List<DataEntry> dataEntries = new ArrayList<>();
         dataEntries.add(new ValueDataEntry("Kredite",sumC ));
         dataEntries.add(new ValueDataEntry("Verkehrswert",sumFAm ));
+
+
+        double assetcalc;
+        assetcalc = sumFAm - sumC;
+//        textViewAssetsValue.setText(sumFAm+"€");
+//        textViewCredit.setText(sumC+"€");
+//        textViewAsset.setText(Double.toString(assetcalc));
+        textViewAssetsValue.setText(DBService.doubleInStringToView(sumFAm));
+        textViewCredit.setText(DBService.doubleInStringToView(sumC));
+        textViewAsset.setText(DBService.doubleInStringToView(assetcalc));
 
         pie.data(dataEntries);
 
