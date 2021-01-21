@@ -142,7 +142,7 @@ public class AssetsAddNew extends AppCompatActivity {
                         inputAssetsNoteString);
 
                 //Weiterleitung zurück auf die AssetsOverview Seite
-
+                Toast.makeText(this, "Vermögen angelegt", Toast.LENGTH_SHORT).show();
                 finish();
             }
 

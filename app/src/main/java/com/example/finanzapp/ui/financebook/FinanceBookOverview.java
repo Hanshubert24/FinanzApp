@@ -16,7 +16,6 @@ import com.anychart.data.Set;
 import com.anychart.enums.Anchor;
 import com.anychart.enums.HoverMode;
 import com.anychart.enums.TooltipPositionMode;
-import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.CashFlow.CashFlowAddNew;
 import com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyOverview;
@@ -112,10 +111,7 @@ public class FinanceBookOverview extends AppCompatActivity {
     }
 
     public void NavBacktoHomeFB(View view){
-        Intent i = new Intent(FinanceBookOverview.this, MainActivity.class);
-        startActivity(i);
-        finishAndRemoveTask();
-
+     finishAndRemoveTask();
     }
      //TEST-Activity
     public void NavCashFlowAddNew(View view){

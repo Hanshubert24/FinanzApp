@@ -1,6 +1,5 @@
 package com.example.finanzapp.ui.financebook;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -49,8 +48,6 @@ public class FinanceBookCharts extends AppCompatActivity {
     }
 
     public void NavBackFBChartsToFB(View view){
-        Intent i = new Intent(FinanceBookCharts.this, FinanceBookOverview.class);
-        startActivity(i);
         finish();
     }
 }

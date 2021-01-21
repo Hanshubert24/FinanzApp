@@ -104,7 +104,7 @@ public class ContractsOverview extends AppCompatActivity {
 
     public void NavBackContractToHome(View view){
 
-        finish();
+        finishAndRemoveTask();
     }
 
     public void NavContractsAddNew(View view){

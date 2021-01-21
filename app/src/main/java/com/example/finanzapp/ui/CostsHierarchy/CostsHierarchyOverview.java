@@ -111,13 +111,6 @@ public class CostsHierarchyOverview extends AppCompatActivity {
         db.close();
     }
 
-
-    public void NavBack(View view){
-
-        finish();
-
-    }
-
     public void addNewE1(View view) {showDialogAddNewHierarchy();}
 
     public void showDialogAddNewHierarchy(){
@@ -178,4 +171,10 @@ public class CostsHierarchyOverview extends AppCompatActivity {
             return false;
         } else {return true;}
     }
+
+    public void NavBackCostHierarchieOV(View view){
+        finishAndRemoveTask();
+
+    }
+
 }

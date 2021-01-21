@@ -152,7 +152,7 @@ public class AssetsDetails extends AppCompatActivity {
         //Weiterleitung
         Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
         startActivity(i);
-        finish();
+        finishAndRemoveTask();
     }
 
     public void dialogDeleteButton(View view){
