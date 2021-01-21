@@ -40,10 +40,12 @@ public class FinanceBookOverview extends AppCompatActivity {
     String currentMonthString;
     String currentMonthNumberString, currentYearNumberString;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance_book_overview);
+
 
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird aufgerufen.");
         db = new DBDataAccess(getApplicationContext());
@@ -60,6 +62,7 @@ public class FinanceBookOverview extends AppCompatActivity {
 
         //Umwandlung der Monatsintegers in die Bezeichnungen für Grafik-Achse
         currentMonthString = DateService.getMonthName(DBService.getCurrentMonthInteger());
+
 
 
         Cartesian3d bar3d = AnyChart.bar3d();

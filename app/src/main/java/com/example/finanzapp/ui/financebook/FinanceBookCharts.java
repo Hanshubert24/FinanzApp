@@ -26,6 +26,9 @@ public class FinanceBookCharts extends AppCompatActivity {
     int[] costs = {250, 200, 1000, 75, 200};
 
 
+    // 1. Abfrage alle namen der Kategorie 1 und den Wert , darauf ein goroup by ( theortisch dann kein Sum mehr notwendig.... ) Ergebnis sollte sein eine Spalte Nme und eine Wert
+    // dann Name in mainCategory und Wert in Costs
+    // einfügen und es sollte fertig sein
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

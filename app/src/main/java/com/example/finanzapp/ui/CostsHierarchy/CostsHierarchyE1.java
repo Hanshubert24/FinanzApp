@@ -34,6 +34,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
     TextView textViewE1;
     String E1value;
+    AlertDialog.Builder dialogPopUPTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,16 +180,20 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     public void addNewE2(View view) {showDialogAddNewHierarchy();}
 
     public void showDialogAddNewHierarchy(){
-        AlertDialog.Builder dialogPopUP = new AlertDialog.Builder(CostsHierarchyE1.this);
+        dialogPopUPTest = new AlertDialog.Builder(CostsHierarchyE1.this);
 
         LayoutInflater inflater = this.getLayoutInflater();
         dialog_addnewentry_pupup = inflater.inflate(R.layout.dialog_addnewentry_e1_popup, null);
+        dialogPopUPTest.setCancelable(false);
+        dialogPopUPTest.setView(dialog_addnewentry_pupup);
 
-        dialogPopUP.setView(dialog_addnewentry_pupup);
-        dialogPopUP.show();
-    }
 
-    public void dialogSaveButton(View view) {
+        dialogPopUPTest.show();
+        }
+
+
+
+        public void dialogSaveButton(View view) {
 
         try {
             //Muss den Wert (findViewById()) über den View des PopUp-Layouts übernehmen
@@ -225,8 +230,8 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         }
     }
 
-    public void dialogChancelButton(View view){
-      finish();
+    public void dialogCancelButton2(View view){
+
     }
 
     private boolean isEditTextEmpty(EditText editText){

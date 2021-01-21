@@ -87,12 +87,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textViewAssetsChartAssetvalueName4"
+        android:id="@+id/textViewFragmentHomeCashFlow1"
         android:layout_width="74dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_gradient_blue"
-        android:text="cashflow: 5555€"
+        android:text="@string/general_textview_placeholder"
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_light"
         android:textSize="12sp"
@@ -105,12 +105,12 @@
         app:layout_constraintVertical_bias="0.49" />
 
     <TextView
-        android:id="@+id/textViewAssetsChartAssetvalueName5"
+        android:id="@+id/textViewFragmentHomeCashFlow2"
         android:layout_width="74dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_gradient_blue"
-        android:text="cashflow: 241€"
+        android:text="@string/general_textview_placeholder"
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_light"
         android:textSize="12sp"
@@ -123,12 +123,12 @@
         app:layout_constraintVertical_bias="0.26" />
 
     <TextView
-        android:id="@+id/textViewAssetsChartAssetvalueName6"
+        android:id="@+id/textViewFragmentHomeCashFlow3"
         android:layout_width="74dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_gradient_blue"
-        android:text="cashflow: -5555€"
+        android:text="@string/general_textview_placeholder"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="12sp"
