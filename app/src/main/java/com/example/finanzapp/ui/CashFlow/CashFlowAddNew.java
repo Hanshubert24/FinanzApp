@@ -1,8 +1,6 @@
 package com.example.finanzapp.ui.CashFlow;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,7 +17,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
@@ -27,8 +24,6 @@ import com.example.finanzapp.ui.DB.DBService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 
 public class CashFlowAddNew extends AppCompatActivity {
 
@@ -202,7 +197,7 @@ public class CashFlowAddNew extends AppCompatActivity {
             Log.d(LOG_TAG, "Absturz in fillSpinnerTableContent().");
         }
     }
-
+//TODO costomize the datepicker , that it is immpossible to pick a date in the future
     public void SaveEntry(View view) {
         try {
             editTextDoubleValue = (EditText) findViewById(R.id.editTextCashFlowAddNewValue);

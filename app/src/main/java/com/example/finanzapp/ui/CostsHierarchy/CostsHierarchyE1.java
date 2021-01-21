@@ -159,7 +159,8 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     }
 
     public void dialogCancelButton(View view){
-
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
+        finishAndRemoveTask();
     }
 
     public void dialogDeleteButton(View view){
@@ -167,7 +168,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         boolean success = db.deleteMultipleEntriesInTable(DBMyHelper.TABLECostsHierarchy_Name, DBMyHelper.COLUMNCostsHierarchy_E1, E1value);
 
         if(success) {
-
+            Toast.makeText(this, "Hauptkategorie gelöscht", Toast.LENGTH_SHORT).show();
             finish();
 
         } else {

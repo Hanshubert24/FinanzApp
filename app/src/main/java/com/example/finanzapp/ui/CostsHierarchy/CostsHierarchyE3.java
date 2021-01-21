@@ -97,7 +97,7 @@ public class CostsHierarchyE3 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        finish();
+        finishAndRemoveTask ();
     }
 
     public void deleteE3(View view){
@@ -115,6 +115,7 @@ public class CostsHierarchyE3 extends AppCompatActivity {
     }
 
     public void dialogCancelButton(View view){
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -140,7 +141,8 @@ public class CostsHierarchyE3 extends AppCompatActivity {
                     startActivity(i);
                 }
             } else if(entryInE2 >= 1){
-                finish();
+                Toast.makeText(this, "Subunterkategorie gelöscht", Toast.LENGTH_SHORT).show();
+                finishAndRemoveTask();
             }
         } else {
             Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();

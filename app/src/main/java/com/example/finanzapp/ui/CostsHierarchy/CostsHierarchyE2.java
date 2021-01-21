@@ -164,7 +164,8 @@ public class CostsHierarchyE2 extends AppCompatActivity {
     }
 
     public void dialogCancelButton(View view){
-finish();
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     public void dialogDeleteButton(View view){
@@ -180,6 +181,7 @@ finish();
                 startActivity(i);
                 finish();
             }else if(entryInE1 >= 1) {
+                Toast.makeText(this, "Unterkategorie gelöscht", Toast.LENGTH_SHORT).show();
                 finish();
             }
         } else {
