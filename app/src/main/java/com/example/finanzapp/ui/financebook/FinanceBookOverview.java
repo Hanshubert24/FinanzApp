@@ -37,8 +37,6 @@ public class FinanceBookOverview extends AppCompatActivity {
 
     double costs, income;
 
-    int currentMonthInt;
-
     String currentMonthString;
     String currentMonthNumberString, currentYearNumberString;
 
@@ -56,30 +54,13 @@ public class FinanceBookOverview extends AppCompatActivity {
         anyChartView.setProgressBar(findViewById(R.id.ProgressBarFBOverview));
 
         //Abfrage abktuelle DatumAngaben
-        currentMonthNumberString = DBService.getCurrentMonth();
+        currentMonthNumberString = DBService.getCurrentMonthString();
         currentYearNumberString = DBService.getCurrentYearString();
 
-        //Abfrage der Datenbank -> Summe für alle Einnahmen im aktuellen Monat
-        Log.d(LOG_TAG, "Die Datenquelle wird geöffent.");
-        db.open();
-        income = db.viewFinanceBookOverview(1, currentMonthNumberString, currentYearNumberString);
-            //TEST
-            Log.d(LOG_TAG, "übergebener Monat: "+currentMonthNumberString+ ", Jahr: "+currentYearNumberString);
-        if(income == -1){
-            Toast.makeText(this, "Fehler in der Datenbankabfrage.", Toast.LENGTH_LONG).show();
-            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für Einkommen/Einnahmen.");
-        }
+        //Abfrage der Datenbank für das Diagram
+        databaseQuery();
 
-        //Abfrage der Datenbank -> Summe für alle Ausgaben im aktuellen Monat
-        costs = db.viewFinanceBookOverview(2, currentMonthNumberString, currentYearNumberString);
-        if(costs == -1){
-            Toast.makeText(this, "Fehler in der Datenbankabfrage.", Toast.LENGTH_LONG).show();
-            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für Einkommen/Einnahmen.");
-        }
-        db.close();
-        Log.d(LOG_TAG, "Die Datenquelle wurde geschlossen.");
-
-        //Umwandlung der Monats-Bezeichnungen
+        //Umwandlung der Monatsintegers in die Bezeichnungen für Grafik-Achse
         currentMonthString = DateService.getMonthName(DBService.getCurrentMonthInteger());
 
 
@@ -160,6 +141,28 @@ public class FinanceBookOverview extends AppCompatActivity {
         Intent i = new Intent(FinanceBookOverview.this, FinanceBookCharts.class);
         startActivity(i);
 
+    }
+
+    private void databaseQuery(){
+        //Abfrage der Datenbank -> Summe für alle Einnahmen im aktuellen Monat
+        Log.d(LOG_TAG, "Die Datenquelle wird geöffent.");
+        db.open();
+        income = db.viewFinanceBookOverview(1, currentMonthNumberString, currentYearNumberString);
+        //TEST
+        Log.d(LOG_TAG, "übergebener Monat: "+currentMonthNumberString+ ", Jahr: "+currentYearNumberString);
+        if(income == -1){
+            Toast.makeText(this, "Fehler in der Datenbankabfrage.", Toast.LENGTH_LONG).show();
+            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für Einkommen/Einnahmen.");
+        }
+
+        //Abfrage der Datenbank -> Summe für alle Ausgaben im aktuellen Monat
+        costs = db.viewFinanceBookOverview(2, currentMonthNumberString, currentYearNumberString);
+        if(costs == -1){
+            Toast.makeText(this, "Fehler in der Datenbankabfrage.", Toast.LENGTH_LONG).show();
+            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für Einkommen/Einnahmen.");
+        }
+        db.close();
+        Log.d(LOG_TAG, "Die Datenquelle wurde geschlossen.");
     }
 
     public void NavBacktoHomeFB(View view){
