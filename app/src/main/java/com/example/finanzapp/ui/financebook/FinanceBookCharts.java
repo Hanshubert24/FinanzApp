@@ -30,7 +30,7 @@ public class FinanceBookCharts extends AppCompatActivity {
     AnyChartView anyChartView;
     // set the settings for the chart
     String[] mainCategory;//{"Auto", "Haus", "Essen", "Entertaiment", "Konsum"}; -> E1
-    int[] costs; //{250, 200, 1000, 75, 200}; ->
+    int[] costs; //{250, 200, 1000, 75, 200};
 
 
     // 1. Abfrage alle namen der Kategorie 1 und den Wert , darauf ein goroup by ( theortisch dann kein Sum mehr notwendig.... ) Ergebnis sollte sein eine Spalte Nme und eine Wert

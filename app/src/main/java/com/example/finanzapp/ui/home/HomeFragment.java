@@ -47,6 +47,9 @@ public class HomeFragment extends Fragment {
     TextView textViewCashFlowCurrentMonth;
     TextView textViewCashFlowCurrentMonthMinusOne;
     TextView textViewCashFlowCurrentMonthMinusTwo;
+
+    AnyChartView anyChartView;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -65,7 +68,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        AnyChartView anyChartView = root.findViewById(R.id.any_chart_assets_Chart);
+        anyChartView = root.findViewById(R.id.any_chart_assets_Chart);
         anyChartView.setProgressBar(root.findViewById(R.id.progressBarHome));
 
 
@@ -104,7 +107,7 @@ public class HomeFragment extends Fragment {
         }
 
         //Abfrage der Datenbank zum befüllen des Diagramms
-        databaseQuery();
+        databaseQueryOnCreate(); // -> fragt nur die "alten Daten" ein
 
 
         // set cash flow numbers for textview
@@ -151,6 +154,18 @@ public class HomeFragment extends Fragment {
         } catch (Exception e){
             e.printStackTrace();
         }
+
+
+        return root;
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //Datenbankabfrage und Aktuellisierung des aktuellen Monats
+        databaseQueryOnResume();
 
         Cartesian3d bar3d = AnyChart.bar3d();
 
@@ -210,10 +225,6 @@ public class HomeFragment extends Fragment {
 
         anyChartView.setChart(bar3d);
 
-
-        return root;
-
-
     }
 
     class CustomDataEntry extends ValueDataEntry {
@@ -223,17 +234,10 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void databaseQuery(){
+    private void databaseQueryOnCreate(){
         //Abfrage der Datenbank -> Summe für alle Einnahmen im aktuellen Monat
         Log.d(LOG_TAG, "Die Datenquelle wird geöffent.");
         db.open();
-
-        incomeCurrent = db.viewFinanceBookOverview(1, currentMonthNumberString, currentYearNumberString);
-        //TEST
-        Log.d(LOG_TAG, "übergebener Monat incomeCurrent: "+currentMonthNumberString+ ", Jahr: "+currentYearNumberString);
-        if(incomeCurrent == -1){
-            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für icomeCurrent.");
-        }
 
         incomeMinusOne = db.viewFinanceBookOverview(1, currentMonthMinusOneNumberString, currentYearMinusOneNumberString);
         //TEST
@@ -251,11 +255,6 @@ public class HomeFragment extends Fragment {
 
 
         //Abfrage der Datenbank -> Summe für alle Ausgaben im aktuellen Monat
-        costsCurrent = db.viewFinanceBookOverview(2, currentMonthNumberString, currentYearNumberString);
-        if(costsCurrent == -1){
-            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für costsCurrent.");
-        }
-
         costsMinusOne = db.viewFinanceBookOverview(2, currentMonthMinusOneNumberString, currentYearMinusOneNumberString);
         if(costsMinusOne == -1){
             Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für costsMinusOne.");
@@ -264,6 +263,28 @@ public class HomeFragment extends Fragment {
         costsMinusTwo = db.viewFinanceBookOverview(2, currentMonthMinusTwoNumberString, currentYearMinusTwoNumberString);
         if(costsMinusTwo == -1){
             Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für costsMinusTwo.");
+        }
+
+        db.close();
+        Log.d(LOG_TAG, "Die Datenquelle wurde geschlossen.");
+    }
+
+    private void databaseQueryOnResume() {
+        //Abfrage der Datenbank -> Summe für alle Einnahmen im aktuellen Monat
+        Log.d(LOG_TAG, "Die Datenquelle wird geöffent.");
+        db.open();
+
+        incomeCurrent = db.viewFinanceBookOverview(1, currentMonthNumberString, currentYearNumberString);
+        //TEST
+        Log.d(LOG_TAG, "übergebener Monat incomeCurrent: "+currentMonthNumberString+ ", Jahr: "+currentYearNumberString);
+        if(incomeCurrent == -1){
+            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für icomeCurrent.");
+        }
+
+        //Abfrage der Datenbank -> Summe für alle Ausgaben im aktuellen Monat
+        costsCurrent = db.viewFinanceBookOverview(2, currentMonthNumberString, currentYearNumberString);
+        if(costsCurrent == -1){
+            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für costsCurrent.");
         }
 
         db.close();

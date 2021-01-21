@@ -231,7 +231,7 @@ public class QuickPay extends AppCompatActivity {
                     boolean success = db.addNewCashFlowInDB(
                             DBService.timeFormatForDB(),
                             2, //Auszahlung
-                            DBMyHelper.TABLECashFlow_TableID,
+                            DBMyHelper.TABLECostsHierarchy_TableID,
                             tableEntryID,
                             doubleValuePrepare);
 
