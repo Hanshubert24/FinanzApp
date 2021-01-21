@@ -1,6 +1,5 @@
 package com.example.finanzapp.ui.Contracts;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -49,8 +48,7 @@ public class ContractsChartActivity extends AppCompatActivity {
     }
 
     public void NavBackContractChartsToContractOV(View view){
-        Intent i = new Intent(ContractsChartActivity.this, ContractsOverview.class);
-        startActivity(i);
+
         finish();
     }
 }

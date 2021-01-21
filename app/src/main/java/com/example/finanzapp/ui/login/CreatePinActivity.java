@@ -41,6 +41,7 @@ public class CreatePinActivity extends AppCompatActivity {
                         editor.apply();
 
                         //enter to the Financial App
+                         Toast.makeText(CreatePinActivity.this, "PIN erfolgreich festgelegt", Toast.LENGTH_SHORT).show();
                          Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                          startActivity(intent);
                          finish();

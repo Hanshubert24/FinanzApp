@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
@@ -104,8 +103,7 @@ public class ContractsOverview extends AppCompatActivity {
     }
 
     public void NavBackContractToHome(View view){
-        Intent i = new Intent(ContractsOverview.this, MainActivity.class);
-        startActivity(i);
+
         finish();
     }
 

@@ -103,8 +103,7 @@ public class ContractsDetails extends AppCompatActivity {
 
 
     public void NavBackContractsdetails(View view){
-        Intent i = new Intent(ContractsDetails.this, ContractsOverview.class);
-        startActivity(i);
+
         finish();
     }
 

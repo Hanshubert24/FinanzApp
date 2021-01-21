@@ -139,8 +139,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
-        startActivity(i);
+
         finish();
     }
 
@@ -156,11 +155,11 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
         dialogPopUp.setView(dialog_delete_popup);
         dialogPopUp.show();
+
     }
 
     public void dialogCancelButton(View view){
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
-        startActivity(i);
+
     }
 
     public void dialogDeleteButton(View view){
@@ -168,8 +167,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         boolean success = db.deleteMultipleEntriesInTable(DBMyHelper.TABLECostsHierarchy_Name, DBMyHelper.COLUMNCostsHierarchy_E1, E1value);
 
         if(success) {
-            Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
-            startActivity(i);
+
             finish();
 
         } else {
@@ -212,9 +210,8 @@ public class CostsHierarchyE1 extends AppCompatActivity {
                     Log.d(LOG_TAG, "Rückmeldung DB: " + dbInfo.getMassage());
 
                     if (dbInfo.isSuccess()) {
-                        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
-                        startActivity(i);
-                        //finish();
+
+                        finish();
                     }
                 }
             } else {
@@ -228,8 +225,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
-        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
-        startActivity(i);
+      finish();
     }
 
     private boolean isEditTextEmpty(EditText editText){

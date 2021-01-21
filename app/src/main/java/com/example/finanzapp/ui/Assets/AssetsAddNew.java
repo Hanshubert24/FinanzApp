@@ -1,6 +1,5 @@
 package com.example.finanzapp.ui.Assets;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -143,8 +142,7 @@ public class AssetsAddNew extends AppCompatActivity {
                         inputAssetsNoteString);
 
                 //Weiterleitung zurück auf die AssetsOverview Seite
-                Intent i = new Intent(AssetsAddNew.this, AssetsOverview.class);
-                startActivity(i);
+
                 finish();
             }
 
@@ -159,8 +157,7 @@ public class AssetsAddNew extends AppCompatActivity {
         } else { return true; }
     }
     public void NavBackToAssetsOV(View view){
-        Intent i = new Intent(AssetsAddNew.this, AssetsOverview.class);
-        startActivity(i);
+
         finish();
     }
 }

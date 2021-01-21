@@ -1,8 +1,5 @@
 package com.example.finanzapp.ui.CostsHierarchy;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -10,17 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.CursorAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
-import com.example.finanzapp.ui.DB.DBInformationObject;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 
 public class CostsHierarchyE3 extends AppCompatActivity {
@@ -103,8 +97,6 @@ public class CostsHierarchyE3 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE2.class);
-        startActivity(i);
         finish();
     }
 
@@ -142,15 +134,12 @@ public class CostsHierarchyE3 extends AppCompatActivity {
                 if(entryInE1 == 0){
                     Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyOverview.class);
                     startActivity(i);
-                    finish();
+
                 } else if(entryInE1 >= 1){
                     Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE1.class);
                     startActivity(i);
-                    finish();
                 }
             } else if(entryInE2 >= 1){
-                Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE2.class);
-                startActivity(i);
                 finish();
             }
         } else {

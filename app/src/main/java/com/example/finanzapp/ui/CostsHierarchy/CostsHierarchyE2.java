@@ -146,8 +146,6 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
-        startActivity(i);
         finish();
     }
 
@@ -166,8 +164,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
     }
 
     public void dialogCancelButton(View view){
-        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE2.class);
-        startActivity(i);
+finish();
     }
 
     public void dialogDeleteButton(View view){
@@ -183,8 +180,6 @@ public class CostsHierarchyE2 extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }else if(entryInE1 >= 1) {
-                Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
-                startActivity(i);
                 finish();
             }
         } else {
@@ -227,8 +222,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
                     Log.d(LOG_TAG, "Rückmeldung DB: " + dbInfo.getMassage());
 
                     if (dbInfo.isSuccess()) {
-                        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE2.class);
-                        startActivity(i);
+                      finish();
                     }
                 }
             } else {
@@ -242,8 +236,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
-        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE2.class);
-        startActivity(i);
+finish();
     }
 
     private boolean isEditTextEmpty(EditText editText){

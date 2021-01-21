@@ -1,14 +1,14 @@
 package com.example.finanzapp.ui.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.MainActivity;
 import com.example.finanzapp.R;
@@ -39,6 +39,7 @@ public class EnterPinActivity extends AppCompatActivity {
                 if(text.equals(pin)) {
 
                     //enter to the Financial App, because successful
+                    Toast.makeText(EnterPinActivity.this, "Einloggen erfolgreich",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();

@@ -172,8 +172,7 @@ public class AssetsDetails extends AppCompatActivity {
         finish();
     }
     public void NavBackDetailsToAssetsOV(View view){
-        Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
-        startActivity(i);
+
         finish();
     }
 }

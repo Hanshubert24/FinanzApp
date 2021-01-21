@@ -22,7 +22,6 @@ import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBInformationObject;
 import com.example.finanzapp.ui.DB.DBMyHelper;
-import com.example.finanzapp.ui.financebook.FinanceBookOverview;
 
 import java.util.ArrayList;
 
@@ -114,8 +113,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        Intent i = new Intent(CostsHierarchyOverview.this, FinanceBookOverview.class);
-        startActivity(i);
+
         finish();
 
     }
@@ -155,10 +153,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
                     Log.d(LOG_TAG, "Rückmeldung DB: " + dbInfo.getMassage());
 
                     if(dbInfo.isSuccess()) {
-                        Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
-                        //finish();
-                        startActivity(i);
-
+                        finish();
                     }
                 }
             } else {
@@ -172,12 +167,10 @@ public class CostsHierarchyOverview extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
-        Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
-        startActivity(i);
+      finish();
     }
     public void costhierachyOverviewButton(View view){
-        Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
-        startActivity(i);
+     finish();
     }
 
     private boolean isEditTextEmpty(EditText editText){

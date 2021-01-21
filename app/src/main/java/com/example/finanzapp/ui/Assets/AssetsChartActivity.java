@@ -1,6 +1,5 @@
 package com.example.finanzapp.ui.Assets;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -84,8 +83,7 @@ public class AssetsChartActivity extends AppCompatActivity {
     }
 
     public void NavBackAssetsChartsToAssetsOV(View view){
-        Intent i = new Intent(AssetsChartActivity.this, AssetsOverview.class);
-        startActivity(i);
+
         finish();
     }
 

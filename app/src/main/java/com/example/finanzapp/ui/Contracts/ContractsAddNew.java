@@ -57,8 +57,7 @@ public class ContractsAddNew extends AppCompatActivity {
     }
 
     public void NavBack(View view){
-        Intent i = new Intent(ContractsAddNew.this, ContractsOverview.class);
-        startActivity(i);
+
         finish();
     }
 
