@@ -231,7 +231,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     }
 
     public void dialogCancelButton2(View view){
-      finish();
+
     }
 
     private boolean isEditTextEmpty(EditText editText){
