@@ -46,6 +46,8 @@ public class HomeFragment extends Fragment {
     String currentMonthMinusOneNumberString, currentYearMinusOneNumberString;
     String currentMonthMinusTwoNumberString, currentYearMinusTwoNumberString;
 
+    //Superwichtiger TestKommentar!!
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
