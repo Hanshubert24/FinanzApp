@@ -99,31 +99,13 @@ public class AssetsChartActivity extends AppCompatActivity {
         finish();
     }
 
-    private void databaseQuery(){
-        try {
-            db.open();
+    private void databaseQuery() {
+        db.open();
 
-            Cursor cursor = db.viewAssetsChartActicity();
+        sumFAm = db.viewAssetsChartActicity(DBMyHelper.COLUMNAssets_FinancialAsset);
+        sumC = db.viewAssetsChartActicity(DBMyHelper.COLUMNAssets_Credit);
 
-            if(cursor != null){
-                if(cursor.moveToFirst()){
-                    int financialAssetsID = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_FinancialAsset);
-                    int credeitID = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Credit);
-
-                        sumFAm = cursor.getDouble(financialAssetsID);
-                        sumC = cursor.getDouble(credeitID);
-
-                }
-            } else {
-                Log.d(LOG_TAG, "Cursor == NULL.");
-            }
-
-            db.close();
-        }catch (Exception e){
-            e.printStackTrace();
-            Log.d(LOG_TAG, "Fehler in databaseQuery().");
-        }
+        db.close();
     }
-
 }
 

@@ -834,25 +834,38 @@ public class DBDataAccess {
         }
     }
 
-    public Cursor viewAssetsChartActicity(){
+    public double viewAssetsChartActicity(String columnName){
+        Cursor cursor;
+        double sumValueOutput = -1;
 
         Log.d(LOG_TAG,
                 "SELECT _id, sum(FinancialAsset) as sumFA, sum(Credit) as sumC" +
                         " FROM " + DBMyHelper.TABLEAssets_NAME);
 
         try{
-            Cursor cursor = database.rawQuery(
-                    "SELECT _id, sum(FinancialAsset) as sumFA, sum(Credit) as sumC" +
+            cursor = database.rawQuery(
+                    "SELECT _id, sum("+columnName+") as sumValue" +
                             " FROM " + DBMyHelper.TABLEAssets_NAME,
                     null);
 
-            return cursor;
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    int valueID = cursor.getColumnIndex("sumValue");
+
+                    sumValueOutput = cursor.getDouble(valueID);
+
+                }
+            } else {
+                Log.d(LOG_TAG, "Cursor == NULL.");
+            }
+
+            return sumValueOutput;
 
         }catch (Exception e){
             e.printStackTrace();
             Log.d(LOG_TAG, "Auslesen aus Datenbank: 'viewAssetsChartActicity()' fehlgeschlagen.");
 
-            return null;
+            return sumValueOutput;
         }
 
     }
