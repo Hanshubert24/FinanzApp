@@ -18,7 +18,7 @@ public class DateService {
 
     public static String getMonthName(int monthIndex) {
         //since this is zero based, 11 = December
-        if (monthIndex < 0 || monthIndex > 11 ) {
+        if (monthIndex < 1 || monthIndex > 12) {
             throw new IllegalArgumentException(monthIndex + " Kein Gültiger Monat");
         }
         return str[monthIndex-1];

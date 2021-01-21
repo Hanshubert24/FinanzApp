@@ -98,12 +98,12 @@ public class DBService {
         return currentMonth+1; //Januar = 0
     }
 
-    public static String getCurrentMonth(){
+    public static String getCurrentMonthString(){
         String currentMonthString = "";
 
         Calendar calendar = Calendar.getInstance();
         Integer currentMonthInt = calendar.get(Calendar.MONTH);
-        currentMonthInt =+ 1; //Januar wird als "0" zurück gegeben
+        currentMonthInt = currentMonthInt + 1; //Januar wird als "0" zurück gegeben
 
         if(currentMonthInt >= 1 && currentMonthInt <= 9) {
             currentMonthString = "0" + currentMonthInt.toString();
@@ -112,6 +112,30 @@ public class DBService {
         }
 
         return currentMonthString;
+    }
+
+    public static String getLastMonthString(int monthStep){
+        String currentMonthString = "";
+
+        Calendar calendar = Calendar.getInstance();
+        Integer currentMonth = calendar.get(Calendar.MONTH);
+        Integer lastMonth = currentMonth + 1 - monthStep;
+
+        if(lastMonth >= 1 && lastMonth <= 9) {
+            currentMonthString = "0" + lastMonth.toString();
+        } else if(lastMonth >= 10 && lastMonth <= 12){
+            currentMonthString = lastMonth.toString();
+        }
+
+        return currentMonthString.toString();
+    }
+
+    public static String getLastMonthNumberString(int monthStep){
+        Calendar calendar = Calendar.getInstance();
+        Integer currentMonth = calendar.get(Calendar.MONTH);
+        Integer lastMonth = currentMonth + 1 - monthStep;
+
+        return lastMonth.toString();
     }
 
     public static int getCurrentYearInteger(){
@@ -125,6 +149,14 @@ public class DBService {
         Integer currentYear = calendar.get(Calendar.YEAR);
 
         return currentYear.toString();
+    }
+
+    public static String getLastYearString(int yearStep){
+        Calendar calendar = Calendar.getInstance();
+        Integer currentYear = calendar.get(Calendar.YEAR);
+        Integer lastYear = currentYear - yearStep;
+
+        return lastYear.toString();
     }
 
     public static String timeFormatToView(String date){
