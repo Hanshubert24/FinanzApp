@@ -19,6 +19,7 @@ public class FinanceBookCharts extends AppCompatActivity {
 
 
 
+
     AnyChartView anyChartView;
     // set the settings for the chart
     String[] mainCategory = {"Auto", "Haus", "Essen", "Entertaiment", "Konsum"};
