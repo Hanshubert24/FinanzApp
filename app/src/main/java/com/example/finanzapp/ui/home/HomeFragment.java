@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,10 +27,8 @@ import com.example.finanzapp.ui.CashFlow.QuickPay;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBService;
 import com.example.finanzapp.ui.Service.DateService;
-import com.example.finanzapp.ui.financebook.FinanceBookOverview;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -46,7 +44,9 @@ public class HomeFragment extends Fragment {
     String currentMonthMinusOneNumberString, currentYearMinusOneNumberString;
     String currentMonthMinusTwoNumberString, currentYearMinusTwoNumberString;
 
-
+    TextView textViewCashFlowCurrentMonth;
+    TextView textViewCashFlowCurrentMonthMinusOne;
+    TextView textViewCashFlowCurrentMonthMinusTwo;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -69,14 +69,13 @@ public class HomeFragment extends Fragment {
         anyChartView.setProgressBar(root.findViewById(R.id.progressBarHome));
 
 
-
         //Abfrage Datumsangaben und Umwandlung der Monatsintegers in die Bezeichnungen für Grafik-Achse
         currentMonthNumberString = DBService.getCurrentMonthString();
         currentYearNumberString = DBService.getCurrentYearString();
 
         currentMonthString = DateService.getMonthName(DBService.getCurrentMonthInteger());
 
-        if(DBService.getCurrentMonthInteger() <= 1){ //Januar -> Dezember(Year-1) -> November(Year-1)
+        if (DBService.getCurrentMonthInteger() <= 1) { //Januar -> Dezember(Year-1) -> November(Year-1)
             currentMonthMinusOneNumberString = "12";
             currentYearMinusOneNumberString = DBService.getLastYearString(1);
             currentMonthMinusOneString = DateService.getMonthName(12);
@@ -85,7 +84,7 @@ public class HomeFragment extends Fragment {
             currentYearMinusTwoNumberString = DBService.getLastYearString(1);
             currentMonthMinusTwoString = DateService.getMonthName(11);
 
-        } else if(DBService.getCurrentMonthInteger() <= 2){ //Februar -> Januar -> Dezember(Year-1)
+        } else if (DBService.getCurrentMonthInteger() <= 2) { //Februar -> Januar -> Dezember(Year-1)
             currentMonthMinusOneNumberString = "01";
             currentYearMinusOneNumberString = DBService.getLastYearString(0);
             currentMonthMinusOneString = DateService.getMonthName(1);
@@ -94,7 +93,7 @@ public class HomeFragment extends Fragment {
             currentYearMinusTwoNumberString = DBService.getLastYearString(1);
             currentMonthMinusTwoString = DateService.getMonthName(12);
 
-        }else{  //März - Dezember
+        } else {  //März - Dezember
             currentMonthMinusOneNumberString = DBService.getLastMonthString(1);
             currentYearMinusOneNumberString = DBService.getLastYearString(0);
             currentMonthMinusOneString = DateService.getMonthName(DBService.getCurrentMonthInteger() - 1);
@@ -107,6 +106,51 @@ public class HomeFragment extends Fragment {
         //Abfrage der Datenbank zum befüllen des Diagramms
         databaseQuery();
 
+
+        // set cash flow numbers for textview
+
+        textViewCashFlowCurrentMonth = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow1);
+        textViewCashFlowCurrentMonthMinusOne = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow2);
+        textViewCashFlowCurrentMonthMinusTwo = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow3);
+
+        try {
+            // implement current value
+            double cashFlowCurrentMonth;
+            double cashFlowCurrentMonthMinusOne;
+            double cashFlowCurrentMonthMinusTwo;
+
+            cashFlowCurrentMonth = incomeCurrent - costsCurrent;
+            cashFlowCurrentMonthMinusOne = incomeMinusOne - costsMinusOne;
+            cashFlowCurrentMonthMinusTwo = incomeMinusTwo - costsMinusTwo;
+
+            // current
+            textViewCashFlowCurrentMonth.setText("Cashflow: "+Double.toString(cashFlowCurrentMonth)+"€");
+            if (cashFlowCurrentMonth >= 0){
+                textViewCashFlowCurrentMonth.setTextColor(0xff99cc00);
+            }
+            else{
+                textViewCashFlowCurrentMonth.setTextColor(0xffffbb33);
+            }
+            // current minus one
+            textViewCashFlowCurrentMonthMinusOne.setText("Cashflow: "+Double.toString(cashFlowCurrentMonthMinusOne)+"€");
+            if (cashFlowCurrentMonthMinusOne >= 0){
+                textViewCashFlowCurrentMonthMinusOne.setTextColor(0xff99cc00);
+            }
+            else{
+                textViewCashFlowCurrentMonthMinusOne.setTextColor(0xffffbb33);
+            }
+            // current minus two
+            textViewCashFlowCurrentMonthMinusTwo.setText("Cashflow: "+Double.toString(cashFlowCurrentMonthMinusTwo)+"€");
+            if (cashFlowCurrentMonthMinusTwo >= 0){
+                textViewCashFlowCurrentMonthMinusTwo.setTextColor(0xff99cc00);
+            }
+            else{
+                textViewCashFlowCurrentMonthMinusTwo.setTextColor(0xffffbb33);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
         Cartesian3d bar3d = AnyChart.bar3d();
 

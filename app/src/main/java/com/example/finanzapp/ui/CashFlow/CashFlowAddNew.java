@@ -197,7 +197,7 @@ public class CashFlowAddNew extends AppCompatActivity {
             Log.d(LOG_TAG, "Absturz in fillSpinnerTableContent().");
         }
     }
-//TODO costomize the datepicker , that it is immpossible to pick a date in the future
+
     public void SaveEntry(View view) {
         try {
             editTextDoubleValue = (EditText) findViewById(R.id.editTextCashFlowAddNewValue);
