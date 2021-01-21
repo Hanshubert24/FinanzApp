@@ -318,7 +318,6 @@ public class DBDataAccess {
                 Log.d(LOG_TAG, "Cursor für viewIDFromCostsHierarchyEntry() = null");
                 return -1;
             }
-
         }catch (Exception e){
             e.printStackTrace();
             Log.d(LOG_TAG, "Auslesen der Methode: 'viewIDFromTableEntry' fehlgeschlagen.");
@@ -755,6 +754,47 @@ public class DBDataAccess {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public double viewFinanceBookOverview(int typeID, String externalMonth, String externalYear){
+        double sumValueDouble;
+
+
+        Log.d(LOG_TAG,
+                "SELECT " + "sum(Value) as sumValue, strftime('%m', date) as month, strftime('%Y', date) as year" +
+                        " FROM " + DBMyHelper.TABLECashFlow_Name +
+                        " WHERE " + DBMyHelper.COLUMNCashFlow_Type + " = " + typeID +
+                        " AND " + "month" + " = '" + externalMonth + "'" +
+                        " AND " + "year" + " = '" + externalYear + "';");
+
+        try{
+            Cursor cursor = database.rawQuery(
+                    "SELECT " + "sum(Value) as sumValue, strftime('%m', date) as month, strftime('%Y', date) as year" +
+                            " FROM " + DBMyHelper.TABLECashFlow_Name +
+                            " WHERE " + DBMyHelper.COLUMNCashFlow_Type + " = " + typeID +
+                            " AND " + "month" + " = '" + externalMonth + "'" +
+                            " AND " + "year" + " = '" + externalYear + "';",
+                    null);
+
+            Log.d(LOG_TAG, "Datenbank konnte ausgelesen werden  ->TESTTSETSTSETSTSETE");
+
+            if(cursor != null) {
+                cursor.moveToFirst();
+                int valueIndex = cursor.getColumnIndex("sumValue");
+                sumValueDouble = cursor.getDouble(valueIndex);
+
+                return sumValueDouble;
+            } else {
+                Log.d(LOG_TAG, "Cursor für viewFinanceBookOverview() = null");
+                return -1;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Auslesen aus Datenbank: 'viewFinanceBookOverview()' fehlgeschlagen.");
+
+            return -1;
+        }
     }
 
 

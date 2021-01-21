@@ -91,6 +91,42 @@ public class DBService {
         return dateFormat.format(date);
     }
 
+    public static int getCurrentMonthInteger(){
+        Calendar calendar = Calendar.getInstance();
+        int currentMonth = calendar.get(Calendar.MONTH);
+
+        return currentMonth+1; //Januar = 0
+    }
+
+    public static String getCurrentMonth(){
+        String currentMonthString = "";
+
+        Calendar calendar = Calendar.getInstance();
+        Integer currentMonthInt = calendar.get(Calendar.MONTH);
+        currentMonthInt =+ 1; //Januar wird als "0" zurück gegeben
+
+        if(currentMonthInt >= 1 && currentMonthInt <= 9) {
+            currentMonthString = "0" + currentMonthInt.toString();
+        } else if(currentMonthInt >= 10 && currentMonthInt <= 12){
+            currentMonthString = currentMonthInt.toString();
+        }
+
+        return currentMonthString;
+    }
+
+    public static int getCurrentYearInteger(){
+        Calendar calendar = Calendar.getInstance();
+        int currentYear = calendar.get(Calendar.YEAR);
+
+        return currentYear;
+    }
+    public static String getCurrentYearString(){
+        Calendar calendar = Calendar.getInstance();
+        Integer currentYear = calendar.get(Calendar.YEAR);
+
+        return currentYear.toString();
+    }
+
     public static String timeFormatToView(String date){
 
         return "Santnimmerleinstag";

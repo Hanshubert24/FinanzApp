@@ -12,7 +12,7 @@ public class DateService {
                     "Juli",
                     "August",
                     "September",
-                    "October",
+                    "Oktober",
                     "November",
                     "Dezember"};
 

@@ -190,7 +190,7 @@ public class CashFlowAddNew extends AppCompatActivity {
 
             } else {
                 Log.d(LOG_TAG, "Fehler bei der Datenbankabfrage bei fillSpinnerTable()");
-                Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Datenbank-Abfragefehler", Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             e.printStackTrace();

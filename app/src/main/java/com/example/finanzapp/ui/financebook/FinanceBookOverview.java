@@ -2,7 +2,9 @@ package com.example.finanzapp.ui.financebook;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,19 +21,65 @@ import com.anychart.enums.TooltipPositionMode;
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.CashFlow.CashFlowAddNew;
 import com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyOverview;
+import com.example.finanzapp.ui.DB.DBDataAccess;
+import com.example.finanzapp.ui.DB.DBService;
+import com.example.finanzapp.ui.Service.DateService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class FinanceBookOverview extends AppCompatActivity {
+
+    private static final String LOG_TAG = FinanceBookOverview.class.getSimpleName();
+
+    DBDataAccess db;
+
+    double costs, income;
+
+    int currentMonthInt;
+
+    String currentMonthString;
+    String currentMonthNumberString, currentYearNumberString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance_book_overview);
 
+        Log.d(LOG_TAG, "Das Datenquellen-Objekt wird aufgerufen.");
+        db = new DBDataAccess(getApplicationContext());
+
         AnyChartView anyChartView = findViewById(R.id.any_chart_view_fb_current_month);
         anyChartView.setProgressBar(findViewById(R.id.ProgressBarFBOverview));
+
+        //Abfrage abktuelle DatumAngaben
+        currentMonthNumberString = DBService.getCurrentMonth();
+        currentYearNumberString = DBService.getCurrentYearString();
+
+        //Abfrage der Datenbank -> Summe für alle Einnahmen im aktuellen Monat
+        Log.d(LOG_TAG, "Die Datenquelle wird geöffent.");
+        db.open();
+        income = db.viewFinanceBookOverview(1, currentMonthNumberString, currentYearNumberString);
+            //TEST
+            Log.d(LOG_TAG, "übergebener Monat: "+currentMonthNumberString+ ", Jahr: "+currentYearNumberString);
+        if(income == -1){
+            Toast.makeText(this, "Fehler in der Datenbankabfrage.", Toast.LENGTH_LONG).show();
+            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für Einkommen/Einnahmen.");
+        }
+
+        //Abfrage der Datenbank -> Summe für alle Ausgaben im aktuellen Monat
+        costs = db.viewFinanceBookOverview(2, currentMonthNumberString, currentYearNumberString);
+        if(costs == -1){
+            Toast.makeText(this, "Fehler in der Datenbankabfrage.", Toast.LENGTH_LONG).show();
+            Log.d(LOG_TAG, "Fehler in der Datenbankabfrage für Einkommen/Einnahmen.");
+        }
+        db.close();
+        Log.d(LOG_TAG, "Die Datenquelle wurde geschlossen.");
+
+        //Umwandlung der Monats-Bezeichnungen
+        currentMonthString = DateService.getMonthName(DBService.getCurrentMonthInteger());
+
 
         Cartesian3d bar3d = AnyChart.bar3d();
 
@@ -50,7 +98,7 @@ public class FinanceBookOverview extends AppCompatActivity {
 
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new FinanceBookOverview.CustomDataEntry("Januar", 4376, 890));   // current month
+        data.add(new FinanceBookOverview.CustomDataEntry(currentMonthString, income, costs));   // current month
 
 
         Set set = Set.instantiate();
@@ -89,6 +137,7 @@ public class FinanceBookOverview extends AppCompatActivity {
 
         anyChartView.setChart(bar3d);
     }
+
 
     private class CustomDataEntry extends ValueDataEntry {
         CustomDataEntry(String x, Number value, Number value2) {
