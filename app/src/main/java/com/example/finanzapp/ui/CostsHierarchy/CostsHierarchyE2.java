@@ -146,7 +146,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        finish();
+        finishAndRemoveTask();
     }
 
     public void deleteE2(View view){
@@ -165,7 +165,9 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
     public void dialogCancelButton(View view){
         Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
-        finish();
+        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE2.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     public void dialogDeleteButton(View view){
@@ -178,11 +180,13 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
             if (entryInE1 == 0) {
                 Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyOverview.class);
+                Toast.makeText(this, "Alles gelöscht", Toast.LENGTH_SHORT).show();
+                finishAndRemoveTask();
                 startActivity(i);
-                finish();
+
             }else if(entryInE1 >= 1) {
                 Toast.makeText(this, "Unterkategorie gelöscht", Toast.LENGTH_SHORT).show();
-                finish();
+                finishAndRemoveTask();
             }
         } else {
             Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();
@@ -224,7 +228,9 @@ public class CostsHierarchyE2 extends AppCompatActivity {
                     Log.d(LOG_TAG, "Rückmeldung DB: " + dbInfo.getMassage());
 
                     if (dbInfo.isSuccess()) {
-                      finish();
+                        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE2.class);
+                        finishAndRemoveTask();
+                        startActivity(i);
                     }
                 }
             } else {
@@ -238,7 +244,10 @@ public class CostsHierarchyE2 extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
-finish();
+
+        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE2.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     private boolean isEditTextEmpty(EditText editText){

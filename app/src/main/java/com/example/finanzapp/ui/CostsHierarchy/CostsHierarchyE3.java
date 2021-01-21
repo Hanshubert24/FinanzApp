@@ -116,7 +116,9 @@ public class CostsHierarchyE3 extends AppCompatActivity {
 
     public void dialogCancelButton(View view){
         Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
-        finish();
+        Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE3.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     public void dialogDeleteButton(View view){
@@ -134,15 +136,21 @@ public class CostsHierarchyE3 extends AppCompatActivity {
 
                 if(entryInE1 == 0){
                     Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyOverview.class);
+                    Toast.makeText(this, "Alles gelöscht", Toast.LENGTH_SHORT).show();
+                    finishAndRemoveTask();
                     startActivity(i);
 
                 } else if(entryInE1 >= 1){
                     Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE1.class);
+                    Toast.makeText(this, "Unterkategorie gelöscht", Toast.LENGTH_SHORT).show();
+                    finishAndRemoveTask();
                     startActivity(i);
                 }
             } else if(entryInE2 >= 1){
                 Toast.makeText(this, "Subunterkategorie gelöscht", Toast.LENGTH_SHORT).show();
+
                 finishAndRemoveTask();
+
             }
         } else {
             Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();

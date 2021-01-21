@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.CashFlow;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,9 +14,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyE3;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
+import com.example.finanzapp.ui.home.HomeFragment;
 
 import java.util.ArrayList;
 
@@ -240,7 +243,9 @@ public class QuickPay extends AppCompatActivity {
                     if(success){
                         Log.d(LOG_TAG, "Datensatz wurden in Datenbank übernommen.");
                         Toast.makeText(this, "Eintrag gespeichert", Toast.LENGTH_LONG).show();
-                        finish();
+                        Intent i = new Intent(QuickPay.this, HomeFragment.class);
+                        finishAndRemoveTask();
+                        startActivity(i);
                     } else {
                         Log.d(LOG_TAG, "Fehler beim Eintragen des Datensatzes in die Datenbank (SaveEntry()).");
                         Toast.makeText(this, "Fehler beim Speichern.", Toast.LENGTH_LONG).show();
@@ -270,7 +275,9 @@ public class QuickPay extends AppCompatActivity {
 
     public void NavBack(View view){
 
-        finish();
+        Intent i = new Intent(QuickPay.this, HomeFragment.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     private boolean isEditTextEmpty(EditText editText){

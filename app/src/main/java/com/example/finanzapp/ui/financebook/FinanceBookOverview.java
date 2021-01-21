@@ -206,7 +206,9 @@ public class FinanceBookOverview extends AppCompatActivity {
      //TEST-Activity
     public void NavCashFlowAddNew(View view){
         Intent i = new Intent(FinanceBookOverview.this, CashFlowAddNew.class);
+        finishAndRemoveTask();
         startActivity(i);
+
     }
 }
 

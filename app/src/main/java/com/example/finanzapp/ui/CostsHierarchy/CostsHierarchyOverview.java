@@ -98,6 +98,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
 
                 //Weiterleitung
                 Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyE1.class);
+
                 startActivity(i);
             }
         });
@@ -160,7 +161,9 @@ public class CostsHierarchyOverview extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
-      finish();
+        Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
     public void costhierachyOverviewButton(View view){
      finish();

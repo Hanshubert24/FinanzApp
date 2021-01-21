@@ -1,6 +1,7 @@
 package com.example.finanzapp.ui.CashFlow;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.example.finanzapp.R;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
+import com.example.finanzapp.ui.financebook.FinanceBookOverview;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -223,7 +225,10 @@ public class CashFlowAddNew extends AppCompatActivity {
                     if (success) {
                         Log.d(LOG_TAG, "Datensatz wurden in Datenbank übernommen.");
                         Toast.makeText(this, "Eintrag gespeichert", Toast.LENGTH_LONG).show();
-                        finish();
+
+                        Intent i = new Intent(CashFlowAddNew.this, FinanceBookOverview.class);
+                        finishAndRemoveTask();
+                        startActivity(i);
                     } else {
                         Log.d(LOG_TAG, "Fehler beim Eintragen des Datensatzes in die Datenbank (SaveEntry()).");
                         Toast.makeText(this, "Fehler beim Speichern.", Toast.LENGTH_LONG).show();
@@ -309,7 +314,9 @@ public class CashFlowAddNew extends AppCompatActivity {
     }
 
     public void NavBackCashFlowAddNewToFinancBookOV(View view){
-        finish();
+        Intent i = new Intent(CashFlowAddNew.this, FinanceBookOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     private boolean isEditTextEmpty(EditText editText){

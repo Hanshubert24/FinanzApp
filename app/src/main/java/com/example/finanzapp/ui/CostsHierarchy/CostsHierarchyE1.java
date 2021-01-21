@@ -141,7 +141,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
     public void NavBack(View view){
 
-        finish();
+        finishAndRemoveTask();
     }
 
     public void deleteE1(View view){
@@ -161,7 +161,9 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
     public void dialogCancelButton(View view){
         Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
         finishAndRemoveTask();
+        startActivity(i);
     }
 
     public void dialogDeleteButton(View view){
@@ -170,7 +172,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
         if(success) {
             Toast.makeText(this, "Hauptkategorie gelöscht", Toast.LENGTH_SHORT).show();
-            finish();
+            finishAndRemoveTask();
 
         } else {
             Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();
@@ -216,8 +218,9 @@ public class CostsHierarchyE1 extends AppCompatActivity {
                     Log.d(LOG_TAG, "Rückmeldung DB: " + dbInfo.getMassage());
 
                     if (dbInfo.isSuccess()) {
-
-                        finish();
+                        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
+                        finishAndRemoveTask();
+                        startActivity(i);
                     }
                 }
             } else {
@@ -231,7 +234,9 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     }
 
     public void dialogCancelButton2(View view){
-
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     private boolean isEditTextEmpty(EditText editText){
