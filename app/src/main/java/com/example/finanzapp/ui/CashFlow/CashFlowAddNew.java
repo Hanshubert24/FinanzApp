@@ -24,6 +24,7 @@ import com.example.finanzapp.ui.DB.DBService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CashFlowAddNew extends AppCompatActivity {
 
@@ -45,7 +46,6 @@ public class CashFlowAddNew extends AppCompatActivity {
     int cashFlowType;
 
     Calendar calendar;
-    DatePicker datePicker; //Objekt Datepicker in der .XML
 
     static final int DATE_DIALOG_ID = 999;
     int day, month, year;
@@ -280,13 +280,18 @@ public class CashFlowAddNew extends AppCompatActivity {
             month = calendar.get(Calendar.MONTH);
             year = calendar.get(Calendar.YEAR);
 
-            DatePickerDialog datePickerDialog = new DatePickerDialog(CashFlowAddNew.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
+            DatePickerDialog datePickerDialog;
+
+
+
+            datePickerDialog = new DatePickerDialog(CashFlowAddNew.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int chosenYear, int chosenMonth, int chosenDay) {
                     textViewDate.setText(chosenDay + "." + (chosenMonth+1) + "." + chosenYear);
                     currentDate = chosenYear+"-"+(chosenMonth+1)+"-"+chosenDay;
                 }
             }, year, month, day);
+            datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
             datePickerDialog.show();
 
         } catch (Exception e) {
