@@ -756,7 +756,6 @@ public class DBDataAccess {
     public double viewFinanceBookOverview(int typeID, String externalMonth, String externalYear){
         double sumValueDouble;
 
-
         Log.d(LOG_TAG,
                 "SELECT " + "sum(Value) as sumValue, strftime('%m', date) as month, strftime('%Y', date) as year" +
                         " FROM " + DBMyHelper.TABLECashFlow_Name +
@@ -772,8 +771,6 @@ public class DBDataAccess {
                             " AND " + "month" + " = '" + externalMonth + "'" +
                             " AND " + "year" + " = '" + externalYear + "';",
                     null);
-
-            Log.d(LOG_TAG, "Datenbank konnte ausgelesen werden  ->TESTTSETSTSETSTSETE");
 
             if(cursor != null) {
                 cursor.moveToFirst();
@@ -791,6 +788,51 @@ public class DBDataAccess {
             Log.d(LOG_TAG, "Auslesen aus Datenbank: 'viewFinanceBookOverview()' fehlgeschlagen.");
 
             return -1;
+        }
+    }
+
+    public Cursor viewFinanceBookCharts(int tableID, String externalMonth, String externalYear){
+
+        Log.d(LOG_TAG,
+                "SELECT CostsHierarchy.E1, sum(CashFlow.Value) as sumValue, strftime('%m', date) as month, strftime('%Y', date) as year" +
+                        " FROM CashFlow, CostsHierarchy" +
+                        " WHERE CashFlow.TablenID = '" + tableID + "'" +
+                        " AND CashFlow.TableEntrayID = CostsHierarchy._id " +
+                        " AND " + "month" + " = '" + externalMonth + "'" +
+                        " AND " + "year" + " = '" + externalYear + "'" +
+                        " Group BY CostsHierarchy.E1;");
+
+        try{
+            Cursor cursor = database.rawQuery(
+                    "SELECT CostsHierarchy.E1, sum(CashFlow.Value) as sumValue, strftime('%m', date) as month, strftime('%Y', date) as year" +
+                            " FROM CashFlow, CostsHierarchy" +
+                            " WHERE CashFlow.TablenID = '" + tableID + "'" +
+                            " AND CashFlow.TableEntrayID = CostsHierarchy._id " +
+                            " AND " + "month" + " = '" + externalMonth + "'" +
+                            " AND " + "year" + " = '" + externalYear + "'" +
+                            " Group BY CostsHierarchy.E1;",
+                    null);
+    /*
+
+            Cursor cursor = database.rawQuery(
+                    "SELECT " + DBMyHelper.TABLECostsHierarchy_Name + "." + DBMyHelper.COLUMNCostsHierarchy_E1 + "," + "sum(" + DBMyHelper.TABLECashFlow_Name + "." + DBMyHelper.COLUMNCashFlow_Value + ") as sumValue, strftime('%m', date) as month, strftime('%Y', date) as year" +
+                            " FROM " + DBMyHelper.TABLECashFlow_Name + "," + DBMyHelper.TABLECostsHierarchy_Name +
+                            " WHERE " + DBMyHelper.TABLECashFlow_Name + "." + DBMyHelper.COLUMNCashFlow_Tablename + "= '" + tableID + "'" +
+                            " AND " + DBMyHelper.TABLECashFlow_Name + "." + DBMyHelper.COLUMNCashFlow_TableEntryID + "=" + DBMyHelper.TABLECostsHierarchy_Name + "." + DBMyHelper.COLUMNCostsHierarchy_ID +
+                            " AND " + "month" + " = '" + externalMonth + "'" +
+                            " AND " + "year" + " = '" + externalYear + "'" +
+                            " GROUP BY " + DBMyHelper.TABLECostsHierarchy_Name + "." + DBMyHelper.COLUMNCostsHierarchy_E1 + "';",
+                    null);
+
+ */
+
+           return cursor;
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Auslesen aus Datenbank: 'viewFinanceBookCharts()' fehlgeschlagen.");
+
+            return null;
         }
     }
 

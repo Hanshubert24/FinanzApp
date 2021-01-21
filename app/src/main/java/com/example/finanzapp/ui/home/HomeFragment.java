@@ -154,10 +154,7 @@ public class HomeFragment extends Fragment {
         } catch (Exception e){
             e.printStackTrace();
         }
-
-
         return root;
-
     }
 
     @Override
