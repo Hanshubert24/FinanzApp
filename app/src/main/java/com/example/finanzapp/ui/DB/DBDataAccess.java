@@ -823,9 +823,7 @@ public class DBDataAccess {
                             " AND " + "year" + " = '" + externalYear + "'" +
                             " GROUP BY " + DBMyHelper.TABLECostsHierarchy_Name + "." + DBMyHelper.COLUMNCostsHierarchy_E1 + "';",
                     null);
-
  */
-
            return cursor;
 
         }catch (Exception e){
@@ -834,6 +832,29 @@ public class DBDataAccess {
 
             return null;
         }
+    }
+
+    public Cursor viewAssetsChartActicity(){
+
+        Log.d(LOG_TAG,
+                "SELECT _id, sum(FinancialAsset) as sumFA, sum(Credit) as sumC" +
+                        " FROM " + DBMyHelper.TABLEAssets_NAME);
+
+        try{
+            Cursor cursor = database.rawQuery(
+                    "SELECT _id, sum(FinancialAsset) as sumFA, sum(Credit) as sumC" +
+                            " FROM " + DBMyHelper.TABLEAssets_NAME,
+                    null);
+
+            return cursor;
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(LOG_TAG, "Auslesen aus Datenbank: 'viewAssetsChartActicity()' fehlgeschlagen.");
+
+            return null;
+        }
+
     }
 
 

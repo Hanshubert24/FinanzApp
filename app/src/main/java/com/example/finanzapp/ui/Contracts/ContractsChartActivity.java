@@ -99,7 +99,6 @@ public class ContractsChartActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.d(LOG_TAG, "Fehler in databaseQuery().");
         }
-
     }
 }
 

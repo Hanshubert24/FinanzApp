@@ -28,7 +28,6 @@ public class FinanceBookCharts extends AppCompatActivity {
     DBDataAccess db;
 
     Cursor cursor;
-//TESTTESTTESTTESTTSETTSTE scheiß GitHub
 
     AnyChartView anyChartView;
     // set the settings for the chart
