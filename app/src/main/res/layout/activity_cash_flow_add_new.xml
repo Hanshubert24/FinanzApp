@@ -178,7 +178,7 @@
                     android:text="@string/general_textview_placeholder" />
 
                 <Button
-                    android:id="@+id/buttonDatePickerCashFlowAddNew"
+                    android:id="@+id/buttonChangeDateCashFlowAddNew"
                     android:layout_width="40dp"
                     android:layout_height="38dp"
                     android:layout_marginEnd="0dp"

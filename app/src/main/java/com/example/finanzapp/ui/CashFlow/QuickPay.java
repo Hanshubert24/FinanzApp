@@ -228,17 +228,23 @@ public class QuickPay extends AppCompatActivity {
 
                 if(tableEntryID >= 0) {
                     //Speichern der Werte in die Datenbank
-                    db.addNewCashFlowInDB(
+                    boolean success = db.addNewCashFlowInDB(
                             DBService.timeFormatForDB(),
                             2, //Auszahlung
                             DBMyHelper.TABLECashFlow_TableID,
                             tableEntryID,
                             doubleValuePrepare);
-                    Toast.makeText(this, "Eintrag gespeichert.", Toast.LENGTH_SHORT).show();
-                    Log.d(LOG_TAG, "Eintrag gespeichert");
+
                     Log.d(LOG_TAG, "Inhalt -> Date: "+DBService.timeFormatForDB()+", TypeID: "+2+", TableID: "+DBMyHelper.TABLECashFlow_TableID+", TableEntryID: "+tableEntryID+", DoubleValue: "+doubleValuePrepare);
 
-                    finish();
+                    if(success){
+                        Log.d(LOG_TAG, "Datensatz wurden in Datenbank übernommen.");
+                        Toast.makeText(this, "Eintrag gespeichert", Toast.LENGTH_LONG).show();
+                        finish();
+                    } else {
+                        Log.d(LOG_TAG, "Fehler beim Eintragen des Datensatzes in die Datenbank (SaveEntry()).");
+                        Toast.makeText(this, "Fehler beim Speichern.", Toast.LENGTH_LONG).show();
+                    }
                 } else {
                     Log.d(LOG_TAG, "Abfragefehler in der Datenbank -> db.viewIDFromCostsHierarchyEntry().");
                 }
