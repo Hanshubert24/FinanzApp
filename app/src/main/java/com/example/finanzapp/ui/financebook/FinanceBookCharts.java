@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.financebook;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,13 +12,19 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.example.finanzapp.R;
+import com.example.finanzapp.ui.Contracts.ContractsChartActivity;
+import com.example.finanzapp.ui.DB.DBDataAccess;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FinanceBookCharts extends AppCompatActivity {
 
+    private static final String LOG_TAG = ContractsChartActivity.class.getSimpleName();
 
+    DBDataAccess db;
+
+    Cursor cursor;
 
 
     AnyChartView anyChartView;

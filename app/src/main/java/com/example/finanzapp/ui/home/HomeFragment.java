@@ -46,7 +46,6 @@ public class HomeFragment extends Fragment {
     String currentMonthMinusOneNumberString, currentYearMinusOneNumberString;
     String currentMonthMinusTwoNumberString, currentYearMinusTwoNumberString;
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -166,10 +165,7 @@ public class HomeFragment extends Fragment {
 
         anyChartView.setChart(bar3d);
 
-
         return root;
-
-
     }
 
     class CustomDataEntry extends ValueDataEntry {
