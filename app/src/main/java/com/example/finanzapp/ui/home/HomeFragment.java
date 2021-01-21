@@ -172,7 +172,6 @@ public class HomeFragment extends Fragment {
         CustomDataEntry(String x, Number value, Number value2) {
             super(x, value);
             setValue("value2", value2);
-
         }
     }
 
