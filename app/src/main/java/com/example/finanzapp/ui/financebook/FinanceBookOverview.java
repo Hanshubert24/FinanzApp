@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,9 @@ public class FinanceBookOverview extends AppCompatActivity {
     String currentMonthString;
     String currentMonthNumberString, currentYearNumberString;
 
+    TextView textViewCashFlowCurrentMonth;
+
+    AnyChartView anyChartView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +54,7 @@ public class FinanceBookOverview extends AppCompatActivity {
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird aufgerufen.");
         db = new DBDataAccess(getApplicationContext());
 
-        AnyChartView anyChartView = findViewById(R.id.any_chart_view_fb_current_month);
+        anyChartView = findViewById(R.id.any_chart_view_fb_current_month);
         anyChartView.setProgressBar(findViewById(R.id.ProgressBarFBOverview));
 
         //Abfrage abktuelle DatumAngaben
@@ -63,85 +67,105 @@ public class FinanceBookOverview extends AppCompatActivity {
         //Umwandlung der Monatsintegers in die Bezeichnungen für Grafik-Achse
         currentMonthString = DateService.getMonthName(DBService.getCurrentMonthInteger());
 
+        //calc cashflow
+        textViewCashFlowCurrentMonth = findViewById(R.id.textViewFinanceBookOverviewCashFlow);
 
 
-        Cartesian3d bar3d = AnyChart.bar3d();
-
-        bar3d.animation(true);
-
-        bar3d.padding(10d, 40d, 5d, 15d);
-
-        bar3d.yScale().minimum(0d);
-
-        bar3d.xAxis(0).labels()
-                .rotation(-90d)
-                .padding(0d, 0d, 20d, 0d);
-
-        bar3d.yAxis(0).labels().format("€{%Value}{groupsSeparator: }");
-
-
-
-        List<DataEntry> data = new ArrayList<>();
-        data.add(new FinanceBookOverview.CustomDataEntry(currentMonthString, income, costs));   // current month
-
-
-        Set set = Set.instantiate();
-        set.data(data);
-        Mapping bar1Data = set.mapAs("{ x: 'x', value: 'value' }");
-        Mapping bar2Data = set.mapAs("{ x: 'x', value: 'value2' }");
-
-
-        bar3d.bar(bar1Data)
-                .name("Einnahmen").color("#1fa900");
-
-
-        bar3d.bar(bar2Data)
-                .name("Ausgaben").color("#bb0000");
-
-
-
-        bar3d.legend().enabled(true);
-        bar3d.legend().fontSize(13d);
-        bar3d.legend().padding(0d, 0d, 20d, 0d);
-
-        bar3d.interactivity().hoverMode(HoverMode.SINGLE);
-
-        bar3d.tooltip()
-                .positionMode(TooltipPositionMode.POINT)
-                .position("right")
-                .anchor(Anchor.LEFT_CENTER)
-                .offsetX(5d)
-                .offsetY(0d)
-                .format("€{%Value}");
-
-        bar3d.zAspect("10%")
-                .zPadding(10d)
-                .zAngle(45d)
-                .zDistribution(true);
-
-        anyChartView.setChart(bar3d);
     }
 
 
-    private class CustomDataEntry extends ValueDataEntry {
-        CustomDataEntry(String x, Number value, Number value2) {
-            super(x, value);
-            setValue("value2", value2);
+        @Override
+        public void onResume () {
+            super.onResume();
 
+            //Datenbankabfrage und Aktuellisierung des aktuellen Monats
+            databaseQuery();
+
+            // implement
+            try {
+                // implement current value
+                double cashFlowCurrentMonth;
+
+                cashFlowCurrentMonth = income - costs;
+
+                // current
+                textViewCashFlowCurrentMonth.setText("Cashflow: " + Double.toString(cashFlowCurrentMonth) + "€");
+                if (cashFlowCurrentMonth >= 0) {
+                    textViewCashFlowCurrentMonth.setTextColor(0xff99cc00);
+                } else {
+                    textViewCashFlowCurrentMonth.setTextColor(0xffffbb33);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Cartesian3d bar3d = AnyChart.bar3d();
+
+            bar3d.animation(true);
+
+            bar3d.padding(10d, 40d, 5d, 15d);
+
+            bar3d.yScale().minimum(0d);
+
+            bar3d.xAxis(0).labels()
+                    .rotation(-90d)
+                    .padding(0d, 0d, 20d, 0d);
+
+            bar3d.yAxis(0).labels().format("€{%Value}{groupsSeparator: }");
+
+
+            List<DataEntry> data = new ArrayList<>();
+            data.add(new FinanceBookOverview.CustomDataEntry(currentMonthString, income, costs));   // current month
+
+
+            Set set = Set.instantiate();
+            set.data(data);
+            Mapping bar1Data = set.mapAs("{ x: 'x', value: 'value' }");
+            Mapping bar2Data = set.mapAs("{ x: 'x', value: 'value2' }");
+
+
+            bar3d.bar(bar1Data)
+                    .name("Einnahmen").color("#1fa900");
+
+
+            bar3d.bar(bar2Data)
+                    .name("Ausgaben").color("#bb0000");
+
+
+            bar3d.legend().enabled(true);
+            bar3d.legend().fontSize(13d);
+            bar3d.legend().padding(0d, 0d, 20d, 0d);
+
+            bar3d.interactivity().hoverMode(HoverMode.SINGLE);
+
+            bar3d.tooltip()
+                    .positionMode(TooltipPositionMode.POINT)
+                    .position("right")
+                    .anchor(Anchor.LEFT_CENTER)
+                    .offsetX(5d)
+                    .offsetY(0d)
+                    .format("€{%Value}");
+
+            bar3d.zAspect("10%")
+                    .zPadding(10d)
+                    .zAngle(45d)
+                    .zDistribution(true);
+
+            anyChartView.setChart(bar3d);
         }
 
 
-    }
-    public void NavTemplatesCostHierarchy(View view){
-        Intent i = new Intent(FinanceBookOverview.this, CostsHierarchyOverview.class);
-        startActivity(i);
+        class CustomDataEntry extends ValueDataEntry {
+            CustomDataEntry(String x, Number value, Number value2) {
+                super(x, value);
+                setValue("value2", value2);
 
-    }
-    public void ShowFBChars(View view){
-        Intent i = new Intent(FinanceBookOverview.this, FinanceBookCharts.class);
-        startActivity(i);
+            }
+        }
 
-    }
+
+
 
     private void databaseQuery(){
         //Abfrage der Datenbank -> Summe für alle Einnahmen im aktuellen Monat
@@ -163,6 +187,17 @@ public class FinanceBookOverview extends AppCompatActivity {
         }
         db.close();
         Log.d(LOG_TAG, "Die Datenquelle wurde geschlossen.");
+    }
+
+    public void NavTemplatesCostHierarchy(View view){
+        Intent i = new Intent(FinanceBookOverview.this, CostsHierarchyOverview.class);
+        startActivity(i);
+
+    }
+    public void ShowFBChars(View view){
+        Intent i = new Intent(FinanceBookOverview.this, FinanceBookCharts.class);
+        startActivity(i);
+
     }
 
     public void NavBacktoHomeFB(View view){

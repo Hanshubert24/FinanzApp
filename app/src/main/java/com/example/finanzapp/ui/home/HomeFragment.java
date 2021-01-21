@@ -116,6 +116,22 @@ public class HomeFragment extends Fragment {
         textViewCashFlowCurrentMonthMinusOne = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow2);
         textViewCashFlowCurrentMonthMinusTwo = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow3);
 
+
+
+        return root;
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //Datenbankabfrage und Aktuellisierung des aktuellen Monats
+        databaseQueryOnResume();
+
+
+
+        // implement
         try {
             // implement current value
             double cashFlowCurrentMonth;
@@ -154,18 +170,6 @@ public class HomeFragment extends Fragment {
         } catch (Exception e){
             e.printStackTrace();
         }
-
-
-        return root;
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        //Datenbankabfrage und Aktuellisierung des aktuellen Monats
-        databaseQueryOnResume();
 
         Cartesian3d bar3d = AnyChart.bar3d();
 
