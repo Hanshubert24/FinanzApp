@@ -24,6 +24,11 @@ public class ContractsChartActivity extends AppCompatActivity {
     String[] mainCategory = {"Krankenversicherung", "KfzVersicherung", "Fitnessstudio", "Miete Wohnung"};
     int[] costs = {250, 200, 50, 750};
 
+    // 1. Abfrage alle namen der Kategorie 1 und den Wert , darauf ein goroup by ( theortisch dann kein Sum mehr notwendig.... ) Ergebnis sollte sein eine Spalte Nme und eine Wert
+    // dann Name in mainCategory und Wert in Costs
+    // einfügen und es sollte fertig sein
+
+
 
 
     @Override

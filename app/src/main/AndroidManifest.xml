@@ -13,9 +13,6 @@
 
         // Home
         <activity
-            android:name=".ui.home.HomeChart"
-            android:label="@string/home_chart_lable" />
-        <activity
             android:name=".ui.CashFlow.QuickPay"
             android:label="@string/quick_add_lable" />
 
