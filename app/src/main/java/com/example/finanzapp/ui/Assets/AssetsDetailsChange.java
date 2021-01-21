@@ -274,6 +274,6 @@ public class AssetsDetailsChange extends AppCompatActivity {
     }
     public void NavBackDetailsChangeToAssetsOV(View view){
 
-        finish();
+        finishAndRemoveTask();
     }
 }

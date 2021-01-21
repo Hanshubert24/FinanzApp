@@ -100,6 +100,7 @@ public class AssetsOverview extends AppCompatActivity {
 
                 //Weiterleitung
                 Intent i = new Intent(AssetsOverview.this, AssetsDetails.class);
+                finishAndRemoveTask();
                 startActivity(i);
             }
         });

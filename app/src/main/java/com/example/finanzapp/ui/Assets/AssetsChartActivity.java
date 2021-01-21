@@ -1,6 +1,5 @@
 package com.example.finanzapp.ui.Assets;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +37,7 @@ public class AssetsChartActivity extends AppCompatActivity {
 
     AnyChartView anyChartView;
 
-    double sumFAm, sumC;
+    double sumFAm, sumC,assetcalc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,7 @@ public class AssetsChartActivity extends AppCompatActivity {
         textViewCredit = (TextView) findViewById(R.id.textviewAssetsCahrtCredit);
         textViewAsset = (TextView) findViewById(R.id.textviewAssetsCahrtAsset);
 
-        double assetcalc;
+
         assetcalc = sumFAm - sumC;
         textViewAssetsValue.setText(sumFAm+"€");
         textViewCredit.setText(sumC+"€");
@@ -75,19 +74,26 @@ public class AssetsChartActivity extends AppCompatActivity {
                 Toast.makeText(AssetsChartActivity.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
             }
         });
+        try {
+            assetcalc = sumFAm - sumC;
+            if (assetcalc >= 0) {
+                textViewAsset.setTextColor(0xff99cc00);
+            } else {
+                textViewAsset.setTextColor(0xffffbb33);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         pie.title("Vermögensübersicht");
 
         List<DataEntry> dataEntries = new ArrayList<>();
         dataEntries.add(new ValueDataEntry("Kredite",sumC ));
-        dataEntries.add(new ValueDataEntry("Verkehrswert",sumFAm ));
+        dataEntries.add(new ValueDataEntry("Verkehrswert",assetcalc ));
 
 
-        double assetcalc;
-        assetcalc = sumFAm - sumC;
-//        textViewAssetsValue.setText(sumFAm+"€");
-//        textViewCredit.setText(sumC+"€");
-//        textViewAsset.setText(Double.toString(assetcalc));
+
+
         textViewAssetsValue.setText(DBService.doubleInStringToView(sumFAm));
         textViewCredit.setText(DBService.doubleInStringToView(sumC));
         textViewAsset.setText(DBService.doubleInStringToView(assetcalc));

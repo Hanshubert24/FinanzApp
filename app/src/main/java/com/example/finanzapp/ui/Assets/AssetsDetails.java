@@ -150,7 +150,7 @@ public class AssetsDetails extends AppCompatActivity {
 
     public void dialogCancelButton(View view){
         //Weiterleitung
-        Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
+        Intent i = new Intent(AssetsDetails.this, AssetsDetails.class);
         startActivity(i);
         finishAndRemoveTask();
     }
@@ -168,11 +168,12 @@ public class AssetsDetails extends AppCompatActivity {
 
         //Weiterleitung
         Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
+        finishAndRemoveTask();
         startActivity(i);
-        finish();
+
     }
     public void NavBackDetailsToAssetsOV(View view){
 
-        finish();
+      finishAndRemoveTask();
     }
 }
