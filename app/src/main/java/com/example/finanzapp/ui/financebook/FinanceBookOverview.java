@@ -24,7 +24,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
 public class FinanceBookOverview extends AppCompatActivity {
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,8 @@ public class FinanceBookOverview extends AppCompatActivity {
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view_fb_current_month);
         anyChartView.setProgressBar(findViewById(R.id.ProgressBarFBOverview));
+
+
 
         Cartesian3d bar3d = AnyChart.bar3d();
 
@@ -50,7 +57,7 @@ public class FinanceBookOverview extends AppCompatActivity {
 
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new FinanceBookOverview.CustomDataEntry("Januar", 4376, 890));   // current month
+        data.add(new FinanceBookOverview.CustomDataEntry("Januar", 55, 77 ));   // current month
 
 
         Set set = Set.instantiate();

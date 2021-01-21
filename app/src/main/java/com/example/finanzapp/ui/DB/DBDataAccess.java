@@ -1,12 +1,10 @@
 package com.example.finanzapp.ui.DB;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.content.ContentValues; //Schreiben von Daten in die DB
-import android.database.Cursor; //Lesen von Daten aus der DB
-
-import java.util.ArrayList;
 
 
 public class DBDataAccess {
@@ -35,7 +33,6 @@ public class DBDataAccess {
         dbHelper.close();
         Log.d(LOG_TAG, "Datenbankverbindung geschlossen.");
     }
-
 
     //Fügt einen Datensatz in die Tabelle Contract ein
     public boolean addNewContractInDB(String type, String name, double monthlyCosts, String note) {
