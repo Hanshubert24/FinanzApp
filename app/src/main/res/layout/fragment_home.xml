@@ -7,43 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <com.anychart.AnyChartView
-        android:id="@+id/any_chart_assets_Chart"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/progressBarHome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home">
-    </com.anychart.AnyChartView>
-
-    <Button
-        android:id="@+id/AddButtonHome"
-        style="@android:style/Widget.Material.ImageButton"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="16dp"
-        android:adjustViewBounds="false"
-        android:background="@drawable/custom_button_bg"
-        android:backgroundTint="#0069b4"
-        android:baselineAlignBottom="false"
-        android:clickable="false"
-        android:focusable="auto"
-        android:paddingTop="2dp"
-        android:paddingBottom="10dp"
-        android:text="@string/AddButtonText"
-        android:textAlignment="center"
-        android:textColor="@color/bluebackground"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="0dp"
@@ -74,6 +37,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.anychart.AnyChartView
+                android:id="@+id/any_chart_assets_Chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <TextView
+                    android:id="@+id/textViewFragmentHomeCashFlow3"
+                    android:layout_width="74dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/button_gradient_blue"
+                    android:text="@string/general_textview_placeholder"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewFragmentHomeCashFlow2"
+                    android:layout_width="74dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="132dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/button_gradient_blue"
+                    android:text="@string/general_textview_placeholder"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewFragmentHomeCashFlow1"
+                    android:layout_width="74dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="200dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/button_gradient_blue"
+                    android:text="@string/general_textview_placeholder"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </com.anychart.AnyChartView>
+        </LinearLayout>
+    </ScrollView>
+
     <ProgressBar
         android:id="@+id/progressBarHome"
         style="?android:attr/progressBarStyleHorizontal"
@@ -81,63 +109,33 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/AddButtonHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewFragmentHomeCashFlow3"
-        android:layout_width="74dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_gradient_blue"
-        android:text="@string/general_textview_placeholder"
+    <Button
+        android:id="@+id/AddButtonHome"
+        style="@android:style/Widget.Material.ImageButton"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="16dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/custom_button_bg"
+        android:backgroundTint="#0069b4"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:focusable="auto"
+        android:paddingTop="2dp"
+        android:paddingBottom="10dp"
+        android:text="@string/AddButtonText"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_green_light"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/progressBarHome"
+        android:textColor="@color/bluebackground"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/any_chart_assets_Chart"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="0.26" />
-
-    <TextView
-        android:id="@+id/textViewFragmentHomeCashFlow2"
-        android:layout_width="74dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_gradient_blue"
-        android:text="@string/general_textview_placeholder"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_green_light"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/progressBarHome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/any_chart_assets_Chart"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="0.49" />
-
-    <TextView
-        android:id="@+id/textViewFragmentHomeCashFlow1"
-        android:layout_width="74dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_gradient_blue"
-        android:text="@string/general_textview_placeholder"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_light"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/progressBarHome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/any_chart_assets_Chart"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
