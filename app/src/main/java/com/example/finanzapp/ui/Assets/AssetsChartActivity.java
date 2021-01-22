@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.Assets;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
