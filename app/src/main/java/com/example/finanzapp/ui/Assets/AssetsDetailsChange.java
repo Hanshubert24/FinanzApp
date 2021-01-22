@@ -82,7 +82,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
         if(cursor == null){
             Toast.makeText(this, "Fehler beim Laden", Toast.LENGTH_SHORT).show();
-            Log.d(LOG_TAG, "Fehler beim auslesen aus der Datenbank -> Cursor = null");
+            Log.d(LOG_TAG, "Fehler beim auslesen aus der Datenbank -> Cursor = NULL");
         }
         try {
             int categoryIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Category);
@@ -94,6 +94,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
             int imagePathindex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_ImagePath);
             int noteIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Note);
 
+
             if (cursor.moveToFirst()) {
                 do {
                     Log.d(LOG_TAG, cursor.getString(categoryIndex) + " " +
@@ -104,6 +105,12 @@ public class AssetsDetailsChange extends AppCompatActivity {
                             cursor.getString(creditIndex) + " " +
                             cursor.getString(imagePathindex) + " " +
                             cursor.getString(noteIndex));
+
+                    //zwischenspeichern der aktuellen Werte falls keine Änderungen vorgenommen werden
+                    monthlyCostsOld = cursor.getDouble(monthlyCostsIndex);
+                    monthlyEarningsOld = cursor.getDouble(monthlyEarningsIndex);
+                    finanzialAssetsOld = cursor.getDouble(financialAssetIndex);
+                    creditOld = cursor.getDouble(creditIndex);
 
                     //Format für die Ausgabe anpassen
                     double monthlyCosts = cursor.getDouble(monthlyCostsIndex);
@@ -130,6 +137,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
             }
         } catch (Exception e){
             e.printStackTrace();
+            Log.d(LOG_TAG, "Exception wurde geworfen -> onResume()");
         }
     }
 
@@ -151,7 +159,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
         boolean isMonthlyCostsNew = false;
         double monthlyCostsNew = monthlyCostsOld;
         boolean isMonthlyEarningsNew = false;
-        double monthlyEarningsNew = monthlyCostsOld;
+        double monthlyEarningsNew = monthlyEarningsOld;
         boolean isFinancialAssetNew = false;
         double financialAssetNew = finanzialAssetsOld;
         boolean isCreditNew = false;
