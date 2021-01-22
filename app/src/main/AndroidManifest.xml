@@ -10,7 +10,6 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
-        <activity android:name=".ui.login.WelcomePage"></activity>
         <activity
             android:name=".ui.CashFlow.QuickPay"
             android:label="@string/quick_add_lable" />
