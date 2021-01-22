@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.Contracts;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,6 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.CashFlow.CashFlowAddNew;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 
@@ -71,7 +71,9 @@ public class ContractsChartActivity extends AppCompatActivity {
     }
 
     public void NavBackContractChartsToContractOV(View view){
-        finish();
+        Intent i = new Intent(ContractsChartActivity.this, ContractsOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     private void databaseQuery(){

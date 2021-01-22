@@ -252,7 +252,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
                 if(success){
                     Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(AssetsDetailsChange.this, AssetsDetails.class);
+                    Intent i = new Intent(AssetsDetailsChange.this, AssetsOverview.class);
                     finishAndRemoveTask();
                     startActivity(i);
                 } else {
