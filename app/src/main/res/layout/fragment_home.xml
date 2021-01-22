@@ -55,15 +55,16 @@
             <com.anychart.AnyChartView
                 android:id="@+id/any_chart_assets_Chart"
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="300dp"
+                android:foregroundGravity="right">
 
                 <TextView
                     android:id="@+id/textViewFragmentHomeCashFlow3"
                     android:layout_width="74dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="250dp"
+                    android:layout_gravity="end"
                     android:layout_marginTop="65dp"
-                    android:layout_marginEnd="0dp"
+                    android:layout_marginEnd="2dp"
                     android:background="@drawable/button_gradient_blue"
                     android:text="@string/general_textview_placeholder"
                     android:textAlignment="center"
@@ -75,9 +76,9 @@
                     android:id="@+id/textViewFragmentHomeCashFlow2"
                     android:layout_width="74dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="250dp"
+                    android:layout_gravity="end"
                     android:layout_marginTop="132dp"
-                    android:layout_marginEnd="0dp"
+                    android:layout_marginEnd="2dp"
                     android:background="@drawable/button_gradient_blue"
                     android:text="@string/general_textview_placeholder"
                     android:textAlignment="center"
@@ -89,9 +90,9 @@
                     android:id="@+id/textViewFragmentHomeCashFlow1"
                     android:layout_width="74dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="250dp"
+                    android:layout_gravity="end"
                     android:layout_marginTop="200dp"
-                    android:layout_marginEnd="0dp"
+                    android:layout_marginEnd="2dp"
                     android:background="@drawable/button_gradient_blue"
                     android:text="@string/general_textview_placeholder"
                     android:textAlignment="center"
