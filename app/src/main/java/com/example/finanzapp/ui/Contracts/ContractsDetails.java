@@ -103,12 +103,14 @@ public class ContractsDetails extends AppCompatActivity {
 
 
     public void NavBackContractsdetails(View view){
-
-        finish();
+        Intent i = new Intent(ContractsDetails.this, ContractsOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     public void changeContract(View view){
         Intent i = new Intent(ContractsDetails.this, ContractsDetailsChange.class);
+        finishAndRemoveTask();
         startActivity(i);
     }
 
@@ -146,7 +148,8 @@ public class ContractsDetails extends AppCompatActivity {
 
         //Weiterleitung
         Intent i = new Intent(ContractsDetails.this, ContractsOverview.class);
+        finishAndRemoveTask();
         startActivity(i);
-        finish();
+
     }
 }

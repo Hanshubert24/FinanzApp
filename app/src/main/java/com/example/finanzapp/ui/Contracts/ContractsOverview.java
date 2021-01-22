@@ -103,7 +103,6 @@ public class ContractsOverview extends AppCompatActivity {
     }
 
     public void NavBackContractToHome(View view){
-
         finishAndRemoveTask();
     }
 
@@ -122,7 +121,6 @@ public class ContractsOverview extends AppCompatActivity {
         Intent i = new Intent(ContractsOverview.this, ContractsChartActivity.class);
         finishAndRemoveTask();
         startActivity(i);
-
     }
 
 }

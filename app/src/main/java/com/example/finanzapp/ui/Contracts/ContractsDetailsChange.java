@@ -108,10 +108,6 @@ public class ContractsDetailsChange extends AppCompatActivity {
         db.close();
     }
 
-    public void NavBack(View view){
-      finish();
-    }
-
     public void changeContract(View view){
         //Welche Informationen sollten nicht änderbar sein???
 
@@ -196,12 +192,9 @@ public class ContractsDetailsChange extends AppCompatActivity {
                 Toast.makeText(this, "Ändern Sie einen Eintrag.", Toast.LENGTH_SHORT).show();
             }
 
-
         } catch (Exception e){
             e.printStackTrace();
         }
-
-
     }
 
     private boolean isEditTextEmpty(EditText editText){
@@ -209,4 +202,10 @@ public class ContractsDetailsChange extends AppCompatActivity {
             return false;
         } else { return true; }
     }
+    public void NavBack(View view){
+        Intent i = new Intent(ContractsDetailsChange.this, ContractsOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
+    }
+
 }

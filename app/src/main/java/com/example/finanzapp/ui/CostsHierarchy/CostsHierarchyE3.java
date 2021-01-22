@@ -97,7 +97,9 @@ public class CostsHierarchyE3 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-        finishAndRemoveTask ();
+        Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE2.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     public void deleteE3(View view){

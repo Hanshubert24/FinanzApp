@@ -56,10 +56,6 @@ public class ContractsAddNew extends AppCompatActivity {
         db.close();
     }
 
-    public void NavBack(View view){
-
-        finish();
-    }
 
     public void SaveContract(View view){
 
@@ -128,4 +124,10 @@ public class ContractsAddNew extends AppCompatActivity {
             return false;
         } else { return true; }
     }
+    public void NavBack(View view){
+        Intent i = new Intent(ContractsAddNew.this, ContractsOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
+    }
+
 }

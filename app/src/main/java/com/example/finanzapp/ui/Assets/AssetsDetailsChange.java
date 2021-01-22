@@ -76,6 +76,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
         Log.d(LOG_TAG, "Die ID: " + sharePreferncesId + " wurde aus dem Shared Preferences ausgelesen.");
 
+
         //Auslesen des Eintrags aus der Datenbank
         Cursor cursor = db.viewOneEntryInTable(DBMyHelper.TABLEAssets_NAME, sharePreferncesId);
 
@@ -257,7 +258,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
                         noteNew);
 
                 if(success){
-                    Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(AssetsDetailsChange.this, AssetsOverview.class);
                     finishAndRemoveTask();
                     startActivity(i);
