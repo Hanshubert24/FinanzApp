@@ -1,6 +1,8 @@
 package com.example.finanzapp;
 
 
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,7 +18,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
+import com.example.finanzapp.ui.DB.DBService;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Calendar;
+import java.util.prefs.Preferences;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -49,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        //Wenn Datenbank neu erstellt wurde (onCreate())
+        if(DBMyHelper.initializeFirstDatabaseAutomaticFunctionStart) {
+            initialDatabaseAutomatikFunctionInformation();
+            DBMyHelper.initializeFirstDatabaseAutomaticFunctionStart = false;
+        }
+
+        automaticDatabaseFunction();
 
         //Einspielen der Testdaten wenn die DB_Version eine 10er ist.
         int dbVersion = DBMyHelper.DB_VERSION % 10;
@@ -75,7 +89,182 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    private void automaticDatabaseFunction(){
+        Calendar calendar = Calendar.getInstance();
+        Integer currentYear = calendar.get(Calendar.YEAR);
+        Integer month = calendar.get(Calendar.MONTH); //Januar wird als "0" übergeben.
+        Integer currentMonth = month + 1;
 
+        String currentDateName = "AutoDBFunction" + currentYear.toString() + currentMonth.toString();
+
+        //erstelle / öffne Speicherdatei
+        SharedPreferences sharedPreferences = getSharedPreferences("SP_DBFunction", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit(); //Editorklasse initialisieren (um zu schreiben)
+
+
+        if(sharedPreferences.getBoolean(currentDateName, false)){ //Ist die Datai mit dem aktuellen Monat mit Wert "true" hinterlegt dann ...
+
+            //erzeuge neue Dateien für den kommenden Monat
+            String nextDataName;
+            Integer nextMonth = currentMonth + 1;
+
+            if(currentMonth == 12) {
+                Integer nextYear = currentYear + 1;
+                nextDataName = "AutoDBFunction" + nextYear.toString() + nextMonth.toString();
+            } else {
+                nextDataName = "AutoDBFunction" + currentYear.toString() + nextMonth.toString();
+            }
+
+            editor.putBoolean(nextDataName, true); //Inhalt übergeben (Key, Value)
+            editor.commit(); //Speichern des Wertes
+
+
+            String currentDate = DBService.timeFormatForDB(); //YYYY-MM-DD
+
+            db.open();
+
+            //Table Contracts in CashFlow (monthly Costs)
+            try {
+                Cursor cursorContracts = db.viewAllInTable(DBMyHelper.TABLEContracts_NAME);
+
+                if(cursorContracts != null){
+                    if(cursorContracts.moveToFirst()) {
+                        int idIndex = cursorContracts.getColumnIndex(DBMyHelper.COLUMNContracts_ID);
+                        int monthlyCostsIndex = cursorContracts.getColumnIndex(DBMyHelper.COLUMNContracts_MonthlyCosts);
+
+                        do{
+                            if(cursorContracts.getDouble(monthlyCostsIndex) > 0.0) { //nimmt nur Einträge auf die auch einen Wert haben
+                                boolean successContracts = db.addNewCashFlowInDB(
+                                        currentDate, //Datum
+                                        2, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
+                                        DBMyHelper.TABLEContracts_TableID, // TableID
+                                        cursorContracts.getInt(idIndex), //ID des Eintrags in Tabelle
+                                        cursorContracts.getDouble(monthlyCostsIndex)); //Wert zum Eintrag
+                                if(successContracts) {
+                                    Log.d(LOG_TAG, "Table CashFlow Eintrag: Contracts, Ausgabe, ID-" + cursorContracts.getInt(idIndex) + ", Wert(€)-" + cursorContracts.getDouble(monthlyCostsIndex));
+                                }
+                            }
+                        }while(cursorContracts.moveToNext());
+
+                    } else {
+                        Log.d(LOG_TAG, "CursorContracts kann Nicht zur erstellen Stelle springen.");
+                    }
+                }else{
+                    Log.d(LOG_TAG, "CursorContracts = NULL");
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+                Log.d(LOG_TAG, "Exception: automaticDatabaseFunction() -> Table Contracts.");
+            }
+
+
+            //Table Assets in CashFlow (monthly Costs + monthlyErnings)
+            try {
+                Cursor cursorAssets = db.viewAllInTable(DBMyHelper.TABLEAssets_NAME);
+
+                if(cursorAssets != null){
+                    if(cursorAssets.moveToFirst()) {
+                        int idIndex = cursorAssets.getColumnIndex(DBMyHelper.COLUMNAssets_ID);
+                        int monthlyCostsIndex = cursorAssets.getColumnIndex(DBMyHelper.COLUMNAssets_MonthlyCosts);
+                        int monthlyEarningsIndex = cursorAssets.getColumnIndex(DBMyHelper.COLUMNAssets_MonthlyEarnings);
+
+                        do{
+                            //Werte von monthlyEarnings
+                            if(cursorAssets.getDouble(monthlyEarningsIndex) > 0.0) {//nimmt nur Einträge auf die auch einen Wert haben
+                                boolean successAssetsEarning = db.addNewCashFlowInDB(
+                                        currentDate, //Datum
+                                        1, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
+                                        DBMyHelper.TABLEAssets_TableID, // TableID
+                                        cursorAssets.getInt(idIndex), //ID des Eintrags in Tabelle
+                                        cursorAssets.getDouble(monthlyEarningsIndex)); //Wert zum Eintrag
+                                if(successAssetsEarning) {
+                                    Log.d(LOG_TAG, "Table CashFlow Eintrag: Assets, Einnahme, ID-" + cursorAssets.getInt(idIndex) + ", Wert(€)-" + cursorAssets.getDouble(monthlyEarningsIndex));
+                                }
+                            }
+
+                            //Werte von monthlyCosts
+                            if(cursorAssets.getDouble(monthlyCostsIndex) > 0.0) { //nimmt nur Einträge auf die auch einen Wert haben
+                                boolean successAccessCosts = db.addNewCashFlowInDB(
+                                        currentDate, //Datum
+                                        2, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
+                                        DBMyHelper.TABLEAssets_TableID, // TableID
+                                        cursorAssets.getInt(idIndex), //ID des Eintrags in Tabelle
+                                        cursorAssets.getDouble(monthlyCostsIndex)); //Wert zum Eintrag
+                                if(successAccessCosts){
+                                    Log.d(LOG_TAG, "Table CashFlow Eintrag: Assets, Ausgabe, ID-" + cursorAssets.getInt(idIndex) + ", Wert(€)-" + cursorAssets.getDouble(monthlyCostsIndex));
+                                }
+                            }
+                        }while(cursorAssets.moveToNext());
+                    } else {
+                        Log.d(LOG_TAG, "CursorAssets kann Nicht zur erstellen Stelle springen.");
+                    }
+                }else{
+                    Log.d(LOG_TAG, "CursorAssets = NULL");
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+                Log.d(LOG_TAG, "Exception: automaticDatabaseFunction() -> Table Assets.");
+            }
+
+
+            //Table Income in CashFlow (Netto)
+            try {
+                Cursor cursorIncome = db.viewAllInTable(DBMyHelper.TABLEIncome_NAME);
+
+                if(cursorIncome != null){
+                    if(cursorIncome.moveToFirst()) {
+                        int idIndex = cursorIncome.getColumnIndex(DBMyHelper.COLUMNIncome_ID);
+                        int nettoIndex = cursorIncome.getColumnIndex(DBMyHelper.COLUMNIncome_Netto);
+
+                        do{
+                            if(cursorIncome.getDouble(nettoIndex) > 0.0) { //nimmt nur Einträge auf die auch einen Wert haben
+                                boolean successIncome = db.addNewCashFlowInDB(
+                                        currentDate, //Datum
+                                        1, //1 = Einzahlung/Einnahme, 2 = Auszahlung/Ausgabe
+                                        DBMyHelper.TABLEIncome_TableID, // TableID
+                                        cursorIncome.getInt(idIndex), //ID des Eintrags in Tabelle
+                                        cursorIncome.getDouble(nettoIndex)); //Wert zum Eintrag
+                                if(successIncome) {
+                                    Log.d(LOG_TAG, "Table CashFlow Eintrag: Income, Einnahme, ID-" + cursorIncome.getInt(idIndex) + ", Wert(€)-" + cursorIncome.getDouble(nettoIndex));
+                                }
+                            }
+                        }while(cursorIncome.moveToNext());
+
+                    } else {
+                        Log.d(LOG_TAG, "CursorIncome kann Nicht zur erstellen Stelle springen.");
+                    }
+                }else{
+                    Log.d(LOG_TAG, "CursorIncome = NULL");
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+                Log.d(LOG_TAG, "Exception: automaticDatabaseFunction() -> Table Income.");
+            }
+
+            db.close();
+
+            Log.d(LOG_TAG, "Einträge wurden automatisiert in die Tabelle Cashflow übernommen.");
+
+            editor.putBoolean(currentDateName, false); //Inhalt übergeben (Key, Value)
+            editor.commit();
+        }
+    }
+
+    //Wird nur von DBMyHelper aufgerufen -> NUR wenn onCreate()! (Neuerstellung der DB)
+    public void initialDatabaseAutomatikFunctionInformation(){
+        Calendar calendar = Calendar.getInstance();
+        Integer currentYear = calendar.get(Calendar.YEAR);
+        Integer month = calendar.get(Calendar.MONTH); //Januar wird als "0" übergeben.
+        Integer currentMonth = month + 1;
+
+        String initialDateName = "AutoDBFunction" + currentYear.toString() + currentMonth.toString();
+
+        //erstelle Speicherdatei und anlegen von Eintrag
+        SharedPreferences sharedPreferences = getSharedPreferences("SP_DBFunction", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit(); //Editorklasse initialisieren (um zu schreiben)
+        editor.putBoolean(initialDateName, true); //Inhalt übergeben (Key, Value)
+        editor.commit();
+    }
 
     //Testdaten für die Datenbank
     public void createExampleData() {

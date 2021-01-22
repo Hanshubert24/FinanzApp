@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.DB;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.text.DecimalFormat;
@@ -164,12 +165,5 @@ public class DBService {
         return "Santnimmerleinstag";
     }
 
-    //Servie zum automatischne betanken der Kostentabelle -> zum Monatsanfang
-    public static boolean automaticDatabaseFunction(){
 
-
-
-
-        return false;
-    }
 }

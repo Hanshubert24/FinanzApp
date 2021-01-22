@@ -7,6 +7,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.example.finanzapp.MainActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +18,11 @@ public class DBMyHelper extends SQLiteOpenHelper {
     //https://www.sqlite.org/datatype3.html
 
     public static final String DB_NAME = "FinanzApp.db";
-    public static final int DB_VERSION = 70;
+    public static final int DB_VERSION = 90;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
 
     public static boolean initializeWithExampleData = false; //Funktion für ExampleData in MainActivity
+    public static boolean initializeFirstDatabaseAutomaticFunctionStart = false; //Funktion zum initialen Dateierstellen für automatische DB betankung in MainActivity
 
     public DBMyHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DB_NAME, factory, DB_VERSION);
@@ -70,6 +73,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
         }
 
         initializeWithExampleData = true;
+        initializeFirstDatabaseAutomaticFunctionStart = true;
     }
 
     @Override

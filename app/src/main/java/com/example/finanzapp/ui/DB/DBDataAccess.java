@@ -181,7 +181,7 @@ public class DBDataAccess {
             return true;
 
         } catch (Exception e) {
-            Log.d(LOG_TAG, "Datenbankeintrag für " + DBMyHelper.TABLEAssets_NAME + " fehlgeschlagen.");
+            Log.d(LOG_TAG, "Datenbankeintrag für " + DBMyHelper.TABLEAssets_NAME + " fehlgeschlagen in changeAssetOneEntryInDB().");
             e.printStackTrace();
             return false;
         }
@@ -722,6 +722,7 @@ public class DBDataAccess {
             return cursor;
         } catch (Exception e){
             e.printStackTrace();
+            Log.d(LOG_TAG, "Fehler in Methode viewOneEntryInTable().");
         }
         return null;
     }
