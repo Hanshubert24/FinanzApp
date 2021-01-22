@@ -131,6 +131,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
                 //Weiterleitung
                 Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE3.class);
+                finishAndRemoveTask();
                 startActivity(i);
             }
         });
@@ -146,7 +147,9 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
 
     public void NavBack(View view){
+        Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
         finishAndRemoveTask();
+        startActivity(i);
     }
 
     public void deleteE2(View view){

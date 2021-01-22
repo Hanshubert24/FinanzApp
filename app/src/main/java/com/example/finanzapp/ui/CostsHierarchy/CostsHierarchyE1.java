@@ -125,6 +125,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
                 //Weiterleitung
                 Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE2.class);
+                finishAndRemoveTask();
                 startActivity(i);
             }
         });
@@ -140,8 +141,9 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
 
     public void NavBack(View view){
-
+        Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
         finishAndRemoveTask();
+        startActivity(i);
     }
 
     public void deleteE1(View view){
@@ -172,7 +174,9 @@ public class CostsHierarchyE1 extends AppCompatActivity {
 
         if(success) {
             Toast.makeText(this, "Hauptkategorie gelöscht", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyOverview.class);
             finishAndRemoveTask();
+            startActivity(i);
 
         } else {
             Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();

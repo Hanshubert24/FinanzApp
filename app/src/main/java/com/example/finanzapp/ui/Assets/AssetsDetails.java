@@ -130,8 +130,9 @@ public class AssetsDetails extends AppCompatActivity {
 
     public void changeAsset(View view){
         Intent i = new Intent(AssetsDetails.this, AssetsDetailsChange.class);
+        finishAndRemoveTask();
         startActivity(i);
-        finish();
+
     }
 
     public void deleteAsset(View view){
@@ -151,8 +152,9 @@ public class AssetsDetails extends AppCompatActivity {
     public void dialogCancelButton(View view){
         //Weiterleitung
         Intent i = new Intent(AssetsDetails.this, AssetsDetails.class);
-        startActivity(i);
         finishAndRemoveTask();
+        startActivity(i);
+
     }
 
     public void dialogDeleteButton(View view){
@@ -173,7 +175,8 @@ public class AssetsDetails extends AppCompatActivity {
 
     }
     public void NavBackDetailsToAssetsOV(View view){
-
-      finishAndRemoveTask();
+        Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 }

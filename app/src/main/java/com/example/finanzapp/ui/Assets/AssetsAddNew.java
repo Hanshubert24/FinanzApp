@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.Assets;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -143,7 +144,9 @@ public class AssetsAddNew extends AppCompatActivity {
 
                 //Weiterleitung zurück auf die AssetsOverview Seite
                 Toast.makeText(this, "Vermögen angelegt", Toast.LENGTH_SHORT).show();
-                finish();
+                Intent i = new Intent(AssetsAddNew.this, AssetsOverview.class);
+                finishAndRemoveTask();
+                startActivity(i);
             }
 
         }catch (Exception e){
@@ -157,8 +160,9 @@ public class AssetsAddNew extends AppCompatActivity {
         } else { return true; }
     }
     public void NavBackToAssetsOV(View view){
-
-        finish();
+        Intent i = new Intent(AssetsAddNew.this, AssetsOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 }
 

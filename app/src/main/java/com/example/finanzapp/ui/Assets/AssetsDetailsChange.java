@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.Assets;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -251,8 +252,9 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
                 if(success){
                     Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_SHORT).show();
-
-                    finish();
+                    Intent i = new Intent(AssetsDetailsChange.this, AssetsDetails.class);
+                    finishAndRemoveTask();
+                    startActivity(i);
                 } else {
                     Toast.makeText(this, "Datensatzänderung fehlgeschlagen.", Toast.LENGTH_SHORT).show();
                 }
@@ -273,7 +275,8 @@ public class AssetsDetailsChange extends AppCompatActivity {
         } else { return true; }
     }
     public void NavBackDetailsChangeToAssetsOV(View view){
-
+        Intent i = new Intent(AssetsDetailsChange.this, AssetsDetails.class);
         finishAndRemoveTask();
+        startActivity(i);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.Contracts;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -184,8 +185,9 @@ public class ContractsDetailsChange extends AppCompatActivity {
 
                 if(success){
                     Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_SHORT).show();
-
-                    finish();
+                    Intent i = new Intent(ContractsDetailsChange.this, ContractsDetails.class);
+                    finishAndRemoveTask();
+                    startActivity(i);
                 } else {
                     Toast.makeText(this, "Datensatzänderung fehlgeschlagen.", Toast.LENGTH_SHORT).show();
                 }

@@ -116,16 +116,19 @@ public class AssetsOverview extends AppCompatActivity {
 
     public void NavBackAssetsOVToHome(View view){
 
-        finish();
+        finishAndRemoveTask();
+
     }
 
     public void NavAssetsAddNew(View view){
         Intent i = new Intent(AssetsOverview.this, AssetsAddNew.class);
+        finishAndRemoveTask();
         startActivity(i);
 
     }
     public void ShowAssetsChars(View view){
         Intent i = new Intent(AssetsOverview.this, AssetsChartActivity.class);
+        finishAndRemoveTask();
         startActivity(i);
 
     }

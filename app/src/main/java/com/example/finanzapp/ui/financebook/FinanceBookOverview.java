@@ -191,11 +191,13 @@ public class FinanceBookOverview extends AppCompatActivity {
 
     public void NavTemplatesCostHierarchy(View view){
         Intent i = new Intent(FinanceBookOverview.this, CostsHierarchyOverview.class);
+        finishAndRemoveTask();
         startActivity(i);
 
     }
     public void ShowFBChars(View view){
         Intent i = new Intent(FinanceBookOverview.this, FinanceBookCharts.class);
+        finishAndRemoveTask();
         startActivity(i);
 
     }
@@ -203,7 +205,7 @@ public class FinanceBookOverview extends AppCompatActivity {
     public void NavBacktoHomeFB(View view){
      finishAndRemoveTask();
     }
-     //TEST-Activity
+
     public void NavCashFlowAddNew(View view){
         Intent i = new Intent(FinanceBookOverview.this, CashFlowAddNew.class);
         finishAndRemoveTask();

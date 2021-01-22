@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.financebook;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,6 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.Contracts.ContractsChartActivity;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
@@ -66,7 +66,9 @@ public class FinanceBookCharts extends AppCompatActivity {
     }
 
     public void NavBackFBChartsToFB(View view){
-        finish();
+        Intent i = new Intent(FinanceBookCharts.this, FinanceBookOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     private void databaseQuery(){

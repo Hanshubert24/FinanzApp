@@ -1,5 +1,6 @@
 package com.example.finanzapp.ui.Assets;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -112,8 +113,9 @@ public class AssetsChartActivity extends AppCompatActivity {
     }
 
     public void NavBackAssetsChartsToAssetsOV(View view){
-
-        finish();
+        Intent i = new Intent(AssetsChartActivity.this, AssetsOverview.class);
+        finishAndRemoveTask();
+        startActivity(i);
     }
 
     private void databaseQuery() {

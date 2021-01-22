@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.CostsHierarchy.CostsHierarchyE3;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
@@ -275,9 +274,8 @@ public class QuickPay extends AppCompatActivity {
 
     public void NavBack(View view){
 
-        Intent i = new Intent(QuickPay.this, HomeFragment.class);
         finishAndRemoveTask();
-        startActivity(i);
+
     }
 
     private boolean isEditTextEmpty(EditText editText){

@@ -148,8 +148,9 @@ public class CostsHierarchyE3 extends AppCompatActivity {
                 }
             } else if(entryInE2 >= 1){
                 Toast.makeText(this, "Subunterkategorie gelöscht", Toast.LENGTH_SHORT).show();
-
+                Intent i = new Intent(CostsHierarchyE3.this, CostsHierarchyE2.class);
                 finishAndRemoveTask();
+                startActivity(i);
 
             }
         } else {

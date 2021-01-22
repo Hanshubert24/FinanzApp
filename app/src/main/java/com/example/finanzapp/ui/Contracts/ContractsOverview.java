@@ -109,15 +109,18 @@ public class ContractsOverview extends AppCompatActivity {
 
     public void NavContractsAddNew(View view){
         Intent i = new Intent(ContractsOverview.this, ContractsAddNew.class);
+        finishAndRemoveTask();
         startActivity(i);
     }
     public void ShowIncomContracts(View view){
         Intent i = new Intent(ContractsOverview.this, IncomeOverview.class);
+        finishAndRemoveTask();
         startActivity(i);
 
     }
     public void ShowContractsCharts(View view){
         Intent i = new Intent(ContractsOverview.this, ContractsChartActivity.class);
+        finishAndRemoveTask();
         startActivity(i);
 
     }
