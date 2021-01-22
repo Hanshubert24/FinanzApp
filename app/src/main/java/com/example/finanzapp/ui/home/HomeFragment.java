@@ -71,6 +71,11 @@ public class HomeFragment extends Fragment {
         anyChartView = root.findViewById(R.id.any_chart_assets_Chart);
         anyChartView.setProgressBar(root.findViewById(R.id.progressBarHome));
 
+        // set cash flow numbers for textview
+        textViewCashFlowCurrentMonth = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow1);
+        textViewCashFlowCurrentMonthMinusOne = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow2);
+        textViewCashFlowCurrentMonthMinusTwo = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow3);
+
 
         //Abfrage Datumsangaben und Umwandlung der Monatsintegers in die Bezeichnungen für Grafik-Achse
         currentMonthNumberString = DBService.getCurrentMonthString();
@@ -106,17 +111,6 @@ public class HomeFragment extends Fragment {
             currentMonthMinusTwoString = DateService.getMonthName(DBService.getCurrentMonthInteger() - 2);
         }
 
-        //Abfrage der Datenbank zum befüllen des Diagramms
-        databaseQueryOnCreate(); // -> fragt nur die "alten Daten" ein
-
-
-        // set cash flow numbers for textview
-
-        textViewCashFlowCurrentMonth = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow1);
-        textViewCashFlowCurrentMonthMinusOne = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow2);
-        textViewCashFlowCurrentMonthMinusTwo = (TextView) root.findViewById(R.id.textViewFragmentHomeCashFlow3);
-
-
 
         return root;
 
@@ -125,6 +119,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        //Abfrage der Datenbank zum befüllen des Diagramms
+        databaseQueryOnCreate(); // -> fragt nur die "alten Daten" ein
 
         //Datenbankabfrage und Aktuellisierung des aktuellen Monats
         databaseQueryOnResume();

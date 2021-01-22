@@ -125,8 +125,25 @@ public class MainActivity extends AppCompatActivity {
         db.CostsHierarchyInDB("Bildung", "Private Weiterbildung", "Sonstiges");
         db.CostsHierarchyInDB("Einkauf", null, null);
         db.CostsHierarchyInDB("Einkauf", "Lebensmittel", null);
+        db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Obst und Gemüse");
+        db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Backwaren");
+        db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Fertigwaren");
+        db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Süßigkeiten");
+        db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Backwaren");
         db.CostsHierarchyInDB("Einkauf", "Kaffee to Go", null);
         db.CostsHierarchyInDB("Einkauf", "FastFood", null);
+
+        //Date -> YYYY-MM-DD ; typeID -> 1=Einzahlung/Einnahme, 2=Auszahlung/Ausgabe
+        //tableID -> 0=Contracts, 1=Assets, 2=Income, 3=CostsHierarchy
+        db.addNewCashFlowInDB("2020-11-01", 1, 2, 1, 3100);
+
+
+        db.addNewCashFlowInDB("2020-12-01", 1, 2, 1, 3100);
+
+
+        db.addNewCashFlowInDB("2021-01-01", 1, 2, 1, 3100);
+
+
         db.close();
     }
 
