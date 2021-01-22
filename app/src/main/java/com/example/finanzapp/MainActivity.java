@@ -259,18 +259,19 @@ public class MainActivity extends AppCompatActivity {
         public void createExampleData () {
             db.open();
             db.addNewContractInDB("Krankenversicherung", "HansaMerkur", 120.95, "Ab 07/21 wechselbar.");
-            db.addNewContractInDB("Kfz-Versicherung", "Allianz", 35.20, "");
-            db.addNewContractInDB("Fitnesstudio", "McFit", 19.95, "Kündigen.");
-            db.addNewContractInDB("Miete Wohnung", "A-Hausverwaltung", 825, "3 Monte Kündigungsfrist ab jeweils dem 1. des Monats (Posteingang)");
-            db.addNewContractInDB("Darlehen", "Max Mustermann", 50, "Läuft 09/21 aus");
+            db.addNewContractInDB("Kfz-Versicherung", "Verti", 30.25, "LOS-ER-42");
+            db.addNewContractInDB("Fitnesstudio", "Mr.Adipositas", 19.95, "Kündigen.");
+            db.addNewContractInDB("Miete Wohnung", "Gierig und Co. KG", 825, "3 Monte Kündigungsfrist ab jeweils dem 1. des Monats (Posteingang)");
+            db.addNewContractInDB("Darlehen", "Mc Moneysack", 50, "Läuft 09/21 aus");
 
             db.addNewAssetInDB("Immobilie", "Berliner Str.13 15230 Ffo", 820, 1230, 400000, 360000, "", "Bald mal wieder Renovieren!");
-            db.addNewAssetInDB("Auto", "Mazda", 349.95, 0, 60000, 45000, "", "Bald abgezahlt ;-)");
+            db.addNewAssetInDB("Immobilie", "Villa Kunterbunt", 666, 0.0, 500000, 20000, "", "Der kleine Onkel darf nicht rein.");
+            db.addNewAssetInDB("Auto", "Mazda6", 349.95, 0, 60000, 45000, "", "Bald abgezahlt ;-)");
             db.addNewAssetInDB("Gemälde", "Mona Lisa", 0, 0, 120000, 0, "", "");
 
             db.addNewIncomeInDB("Lohn", "BMW", 0, 0, false, "Aktuelle Projekte in Berlin.");
             db.addNewIncomeInDB("Sold", "Bundeswehr", 3050.60, 2800.90, true, "Übergangsgebührnisse mit Zulagen.");
-            db.addNewIncomeInDB("Gehalt", "SystemhausXNZ", 2800, 1900, true, "Regulärer Joy");
+            db.addNewIncomeInDB("Gehalt", "Systemhaus", 2800, 1900, true, "Regulärer Job");
             db.addNewIncomeInDB("Nebentätigkeit", "Huttenschule Hoppegarten", 0, 0, false, "Unterstützung Digitalisierungsprojekte.");
             db.addNewIncomeInDB("Nebentätigkeit", "Lessingschule Ffo", 0, 0, false, "Unterstützung Digitalisierungsprojekte.");
 
@@ -307,19 +308,47 @@ public class MainActivity extends AppCompatActivity {
             db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Backwaren");
             db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Fertigwaren");
             db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Süßigkeiten");
-            db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "Backwaren");
+            db.CostsHierarchyInDB("Einkauf", "Lebensmittel", "VitaCola");
             db.CostsHierarchyInDB("Einkauf", "Kaffee to Go", null);
             db.CostsHierarchyInDB("Einkauf", "FastFood", null);
 
             //Date -> YYYY-MM-DD ; typeID -> 1=Einzahlung/Einnahme, 2=Auszahlung/Ausgabe
             //tableID -> 0=Contracts, 1=Assets, 2=Income, 3=CostsHierarchy
+            //vor 2 Monaten
             db.addNewCashFlowInDB("2020-11-01", 1, 2, 1, 3100);
             db.addNewCashFlowInDB("2020-11-02", 2, 0, 0, 2600);
-
+            //letzer Monat
             db.addNewCashFlowInDB("2020-12-01", 1, 2, 1, 3100);
             db.addNewCashFlowInDB("2020-12-01", 2, 0, 0, 3500);
 
-            db.addNewCashFlowInDB("2021-01-01", 1, 2, 1, 3100);
+            //Aktueller Monat
+            //Einnahmen -> Income: 4920.90€
+            db.addNewCashFlowInDB("2021-01-01", 1, 2, 2, 2800.90);
+            db.addNewCashFlowInDB("2021-01-01", 1, 2, 3, 1900);
+            db.addNewCashFlowInDB("2021-01-01", 1, 2, 5, 220);
+            //Einkommen -> Assets: 1230€
+            db.addNewCashFlowInDB("2021-01-01", 1, 1, 1, 1230);
+            //Ausgaben -> Contracts: 1051.10
+            db.addNewCashFlowInDB("2021-01-01", 2, 0, 1, 120.95);
+            db.addNewCashFlowInDB("2021-01-01", 2, 0, 2, 35.20);
+            db.addNewCashFlowInDB("2021-01-01", 2, 0, 3, 19.95);
+            db.addNewCashFlowInDB("2021-01-01", 2, 0, 4, 825);
+            db.addNewCashFlowInDB("2021-01-01", 2, 0, 5, 50);
+            //Ausgaben -> Assets: 1169.95
+            db.addNewCashFlowInDB("2021-01-01", 2, 1, 1, 820);
+            db.addNewCashFlowInDB("2021-01-01", 2, 1, 1, 349.95);
+            //Ausgaben -> CostsHierarchy (QuickPay): 1739,34€
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 1, 120);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 2, 675.30);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 6, 25);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 7, 40);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 14, 500);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 21, 55.67);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 22, 37.95);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 23, 150.17);
+            db.addNewCashFlowInDB("2021-01-01", 2, 3, 25, 135.25);
+
+            //Ergebnis (aktueller Monat): +2190.50€
 
             Toast.makeText(this, "DB eingeladen", Toast.LENGTH_SHORT).show();
             db.close();
