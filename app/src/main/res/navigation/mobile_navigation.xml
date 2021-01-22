@@ -29,14 +29,9 @@
         tools:layout="@layout/activity_contracts_overview" />
 
     <activity
-        android:id="@+id/nav_logout"
-        android:name="com.example.finanzapp.MainActivity"
-        android:label="@string/menu_logout"
-        tools:layout="@layout/activity_logout" />
-    <activity
         android:id="@+id/nav_logout2"
         android:name="com.example.finanzapp.MainActivity"
         android:label="@string/menu_logout"
-        tools:layout="@layout/activity_logout" />
+        tools:layout="@layout/switch_item" />
 
 </navigation>
