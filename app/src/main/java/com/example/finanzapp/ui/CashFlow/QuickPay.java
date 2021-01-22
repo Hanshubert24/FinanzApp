@@ -251,6 +251,7 @@ public class QuickPay extends AppCompatActivity {
                     }
                 } else {
                     Log.d(LOG_TAG, "Abfragefehler in der Datenbank -> db.viewIDFromCostsHierarchyEntry().");
+                    Toast.makeText(this, "Speichern nicht möglich", Toast.LENGTH_SHORT).show();
                 }
             } else { //Wenn Betrag leer (nicht gesetzt) wurde
                 Toast.makeText(this, "Betrag eingeben.", Toast.LENGTH_SHORT).show();

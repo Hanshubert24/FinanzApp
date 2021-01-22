@@ -85,10 +85,16 @@ public class CostsHierarchyE1 extends AppCompatActivity {
         String[] columns = {DBMyHelper.COLUMNCostsHierarchy_E2};
 
         ListView itemList = (ListView) findViewById(R.id.listViewCostsHierarchyE1);
-        int[] viewColumns = new int[]{R.id.itemCostsHierarchy};
 
+
+
+        int[] viewColumns = new int[]{R.id.itemCostsHierarchy};
         Cursor cursorViewList = db.viewColumnsFromCostsHierarchyE1ForListview(E1value, DBMyHelper.COLUMNCostsHierarchy_E2);
 
+        if (DBMyHelper.COLUMNCostsHierarchy_E2 == "r23r"){
+            itemList.setBackgroundColor(0xffffbb33);
+            itemList.setClickable(false);
+        }
         if (cursorViewList == null) {
             Toast.makeText(getApplicationContext(), "Fehler beim Auslesen der Datenbank.", Toast.LENGTH_LONG).show();
         }
@@ -101,6 +107,10 @@ public class CostsHierarchyE1 extends AppCompatActivity {
                     columns,
                     viewColumns,
                     CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+            adapter.getItem(0);
+            adapter.getCursorToStringConverter();
+
+
             itemList.setAdapter(adapter);
             Log.d(LOG_TAG, "Daten für ListView wurden abgerufen.");
 

@@ -10,13 +10,10 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanzApp">
-
-        // Home
+        <activity android:name=".ui.login.WelcomePage"></activity>
         <activity
             android:name=".ui.CashFlow.QuickPay"
             android:label="@string/quick_add_lable" />
-
-        // FB
         <activity
             android:name=".ui.CashFlow.CashFlowAddNew"
             android:label="@string/cashflow_add_lable" />
@@ -26,8 +23,6 @@
         <activity
             android:name=".ui.financebook.FinanceBookOverview"
             android:label="@string/fb_financebook_lable" />
-
-        //Contracts Income
         <activity
             android:name=".ui.Income.IncomeDetailsChange"
             android:label="@string/income_details_change_lable" />
@@ -40,8 +35,6 @@
         <activity
             android:name=".ui.Income.IncomeOverview"
             android:label="@string/income_overwiev_lable" />
-
-        // Contracts Costs
         <activity
             android:name=".ui.Contracts.ContractsDetailsChange"
             android:label="@string/contracts_details_change_lable" />
@@ -54,8 +47,6 @@
         <activity
             android:name=".ui.Contracts.ContractsOverview"
             android:label="@string/contracts_overwiev_lable" />
-
-        // Costhierarchie
         <activity
             android:name=".ui.Contracts.ContractsChartActivity"
             android:label="@string/contracts_Charts_lable" />
@@ -71,8 +62,6 @@
         <activity
             android:name=".ui.CostsHierarchy.CostsHierarchyOverview"
             android:label="@string/costshierarchyOverview_title_listview_Overview_lable" />
-
-        // Assetes
         <activity
             android:name=".ui.Assets.AssetsChartActivity"
             android:label="@string/assets_chart_lable" />
@@ -88,14 +77,10 @@
         <activity
             android:name=".ui.Assets.AssetsDetailsChange"
             android:label="@string/assets_details_change" />
-
-        // Main
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.FinanzApp.NoActionBar" />
-
-        // Login
         <activity
             android:name=".ui.login.SplashActivity"
             android:label="@string/app_name"
@@ -106,16 +91,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        // Logout
         <activity
             android:name=".ui.login.CreatePinActivity"
             android:label="@string/PinChange_Lable" />
         <activity
             android:name=".ui.login.EnterPinActivity"
             android:label="@string/TextPinEnter_Lable" />
-        <activity
-            android:name=".ui.logout.LogoutActivity" />
+        <activity android:name=".ui.logout.LogoutActivity" />
     </application>
 
 </manifest>
