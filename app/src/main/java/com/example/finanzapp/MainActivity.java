@@ -136,10 +136,10 @@ public class MainActivity extends AppCompatActivity {
         //Date -> YYYY-MM-DD ; typeID -> 1=Einzahlung/Einnahme, 2=Auszahlung/Ausgabe
         //tableID -> 0=Contracts, 1=Assets, 2=Income, 3=CostsHierarchy
         db.addNewCashFlowInDB("2020-11-01", 1, 2, 1, 3100);
-
+        db.addNewCashFlowInDB("2020-11-02", 2, 0, 0, 2600);
 
         db.addNewCashFlowInDB("2020-12-01", 1, 2, 1, 3100);
-
+        db.addNewCashFlowInDB("2020-12-01", 2, 0, 0, 3500);
 
         db.addNewCashFlowInDB("2021-01-01", 1, 2, 1, 3100);
 

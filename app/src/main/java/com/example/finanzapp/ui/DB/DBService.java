@@ -164,5 +164,12 @@ public class DBService {
         return "Santnimmerleinstag";
     }
 
-    //Servie zum automatischne betanken der Kostentabelle!
+    //Servie zum automatischne betanken der Kostentabelle -> zum Monatsanfang
+    public static boolean automaticDatabaseFunction(){
+
+
+
+
+        return false;
+    }
 }

@@ -76,7 +76,6 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
         Log.d(LOG_TAG, "Die ID: " + sharePreferncesId + " wurde aus dem Shared Preferences ausgelesen.");
 
-
         //Auslesen des Eintrags aus der Datenbank
         Cursor cursor = db.viewOneEntryInTable(DBMyHelper.TABLEAssets_NAME, sharePreferncesId);
 
@@ -93,6 +92,12 @@ public class AssetsDetailsChange extends AppCompatActivity {
             int creditIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Credit);
             int imagePathindex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_ImagePath);
             int noteIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Note);
+
+            //setzen der "alten Werte" -> wenn beim Speichern keine Änderung getätigt wird
+            monthlyCostsOld = cursor.getDouble(monthlyCostsIndex);
+            monthlyEarningsOld = cursor.getDouble(monthlyEarningsIndex);
+            finanzialAssetsOld = cursor.getDouble(financialAssetIndex);
+            creditOld = cursor.getDouble(creditIndex);
 
             if (cursor.moveToFirst()) {
                 do {
@@ -117,6 +122,7 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
                     double credit = cursor.getDouble(creditIndex);
                     String creditStringPrepare = DBService.doubleInStringToView(credit);
+
 
                     textViewCategory.setText(cursor.getString(categoryIndex));
                     textViewName.setText(cursor.getString(nameIndex));
@@ -251,8 +257,8 @@ public class AssetsDetailsChange extends AppCompatActivity {
                         noteNew);
 
                 if(success){
-                    Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(AssetsDetailsChange.this, AssetsDetails.class);
+                    Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(AssetsDetailsChange.this, AssetsOverview.class);
                     finishAndRemoveTask();
                     startActivity(i);
                 } else {
