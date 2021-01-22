@@ -15,7 +15,7 @@ public class DBMyHelper extends SQLiteOpenHelper {
     //https://www.sqlite.org/datatype3.html
 
     public static final String DB_NAME = "FinanzApp.db";
-    public static final int DB_VERSION = 160;
+    public static final int DB_VERSION = 10;
     private static final String LOG_TAG = DBMyHelper.class.getSimpleName();
 
     public static boolean initializeWithExampleData = false; //Funktion für ExampleData in MainActivity

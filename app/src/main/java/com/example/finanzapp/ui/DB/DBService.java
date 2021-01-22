@@ -71,11 +71,29 @@ public class DBService {
 
     public static String timeFormatForDB(){
         Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+        Integer currentYear = calendar.get(Calendar.YEAR);
+        Integer month = calendar.get(Calendar.MONTH);
+        Integer currentMonth = month + 1;
+        Integer currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        String currentMonthString;
+        String currentDayString;
 
-        return dateFormat.format(date);
+        if(currentMonth >= 1 && currentMonth <= 9) {
+            currentMonthString = "0" + currentMonth.toString();
+        } else {
+            currentMonthString = currentMonth.toString();
+        }
+
+        if(currentDay >= 1 && currentDay <= 9) {
+            currentDayString = "0" + currentDay.toString();
+        } else {
+            currentDayString = currentDay.toString();
+        }
+        String dbDate = currentYear.toString() + "-" + currentMonthString + "-" + currentDayString;
+
+        return dbDate;
     }
+
     //NOCH IN BEARBEITUNG!
     public static String timeFormatForDB(Date date){
         Calendar calendar = Calendar.getInstance();
@@ -86,10 +104,27 @@ public class DBService {
 
     public static String timeFormatToView(){
         Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("DD.MM.YYYY");
+        Integer currentYear = calendar.get(Calendar.YEAR);
+        Integer month = calendar.get(Calendar.MONTH);
+        Integer currentMonth = month + 1;
+        Integer currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        String currentMonthString;
+        String currentDayString;
 
-        return dateFormat.format(date);
+        if(currentMonth >= 1 && currentMonth <= 9) {
+            currentMonthString = "0" + currentMonth.toString();
+        } else {
+            currentMonthString = currentMonth.toString();
+        }
+
+        if(currentDay >= 1 && currentDay <= 9) {
+            currentDayString = "0" + currentDay.toString();
+        } else {
+            currentDayString = currentDay.toString();
+        }
+        String dbDate = currentDayString + "." + currentMonthString + "." + currentYear.toString();
+
+        return dbDate;
     }
 
     public static int getCurrentMonthInteger(){
@@ -159,11 +194,5 @@ public class DBService {
 
         return lastYear.toString();
     }
-
-    public static String timeFormatToView(String date){
-
-        return "Santnimmerleinstag";
-    }
-
 
 }
