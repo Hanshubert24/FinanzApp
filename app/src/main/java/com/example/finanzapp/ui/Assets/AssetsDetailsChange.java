@@ -94,12 +94,6 @@ public class AssetsDetailsChange extends AppCompatActivity {
             int imagePathindex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_ImagePath);
             int noteIndex = cursor.getColumnIndex(DBMyHelper.COLUMNAssets_Note);
 
-            //setzen der "alten Werte" -> wenn beim Speichern keine Änderung getätigt wird
-            monthlyCostsOld = cursor.getDouble(monthlyCostsIndex);
-            monthlyEarningsOld = cursor.getDouble(monthlyEarningsIndex);
-            finanzialAssetsOld = cursor.getDouble(financialAssetIndex);
-            creditOld = cursor.getDouble(creditIndex);
-
             if (cursor.moveToFirst()) {
                 do {
                     Log.d(LOG_TAG, cursor.getString(categoryIndex) + " " +
@@ -123,7 +117,6 @@ public class AssetsDetailsChange extends AppCompatActivity {
 
                     double credit = cursor.getDouble(creditIndex);
                     String creditStringPrepare = DBService.doubleInStringToView(credit);
-
 
                     textViewCategory.setText(cursor.getString(categoryIndex));
                     textViewName.setText(cursor.getString(nameIndex));
