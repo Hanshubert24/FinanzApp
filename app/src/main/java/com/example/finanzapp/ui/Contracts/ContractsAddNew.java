@@ -100,7 +100,8 @@ public class ContractsAddNew extends AppCompatActivity {
 
 
             //Übergabe an die Datenbank
-            if(isType && isName && isMonthlyCosts) {
+            //if(isType && isName && isMonthlyCosts) {
+                if(isType && isName) {
                 db.addNewContractInDB(
                         inputContractTypeString,
                         inputContractNameString,

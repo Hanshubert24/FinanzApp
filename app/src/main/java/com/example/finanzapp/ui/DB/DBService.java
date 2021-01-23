@@ -19,6 +19,9 @@ public class DBService {
         //. = steht für den Dezimaltrenner; sein Format richtet sich in der Standardeinstellung nach den lokalen Systemeinstellungen
         //, = Tausendertrenner, genauer: gruppiert die Ziffern zwischen ',' und '.'
 
+        //funktioniert nicht auf deutschen Geräten ("." -> ",") Locale.XX anpassen: siehe Link
+        //https://stackoverflow.com/questions/36418901/change-decimalformat-locale
+
         String newDoubleString = new DecimalFormat("0.00").format(d);
         Double newDouble = Double.parseDouble(newDoubleString);
 
