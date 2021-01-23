@@ -152,6 +152,7 @@ public class AssetsDetails extends AppCompatActivity {
     public void dialogCancelButton(View view){
         //Weiterleitung
         Intent i = new Intent(AssetsDetails.this, AssetsDetails.class);
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
         finishAndRemoveTask();
         startActivity(i);
 
@@ -170,6 +171,7 @@ public class AssetsDetails extends AppCompatActivity {
 
         //Weiterleitung
         Intent i = new Intent(AssetsDetails.this, AssetsOverview.class);
+        Toast.makeText(this, "Assets gelöscht", Toast.LENGTH_SHORT).show();
         finishAndRemoveTask();
         startActivity(i);
 

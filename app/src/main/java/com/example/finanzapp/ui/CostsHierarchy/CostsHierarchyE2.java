@@ -189,7 +189,9 @@ public class CostsHierarchyE2 extends AppCompatActivity {
 
             }else if(entryInE1 >= 1) {
                 Toast.makeText(this, "Unterkategorie gelöscht", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE1.class);
                 finishAndRemoveTask();
+                startActivity(i);
             }
         } else {
             Toast.makeText(this, "Datenbankfehler", Toast.LENGTH_SHORT).show();
@@ -247,7 +249,7 @@ public class CostsHierarchyE2 extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
-
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(CostsHierarchyE2.this, CostsHierarchyE2.class);
         finishAndRemoveTask();
         startActivity(i);

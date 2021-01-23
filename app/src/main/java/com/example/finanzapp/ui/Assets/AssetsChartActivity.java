@@ -81,7 +81,7 @@ public class AssetsChartActivity extends AppCompatActivity {
 
         List<DataEntry> dataEntries = new ArrayList<>();
         dataEntries.add(new ValueDataEntry("Kredite",sumC ));
-        dataEntries.add(new ValueDataEntry("Verkehrswert",assetcalc ));
+        dataEntries.add(new ValueDataEntry("Vermögen",assetcalc ));
 
 
 

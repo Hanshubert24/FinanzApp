@@ -8,9 +8,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#0069b4</color>
-    <color name="orangelight">#f49e30</color>
-    <color name="orange">#ed7724</color>
+    <color name="blue">#0069b4</color>   // standard for App and
+    <color name="orangelight">#f49e30</color>  // standard for App and
+    <color name="orange">#ed7724</color>    // standard for App and
     <color name="bluebackground">#D7EBF4</color>
     <color name="money_positiv_green">#1fa900</color>
     <color name="money_negatic_red">#bb0000</color>

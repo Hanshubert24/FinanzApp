@@ -34,19 +34,24 @@ public class CreatePinActivity extends AppCompatActivity {
                 if(pin1.equals("") || pin2.equals("")) {  // no Pin set
                     Toast.makeText(CreatePinActivity.this, "Keinen PIN eingegeben", Toast.LENGTH_SHORT).show();
                 } else { // match and save PIN
+                    if ((pin1.length() >= 4) && (pin2.length() >= 4)) {
                      if (pin1.equals(pin2)) {
-                        SharedPreferences settings = getSharedPreferences("PREFS", 0);
-                        SharedPreferences.Editor editor = settings.edit();
-                        editor.putString("pin", pin1);
-                        editor.apply();
+                         SharedPreferences settings = getSharedPreferences("PREFS", 0);
+                         SharedPreferences.Editor editor = settings.edit();
+                         editor.putString("pin", pin1);
+                         editor.apply();
 
-                        //enter to the Financial App
+                         //enter to the Financial App
                          Toast.makeText(CreatePinActivity.this, "PIN erfolgreich festgelegt", Toast.LENGTH_SHORT).show();
                          Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                          startActivity(intent);
                          finish();
+
                     } else { // no match
                         Toast.makeText(CreatePinActivity.this, "Der eingegebene PIN stimmt nicht überein",Toast.LENGTH_SHORT).show();
+                    } }
+                    else { // lenght <4
+                        Toast.makeText(CreatePinActivity.this, "Der eingegebene PIN muss mindestens 4 Zahlen lang sein",Toast.LENGTH_SHORT).show();
                     }
                 }
             }

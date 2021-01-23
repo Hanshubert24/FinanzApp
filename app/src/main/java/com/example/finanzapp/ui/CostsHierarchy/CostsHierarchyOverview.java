@@ -164,6 +164,7 @@ public class CostsHierarchyOverview extends AppCompatActivity {
     }
 
     public void dialogChancelButton(View view){
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(CostsHierarchyOverview.this, CostsHierarchyOverview.class);
         finishAndRemoveTask();
         startActivity(i);
