@@ -1,7 +1,5 @@
 package com.example.finanzapp.ui.Income;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -14,7 +12,8 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-import com.example.finanzapp.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finanzapp.R;
 import com.example.finanzapp.ui.Contracts.ContractsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
@@ -91,6 +90,7 @@ public class IncomeOverview extends AppCompatActivity {
 
                 //Weiterleitung
                 Intent i = new Intent(IncomeOverview.this, IncomeDetails.class);
+                finishAndRemoveTask();
                 startActivity(i);
             }
         });
@@ -107,12 +107,14 @@ public class IncomeOverview extends AppCompatActivity {
 
     public void NavBack(View view){
         Intent i = new Intent(IncomeOverview.this, ContractsOverview.class);
+        finishAndRemoveTask();
         startActivity(i);
-        finish();
+
     }
 
     public void NavIncomeAddNew(View view){
         Intent i = new Intent(IncomeOverview.this, IncomeAddNew.class);
+        finishAndRemoveTask();
         startActivity(i);
     }
 }

@@ -1,7 +1,5 @@
 package com.example.finanzapp.ui.Income;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.Assets.AssetsAddNew;
-import com.example.finanzapp.ui.Assets.AssetsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBService;
 
@@ -82,14 +80,14 @@ public class IncomeAddNew extends AppCompatActivity {
             //Prüfung, welche Felder beim betätigen des Speichern-Buttons befühlt sind.
             //Es sollen nur die eingetragenen Änderungen an die DB übergeben werden.
             if(isEditTextEmpty(inputIncomeCategory)){
-                Toast.makeText(this, "Kategorie angeben.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Vertragstyp angeben.", Toast.LENGTH_SHORT).show();
                 inputIncomeCategory.setHint("Bsp: Lohn / Gehalt / Sold");
             } else {
                 isCategory = true;
                 inputIncomeCategoryString = inputIncomeCategory.getText().toString();
             }
             if(isEditTextEmpty(inputIncomeCompany)){
-                Toast.makeText(this, "Name angeben.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Unternehmen angeben.", Toast.LENGTH_SHORT).show();
                 inputIncomeCompany.setHint("Bsp: BWM / Systemhaus / Bundeswehr");
             } else {
                 isCompany = true;
@@ -126,8 +124,10 @@ public class IncomeAddNew extends AppCompatActivity {
 
                 //Weiterleitung zurück auf die AssetsOverview Seite
                 Intent i = new Intent(IncomeAddNew.this, IncomeOverview.class);
+                Toast.makeText(this, "Verdienstvertrag hinzugefügt", Toast.LENGTH_SHORT).show();
+                finishAndRemoveTask();
                 startActivity(i);
-                finish();
+
             }
 
         }catch (Exception e){

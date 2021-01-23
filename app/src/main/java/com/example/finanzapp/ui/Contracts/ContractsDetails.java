@@ -131,6 +131,7 @@ public class ContractsDetails extends AppCompatActivity {
     public void dialogCancelButton(View view){
         //Weiterleitung
         Intent i = new Intent(ContractsDetails.this, ContractsDetails.class);
+        Toast.makeText(getApplicationContext(), "Vorgang abgebrochen", Toast.LENGTH_LONG).show();
         startActivity(i);
         finish();
     }
@@ -148,6 +149,7 @@ public class ContractsDetails extends AppCompatActivity {
 
         //Weiterleitung
         Intent i = new Intent(ContractsDetails.this, ContractsOverview.class);
+        Toast.makeText(getApplicationContext(), "Vertrag gelöscht", Toast.LENGTH_LONG).show();
         finishAndRemoveTask();
         startActivity(i);
 

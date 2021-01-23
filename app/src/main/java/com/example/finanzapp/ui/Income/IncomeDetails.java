@@ -1,8 +1,5 @@
 package com.example.finanzapp.ui.Income;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -13,10 +10,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.Contracts.ContractsDetails;
-import com.example.finanzapp.ui.Contracts.ContractsDetailsChange;
-import com.example.finanzapp.ui.Contracts.ContractsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
@@ -115,12 +112,13 @@ public class IncomeDetails extends AppCompatActivity {
 
     public void NavBack(View view){
         Intent i = new Intent(IncomeDetails.this, IncomeOverview.class);
+        finishAndRemoveTask();
         startActivity(i);
-        finish();
     }
 
     public void changeIncome(View view){
         Intent i = new Intent(IncomeDetails.this, IncomeDetailsChange.class);
+        finishAndRemoveTask();
         startActivity(i);
     }
 
@@ -141,8 +139,10 @@ public class IncomeDetails extends AppCompatActivity {
     public void dialogCancelButton(View view){
         //Weiterleitung
         Intent i = new Intent(IncomeDetails.this, IncomeDetails.class);
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
+        finishAndRemoveTask();
         startActivity(i);
-        finish();
+
     }
 
     public void dialogDeleteButton(View view){
@@ -158,7 +158,9 @@ public class IncomeDetails extends AppCompatActivity {
 
         //Weiterleitung
         Intent i = new Intent(IncomeDetails.this, IncomeOverview.class);
+        Toast.makeText(this, "Verdienstvertrag gelöscht", Toast.LENGTH_SHORT).show();
+        finishAndRemoveTask();
         startActivity(i);
-        finish();
+
     }
 }
