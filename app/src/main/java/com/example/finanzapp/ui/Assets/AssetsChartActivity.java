@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +12,6 @@ import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
 import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.chart.common.listener.Event;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.charts.Pie;
 import com.anychart.enums.Align;
 import com.anychart.enums.LegendLayout;
@@ -53,7 +50,6 @@ public class AssetsChartActivity extends AppCompatActivity {
         textViewCredit = (TextView) findViewById(R.id.textviewAssetsCahrtCredit);
         textViewAsset = (TextView) findViewById(R.id.textviewAssetsCahrtAsset);
 
-
         assetcalc = sumFAm - sumC;
         textViewAssetsValue.setText(sumFAm+"€");
         textViewCredit.setText(sumC+"€");
@@ -69,12 +65,7 @@ public class AssetsChartActivity extends AppCompatActivity {
     public void setupPieChart() {
         Pie pie = AnyChart.pie();
 
-        pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
-            @Override
-            public void onClick(Event event) {
-                Toast.makeText(AssetsChartActivity.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
-            }
-        });
+
         try {
             assetcalc = sumFAm - sumC;
             if (assetcalc >= 0) {
@@ -90,7 +81,7 @@ public class AssetsChartActivity extends AppCompatActivity {
 
         List<DataEntry> dataEntries = new ArrayList<>();
         dataEntries.add(new ValueDataEntry("Kredite",sumC ));
-        dataEntries.add(new ValueDataEntry("Verkehrswert",assetcalc ));
+        dataEntries.add(new ValueDataEntry("Vermögen",assetcalc ));
 
 
 

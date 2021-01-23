@@ -103,6 +103,7 @@ public class ContractsOverview extends AppCompatActivity {
     }
 
     public void NavBackContractToHome(View view){
+
         finishAndRemoveTask();
     }
 

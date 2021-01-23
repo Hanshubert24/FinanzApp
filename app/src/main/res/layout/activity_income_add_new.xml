@@ -59,7 +59,7 @@
                 android:background="@drawable/button_gradient_orange"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/income_category"
+                android:text="@string/contracts_type"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />

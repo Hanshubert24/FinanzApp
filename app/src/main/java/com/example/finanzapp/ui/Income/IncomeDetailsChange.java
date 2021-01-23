@@ -1,7 +1,5 @@
 package com.example.finanzapp.ui.Income;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -12,9 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finanzapp.R;
-import com.example.finanzapp.ui.Contracts.ContractsDetailsChange;
-import com.example.finanzapp.ui.Contracts.ContractsOverview;
 import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBMyHelper;
 import com.example.finanzapp.ui.DB.DBService;
@@ -122,6 +120,7 @@ public class IncomeDetailsChange extends AppCompatActivity {
 
     public void NavBack(View view){
         Intent i = new Intent(IncomeDetailsChange.this, IncomeOverview.class);
+        finishAndRemoveTask();
         startActivity(i);
     }
 
@@ -203,8 +202,9 @@ public class IncomeDetailsChange extends AppCompatActivity {
                 if(success){
                     Toast.makeText(this, "Datensatz geändert.", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(IncomeDetailsChange.this, IncomeOverview.class);
+                    finishAndRemoveTask();
                     startActivity(i);
-                    finish();
+
                 } else {
                     Toast.makeText(this, "Datensatzänderung fehlgeschlagen.", Toast.LENGTH_SHORT).show();
                 }

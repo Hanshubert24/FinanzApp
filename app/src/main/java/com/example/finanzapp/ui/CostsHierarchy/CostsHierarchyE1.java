@@ -248,6 +248,7 @@ public class CostsHierarchyE1 extends AppCompatActivity {
     }
 
     public void dialogCancelButton2(View view){
+        Toast.makeText(this, "Vorgang abgebrochen", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(CostsHierarchyE1.this, CostsHierarchyE1.class);
         finishAndRemoveTask();
         startActivity(i);
