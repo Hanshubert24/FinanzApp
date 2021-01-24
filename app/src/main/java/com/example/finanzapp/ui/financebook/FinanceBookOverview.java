@@ -26,6 +26,7 @@ import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBService;
 import com.example.finanzapp.ui.Service.DateService;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ import java.util.List;
 public class FinanceBookOverview extends AppCompatActivity {
 
     private static final String LOG_TAG = FinanceBookOverview.class.getSimpleName();
-
+    private static DecimalFormat df = new DecimalFormat("0.00");
     DBDataAccess db;
 
     double costs, income;
@@ -89,7 +90,7 @@ public class FinanceBookOverview extends AppCompatActivity {
                 cashFlowCurrentMonth = income - costs;
 
                 // current
-                textViewCashFlowCurrentMonth.setText("Cashflow: " + Double.toString(cashFlowCurrentMonth) + "€");
+                textViewCashFlowCurrentMonth.setText("Cashflow: " + df.format(cashFlowCurrentMonth) + "€");
                 if (cashFlowCurrentMonth >= 0) {
                     textViewCashFlowCurrentMonth.setTextColor(0xff99cc00);
                 } else {
