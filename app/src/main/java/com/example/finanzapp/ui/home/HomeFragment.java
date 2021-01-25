@@ -28,13 +28,14 @@ import com.example.finanzapp.ui.DB.DBDataAccess;
 import com.example.finanzapp.ui.DB.DBService;
 import com.example.finanzapp.ui.Service.DateService;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private static final String LOG_TAG = HomeFragment.class.getSimpleName();
-
+    private static DecimalFormat df = new DecimalFormat("0.00");
     DBDataAccess db;
 
     double costsCurrent, incomeCurrent, costsMinusOne, incomeMinusOne, costsMinusTwo, incomeMinusTwo;
@@ -140,7 +141,7 @@ public class HomeFragment extends Fragment {
             cashFlowCurrentMonthMinusTwo = incomeMinusTwo - costsMinusTwo;
 
             // current
-            textViewCashFlowCurrentMonth.setText("Cashflow: "+Double.toString(cashFlowCurrentMonth)+"€");
+            textViewCashFlowCurrentMonth.setText("Cashflow: "+df.format(cashFlowCurrentMonth)+"€");
             if (cashFlowCurrentMonth >= 0){
                 textViewCashFlowCurrentMonth.setTextColor(0xff99cc00);
             }
@@ -148,7 +149,7 @@ public class HomeFragment extends Fragment {
                 textViewCashFlowCurrentMonth.setTextColor(0xffffbb33);
             }
             // current minus one
-            textViewCashFlowCurrentMonthMinusOne.setText("Cashflow: "+Double.toString(cashFlowCurrentMonthMinusOne)+"€");
+            textViewCashFlowCurrentMonthMinusOne.setText("Cashflow: "+df.format(cashFlowCurrentMonthMinusOne)+"€");
             if (cashFlowCurrentMonthMinusOne >= 0){
                 textViewCashFlowCurrentMonthMinusOne.setTextColor(0xff99cc00);
             }
@@ -156,7 +157,7 @@ public class HomeFragment extends Fragment {
                 textViewCashFlowCurrentMonthMinusOne.setTextColor(0xffffbb33);
             }
             // current minus two
-            textViewCashFlowCurrentMonthMinusTwo.setText("Cashflow: "+Double.toString(cashFlowCurrentMonthMinusTwo)+"€");
+            textViewCashFlowCurrentMonthMinusTwo.setText("Cashflow: "+df.format(cashFlowCurrentMonthMinusTwo)+"€");
             if (cashFlowCurrentMonthMinusTwo >= 0){
                 textViewCashFlowCurrentMonthMinusTwo.setTextColor(0xff99cc00);
             }

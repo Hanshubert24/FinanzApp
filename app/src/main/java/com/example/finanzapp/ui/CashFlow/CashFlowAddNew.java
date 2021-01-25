@@ -225,8 +225,9 @@ public class CashFlowAddNew extends AppCompatActivity {
                     if (success) {
                         Log.d(LOG_TAG, "Datensatz wurden in Datenbank übernommen.");
                         Toast.makeText(this, "Eintrag gespeichert", Toast.LENGTH_LONG).show();
-
-                        finish();
+                        Intent i = new Intent(CashFlowAddNew.this, FinanceBookOverview.class);
+                        finishAndRemoveTask();
+                        startActivity(i);
                     } else {
                         Log.d(LOG_TAG, "Fehler beim Eintragen des Datensatzes in die Datenbank (SaveEntry()).");
                         Toast.makeText(this, "Fehler beim Speichern.", Toast.LENGTH_LONG).show();
