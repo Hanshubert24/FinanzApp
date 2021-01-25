@@ -44,12 +44,12 @@ public class CashFlowAddNew extends AppCompatActivity {
     String currentColumn; //Aktuell gewählter Spaltenwert
     int tableID;
     double doubleValuePrepared;
-    String currentDate;
+    String currentDate, monthForDB, dayForDB;
+
     int cashFlowType;
 
     Calendar calendar;
 
-    static final int DATE_DIALOG_ID = 999;
     int day, month, year;
 
     boolean setAssetButtons;
@@ -155,7 +155,6 @@ public class CashFlowAddNew extends AppCompatActivity {
                 //Übernimmt String aus ArrayList je nach Auswahl
                 tableContentValue = arrayListTableContent.get(position);
                 Log.d(LOG_TAG, "SpinnerTableContent = " + tableContentValue);
-
             }
 
             @Override
@@ -291,8 +290,24 @@ public class CashFlowAddNew extends AppCompatActivity {
             datePickerDialog = new DatePickerDialog(CashFlowAddNew.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int chosenYear, int chosenMonth, int chosenDay) {
-                    textViewDate.setText(chosenDay + "." + (chosenMonth+1) + "." + chosenYear);
-                    currentDate = chosenYear+"-"+(chosenMonth+1)+"-"+chosenDay;
+                    Integer chosenDayInteger = chosenDay;
+                    Integer chosenMonthReal = chosenMonth + 1; //chosenMonth -> Januar = 0
+                    Integer chosenYearInteger = chosenYear;
+
+
+                    if(chosenMonthReal >= 1 && chosenMonthReal <= 9) {
+                        monthForDB = "0" + chosenMonthReal.toString();
+                    } else {
+                        monthForDB = chosenMonthReal.toString();
+                    }
+                    if(chosenDayInteger >= 1 && chosenDayInteger <= 9){
+                        dayForDB = "0" + chosenDayInteger.toString();
+                    } else {
+                        dayForDB = chosenDayInteger.toString();
+                    }
+
+                    textViewDate.setText(dayForDB + "." + monthForDB + "." + chosenYear);
+                    currentDate = chosenYearInteger.toString()+"-"+monthForDB+"-"+dayForDB;
                 }
             }, year, month, day);
             datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
