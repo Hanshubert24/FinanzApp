@@ -110,8 +110,9 @@ public class ContractsAddNew extends AppCompatActivity {
                 //Weiterleitung zurück auf die ContractsOverview Seite
                 Intent i = new Intent(ContractsAddNew.this, ContractsOverview.class);
                 Toast.makeText(getApplicationContext(), "Vertrag angelegt", Toast.LENGTH_LONG).show();
+                finishAndRemoveTask();
                 startActivity(i);
-                finish();
+
             }
 
         }catch (Exception e){

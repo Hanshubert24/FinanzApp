@@ -89,6 +89,7 @@ public class ContractsOverview extends AppCompatActivity {
 
                 //Weiterleitung
                 Intent i = new Intent(ContractsOverview.this, ContractsDetails.class);
+                finishAndRemoveTask();
                 startActivity(i);
             }
         });

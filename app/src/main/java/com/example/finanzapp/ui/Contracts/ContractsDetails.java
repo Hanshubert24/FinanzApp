@@ -132,8 +132,9 @@ public class ContractsDetails extends AppCompatActivity {
         //Weiterleitung
         Intent i = new Intent(ContractsDetails.this, ContractsDetails.class);
         Toast.makeText(getApplicationContext(), "Vorgang abgebrochen", Toast.LENGTH_LONG).show();
+       finishAndRemoveTask();
         startActivity(i);
-        finish();
+
     }
 
     public void dialogDeleteButton(View view){
